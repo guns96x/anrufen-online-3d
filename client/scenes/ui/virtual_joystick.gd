@@ -3,11 +3,13 @@ extends Control
 
 signal joystick_updated(output: Vector2)
 
-@export var max_radius: float = 64.0
-@export var deadzone: float = 0.1
+@export var max_radius: float = 75.0
+@export var deadzone: float = 0.08
+@export var is_floating: bool = true # Appears under thumb on touch
 
 var is_pressed: bool = false
 var touch_index: int = -1
+var initial_base_pos: Vector2 = Vector2.ZERO
 var center_pos: Vector2 = Vector2.ZERO
 var current_pos: Vector2 = Vector2.ZERO
 var output: Vector2 = Vector2.ZERO
@@ -16,21 +18,28 @@ var output: Vector2 = Vector2.ZERO
 @onready var knob: Control = $Base/Knob
 
 func _ready() -> void:
+	initial_base_pos = base_circle.position
 	center_pos = base_circle.position + base_circle.size / 2.0
 	current_pos = center_pos
 	_update_knob()
+	# Semi-transparent when idle
+	base_circle.modulate = Color(1, 1, 1, 0.4)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			# Check if touch is in bottom-left screen quadrant
 			var vp_size = get_viewport_rect().size
-			if event.position.x < vp_size.x * 0.45 and event.position.y > vp_size.y * 0.4:
+			# Left 45% of the screen is joystick zone
+			if event.position.x < vp_size.x * 0.45 and event.position.y > vp_size.y * 0.25:
 				touch_index = event.index
 				is_pressed = true
-				center_pos = event.position
-				base_circle.global_position = center_pos - base_circle.size / 2.0
+				if is_floating:
+					center_pos = event.position
+					base_circle.global_position = center_pos - base_circle.size / 2.0
+				else:
+					center_pos = base_circle.global_position + base_circle.size / 2.0
 				current_pos = center_pos
+				base_circle.modulate = Color(1, 1, 1, 0.85)
 				_handle_motion(event.position)
 		elif event.index == touch_index:
 			_reset()
@@ -60,6 +69,12 @@ func _reset() -> void:
 	output = Vector2.ZERO
 	current_pos = center_pos
 	_update_knob()
+	base_circle.modulate = Color(1, 1, 1, 0.4)
+	if is_floating:
+		base_circle.position = initial_base_pos
+		center_pos = initial_base_pos + base_circle.size / 2.0
+		current_pos = center_pos
+		_update_knob()
 	joystick_updated.emit(Vector2.ZERO)
 
 func _update_knob() -> void:
