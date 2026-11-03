@@ -1,0 +1,5225 @@
+[
+  {
+    "id": 70071,
+    "name": "毒蛇帮路匪",
+    "details": [
+      "毒蛇帮路匪",
+      "怪物",
+      "人类守卫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_renleishouwei",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70072,
+    "name": "毒蛇帮走私者",
+    "details": [
+      "毒蛇帮走私者",
+      "怪物",
+      "人类守卫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_renleishouwei",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70073,
+    "name": "野猪",
+    "details": [
+      "野猪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70074,
+    "name": "饥饿织网者",
+    "details": [
+      "饥饿织网者",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70075,
+    "name": "食腐豺",
+    "details": [
+      "食腐豺",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70076,
+    "name": "蜘蛛",
+    "details": [
+      "蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70077,
+    "name": "生病的蜘蛛",
+    "details": [
+      "生病的蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70078,
+    "name": "鸭子",
+    "details": [
+      "鸭子",
+      "怪物",
+      "鸭子",
+      "monster",
+      "icon_pet_yazi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70159,
+    "name": "可疑的鸭子",
+    "details": [
+      "可疑的鸭子",
+      "怪物",
+      "鸭子",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "icon_pet_yazi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70079,
+    "name": "恶作剧仙子",
+    "details": [
+      "恶作剧仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70080,
+    "name": "长腿蜘蛛",
+    "details": [
+      "长腿蜘蛛",
+      "蜘蛛",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70081,
+    "name": "掠食秃鹫",
+    "details": [
+      "掠食秃鹫",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70082,
+    "name": "蠕虫",
+    "details": [
+      "蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70365,
+    "name": "怪物",
+    "details": [
+      "怪物",
+      "monster",
+      "monster_hen",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70115,
+    "name": "食腐豺",
+    "details": [
+      "食腐豺",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70116,
+    "name": "蠕虫",
+    "details": [
+      "蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70066,
+    "name": "狂暴食腐豺",
+    "details": [
+      "狂暴食腐豺",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70067,
+    "name": "恐怖飞扑者",
+    "details": [
+      "恐怖飞扑者",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70084,
+    "name": "生病的蛇",
+    "details": [
+      "生病的蛇",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70086,
+    "name": "粘丝猎人",
+    "details": [
+      "粘丝猎人",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70085,
+    "name": "老野猪",
+    "details": [
+      "老野猪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70087,
+    "name": "尖鸣秃鹫",
+    "details": [
+      "尖鸣秃鹫",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70083,
+    "name": "森林蝰蛇",
+    "details": [
+      "森林蝰蛇",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70070,
+    "name": "污秽蠕虫",
+    "details": [
+      "污秽蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70068,
+    "name": "吸血猎人",
+    "details": [
+      "吸血猎人",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70088,
+    "name": "生病的野猪",
+    "details": [
+      "生病的野猪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70091,
+    "name": "饥饿的食腐豺",
+    "details": [
+      "饥饿的食腐豺",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70089,
+    "name": "蜂蜜仙子",
+    "details": [
+      "蜂蜜仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70092,
+    "name": "生病的蠕虫",
+    "details": [
+      "生病的蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70090,
+    "name": "狡诈仙子",
+    "details": [
+      "狡诈仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70097,
+    "name": "离群的灰狼",
+    "details": [
+      "离群的灰狼",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70104,
+    "name": "凶暴蜘蛛",
+    "details": [
+      "凶暴蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70117,
+    "name": "死亡蠕虫",
+    "details": [
+      "死亡蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70096,
+    "name": "凶暴毒蛇",
+    "details": [
+      "凶暴毒蛇",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70094,
+    "name": "生病的巨魔",
+    "details": [
+      "生病的巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70093,
+    "name": "森林巨魔",
+    "details": [
+      "森林巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70099,
+    "name": "食腐掘穴蛛",
+    "details": [
+      "食腐掘穴蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70100,
+    "name": "凶暴野猪",
+    "details": [
+      "凶暴野猪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70101,
+    "name": "生病的仙子",
+    "details": [
+      "生病的仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70102,
+    "name": "腐食秃鹫",
+    "details": [
+      "腐食秃鹫",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70103,
+    "name": "粘土蠕虫",
+    "details": [
+      "粘土蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70098,
+    "name": "食腐豺首领",
+    "details": [
+      "食腐豺首领",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70095,
+    "name": "饥饿的巨魔",
+    "details": [
+      "饥饿的巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70025,
+    "name": "凶暴狼魔",
+    "details": [
+      "凶暴狼魔",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70105,
+    "name": "利爪巨魔",
+    "details": [
+      "利爪巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70108,
+    "name": "致命仙子",
+    "details": [
+      "致命仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70106,
+    "name": "夜巨魔",
+    "details": [
+      "夜巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70107,
+    "name": "暗影巨魔",
+    "details": [
+      "暗影巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70109,
+    "name": "吸血仙子",
+    "details": [
+      "吸血仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70110,
+    "name": "致死仙子",
+    "details": [
+      "致死仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70112,
+    "name": "吸血黑寡妇",
+    "details": [
+      "吸血黑寡妇",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70111,
+    "name": "变异黑寡妇",
+    "details": [
+      "变异黑寡妇",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70113,
+    "name": "变异蜘蛛",
+    "details": [
+      "变异蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70114,
+    "name": "织网毒蜘蛛",
+    "details": [
+      "织网毒蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70118,
+    "name": "魅惑仙子",
+    "details": [
+      "魅惑仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70119,
+    "name": "影狼",
+    "details": [
+      "影狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70120,
+    "name": "受伤的影狼",
+    "details": [
+      "受伤的影狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70121,
+    "name": "生蛋的鸡蛇",
+    "details": [
+      "生蛋的鸡蛇",
+      "怪物",
+      "鸡蛇兽",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70126,
+    "name": "剑蜘蛛",
+    "details": [
+      "剑蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70354,
+    "name": "废水史莱姆",
+    "details": [
+      "废水史莱姆",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70355,
+    "name": "贪吃的蠕虫",
+    "details": [
+      "贪吃的蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70356,
+    "name": "腐烂史莱姆",
+    "details": [
+      "腐烂史莱姆",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70357,
+    "name": "肮脏的蠕虫",
+    "details": [
+      "肮脏的蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70358,
+    "name": "下水道巨魔",
+    "details": [
+      "下水道巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70001,
+    "name": "被饲养的蠕虫",
+    "details": [
+      "被饲养的蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70008,
+    "name": "鸡蛇",
+    "details": [
+      "鸡蛇",
+      "怪物",
+      "鸡蛇兽",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70366,
+    "name": "发疯的野猪王",
+    "details": [
+      "发疯的野猪王",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70367,
+    "name": "蜘蛛女王",
+    "details": [
+      "蜘蛛女王",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70368,
+    "name": "巨魔老大",
+    "details": [
+      "巨魔老大",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70369,
+    "name": "仙子女王",
+    "details": [
+      "仙子女王",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70012,
+    "name": "脓疮巨魔",
+    "details": [
+      "脓疮巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70015,
+    "name": "银色",
+    "details": [
+      "银色",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70026,
+    "name": "夜魇蜘蛛",
+    "details": [
+      "夜魇蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70191,
+    "name": "扑火仙子",
+    "details": [
+      "扑火仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70139,
+    "name": "尖牙蠕虫",
+    "details": [
+      "尖牙蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70128,
+    "name": "鲜血蠕虫",
+    "details": [
+      "鲜血蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70129,
+    "name": "喷毒蠕虫",
+    "details": [
+      "喷毒蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70130,
+    "name": "邪教追随者",
+    "details": [
+      "邪教追随者",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70131,
+    "name": "产卵的黑寡妇",
+    "details": [
+      "产卵的黑寡妇",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70132,
+    "name": "放养肉蜘蛛",
+    "details": [
+      "放养肉蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70133,
+    "name": "生病的影狼",
+    "details": [
+      "生病的影狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70134,
+    "name": "老影狼",
+    "details": [
+      "老影狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70135,
+    "name": "邪教渗透者",
+    "details": [
+      "邪教渗透者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70136,
+    "name": "觅血妖刀",
+    "details": [
+      "觅血妖刀",
+      "怪物",
+      "飞刀",
+      "特效",
+      "爆炸死亡",
+      "icon",
+      "monster",
+      "monster_feidao",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70137,
+    "name": "剧毒鸡蛇",
+    "details": [
+      "剧毒鸡蛇",
+      "怪物",
+      "鸡蛇兽",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70138,
+    "name": "变异蠕虫",
+    "details": [
+      "变异蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70143,
+    "name": "疯狂蠕虫",
+    "details": [
+      "疯狂蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70144,
+    "name": "邪教徒",
+    "details": [
+      "邪教徒",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70145,
+    "name": "诱惑者",
+    "details": [
+      "诱惑者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70146,
+    "name": "饥渴的仙子",
+    "details": [
+      "饥渴的仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70147,
+    "name": "狂乱的仙子",
+    "details": [
+      "狂乱的仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70010,
+    "name": "剧毒蜘蛛",
+    "details": [
+      "剧毒蜘蛛",
+      "蜘蛛",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70016,
+    "name": "瘟疫仙子",
+    "details": [
+      "瘟疫仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70017,
+    "name": "夜影",
+    "details": [
+      "夜影",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70027,
+    "name": "诅咒雄鸡",
+    "details": [
+      "诅咒雄鸡",
+      "怪物",
+      "鸡蛇兽",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70029,
+    "name": "痴肥者",
+    "details": [
+      "痴肥者",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70063,
+    "name": "黑夜",
+    "details": [
+      "黑夜",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70362,
+    "name": "考验者",
+    "details": [
+      "考验者",
+      "怪物",
+      "夜精灵守卫_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70363,
+    "name": "焦尔",
+    "details": [
+      "焦尔",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70364,
+    "name": "冻尔",
+    "details": [
+      "冻尔",
+      "怪物",
+      "豺狼",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_wolf",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70122,
+    "name": "鬼巨魔",
+    "details": [
+      "鬼巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70123,
+    "name": "邪教徒",
+    "details": [
+      "邪教徒",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70124,
+    "name": "污染者",
+    "details": [
+      "污染者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70069,
+    "name": "星巨魔",
+    "details": [
+      "星巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70019,
+    "name": "黑寡妇女王",
+    "details": [
+      "黑寡妇女王",
+      "蜘蛛",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70024,
+    "name": "变形者",
+    "details": [
+      "变形者",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70028,
+    "name": "暗影邪法师",
+    "details": [
+      "暗影邪法师",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70380,
+    "name": "堕落巫师",
+    "details": [
+      "堕落巫师",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70375,
+    "name": "迷雾行者",
+    "details": [
+      "迷雾行者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70125,
+    "name": "仙子邪术师",
+    "details": [
+      "仙子邪术师",
+      "蝴蝶",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70127,
+    "name": "堕落学者",
+    "details": [
+      "堕落学者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70013,
+    "name": "堕落德鲁伊",
+    "details": [
+      "堕落德鲁伊",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70150,
+    "name": "兽人强盗",
+    "details": [
+      "兽人强盗",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70172,
+    "name": "被激怒的影狼",
+    "details": [
+      "被激怒的影狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70148,
+    "name": "邪教灵能者",
+    "details": [
+      "邪教灵能者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70149,
+    "name": "灵能之刃",
+    "details": [
+      "灵能之刃",
+      "怪物",
+      "飞刀",
+      "特效",
+      "爆炸死亡",
+      "icon",
+      "monster",
+      "monster_feidao",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70151,
+    "name": "逃兵",
+    "details": [
+      "逃兵",
+      "怪物",
+      "人类守卫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_renleishouwei",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70152,
+    "name": "兵痞",
+    "details": [
+      "兵痞",
+      "怪物",
+      "人类守卫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_renleishouwei",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70155,
+    "name": "嗜血暴徒",
+    "details": [
+      "嗜血暴徒",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70156,
+    "name": "邪教点火者",
+    "details": [
+      "邪教点火者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70157,
+    "name": "食人魔强盗",
+    "details": [
+      "食人魔强盗",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70158,
+    "name": "食人魔绑匪",
+    "details": [
+      "食人魔绑匪",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70160,
+    "name": "邪教献祭者",
+    "details": [
+      "邪教献祭者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70161,
+    "name": "祭祀刀",
+    "details": [
+      "祭祀刀",
+      "怪物",
+      "飞刀",
+      "特效",
+      "爆炸死亡",
+      "icon",
+      "monster",
+      "monster_feidao",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70162,
+    "name": "逃兵弓箭手",
+    "details": [
+      "逃兵弓箭手",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70163,
+    "name": "马贼斥候",
+    "details": [
+      "马贼斥候",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70164,
+    "name": "血腥献祭者",
+    "details": [
+      "血腥献祭者",
+      "怪物",
+      "BOSS_血腥祭献者",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xuexinjixianzhe",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70030,
+    "name": "矮人大师",
+    "details": [
+      "矮人大师",
+      "怪物",
+      "矮人_远程",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70000,
+    "name": "矮人战士",
+    "details": [
+      "矮人战士",
+      "怪物",
+      "矮人_近战",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70020,
+    "name": "血之王",
+    "details": [
+      "血之王",
+      "怪物",
+      "BOSS_血腥祭献者",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xuexinjixianzhe",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70034,
+    "name": "海巨魔",
+    "details": [
+      "海巨魔",
+      "森林巨魔",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70177,
+    "name": "影狼首领",
+    "details": [
+      "影狼首领",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70208,
+    "name": "梦游傀儡",
+    "details": [
+      "梦游傀儡",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70372,
+    "name": "安魂歌手",
+    "details": [
+      "安魂歌手",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70140,
+    "name": "凶恶蝙蝠",
+    "details": [
+      "凶恶蝙蝠",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70141,
+    "name": "吸血蝙蝠",
+    "details": [
+      "吸血蝙蝠",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70142,
+    "name": "狂信武士",
+    "details": [
+      "狂信武士",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70370,
+    "name": "偷心法师",
+    "details": [
+      "偷心法师",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70374,
+    "name": "堕落武官",
+    "details": [
+      "堕落武官",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70007,
+    "name": "杰克队长",
+    "details": [
+      "杰克队长",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70165,
+    "name": "受伤的军犬",
+    "details": [
+      "受伤的军犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70166,
+    "name": "银鹰斥候",
+    "details": [
+      "银鹰斥候",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70167,
+    "name": "银鹰城弓箭手",
+    "details": [
+      "银鹰城弓箭手",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70168,
+    "name": "聪慧仙子",
+    "details": [
+      "聪慧仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70169,
+    "name": "书卷仙子",
+    "details": [
+      "书卷仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70170,
+    "name": "矿石蜘蛛",
+    "details": [
+      "矿石蜘蛛",
+      "蜘蛛",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70171,
+    "name": "洞穴巨魔",
+    "details": [
+      "洞穴巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70176,
+    "name": "腐朽的骷髅",
+    "details": [
+      "腐朽的骷髅",
+      "怪物",
+      "骷髅",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_kulou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70173,
+    "name": "饥饿的食人鬼",
+    "details": [
+      "饥饿的食人鬼",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70174,
+    "name": "骷髅剑士",
+    "details": [
+      "骷髅剑士",
+      "怪物",
+      "骷髅",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_kulou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70178,
+    "name": "污水粘液怪",
+    "details": [
+      "污水粘液怪",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70179,
+    "name": "垃圾史莱姆",
+    "details": [
+      "垃圾史莱姆",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70180,
+    "name": "饕餮肥蛆",
+    "details": [
+      "饕餮肥蛆",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70181,
+    "name": "凶暴军犬",
+    "details": [
+      "凶暴军犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70182,
+    "name": "银鹰城士兵",
+    "details": [
+      "银鹰城士兵",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70183,
+    "name": "护卫军犬",
+    "details": [
+      "护卫军犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70184,
+    "name": "活死人",
+    "details": [
+      "活死人",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70185,
+    "name": "饥饿的尸体",
+    "details": [
+      "饥饿的尸体",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70186,
+    "name": "鬼火",
+    "details": [
+      "鬼火",
+      "怪物",
+      "鬼火",
+      "特效",
+      "鬼火死亡",
+      "monster",
+      "monster_guihuo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70187,
+    "name": "地狱灯",
+    "details": [
+      "地狱灯",
+      "怪物",
+      "鬼火",
+      "特效",
+      "鬼火死亡",
+      "monster",
+      "monster_guihuo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70188,
+    "name": "肮脏的蛆虫",
+    "details": [
+      "肮脏的蛆虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70189,
+    "name": "掠食野狗",
+    "details": [
+      "掠食野狗",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70190,
+    "name": "军团猎鹰",
+    "details": [
+      "军团猎鹰",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70192,
+    "name": "银鹰队长",
+    "details": [
+      "银鹰队长",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70193,
+    "name": "城镇仙子",
+    "details": [
+      "城镇仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70194,
+    "name": "盗贼仙子",
+    "details": [
+      "盗贼仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70195,
+    "name": "杂种狗",
+    "details": [
+      "杂种狗",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70196,
+    "name": "铁羽猎鹰",
+    "details": [
+      "铁羽猎鹰",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70197,
+    "name": "银鹰神射手",
+    "details": [
+      "银鹰神射手",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70032,
+    "name": "潦倒的战士",
+    "details": [
+      "潦倒的战士",
+      "怪物",
+      "夜精灵守卫_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70033,
+    "name": "老战士",
+    "details": [
+      "老战士",
+      "怪物",
+      "夜精灵守卫_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70035,
+    "name": "魔法受害者",
+    "details": [
+      "魔法受害者",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70040,
+    "name": "怪法师凯恩",
+    "details": [
+      "怪法师凯恩",
+      "怪物",
+      "夜精灵守卫_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweiyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70042,
+    "name": "邪恶园丁",
+    "details": [
+      "邪恶园丁",
+      "怪物",
+      "夜精灵守卫_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweiyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70371,
+    "name": "攻城器技师",
+    "details": [
+      "攻城器技师",
+      "怪物",
+      "人类守卫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_renleishouwei",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70153,
+    "name": "魔法仙子",
+    "details": [
+      "魔法仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70154,
+    "name": "妖术仙子",
+    "details": [
+      "妖术仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70002,
+    "name": "夜精灵走私者",
+    "details": [
+      "夜精灵走私者",
+      "怪物",
+      "夜精灵守卫_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70031,
+    "name": "无赖警卫",
+    "details": [
+      "无赖警卫",
+      "怪物",
+      "人类守卫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_renleishouwei",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70373,
+    "name": "夜精灵走私者",
+    "details": [
+      "夜精灵走私者",
+      "怪物",
+      "夜精灵守卫_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70198,
+    "name": "疯狂的军犬",
+    "details": [
+      "疯狂的军犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70199,
+    "name": "银鹰突击手",
+    "details": [
+      "银鹰突击手",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70200,
+    "name": "雪雕",
+    "details": [
+      "雪雕",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70201,
+    "name": "冬狼",
+    "details": [
+      "冬狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70202,
+    "name": "青铜蜘蛛",
+    "details": [
+      "青铜蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70203,
+    "name": "僵尸",
+    "details": [
+      "僵尸",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70204,
+    "name": "骷髅士兵",
+    "details": [
+      "骷髅士兵",
+      "怪物",
+      "骷髅",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_kulou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70205,
+    "name": "邪气尸",
+    "details": [
+      "邪气尸",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70206,
+    "name": "蠕动者",
+    "details": [
+      "蠕动者",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70207,
+    "name": "弃狼",
+    "details": [
+      "弃狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70209,
+    "name": "闪烁的灰烬元素",
+    "details": [
+      "闪烁的灰烬元素",
+      "怪物",
+      "灰烬元素_近战",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansujinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70210,
+    "name": "狂暴剃刀怪",
+    "details": [
+      "狂暴剃刀怪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70211,
+    "name": "银鹰城老兵",
+    "details": [
+      "银鹰城老兵",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70212,
+    "name": "御用金雕",
+    "details": [
+      "御用金雕",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70213,
+    "name": "雪人",
+    "details": [
+      "雪人",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70214,
+    "name": "雪团怪",
+    "details": [
+      "雪团怪",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70215,
+    "name": "活尸巨魔",
+    "details": [
+      "活尸巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70216,
+    "name": "石巨魔",
+    "details": [
+      "石巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70217,
+    "name": "腐朽的死亡骑士",
+    "details": [
+      "腐朽的死亡骑士",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70218,
+    "name": "邪气灯",
+    "details": [
+      "邪气灯",
+      "怪物",
+      "鬼火",
+      "特效",
+      "鬼火死亡",
+      "monster",
+      "monster_guihuo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70219,
+    "name": "贪心仙子",
+    "details": [
+      "贪心仙子",
+      "蝴蝶",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_hudie",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70220,
+    "name": "污水巨魔",
+    "details": [
+      "污水巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70221,
+    "name": "兽人掠夺者",
+    "details": [
+      "兽人掠夺者",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70222,
+    "name": "灰烬战士",
+    "details": [
+      "灰烬战士",
+      "怪物",
+      "灰烬元素_近战",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansujinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70223,
+    "name": "银鹰游侠",
+    "details": [
+      "银鹰游侠",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70224,
+    "name": "战争巨魔",
+    "details": [
+      "战争巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70225,
+    "name": "受伤的巨魔",
+    "details": [
+      "受伤的巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70226,
+    "name": "矮人暴徒",
+    "details": [
+      "矮人暴徒",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70227,
+    "name": "矮人醉鬼",
+    "details": [
+      "矮人醉鬼",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70228,
+    "name": "矮人堕法师",
+    "details": [
+      "矮人堕法师",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70229,
+    "name": "矮人盗贼",
+    "details": [
+      "矮人盗贼",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70230,
+    "name": "白银蜘蛛",
+    "details": [
+      "白银蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70231,
+    "name": "喷毒僵尸",
+    "details": [
+      "喷毒僵尸",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70232,
+    "name": "骷髅杀手",
+    "details": [
+      "骷髅杀手",
+      "怪物",
+      "骷髅",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_kulou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70233,
+    "name": "食人鬼打手",
+    "details": [
+      "食人鬼打手",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70234,
+    "name": "发狂的巨魔",
+    "details": [
+      "发狂的巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70235,
+    "name": "巨魔训练师",
+    "details": [
+      "巨魔训练师",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70175,
+    "name": "银鹰信使",
+    "details": [
+      "银鹰信使",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70041,
+    "name": "瘟疫史莱姆",
+    "details": [
+      "瘟疫史莱姆",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70043,
+    "name": "嗜血杀手",
+    "details": [
+      "嗜血杀手",
+      "怪物",
+      "夜精灵守卫_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jinglingshouweijinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70359,
+    "name": "诱惑者瓦伦",
+    "details": [
+      "诱惑者瓦伦",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70360,
+    "name": "奸淫者雷拉",
+    "details": [
+      "奸淫者雷拉",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70361,
+    "name": "残虐者加基",
+    "details": [
+      "残虐者加基",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70379,
+    "name": "大首领加尔",
+    "details": [
+      "大首领加尔",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70378,
+    "name": "雪人冰萨满",
+    "details": [
+      "雪人冰萨满",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70011,
+    "name": "运粮官",
+    "details": [
+      "运粮官",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70009,
+    "name": "狂暴母巨魔",
+    "details": [
+      "狂暴母巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70247,
+    "name": "血牙剃刀怪",
+    "details": [
+      "血牙剃刀怪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70248,
+    "name": "兽人偷袭者",
+    "details": [
+      "兽人偷袭者",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70018,
+    "name": "银鹰督军",
+    "details": [
+      "银鹰督军",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70238,
+    "name": "发疯的矮人",
+    "details": [
+      "发疯的矮人",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70239,
+    "name": "发疯的矮人法师",
+    "details": [
+      "发疯的矮人法师",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70240,
+    "name": "瘟疫法师",
+    "details": [
+      "瘟疫法师",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70241,
+    "name": "癌法师",
+    "details": [
+      "癌法师",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70242,
+    "name": "腐肉巨魔",
+    "details": [
+      "腐肉巨魔",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70243,
+    "name": "巨魔掘穴者",
+    "details": [
+      "巨魔掘穴者",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70244,
+    "name": "食人鬼",
+    "details": [
+      "食人鬼",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70245,
+    "name": "恶咒食人鬼",
+    "details": [
+      "恶咒食人鬼",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70246,
+    "name": "鬼骑士",
+    "details": [
+      "鬼骑士",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70249,
+    "name": "食腐雪雕",
+    "details": [
+      "食腐雪雕",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70250,
+    "name": "暴躁的雪人",
+    "details": [
+      "暴躁的雪人",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70252,
+    "name": "发疯的侏儒",
+    "details": [
+      "发疯的侏儒",
+      "怪物",
+      "疯侏儒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_fengzhuru",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70253,
+    "name": "咬人的侏儒",
+    "details": [
+      "咬人的侏儒",
+      "怪物",
+      "疯侏儒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_fengzhuru",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70256,
+    "name": "雌雪雕",
+    "details": [
+      "雌雪雕",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70257,
+    "name": "吞噬雪怪",
+    "details": [
+      "吞噬雪怪",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70258,
+    "name": "死亡骑士",
+    "details": [
+      "死亡骑士",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70259,
+    "name": "骷髅侍卫",
+    "details": [
+      "骷髅侍卫",
+      "怪物",
+      "骷髅",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_kulou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70044,
+    "name": "骷髅刽子手",
+    "details": [
+      "骷髅刽子手",
+      "怪物",
+      "骷髅",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_kulou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70045,
+    "name": "混沌鬼火",
+    "details": [
+      "混沌鬼火",
+      "怪物",
+      "鬼火",
+      "特效",
+      "鬼火死亡",
+      "monster",
+      "monster_guihuo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70046,
+    "name": "食尸鬼王",
+    "details": [
+      "食尸鬼王",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70051,
+    "name": "反抗军首领",
+    "details": [
+      "反抗军首领",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70054,
+    "name": "反抗军战士",
+    "details": [
+      "反抗军战士",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70055,
+    "name": "反抗军战法师",
+    "details": [
+      "反抗军战法师",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70236,
+    "name": "黄金蜘蛛",
+    "details": [
+      "黄金蜘蛛",
+      "蜘蛛",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70237,
+    "name": "瘟疫毒蛇",
+    "details": [
+      "瘟疫毒蛇",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70052,
+    "name": "反抗军巡逻兵",
+    "details": [
+      "反抗军巡逻兵",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70053,
+    "name": "反抗军猎人",
+    "details": [
+      "反抗军猎人",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70014,
+    "name": "兽人偷袭者",
+    "details": [
+      "兽人偷袭者",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70260,
+    "name": "纯血猎手",
+    "details": [
+      "纯血猎手",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70261,
+    "name": "银鹰守卫",
+    "details": [
+      "银鹰守卫",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70262,
+    "name": "矮人牧狼者",
+    "details": [
+      "矮人牧狼者",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70263,
+    "name": "驯服的冬狼",
+    "details": [
+      "驯服的冬狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70264,
+    "name": "冬狼头领",
+    "details": [
+      "冬狼头领",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70265,
+    "name": "疾病散布者",
+    "details": [
+      "疾病散布者",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70266,
+    "name": "巨魔死灵战士",
+    "details": [
+      "巨魔死灵战士",
+      "森林巨魔",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_senlin",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70267,
+    "name": "地狱犬",
+    "details": [
+      "地狱犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70268,
+    "name": "疯狂信徒",
+    "details": [
+      "疯狂信徒",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70269,
+    "name": "兽人战士",
+    "details": [
+      "兽人战士",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70270,
+    "name": "兽人弓箭手",
+    "details": [
+      "兽人弓箭手",
+      "怪物",
+      "兽人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70271,
+    "name": "被感染的兽人",
+    "details": [
+      "被感染的兽人",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70272,
+    "name": "兽人杀手",
+    "details": [
+      "兽人杀手",
+      "怪物",
+      "兽人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70273,
+    "name": "城堡侍从",
+    "details": [
+      "城堡侍从",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70274,
+    "name": "铁甲战犬",
+    "details": [
+      "铁甲战犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70275,
+    "name": "贪婪的雪人",
+    "details": [
+      "贪婪的雪人",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70276,
+    "name": "雪山神鹫",
+    "details": [
+      "雪山神鹫",
+      "怪物",
+      "秃鹫",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_tujiu2",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70277,
+    "name": "瘟疫化身",
+    "details": [
+      "瘟疫化身",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70278,
+    "name": "尸体艺术家",
+    "details": [
+      "尸体艺术家",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70279,
+    "name": "无形刽子手",
+    "details": [
+      "无形刽子手",
+      "怪物",
+      "飞刀",
+      "特效",
+      "血爆死亡",
+      "icon",
+      "monster",
+      "monster_feidao",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70280,
+    "name": "岩浆泥怪",
+    "details": [
+      "岩浆泥怪",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70281,
+    "name": "石皮剃刀怪",
+    "details": [
+      "石皮剃刀怪",
+      "野猪",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_pig",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70282,
+    "name": "兽人狂战士",
+    "details": [
+      "兽人狂战士",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70283,
+    "name": "兽人神射手",
+    "details": [
+      "兽人神射手",
+      "怪物",
+      "兽人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70284,
+    "name": "兽人老兵",
+    "details": [
+      "兽人老兵",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70285,
+    "name": "城堡弓箭队",
+    "details": [
+      "城堡弓箭队",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70286,
+    "name": "城堡侍从",
+    "details": [
+      "城堡侍从",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70287,
+    "name": "灰烬法师",
+    "details": [
+      "灰烬法师",
+      "怪物",
+      "灰烬元素_远程",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansuyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70288,
+    "name": "岩浆法师",
+    "details": [
+      "岩浆法师",
+      "怪物",
+      "灰烬元素_远程",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansuyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70289,
+    "name": "银鹰守卫者",
+    "details": [
+      "银鹰守卫者",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70290,
+    "name": "佣兵弓箭队",
+    "details": [
+      "佣兵弓箭队",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70049,
+    "name": "兽人劫掠队长",
+    "details": [
+      "兽人劫掠队长",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70050,
+    "name": "灰烬百夫长",
+    "details": [
+      "灰烬百夫长",
+      "怪物",
+      "灰烬元素_近战",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansujinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70381,
+    "name": "瘟疫祭司",
+    "details": [
+      "瘟疫祭司",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70251,
+    "name": "饥饿死者",
+    "details": [
+      "饥饿死者",
+      "怪物",
+      "僵尸",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70254,
+    "name": "兽人冲锋兵",
+    "details": [
+      "兽人冲锋兵",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70255,
+    "name": "兽人斥候",
+    "details": [
+      "兽人斥候",
+      "怪物",
+      "兽人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70291,
+    "name": "驯狼",
+    "details": [
+      "驯狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70292,
+    "name": "黑衫军",
+    "details": [
+      "黑衫军",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70293,
+    "name": "忠勇兽人战士",
+    "details": [
+      "忠勇兽人战士",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70294,
+    "name": "雪人长老",
+    "details": [
+      "雪人长老",
+      "怪物",
+      "雪人",
+      "特效",
+      "消散死亡",
+      "monster",
+      "monster_xueren",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70295,
+    "name": "潜伏雪怪",
+    "details": [
+      "潜伏雪怪",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70296,
+    "name": "深渊吸血鬼",
+    "details": [
+      "深渊吸血鬼",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70297,
+    "name": "瘟疫吸血鬼",
+    "details": [
+      "瘟疫吸血鬼",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70298,
+    "name": "食尸恶蛆",
+    "details": [
+      "食尸恶蛆",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70299,
+    "name": "熔岩之牙",
+    "details": [
+      "熔岩之牙",
+      "怪物",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70300,
+    "name": "烈火吸血鬼",
+    "details": [
+      "烈火吸血鬼",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70301,
+    "name": "银鹰骑士",
+    "details": [
+      "银鹰骑士",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70302,
+    "name": "银鹰狙击手",
+    "details": [
+      "银鹰狙击手",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70303,
+    "name": "孤独的冬狼",
+    "details": [
+      "孤独的冬狼",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70304,
+    "name": "奥法蠕虫",
+    "details": [
+      "奥法蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70305,
+    "name": "疯狂蠕虫",
+    "details": [
+      "疯狂蠕虫",
+      "怪物",
+      "蠕虫",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_worm",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70306,
+    "name": "弄蛆人",
+    "details": [
+      "弄蛆人",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70307,
+    "name": "花岗岩行者",
+    "details": [
+      "花岗岩行者",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70308,
+    "name": "盗墓法师",
+    "details": [
+      "盗墓法师",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70309,
+    "name": "弓箭骑士",
+    "details": [
+      "弓箭骑士",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70310,
+    "name": "义勇骑士",
+    "details": [
+      "义勇骑士",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70311,
+    "name": "地狱艺术家",
+    "details": [
+      "地狱艺术家",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70312,
+    "name": "地狱战犬",
+    "details": [
+      "地狱战犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70313,
+    "name": "盗墓贼",
+    "details": [
+      "盗墓贼",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70314,
+    "name": "满载而归的盗墓贼",
+    "details": [
+      "满载而归的盗墓贼",
+      "怪物",
+      "矮人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70315,
+    "name": "金属毒蛇",
+    "details": [
+      "金属毒蛇",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_snake",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70316,
+    "name": "血盟骑士",
+    "details": [
+      "血盟骑士",
+      "怪物",
+      "叛军士兵",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70317,
+    "name": "城主亲卫",
+    "details": [
+      "城主亲卫",
+      "怪物",
+      "叛军将军",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70318,
+    "name": "银鹰刀斧手",
+    "details": [
+      "银鹰刀斧手",
+      "怪物",
+      "叛军将军",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjunshibing",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70319,
+    "name": "冰地狱犬",
+    "details": [
+      "冰地狱犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70320,
+    "name": "训犬师",
+    "details": [
+      "训犬师",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70321,
+    "name": "地狱骑士",
+    "details": [
+      "地狱骑士",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70322,
+    "name": "恶魔爪",
+    "details": [
+      "恶魔爪",
+      "NPC",
+      "特效",
+      "爆炸死亡"
+    ]
+  },
+  {
+    "id": 70323,
+    "name": "吸血鬼法师",
+    "details": [
+      "吸血鬼法师",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70047,
+    "name": "素描大师戈雅",
+    "details": [
+      "素描大师戈雅",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70048,
+    "name": "雕像大师菲狄亚斯",
+    "details": [
+      "雕像大师菲狄亚斯",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70056,
+    "name": "巫妖",
+    "details": [
+      "巫妖",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70057,
+    "name": "守墓人",
+    "details": [
+      "守墓人",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70377,
+    "name": "地狱火",
+    "details": [
+      "地狱火",
+      "怪物",
+      "灰烬元素_近战",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansujinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70004,
+    "name": "杜克将军",
+    "details": [
+      "杜克将军",
+      "怪物",
+      "叛军士兵",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70005,
+    "name": "大学士莱维",
+    "details": [
+      "大学士莱维",
+      "怪物",
+      "夜精灵守卫_远程",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70006,
+    "name": "刺客安玻",
+    "details": [
+      "刺客安玻",
+      "怪物",
+      "叛军弓箭手",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70324,
+    "name": "死斗坑精英",
+    "details": [
+      "死斗坑精英",
+      "怪物",
+      "灰烬元素_近战",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansujinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70325,
+    "name": "兽人修罗战士",
+    "details": [
+      "兽人修罗战士",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70326,
+    "name": "死斗坑弓箭手",
+    "details": [
+      "死斗坑弓箭手",
+      "怪物",
+      "叛军弓箭手",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_panjungongjianshou",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70327,
+    "name": "灵魂吸血鬼",
+    "details": [
+      "灵魂吸血鬼",
+      "怪物",
+      "蝙蝠",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_bat",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70328,
+    "name": "发疯的盗墓贼",
+    "details": [
+      "发疯的盗墓贼",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70329,
+    "name": "炼狱魔蝎",
+    "details": [
+      "炼狱魔蝎",
+      "蝎子",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70330,
+    "name": "地狱之子",
+    "details": [
+      "地狱之子",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70331,
+    "name": "兽人奴隶斗士",
+    "details": [
+      "兽人奴隶斗士",
+      "怪物",
+      "兽人_近战",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenjinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70332,
+    "name": "猎头大师",
+    "details": [
+      "猎头大师",
+      "怪物",
+      "兽人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shourenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70333,
+    "name": "矮人火焰术士",
+    "details": [
+      "矮人火焰术士",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70334,
+    "name": "矮人寒冰术士",
+    "details": [
+      "矮人寒冰术士",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70335,
+    "name": "盗墓法师",
+    "details": [
+      "盗墓法师",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70336,
+    "name": "毁灭昆虫",
+    "details": [
+      "毁灭昆虫",
+      "蝎子",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_zhizhu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70337,
+    "name": "下界仆从",
+    "details": [
+      "下界仆从",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70338,
+    "name": "灰烬王侯",
+    "details": [
+      "灰烬王侯",
+      "怪物",
+      "灰烬元素_远程",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansuyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70339,
+    "name": "燃烧的尸骸",
+    "details": [
+      "燃烧的尸骸",
+      "怪物",
+      "僵尸",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_jiangshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70340,
+    "name": "硝烟祭司",
+    "details": [
+      "硝烟祭司",
+      "怪物",
+      "灰烬元素_远程",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansuyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70341,
+    "name": "空寂之火",
+    "details": [
+      "空寂之火",
+      "怪物",
+      "灰烬元素_近战",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansujinzhan",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70342,
+    "name": "古代骑士",
+    "details": [
+      "古代骑士",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70343,
+    "name": "深渊使徒",
+    "details": [
+      "深渊使徒",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70344,
+    "name": "鬼王骑士",
+    "details": [
+      "鬼王骑士",
+      "怪物",
+      "叛军将军",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70345,
+    "name": "忘却之炎",
+    "details": [
+      "忘却之炎",
+      "怪物",
+      "灰烬元素_远程",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_huijinyuansuyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70346,
+    "name": "废墟潜伏怪",
+    "details": [
+      "废墟潜伏怪",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70347,
+    "name": "灾难术士",
+    "details": [
+      "灾难术士",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70348,
+    "name": "背叛骑士",
+    "details": [
+      "背叛骑士",
+      "怪物",
+      "叛军将军",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70349,
+    "name": "堕落殉道骑士",
+    "details": [
+      "堕落殉道骑士",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70350,
+    "name": "地狱烙铁",
+    "details": [
+      "地狱烙铁",
+      "怪物",
+      "飞刀",
+      "特效",
+      "爆炸死亡"
+    ]
+  },
+  {
+    "id": 70351,
+    "name": "地狱诡术战士",
+    "details": [
+      "地狱诡术战士",
+      "怪物",
+      "狂信战士",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70352,
+    "name": "末日战犬",
+    "details": [
+      "末日战犬",
+      "怪物",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_lang",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70353,
+    "name": "悲伤歌手阿卡络丝",
+    "details": [
+      "悲伤歌手阿卡络丝",
+      "怪物",
+      "邪教徒",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_xiejiaotu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70058,
+    "name": "痛苦斗士巴尔",
+    "details": [
+      "痛苦斗士巴尔",
+      "怪物",
+      "叛军将军",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_kuangxinzhanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70059,
+    "name": "痴笑的佐尔德",
+    "details": [
+      "痴笑的佐尔德",
+      "怪物",
+      "史莱姆",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_shilaimu",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70060,
+    "name": "贪婪的奥玛斯",
+    "details": [
+      "贪婪的奥玛斯",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70061,
+    "name": "黑暗学者查理",
+    "details": [
+      "黑暗学者查理",
+      "怪物",
+      "矮人_远程",
+      "特效",
+      "血爆死亡",
+      "monster",
+      "monster_airenyuancheng",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70062,
+    "name": "大召唤者",
+    "details": [
+      "大召唤者",
+      "怪物",
+      "BOSS_大召唤师",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_dazhaohuanshi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70376,
+    "name": "恶魔",
+    "details": [
+      "恶魔",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70003,
+    "name": "特列斯坦",
+    "details": [
+      "特列斯坦",
+      "怪物",
+      "BOSS_银鹰大骑士",
+      "monster",
+      "monster_yinyingdaqishi",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70021,
+    "name": "兰斯洛特",
+    "details": [
+      "兰斯洛特",
+      "怪物",
+      "BOSS_银鹰大骑士",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70022,
+    "name": "大恶魔",
+    "details": [
+      "大恶魔",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70023,
+    "name": "NPC",
+    "details": [
+      "NPC",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70036,
+    "name": "神殿骑士",
+    "details": [
+      "神殿骑士",
+      "怪物",
+      "BOSS_银鹰大骑士",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70037,
+    "name": "魔法骷髅",
+    "details": [
+      "魔法骷髅",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70038,
+    "name": "恶魔傀儡",
+    "details": [
+      "恶魔傀儡",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70039,
+    "name": "神殿骑士",
+    "details": [
+      "神殿骑士",
+      "怪物",
+      "BOSS_银鹰大骑士",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 70064,
+    "name": "魔法骷髅",
+    "details": [
+      "魔法骷髅",
+      "怪物",
+      "骷髅妖",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_kulouboss",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70065,
+    "name": "恶魔傀儡",
+    "details": [
+      "恶魔傀儡",
+      "怪物",
+      "BOSS_深渊恶魔",
+      "特效",
+      "爆炸死亡",
+      "monster",
+      "monster_shenyuanemo",
+      "bmp"
+    ]
+  },
+  {
+    "id": 70382,
+    "name": "海巨魔",
+    "details": [
+      "海巨魔",
+      "高级魔法兽",
+      "幽冥鬼蜮",
+      "pic",
+      "icon",
+      "monster"
+    ]
+  },
+  {
+    "id": 10000001,
+    "name": "2010",
+    "details": [
+      "2010",
+      "22",
+      "41"
+    ]
+  }
+]

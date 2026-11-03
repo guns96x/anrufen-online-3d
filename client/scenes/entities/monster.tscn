@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://client/scenes/entities/monster.gd" id="1_monster"]
+[ext_resource type="PackedScene" path="res://assets/models/monster_beast.glb" id="2_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_col"]
+size = Vector3(0.9, 1.2, 1.8)
+
+[node name="Monster" type="CharacterBody3D" groups=["monsters"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_monster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("BoxShape3D_col")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="monster_beast" parent="Visual" instance=ExtResource("2_mesh")]
+
+[node name="NameLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+billboard = 1
+text = "Forest Beast (森林幼兽)"
+font_size = 18
+outline_size = 3
+modulate = Color(1, 0.35, 0.35, 1)
+
+[node name="HPLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+billboard = 1
+text = "HP: 60 / 60"
+font_size = 16
+outline_size = 3
+modulate = Color(0.2, 1, 0.3, 1)

@@ -1,0 +1,309 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://client/scenes/ui/hud.gd" id="1_hud"]
+[ext_resource type="PackedScene" path="res://client/scenes/ui/virtual_joystick.tscn" id="2_joy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.11, 0.16, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.45, 0.7, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp"]
+bg_color = Color(0.85, 0.22, 0.22, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp"]
+bg_color = Color(0.2, 0.5, 0.9, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.18, 0.24, 0.35, 0.85)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.7, 1, 0.8)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="TopLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 280.0
+offset_bottom = 120.0
+
+[node name="Panel" type="Panel" parent="TopLeft"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="TopLeft"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+theme_override_constants/separation = 4
+
+[node name="NameLabel" type="Label" parent="TopLeft/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+text = "Lv.1 Novice [见习战士]"
+
+[node name="HPBar" type="ProgressBar" parent="TopLeft/VBox"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp")
+value = 100.0
+show_percentage = false
+
+[node name="HPLbl" type="Label" parent="TopLeft/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 11
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MPBar" type="ProgressBar" parent="TopLeft/VBox"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_mp")
+value = 100.0
+show_percentage = false
+
+[node name="MPLbl" type="Label" parent="TopLeft/VBox/MPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 10
+text = "50 / 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 120.0
+grow_horizontal = 0
+
+[node name="QuestPanel" type="Panel" parent="TopRight"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="TopRight/QuestPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="QuestTitle" type="Label" parent="TopRight/QuestPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+text = "Quest: Forest Threat"
+
+[node name="QuestObjectives" type="Label" parent="TopRight/QuestPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 13
+text = "Defeat Forest Beasts: 0 / 3"
+
+[node name="BottomLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 200.0
+grow_vertical = 0
+
+[node name="VirtualJoystick" parent="BottomLeft" instance=ExtResource("2_joy")]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 168.0
+offset_bottom = 168.0
+
+[node name="BottomRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -220.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AttackButton" type="Button" parent="BottomRight"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -90.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "⚔ ATK"
+
+[node name="Skill1Button" type="Button" parent="BottomRight"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -70.0
+offset_right = -100.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "🔥 Fire"
+
+[node name="Skill2Button" type="Button" parent="BottomRight"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -160.0
+offset_right = -20.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "💨 Dash"
+
+[node name="InteractButton" type="Button" parent="BottomRight"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -150.0
+offset_right = -100.0
+offset_bottom = -90.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "💬 Talk"
+
+[node name="DialogueBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -230.0
+offset_right = 340.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="NPCName" type="Label" parent="DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 300.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 18
+text = "Village Elder (观林镇长)"
+
+[node name="DialogueText" type="Label" parent="DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 50.0
+offset_right = 650.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Welcome to Guanlin Town! The outskirts are overrun with wild beasts. Defeat 3 Forest Beasts to prove your strength and protect our people!"
+autowrap_mode = 2
+
+[node name="AcceptButton" type="Button" parent="DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 136.0
+offset_right = 640.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Accept Quest"
+
+[node name="CloseButton" type="Button" parent="DialogueBox/Panel"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 136.0
+offset_right = 440.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "Cancel"

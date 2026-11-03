@@ -1,0 +1,10 @@
+# Godot 4 .gitignore
+.godat/
+.import/
+export.cfg
+export_presets.cfg
+*.translation
+.mono/
+*.tmp
+build/
+bin/

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://client/scenes/entities/npc.gd" id="1_npc"]
+[ext_resource type="PackedScene" path="res://assets/models/npc_elder.glb" id="2_mesh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_col"]
+radius = 0.45
+height = 1.9
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_area"]
+height = 2.0
+radius = 2.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glow"]
+albedo_color = Color(1, 0.85, 0.3, 1)
+emission_enabled = true
+emission = Color(1, 0.85, 0.3, 1)
+emission_energy_multiplier = 0.5
+
+[node name="NPC" type="CharacterBody3D" groups=["npcs"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_npc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("CapsuleShape3D_col")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="npc_elder" parent="Visual" instance=ExtResource("2_mesh")]
+
+[node name="InteractionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+shape = SubResource("CylinderShape3D_area")
+
+[node name="NameLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+billboard = 1
+text = "Village Elder (观林镇长)"
+font_size = 20
+outline_size = 4
+modulate = Color(1, 0.85, 0.3, 1)
+
+[node name="PromptLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, 0)
+billboard = 1
+text = "[ Tap 'Talk' to Interact ]"
+font_size = 16
+outline_size = 3
+modulate = Color(0.4, 0.9, 1, 1)
