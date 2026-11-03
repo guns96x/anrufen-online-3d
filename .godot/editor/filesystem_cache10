@@ -3,15 +3,20 @@
 export_presets.cfg::TextFile::-1::1793712117::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::1226175197267012357::1793711128::1793711596::1::::<><><>0<>0<>8c17a94cf8793adbfe20430828efbff5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1793711230
-::res://assets/models/::1793711596
+::res://assets/models/::1793712478
+building_hall.glb::PackedScene::9038892077109191164::1793712468::1793712478::1::::<><><>0<>0<>130ec76da7e612e1d39f3541e1d64580<>res://.godot/imported/building_hall.glb-7e1d4911feb70f4f31dfa78e69372d23.scn::
 hero_warrior.glb::PackedScene::3383580618159783596::1793711279::1793711596::1::::<><><>0<>0<>6807d63022f7a3df578f8fce1e585884<>res://.godot/imported/hero_warrior.glb-a2f0ff1d7aa2751827d8a6e9bdcc9744.scn::
 house_cottage.glb::PackedScene::2155524057560946315::1793711278::1793711596::1::::<><><>0<>0<>eeeea9982d22092824a10a895181c8a0<>res://.godot/imported/house_cottage.glb-ca0fbdc468e7e76e20c5d8616112dfa2.scn::
 monster_beast.glb::PackedScene::4367315712229825213::1793711279::1793711596::1::::<><><>0<>0<>ec37fd06da1886aebcc260a892f5f6ee<>res://.godot/imported/monster_beast.glb-a5cbaa6b4e24e7f23a3f359c2a27d922.scn::
+monster_boar.glb::PackedScene::5040824099945562349::1793712468::1793712478::1::::<><><>0<>0<>71e9f3d7c5fbf0a5b75d959c3cb96812<>res://.godot/imported/monster_boar.glb-20368305da4720cc2641e65eaff21e09.scn::
+monster_spider.glb::PackedScene::8296151587495050419::1793712468::1793712478::1::::<><><>0<>0<>7c04857dd633eba1bc3b6a4e542cdbcb<>res://.godot/imported/monster_spider.glb-d62c1807b5f416ceaee5dc01a28611d5.scn::
 npc_elder.glb::PackedScene::207098007488456952::1793711279::1793711596::1::::<><><>0<>0<>3bd2eb1fbd7b3619bf3dc28b7d124a2b<>res://.godot/imported/npc_elder.glb-b459fb64919fb7fee159f2812f1cacc2.scn::
 prop_fence.glb::PackedScene::2023103998989965670::1793711279::1793711596::1::::<><><>0<>0<>8c82290736abec5b0ec4f59942bcded9<>res://.godot/imported/prop_fence.glb-65dfd0696bc0fc4ae55b94fc02aed98e.scn::
+prop_fountain.glb::PackedScene::7541029349673546344::1793712468::1793712478::1::::<><><>0<>0<>c12a4c91a37dbf510cfc0dc187358bd4<>res://.godot/imported/prop_fountain.glb-867432fa5ea82880561fcbd4712e9608.scn::
+prop_training_dummy.glb::PackedScene::6771515522348997029::1793712468::1793712478::1::::<><><>0<>0<>6fa27d594d77e14f37b265db432a5255<>res://.godot/imported/prop_training_dummy.glb-1b7553c9b4523365d476fcfba04f18a3.scn::
 rock_boulder.glb::PackedScene::5346252020349876911::1793711278::1793711596::1::::<><><>0<>0<>99e37d19fa82fdf6c83e6344145ee1db<>res://.godot/imported/rock_boulder.glb-9ae2091de611238c147f66cbcce2fed2.scn::
 tree_fantasy.glb::PackedScene::7729414204007633054::1793711278::1793711596::1::::<><><>0<>0<>34ec40cbc21334c3ef1f55918abd9159<>res://.godot/imported/tree_fantasy.glb-44ff18786a8b61c1c0521958c3dee29d.scn::
-::res://build/::1793711955
+::res://build/::1793712181
 ::res://client/::1793711162
 ::res://client/scenes/::1793711162
 ::res://client/scenes/entities/::1793711596
@@ -19,7 +24,7 @@ monster.gd::GDScript::1770689289302678640::1793711428::0::1::::Monster<>Characte
 monster.tscn::PackedScene::-1::1793711669::0::1::::<><><>0<>0<><>::res://client/scenes/entities/monster.gd<>res://assets/models/monster_beast.glb
 npc.gd::GDScript::2656276185227001841::1793711400::0::1::::NPC<>CharacterBody3D<><>0<>0<><>::
 npc.tscn::PackedScene::-1::1793711669::0::1::::<><><>0<>0<><>::res://client/scenes/entities/npc.gd<>res://assets/models/npc_elder.glb
-player.gd::GDScript::6024503157372065201::1793711802::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+player.gd::GDScript::6024503157372065201::1793712389::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
 player.tscn::PackedScene::-1::1793711669::0::1::::<><><>0<>0<><>::res://client/scenes/entities/player.gd<>res://assets/models/hero_warrior.glb
 ::res://client/scenes/ui/::1793711596
 hud.gd::GDScript::1023338565162747176::1793711545::0::1::::GameHUD<>CanvasLayer<><>0<>0<><>::
@@ -28,7 +33,7 @@ virtual_joystick.gd::GDScript::8842616447156231824::1793711782::0::1::::TouchJoy
 virtual_joystick.tscn::PackedScene::-1::1793711669::0::1::::<><><>0<>0<><>::res://client/scenes/ui/virtual_joystick.gd
 ::res://client/scenes/world/::1793711596
 guanlin_town.gd::GDScript::8072810636796031049::1793711551::0::1::::GuanlinTown<>Node3D<><>0<>0<><>::
-guanlin_town.tscn::PackedScene::-1::1793711669::0::1::::<><><>0<>0<><>::res://client/scenes/world/guanlin_town.gd<>res://client/scenes/ui/hud.tscn<>res://client/scenes/entities/player.tscn<>res://client/scenes/entities/npc.tscn<>res://client/scenes/entities/monster.tscn<>res://assets/models/house_cottage.glb<>res://assets/models/tree_fantasy.glb<>res://assets/models/rock_boulder.glb<>res://assets/models/prop_fence.glb
+guanlin_town.tscn::PackedScene::-1::1793712518::0::1::::<><><>0<>0<><>::res://client/scenes/world/guanlin_town.gd<>res://client/scenes/ui/hud.tscn<>res://client/scenes/entities/player.tscn<>res://client/scenes/entities/npc.tscn<>res://client/scenes/entities/monster.tscn<>res://assets/models/building_hall.glb<>res://assets/models/house_cottage.glb<>res://assets/models/prop_fountain.glb<>res://assets/models/prop_training_dummy.glb<>res://assets/models/tree_fantasy.glb<>res://assets/models/rock_boulder.glb<>res://assets/models/prop_fence.glb<>res://assets/models/monster_boar.glb<>res://assets/models/monster_spider.glb
 ::res://data/::1793711107
 classes.json::JSON::-1::1793710219::0::1::::<><><>0<>0<><>::
 equipment.json::JSON::-1::1793710238::0::1::::<><><>0<>0<><>::
@@ -46,4 +51,4 @@ combat_formulas.gd::GDScript::5445246932805703114::1793711613::0::1::::CombatFor
 data_manager.gd::GDScript::6037422035894654190::1793711188::0::1::::DataManager<>RefCounted<><>0<>0<><>::
 ::res://shared/network/::1793711596
 network_manager.gd::GDScript::643736636956747027::1793711201::0::1::::<>Node<><>0<>0<><>::
-::res://tools/::1793711647
+::res://tools/::1793712455

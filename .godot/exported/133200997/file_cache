@@ -3,4 +3,4 @@ res://client/scenes/entities/npc.tscn::9f1e61ecbf65b29ff2393c5af9da17b1::1793711
 res://client/scenes/entities/player.tscn::c8155aaa57d8d391839dc66b9680d7ab::1793711669::res://.godot/exported/133200997/export-2830496fd966d7e366207b184a82c813-player.scn
 res://client/scenes/ui/hud.tscn::b7751f852b2a0cf43bbaf38cb3ea612a::1793711669::res://.godot/exported/133200997/export-2b67b82663b155ac061423cc7e822c5e-hud.scn
 res://client/scenes/ui/virtual_joystick.tscn::32c9f76f784460b5502844786e3463e9::1793711669::res://.godot/exported/133200997/export-3a8c97b19d63fd30ce053261f2a5bac0-virtual_joystick.scn
-res://client/scenes/world/guanlin_town.tscn::75e533418b4f5ec963c281c0495fa024::1793711669::res://.godot/exported/133200997/export-76a3e374757aec6dd644ad73c8d65a62-guanlin_town.scn
+res://client/scenes/world/guanlin_town.tscn::148643ddcd265ac1a548d8a280f7be0d::1793712518::res://.godot/exported/133200997/export-76a3e374757aec6dd644ad73c8d65a62-guanlin_town.scn

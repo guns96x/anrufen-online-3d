@@ -117,17 +117,25 @@ func _physics_process(delta: float) -> void:
 		
 	var dir_2d = move_direction
 	if dir_2d.length() > 0.05:
-		# Calculate camera-relative movement direction
-		var cam_yaw = deg_to_rad(cam_rot_h)
-		var forward = Vector3(sin(cam_yaw), 0, cos(cam_yaw))
-		var right = Vector3(cos(cam_yaw), 0, -sin(cam_yaw))
+		# True camera-relative movement:
+		# -Z of camera basis is forward, +X is right
+		var cam_basis = camera.global_transform.basis
+		var cam_forward = -cam_basis.z
+		cam_forward.y = 0.0
+		cam_forward = cam_forward.normalized()
 		
-		var wish_dir = (-forward * dir_2d.y + right * dir_2d.x).normalized()
+		var cam_right = cam_basis.x
+		cam_right.y = 0.0
+		cam_right = cam_right.normalized()
+		
+		# Joystick UP has negative Y -> moves forward
+		# Joystick RIGHT has positive X -> moves right
+		var wish_dir = (cam_forward * (-dir_2d.y) + cam_right * dir_2d.x).normalized()
 		
 		velocity.x = wish_dir.x * move_speed
 		velocity.z = wish_dir.z * move_speed
 		
-		# Smoothly rotate visual toward movement
+		# Smoothly rotate visual toward movement direction
 		var target_angle = atan2(-wish_dir.x, -wish_dir.z)
 		visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_angle, rotation_speed * delta)
 		
