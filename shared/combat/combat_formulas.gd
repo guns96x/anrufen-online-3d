@@ -1,7 +1,7 @@
 class_name CombatFormulas
 extends RefCounted
 
-# Ported from original Anrufen Online client/server Lua script (clt_script.godat)
+# Core Combat & Stat Calculation Formulas (Covenant RPG Engine)
 # Damage Types
 enum DamageType {
 	PHY = 1,
@@ -11,7 +11,7 @@ enum DamageType {
 	DARK = 5
 }
 
-# Combat Constants from script_5005.lua
+# Core combat constants and balance parameters (from game balance tables)
 const FATAL_RATE: float = 2.0 # Critical hit multiplier
 const MAGIC_SHIELD_RESIST_PER: float = 100.0
 

@@ -1,12 +1,12 @@
-# Covenant Chronicles 3D (Anrufen Online Reimagined)
+# Covenant Chronicles 3D
 
-> Повноцінна 3D MMORPG під Android на базі **Godot 4.7.2** та реконструйованих ресурсів легендарної мобільної MMORPG **Anrufen Online (契约)** від WiStone.
+> Авторська кросплатформна 3D MMORPG під Android на базі **Godot 4.7.2** у стилізованому низькополігональному фентезі-сетингу.
 
 ## 🔗 Репозиторій та ресурси
 - **GitHub**: [https://github.com/guns96x/anrufen-online-3d](https://github.com/guns96x/anrufen-online-3d)
 - **Локальна директорія**: `C:\Users\pavlo\anrufen-online-3d`
-- **Витягнуті оригінальні ресурси SISX**: `C:\Users\pavlo\anrufen_extracted`
-- **Зібраний Android APK (28.5 MB)**: `C:\Users\pavlo\anrufen-online-3d\build\covenant_chronicles.apk`
+- **Зібраний Android APK**: `C:\Users\pavlo\anrufen-online-3d\build\covenant_chronicles.apk`
+- **Цільовий мобільний пристрій**: Samsung Galaxy S24 FE (`s24-fe`) через Tailscale (`100.105.189.114`)
 
 ---
 
@@ -15,22 +15,22 @@
 ```
 anrufen-online-3d/
 ├── assets/
-│   └── models/               # 3D моделі (GLB): Ратуша, фонтан, манекени, будинки, дерева, монстри
+│   └── models/               # Стилізовані 3D моделі (GLB): Ратуша, фонтан, манекени, будинки, дерева, монстри
 ├── client/
 │   └── scenes/
 │       ├── entities/         # Персонаж (Player), NPC (Elder, Militia, Smith), Монстри (Boar, Spider, Jackal)
 │       ├── ui/               # Touch HUD, динамічний плаваючий джойстик, квест-трекер, діалоги
-│       └── world/            # guanlin_town.tscn — повноцінна стартова 3D-локація
-├── data/                     # Декодовані дані з оригінального SISX (713 квестів, 384 монстри, сцени)
-│   ├── classes.json
-│   ├── equipment.json
-│   ├── monsters.json
-│   ├── quests.json
-│   ├── scenes.json
-│   └── scripts_original/     # Оригінальні Lua-скрипти бойових формул (clt_script.godat)
+│       └── world/            # guanlin_town.tscn — стартова 3D-локація (Guanlin Town)
+├── data/                     # Дизайн-бази даних гри (713 квестів, 384 монстри, сцени, екіпірування)
+│   ├── classes.json          # Класи та характеристики
+│   ├── equipment.json        # Таблиці спорядження та параметрів
+│   ├── monsters.json         # Бестіарій монстрів
+│   ├── quests.json           # Дерево квестів та діалогів
+│   ├── scenes.json           # Координати та конфігурація локацій
+│   └── balance/              # Базові формули балансу та бойових розрахунків
 ├── shared/
 │   ├── combat/               # Розрахунок урону, типи шкоди (PHY, FIRE, WATER, HOLY, DARK), крит, ухилення
-│   ├── data/                 # DataManager для швидкого завантаження сутностей
+│   ├── data/                 # DataManager для швидкого доступу до ігрових даних
 │   └── network/              # NetworkManager (ENet RPC, синхронізація гравців)
 ├── tools/
 │   ├── build_guanlin_assets.py # Генератор 3D-асетів через Blender 5.0.1
