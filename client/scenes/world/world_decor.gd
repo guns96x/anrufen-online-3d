@@ -272,16 +272,34 @@ func _batch_trees(parent: Node3D) -> void:
 	source.free()
 
 func _scatter_rocks() -> void:
+	var foliage: Node = get_parent().get_node_or_null("ForestFoliage")
+	if foliage:
+		for node: Node in foliage.get_children():
+			if str(node.name).begins_with("Rock"):
+				_stone_skin(node)
+				(node as Node3D).scale *= 0.7
 	for i: int in 16:
 		var p: Vector2 = _rand_point(3.0)
 		if _is_blocked(p) or p.y < GuanlinLayout.GATE_Z + 4.0 and p.y > -70.0:
 			continue
 		var r: Node3D = ROCK_SCENE.instantiate()
-		var s: float = rng.randf_range(0.6, 1.6)
+		_stone_skin(r)
+		var s: float = rng.randf_range(0.45, 1.0)
 		r.position = Vector3(p.x, -0.1, p.y)
 		r.rotation.y = rng.randf() * TAU
 		r.scale = Vector3(s, s * rng.randf_range(0.7, 1.1), s)
 		add_child(r)
+
+## Mossy stone material from the village kit instead of the flat white boulder.
+func _stone_skin(rock: Node) -> void:
+	var stone: StandardMaterial3D = StandardMaterial3D.new()
+	stone.albedo_texture = preload("res://assets/village/T_RockTrim_BaseColor.png")
+	stone.albedo_color = Color(0.62, 0.66, 0.6)
+	stone.uv1_triplanar = true
+	stone.uv1_scale = Vector3(0.6, 0.6, 0.6)
+	stone.roughness = 0.95
+	for node: Node in rock.find_children("*", "MeshInstance3D", true, false):
+		(node as MeshInstance3D).material_override = stone
 
 # ------------------------------------------------------------------ Props ---
 

@@ -22,6 +22,7 @@ func _ready() -> void:
 	add_child(presentation)
 	_configure_citizens()
 	_spawn_bandits()
+	_dress_creatures()
 	for id: int in ForestForage.POINTS:
 		var patch: ForagePatch = ForagePatch.new()
 		patch.name = "WildVegetables%d" % id
@@ -212,6 +213,32 @@ func _dress_citizen(npc: NPC, role: String, variant: int) -> void:
 	for child: Node in npc.visual_root.get_children():
 		child.free()
 	npc.visual_root.add_child(CitizenLook.mailbox() if role == "mailbox" else CitizenLook.build(role, variant))
+
+## Forest creatures built by tools/build_creatures.py: [model, scale, yaw degrees].
+const CREATURES: Dictionary = {
+	"вепр": ["res://assets/creatures/boar.glb", 0.17, 180.0],
+	"павук": ["res://assets/creatures/spider.glb", 0.75, 0.0],
+	"шакал": ["res://assets/creatures/jackal.glb", 0.15, 90.0],
+}
+
+func _dress_creatures() -> void:
+	for node: Node in $Monsters.get_children():
+		var monster: Monster = node as Monster
+		if monster == null or monster.animator != null:
+			continue
+		var key: String = ""
+		for word: String in CREATURES:
+			if word in monster.monster_name.to_lower():
+				key = word
+		if key.is_empty():
+			continue
+		for child: Node in monster.visual_root.get_children():
+			child.free()
+		var model: Node3D = (load(CREATURES[key][0]) as PackedScene).instantiate()
+		model.scale = Vector3.ONE * float(CREATURES[key][1])
+		model.rotation.y = deg_to_rad(float(CREATURES[key][2]))
+		monster.visual_root.add_child(model)
+		MobAnimator.attach(monster, "creature")
 
 func _spawn_bandits() -> void:
 	var index: int = 0

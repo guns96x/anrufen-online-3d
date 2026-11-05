@@ -5,6 +5,7 @@ extends Node
 ## one-shot attack, hit and death clips. Clip names come from the rig family.
 
 const RIGS: Dictionary = {
+	"creature": {"idle": "Idle", "walk": "Walk", "run": "Walk", "attack": ["Attack"], "hit": "Hit", "death": "Death", "dead": ""},
 	"kaykit": {"idle": "Idle", "walk": "Walking_A", "run": "Running_A", "attack": ["1H_Melee_Attack_Stab", "Dualwield_Melee_Attack_Slice", "1H_Melee_Attack_Chop"], "hit": "Hit_A", "death": "Death_A", "dead": "Death_A_Pose"},
 }
 
@@ -22,9 +23,10 @@ static func attach(owner_monster: Monster, rig: String = "kaykit") -> MobAnimato
 	animator.anim = owner_monster.visual_root.find_child("AnimationPlayer", true, false)
 	owner_monster.add_child(animator)
 	owner_monster.animator = animator
-	# Rigged humanoids are taller than the old beasts: lift name and health above the head.
-	owner_monster.name_label.position.y = 2.75
-	owner_monster.hp_bar_3d.position.y = 2.5
+	if rig == "kaykit":
+		# Rigged humanoids are taller than the old beasts: lift name and health above the head.
+		owner_monster.name_label.position.y = 2.75
+		owner_monster.hp_bar_3d.position.y = 2.5
 	for loop: String in [animator.clips["idle"], animator.clips["walk"], animator.clips["run"], animator.clips["dead"]]:
 		if animator.anim and animator.anim.has_animation(loop):
 			animator.anim.get_animation(loop).loop_mode = Animation.LOOP_LINEAR
@@ -72,3 +74,7 @@ func _process(delta: float) -> void:
 	var clip: String = clips["run"] if speed > 2.6 else clips["walk"] if speed > 0.3 else clips["idle"]
 	if anim.current_animation != clip:
 		anim.play(clip, 0.15)
+	if clip == clips["walk"] and clips["walk"] == clips["run"]:
+		anim.speed_scale = clampf(speed / 2.0, 0.8, 2.2)
+	else:
+		anim.speed_scale = 1.0
