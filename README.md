@@ -1,4 +1,4 @@
-# Covenant Chronicles 3D — functional build v0.5.0
+# Covenant Chronicles 3D — build v0.7.0
 
 Godot 4.7.2, Android landscape and Windows. This build upgrades the first playable
 area and its RPG systems; it is not a finished MMO. Original source archives and
@@ -9,8 +9,8 @@ separately under data/original with a reproducible decoder and SHA-256 manifest.
 
 Windows: run `Play_Game.bat`.
 
-Android: install `build/covenant_chronicles_v0.5.0.apk` (arm64, same debug signing
-identity, package `com.covenant.chronicles`, version code 5).
+Android: install `build/covenant_chronicles_v0.7.0.apk` (arm64, same debug signing
+identity, package `com.covenant.chronicles`, version code 7).
 
 Desktop controls: WASD/arrows move, E talk, Space/J attack, 1/K assigned skill,
 2/3/4 cast other assigned skills, Shift/L dash, right mouse drag rotates the camera, mouse wheel zooms. Keys can
@@ -25,7 +25,22 @@ Anna and the smuggler. Finish their ten-enemy objectives and reach level eight
 before returning all three reports. The quest tracker and minimap indicate the
 next available giver and turn-in destination.
 
-## Changes in this build
+## v0.7.0 — Guanlin Town rebuilt
+
+- Town plan follows the original `city_guanlinzhen.wim` (decoded, see `docs/reference/`):
+  crossroads plaza, chapel with tower, tavern, homes, alchemy, smithy, inn, market and
+  consignment arcade, log palisade and a forest gate (`shared/world/guanlin_layout.gd`).
+- Buildings are assembled from the CC0 Quaternius Medieval Village kit (`assets/village`)
+  by `TownBuilder` and baked into one mesh per texture with generated LODs.
+- All 34 original citizens stand at their source tiles with their roles, dressed from
+  the CC0 KayKit Adventurers (`CitizenLook`).
+- The hero is a KayKit knight (mage for magic classes) with gear tiers every 10 levels and
+  real locomotion, strike, cast, dodge, hit and death animations (`HeroAvatar`).
+- Renders: `tools/capture_town.gd`, `tools/capture_hero.gd`. Original art decoders:
+  `tools/original_art/`.
+- Known: `companions_test` and `pet_runes_test` were already failing before v0.7.0.
+
+## Changes in v0.5.0
 
 - Inventory, nine equipment slots, item locks, shop, bank, synthesis, potions,
   gradual food, bag/bank expansion and skill-reset books; 1,722 catalog entries.
