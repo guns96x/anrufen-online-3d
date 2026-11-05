@@ -81,7 +81,7 @@ var ui_hit_test: Callable = Callable()
 var controls_blocked: bool = false
 var _camera_impulse: float = 0.0
 var _mouse_orbit: bool = false
-var _motion: CharacterMotion
+var _motion: HeroAvatar
 var pathfinder: GridPathfinder = GridPathfinder.new()
 var navigation_route: PackedVector3Array = []
 var navigation_target: Vector3 = Vector3.ZERO
@@ -107,9 +107,8 @@ func _ready() -> void:
 	var mount_visual: MountVisual = MountVisual.new()
 	mount_visual.player = self
 	add_child(mount_visual)
-	_motion = CharacterMotion.new()
+	_motion = HeroAvatar.new()
 	_motion.actor = self
-	_motion.model = visual_root
 	add_child(_motion)
 	if is_local_player:
 		camera.make_current()
@@ -345,8 +344,7 @@ func _physics_process(delta: float) -> void:
 			var target_angle: float = atan2(-wish_dir.x, -wish_dir.z)
 			visual_root.rotation.y = lerp_angle(visual_root.rotation.y, target_angle, rotation_speed * delta)
 
-			# Stylized bobbing step
-			visual_root.position.y = absf(sin(Time.get_ticks_msec() * 0.012)) * 0.12 + (0.85 if stats.get("mounted",false) else 0.0)
+			visual_root.position.y = move_toward(visual_root.position.y, 0.85 if stats.get("mounted",false) else 0.0, delta * 3.0)
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed * 10.0 * delta)
 			velocity.z = move_toward(velocity.z, 0, move_speed * 10.0 * delta)
@@ -406,10 +404,6 @@ func perform_attack() -> void:
 	_motion.strike_left = 0.35
 	CombatFeedback.arc(get_parent(), global_position, orig_rot, Color(0.75, 0.92, 1.0, 0.8))
 	CombatFeedback.sound(self, "swing", -20.0)
-	var tween: Tween = create_tween()
-	tween.tween_property(visual_root, "rotation:y", orig_rot + 0.6, 0.08)
-	tween.tween_property(visual_root, "rotation:y", orig_rot - 0.4, 0.12)
-	tween.tween_property(visual_root, "rotation:y", orig_rot, 0.1)
 
 	# Melee range check (closest monster in front)
 	var forward: Vector3 = -visual_root.global_transform.basis.z.normalized()
@@ -479,6 +473,7 @@ func perform_skill_1() -> void:
 			_motion.strike_left = 0.35
 		"fire", "ice":
 			current_target = target
+			_motion.cast()
 			_cast_projectile(target,rank,effect == "ice")
 
 func _cast_projectile(target: Monster, rank: int, ice: bool) -> void:
@@ -517,6 +512,7 @@ func perform_skill_2() -> void:
 	forward.y = 0.0
 	dash_dir = forward.normalized()
 	dash_timer = DASH_DURATION
+	_motion.dodge()
 	CombatFeedback.sound(self, "swing", -23.0)
 
 func _nearest_monster(max_dist: float) -> Monster:
@@ -563,6 +559,8 @@ func take_damage(amount: int) -> void:
 	_float_text(global_position + Vector3(0, 1.5, 0), str(amount), Color(1, 0.3, 0.3))
 	if stats["hp"] <= 0:
 		die()
+	elif amount > 0:
+		_motion.hurt()
 
 func die() -> void:
 	stats["skill_effects"] = []
@@ -572,8 +570,7 @@ func die() -> void:
 	respawn_timer = respawn_delay
 	dash_timer = 0.0
 	current_target = null
-	var tween: Tween = create_tween()
-	tween.tween_property(visual_root, "rotation:x", deg_to_rad(-85.0), 0.4)
+	_motion.die()
 	died.emit()
 
 func respawn() -> void:
@@ -581,6 +578,7 @@ func respawn() -> void:
 	global_position = spawn_point
 	velocity = Vector3.ZERO
 	visual_root.rotation.x = 0.0
+	_motion.revive()
 	stats["hp"] = stats["max_hp"]
 	stats["mp"] = stats["max_mp"]
 	time_since_combat = 99.0

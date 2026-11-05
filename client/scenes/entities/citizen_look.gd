@@ -73,6 +73,7 @@ static func build(role: String, variant: int = 0) -> Node3D:
 					tinted.albedo_color = tint
 					mi.set_surface_override_material(s, tinted)
 	model.scale = Vector3.ONE * float(look[4])
+	model.rotation.y = PI   # KayKit faces +Z; NPC visuals face -Z toward the player
 	var player: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
 	if player:
 		var idle: String = look[3]
