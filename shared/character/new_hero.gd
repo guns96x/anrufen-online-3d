@@ -13,7 +13,8 @@ const STARTER_CLASSES: Array[int] = [130001, 130002]
 ## Night elves: lavender skin and silver hair tint on the KayKit head and hands.
 const ELF_SKIN: Color = Color(0.6, 0.48, 0.98)
 
-static func begin(hero_name: String, race_id: int, class_id: int) -> void:
+static func begin(hero_name: String, race_id: int, class_id: int, slot: int = HeroSlots.active) -> void:
+	HeroSlots.active = slot
 	pending = {"name": hero_name, "race_id": race_id, "class_id": class_id}
 	play_intro = true
 

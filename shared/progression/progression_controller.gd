@@ -22,8 +22,7 @@ var _last_citizen_id: int = 0
 var _mutating: bool = false
 
 func _init(custom_save_path: String = "") -> void:
-	if not custom_save_path.is_empty():
-		save_file_path = custom_save_path
+	save_file_path = custom_save_path if not custom_save_path.is_empty() else HeroSlots.path(HeroSlots.active)
 	_init_default_quests()
 
 func _ready() -> void:

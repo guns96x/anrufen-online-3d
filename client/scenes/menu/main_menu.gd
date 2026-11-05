@@ -146,7 +146,7 @@ func _refresh_hero() -> void:
 
 func _process(delta: float) -> void:
 	_time += delta
-	var creating: bool = create_box != null and create_box.visible
+	var creating: bool = (create_box != null and create_box.visible) or (slots_box != null and (slots_box.visible or settings_box.visible))
 	var target: Vector3 = Vector3(-1.6, 1.25, 4.6) if creating else Vector3(1.4 + sin(_time * 0.15) * 0.8, 2.2, 9.5)
 	camera.position = camera.position.lerp(target, minf(1.0, delta * 2.0))
 	camera.look_at(Vector3(0.2 if creating else 0.0, 1.0 if creating else 1.4, 0))
@@ -191,9 +191,8 @@ func _build_ui() -> void:
 	var gap: Control = Control.new()
 	gap.custom_minimum_size = Vector2(0, 30)
 	title_box.add_child(gap)
-	if FileAccess.file_exists(ProgressionController.DEFAULT_SAVE_PATH):
-		_menu_button("Продовжити", _continue, true)
-	_menu_button("Новий герой", _show_create, not FileAccess.file_exists(ProgressionController.DEFAULT_SAVE_PATH))
+	_menu_button("Грати", _show_slots, true)
+	_menu_button("Налаштування", _show_settings)
 	if not OS.has_feature("mobile"):
 		_menu_button("Вихід", func() -> void: get_tree().quit())
 	var version: Label = Label.new()
@@ -203,6 +202,193 @@ func _build_ui() -> void:
 	version.position = Vector2(24, -36)
 	root.add_child(version)
 	_build_create(root)
+	slots_box = _side_panel(root, "Герої")
+	settings_box = _side_panel(root, "Налаштування")
+
+# ------------------------------------------------------- Slots & settings ---
+
+var slots_box: Control
+var settings_box: Control
+var _create_slot: int = 0
+
+func _side_panel(root: Control, heading: String) -> Control:
+	var panel: PanelContainer = PanelContainer.new()
+	var style: StyleBoxFlat = HudSkin.panel_style(Color(0.05, 0.065, 0.09, 0.92), HudSkin.GOLD, 16, 1)
+	style.content_margin_left = 24
+	style.content_margin_right = 24
+	style.content_margin_top = 20
+	style.content_margin_bottom = 20
+	panel.add_theme_stylebox_override("panel", style)
+	panel.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
+	panel.offset_left = -620
+	panel.offset_right = -36
+	panel.clip_contents = true
+	panel.offset_top = 36
+	panel.offset_bottom = -36
+	panel.hide()
+	root.add_child(panel)
+	var col: VBoxContainer = VBoxContainer.new()
+	col.name = "Column"
+	col.add_theme_constant_override("separation", 12)
+	panel.add_child(col)
+	var top: HBoxContainer = HBoxContainer.new()
+	col.add_child(top)
+	var title: Label = MenuSkin.title(heading, 36)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	top.add_child(title)
+	var close: Button = Button.new()
+	close.text = "Назад"
+	close.custom_minimum_size = Vector2(120, 46)
+	close.pressed.connect(_show_title)
+	top.add_child(close)
+	var body: VBoxContainer = VBoxContainer.new()
+	body.name = "Body"
+	body.add_theme_constant_override("separation", 12)
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	col.add_child(body)
+	return panel
+
+func _body(panel: Control) -> VBoxContainer:
+	var body: VBoxContainer = panel.get_node("Column/Body")
+	for child: Node in body.get_children():
+		child.queue_free()
+	return body
+
+func _show_slots() -> void:
+	title_box.hide()
+	create_box.hide()
+	settings_box.hide()
+	slots_box.show()
+	var body: VBoxContainer = _body(slots_box)
+	for slot: int in HeroSlots.COUNT:
+		var first: Dictionary = HeroSlots.summary(slot)
+		if first:
+			race_id = int(first["race_id"])
+			class_id = int(first["class_id"]) if int(first["class_id"]) in CLASS_INFO else (130002 if int(first["class_id"]) in HeroAvatar.MAGE_CLASSES else 130001)
+			_refresh_hero()
+			break
+	for slot: int in HeroSlots.COUNT:
+		var hero: Dictionary = HeroSlots.summary(slot)
+		var card: PanelContainer = PanelContainer.new()
+		var frame: StyleBoxFlat = HudSkin.panel_style(Color(0.09, 0.11, 0.15, 0.95), Color(0.85, 0.71, 0.42, 0.55 if hero else 0.25), 12, 1)
+		frame.shadow_size = 0
+		frame.content_margin_left = 16
+		frame.content_margin_right = 16
+		frame.content_margin_top = 14
+		frame.content_margin_bottom = 14
+		card.add_theme_stylebox_override("panel", frame)
+		body.add_child(card)
+		var row: HBoxContainer = HBoxContainer.new()
+		row.add_theme_constant_override("separation", 14)
+		card.add_child(row)
+		var portrait: TextureRect = TextureRect.new()
+		portrait.custom_minimum_size = Vector2(54, 54)
+		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		portrait.texture = HudSkin.icon(("wizard-staff" if int(hero.get("class_id", 0)) in HeroAvatar.MAGE_CLASSES else "visored-helm") if hero else "knapsack")
+		portrait.modulate = HudSkin.GOLD_LIGHT if hero else Color(0.45, 0.47, 0.52)
+		row.add_child(portrait)
+		var text: VBoxContainer = VBoxContainer.new()
+		text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(text)
+		if hero:
+			text.add_child(MenuSkin.title(str(hero["name"]), 26))
+			var meta: Label = Label.new()
+			meta.text = "%s · %s · рівень %d" % [NewHero.RACES.get(int(hero["race_id"]), ""), CharacterSystem.CLASSES.get(int(hero["class_id"]), ""), int(hero["level"])]
+			meta.add_theme_color_override("font_color", Color(0.7, 0.73, 0.8))
+			meta.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			meta.custom_minimum_size.x = 160
+			text.add_child(meta)
+			var play: Button = Button.new()
+			play.text = "Грати"
+			play.custom_minimum_size = Vector2(110, 48)
+			play.add_theme_stylebox_override("normal", MenuSkin.theme().get_stylebox("pressed", "Button"))
+			play.add_theme_color_override("font_color", Color("1a1206"))
+			play.pressed.connect(_play_slot.bind(slot))
+			row.add_child(play)
+			var remove: Button = Button.new()
+			remove.text = "✕"
+			remove.tooltip_text = "Видалити героя"
+			remove.custom_minimum_size = Vector2(48, 48)
+			remove.pressed.connect(_confirm_delete.bind(slot, remove))
+			row.add_child(remove)
+		else:
+			text.add_child(MenuSkin.title("Вільний слот", 24))
+			var hint: Label = Label.new()
+			hint.text = "Створи нового героя"
+			hint.add_theme_color_override("font_color", Color(0.55, 0.58, 0.64))
+			text.add_child(hint)
+			var create: Button = Button.new()
+			create.text = "Створити"
+			create.custom_minimum_size = Vector2(130, 48)
+			create.pressed.connect(func() -> void:
+				_create_slot = slot
+				_show_create())
+			row.add_child(create)
+
+func _confirm_delete(slot: int, button: Button) -> void:
+	if button.text != "Точно?":
+		button.text = "Точно?"
+		button.custom_minimum_size.x = 96
+		return
+	HeroSlots.delete(slot)
+	_show_slots()
+
+func _play_slot(slot: int) -> void:
+	HeroSlots.active = slot
+	CombatFeedback.sound(self, "ui_ready", -10.0)
+	get_tree().change_scene_to_file(TOWN)
+
+func _show_settings() -> void:
+	title_box.hide()
+	create_box.hide()
+	slots_box.hide()
+	settings_box.show()
+	var body: VBoxContainer = _body(settings_box)
+	var settings: SettingsStore = SettingsStore.current()
+	for entry: Array in [["master_volume", "Загальна гучність"], ["music_volume", "Музика й оточення"], ["effects_volume", "Ефекти"], ["camera_sensitivity", "Чутливість камери"], ["joystick_opacity", "Видимість джойстика"]]:
+		var row: HBoxContainer = HBoxContainer.new()
+		body.add_child(row)
+		var label: Label = Label.new()
+		label.text = entry[1]
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(label)
+		var slider: HSlider = HSlider.new()
+		slider.custom_minimum_size = Vector2(240, 40)
+		slider.min_value = 0.2 if entry[0] == "camera_sensitivity" else 0.0
+		slider.max_value = 3.0 if entry[0] == "camera_sensitivity" else 1.0
+		slider.step = 0.05
+		slider.value = float(settings.get_value(entry[0]))
+		slider.value_changed.connect(func(value: float) -> void: settings.set_value(entry[0], value))
+		row.add_child(slider)
+	for entry: Array in [["quality", "Якість графіки", ["low", "medium", "high"], ["Низька", "Середня", "Висока"]], ["fps_limit", "Кадрів за секунду", [30, 60, 120], ["30", "60", "120"]]]:
+		var row: HBoxContainer = HBoxContainer.new()
+		body.add_child(row)
+		var label: Label = Label.new()
+		label.text = entry[1]
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(label)
+		var choice: OptionButton = OptionButton.new()
+		choice.custom_minimum_size = Vector2(240, 44)
+		for index: int in entry[3].size():
+			choice.add_item(entry[3][index])
+			if entry[2][index] == settings.get_value(entry[0]):
+				choice.selected = index
+		choice.item_selected.connect(func(index: int) -> void: settings.set_value(entry[0], entry[2][index]))
+		row.add_child(choice)
+	for entry: Array in [["show_names", "Показувати імена"], ["show_damage", "Показувати шкоду"], ["invert_camera_y", "Інвертувати камеру по вертикалі"]]:
+		var box: CheckButton = CheckButton.new()
+		box.text = entry[1]
+		box.custom_minimum_size.y = 44
+		box.button_pressed = bool(settings.get_value(entry[0]))
+		box.toggled.connect(func(value: bool) -> void: settings.set_value(entry[0], value))
+		body.add_child(box)
+	var note: Label = Label.new()
+	note.text = "Клавіші, бойові опції й авто-зілля — у меню гри, розділ «Налаштування»."
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	note.add_theme_color_override("font_color", Color(0.55, 0.58, 0.64))
+	note.add_theme_font_size_override("font_size", 13)
+	body.add_child(note)
 
 func _menu_button(text: String, action: Callable, primary: bool = false) -> Button:
 	var b: Button = Button.new()
@@ -269,7 +455,7 @@ func _build_create(root: Control) -> void:
 	var back: Button = Button.new()
 	back.text = "Назад"
 	back.custom_minimum_size = Vector2(130, 56)
-	back.pressed.connect(_show_title)
+	back.pressed.connect(_show_slots)
 	row.add_child(back)
 	var start: Button = Button.new()
 	start.text = "Почати пригоду"
@@ -348,18 +534,20 @@ func _update_cards() -> void:
 func _show_title() -> void:
 	title_box.show()
 	create_box.hide()
+	if slots_box:
+		slots_box.hide()
+		settings_box.hide()
 
 func _show_create() -> void:
 	title_box.hide()
+	slots_box.hide()
+	settings_box.hide()
 	create_box.show()
-
-func _continue() -> void:
-	get_tree().change_scene_to_file(TOWN)
 
 func _start_adventure() -> void:
 	var hero_name: String = name_edit.text.strip_edges()
 	if hero_name.length() < 2:
 		hero_name = NAMES[0]
-	NewHero.begin(hero_name, race_id, class_id)
+	NewHero.begin(hero_name, race_id, class_id, _create_slot)
 	CombatFeedback.sound(self, "ui_ready", -10.0)
 	get_tree().change_scene_to_file(TOWN)

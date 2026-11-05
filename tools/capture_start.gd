@@ -22,6 +22,12 @@ func _run() -> void:
 	menu._refresh_hero()
 	await create_timer(1.6).timeout
 	await _shot("create")
+	menu._show_slots()
+	await create_timer(0.8).timeout
+	await _shot("slots")
+	menu._show_settings()
+	await create_timer(0.6).timeout
+	await _shot("settings")
 	menu.queue_free()
 	await process_frame
 	NewHero.play_intro = true
