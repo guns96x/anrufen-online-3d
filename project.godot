@@ -8,7 +8,7 @@ config_version=5
 
 config/name="Covenant Chronicles 3D"
 config/description="3D Reimagined Fantasy RPG"
-config/version="0.9.3"
+config/version="0.9.4"
 run/main_scene="res://client/scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
