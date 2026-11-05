@@ -14,7 +14,8 @@ func _initialize() -> void:
 func run() -> void:
 	net = root.get_node("NetworkManager")
 	net.persistence_enabled = false
-	net.local_player_data = {"name": "Dedicated Client"}
+	net.local_player_data = {"name": "Ельвін"}
+	net.pending_hero = {"name": "Ельвін", "race_id": 250002, "class_id": 130002}
 	check(net.start_client("127.0.0.1", 17903), "client connects to the dedicated server")
 	var deadline: int = Time.get_ticks_msec() + 5000
 	while net.world_snapshot.is_empty() and Time.get_ticks_msec() < deadline:
@@ -37,6 +38,11 @@ func run() -> void:
 		moved = not row.is_empty() and Vector3(row["position"]).distance_to(start) > 0.5
 	check(moved, "server applies movement input and sends it back")
 	check(net.world_snapshot["state"].get("monsters", {}).size() > 0, "server simulates the forest monsters")
+	deadline = Time.get_ticks_msec() + 2000
+	while net.social_snapshot.get("profile", {}).is_empty() and Time.get_ticks_msec() < deadline:
+		await process_frame
+	var profile: Dictionary = net.social_snapshot.get("profile", {})
+	check(int(profile.get("class_id", 0)) == 130002 and int(profile.get("race_id", 0)) == 250002, "server created the chosen night-elf mage")
 	_finish()
 
 func _finish() -> void:

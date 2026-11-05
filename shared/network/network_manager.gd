@@ -37,6 +37,9 @@ var _checkpoint_timer: float = 0.0
 var _world_frozen: bool = false
 var _loots: Dictionary = {}
 var _next_loot: int = 1
+## Sent with the join request; read only for an account created by that join.
+var pending_hero: Dictionary = {}
+var _join_hero: Dictionary = {}
 
 func _ready() -> void:
 	var args: PackedStringArray = OS.get_cmdline_user_args()
@@ -182,7 +185,7 @@ func _on_peer_disconnected(peer: int) -> void:
 
 func _on_connected_ok() -> void:
 	_connecting = false
-	rpc_id(1,"_server_join",_safe_name(local_player_data.get("name"),multiplayer.get_unique_id()),_identity_token())
+	rpc_id(1,"_server_join",_safe_name(local_player_data.get("name"),multiplayer.get_unique_id()),_identity_token(),pending_hero)
 	connected_ok.emit()
 
 func _on_connection_fail() -> void:
@@ -204,14 +207,16 @@ func _allow_request(peer: int) -> bool:
 	return int(rate["count"]) <= 20
 
 @rpc("any_peer","call_remote","reliable")
-func _server_join(name: Variant, token: Variant = "") -> void:
+func _server_join(name: Variant, token: Variant = "", hero: Variant = {}) -> void:
 	if not is_server or _server_state == null:
 		return
 	var sender: int = multiplayer.get_remote_sender_id()
 	if sender <= 1 or not _allow_request(sender) or not SessionStore.token_valid(token):
 		return
+	_join_hero = hero if hero is Dictionary else {}
 	if _admit(sender,_safe_name(name,sender),str(token)):
 		_broadcast()
+	_join_hero = {}
 
 @rpc("any_peer","call_remote","reliable")
 func _server_request(action: Variant, payload: Variant) -> void:
@@ -296,7 +301,28 @@ func _apply_snapshot(snapshot: Dictionary) -> void:
 			player_left.emit(id)
 	players = next_players
 	social_snapshot = snapshot.duplicate(true)
+	if not is_server and snapshot.get("profile") is Dictionary and not snapshot["profile"].is_empty():
+		var card: Dictionary = snapshot["profile"].duplicate()
+		card["name"] = snapshot.get("name", card.get("name", ""))
+		OnlineSession.remember(OnlineSession.slot, card)
 	state_updated.emit(social_snapshot)
+
+## A brand-new account takes the race and class chosen on the creation screen.
+func _apply_new_hero(account: int) -> void:
+	if _join_hero.is_empty():
+		return
+	var race: int = int(_join_hero.get("race_id", 250001))
+	var class_id: int = int(_join_hero.get("class_id", 130001))
+	if race not in NewHero.RACES or class_id not in NewHero.STARTER_CLASSES or not _server_state.players.has(account):
+		return
+	var profile: Dictionary = _server_state.players[account]["profile"]
+	CharacterSystem.ensure_stats(profile)
+	for field: String in ["hp", "max_hp", "mp", "max_mp"]:
+		if not profile.has(field):
+			profile[field] = 100 if field.ends_with("hp") else 50
+	if class_id != int(profile.get("class_id", 130001)) or race != int(profile.get("race_id", 250001)):
+		CharacterSystem.choose_class(profile, class_id, race)
+	CharacterSystem.rebuild_stats(profile, CharacterSystem.equipment_bonuses(profile))
 
 func _identity_token() -> String:
 	if not _identity.is_empty():
@@ -334,6 +360,7 @@ func _admit(peer: int, name: String, token: String) -> bool:
 			return false
 		_next_account += 1
 		_registry[hash_key] = account
+		_apply_new_hero(account)
 	elif not _server_state.reconnect(account,name):
 		_send_notice(peer,"Цей мережевий персонаж уже підключений.")
 		return false

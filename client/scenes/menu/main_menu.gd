@@ -261,14 +261,14 @@ func _show_slots() -> void:
 	slots_box.show()
 	var body: VBoxContainer = _body(slots_box)
 	for slot: int in HeroSlots.COUNT:
-		var first: Dictionary = HeroSlots.summary(slot)
+		var first: Dictionary = _slot_summary(slot)
 		if first:
 			race_id = int(first["race_id"])
 			class_id = int(first["class_id"]) if int(first["class_id"]) in CLASS_INFO else (130002 if int(first["class_id"]) in HeroAvatar.MAGE_CLASSES else 130001)
 			_refresh_hero()
 			break
 	for slot: int in HeroSlots.COUNT:
-		var hero: Dictionary = HeroSlots.summary(slot)
+		var hero: Dictionary = _slot_summary(slot)
 		var card: PanelContainer = PanelContainer.new()
 		var frame: StyleBoxFlat = HudSkin.panel_style(Color(0.09, 0.11, 0.15, 0.95), Color(0.85, 0.71, 0.42, 0.55 if hero else 0.25), 12, 1)
 		frame.shadow_size = 0
@@ -331,11 +331,18 @@ func _confirm_delete(slot: int, button: Button) -> void:
 		button.text = "Точно?"
 		button.custom_minimum_size.x = 96
 		return
-	HeroSlots.delete(slot)
+	if OnlineSession.enabled:
+		OnlineSession.forget(slot)
+	else:
+		HeroSlots.delete(slot)
 	_show_slots()
+
+func _slot_summary(slot: int) -> Dictionary:
+	return OnlineSession.summary(slot) if OnlineSession.enabled else HeroSlots.summary(slot)
 
 func _play_slot(slot: int) -> void:
 	HeroSlots.active = slot
+	OnlineSession.slot = slot
 	CombatFeedback.sound(self, "ui_ready", -10.0)
 	get_tree().change_scene_to_file(TOWN)
 
@@ -383,6 +390,23 @@ func _show_settings() -> void:
 		box.button_pressed = bool(settings.get_value(entry[0]))
 		box.toggled.connect(func(value: bool) -> void: settings.set_value(entry[0], value))
 		body.add_child(box)
+	var server_row: HBoxContainer = HBoxContainer.new()
+	body.add_child(server_row)
+	var server_label: Label = Label.new()
+	server_label.text = "Адреса сервера (Tailscale)"
+	server_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	server_row.add_child(server_label)
+	var server_edit: LineEdit = LineEdit.new()
+	server_edit.text = OnlineSession.address()
+	server_edit.custom_minimum_size = Vector2(240, 44)
+	server_edit.text_changed.connect(func(value: String) -> void: OnlineSession.set_address(value))
+	server_row.add_child(server_edit)
+	var offline: CheckButton = CheckButton.new()
+	offline.text = "Офлайн-режим (лише для тестів)"
+	offline.custom_minimum_size.y = 44
+	offline.button_pressed = not OnlineSession.enabled
+	offline.toggled.connect(func(value: bool) -> void: OnlineSession.enabled = not value)
+	body.add_child(offline)
 	var note: Label = Label.new()
 	note.text = "Клавіші, бойові опції й авто-зілля — у меню гри, розділ «Налаштування»."
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -548,6 +572,11 @@ func _start_adventure() -> void:
 	var hero_name: String = name_edit.text.strip_edges()
 	if hero_name.length() < 2:
 		hero_name = NAMES[0]
+	OnlineSession.slot = _create_slot
 	NewHero.begin(hero_name, race_id, class_id, _create_slot)
+	if OnlineSession.enabled:
+		# The server creates and keeps the hero; the local save is left untouched.
+		NetworkManager.pending_hero = NewHero.pending.duplicate()
+		NewHero.pending = {}
 	CombatFeedback.sound(self, "ui_ready", -10.0)
 	get_tree().change_scene_to_file(TOWN)

@@ -49,6 +49,8 @@ func _ready() -> void:
 	bridge.world = self
 	add_child(bridge)
 	_update_hud_stats()
+	if OnlineSession.enabled and not ("--test-mode" in OS.get_cmdline_user_args() or "--review" in OS.get_cmdline_user_args()):
+		call_deferred("_join_server")
 	if NewHero.play_intro:
 		NewHero.play_intro = false
 		call_deferred("_play_intro")
@@ -57,11 +59,72 @@ func _ready() -> void:
 	print("[GuanlinTown] 3D World initialized. Ready for player!")
 
 var intro: IntroCinematic
+var _join_overlay: CanvasLayer
+
+## Online play: connect this slot's identity to the dedicated server.
+func _join_server() -> void:
+	var net: Node = get_node("/root/NetworkManager")
+	OnlineSession.prepare(net, net.pending_hero)
+	if not net.connection_err.is_connected(_on_join_failed):
+		net.connection_err.connect(_on_join_failed)
+	if not net.connected_ok.is_connected(_on_join_ok):
+		net.connected_ok.connect(_on_join_ok)
+	_show_join_overlay("Підключення до сервера %s…" % OnlineSession.address(), false)
+	if not net.start_client(OnlineSession.address()):
+		_on_join_failed()
+
+func _on_join_ok() -> void:
+	var net: Node = get_node("/root/NetworkManager")
+	net.pending_hero = {}
+	if is_instance_valid(_join_overlay):
+		_join_overlay.queue_free()
+
+func _on_join_failed() -> void:
+	_show_join_overlay("Не вдалося підключитися до сервера %s.\nПеревір, що сервер запущений і Tailscale увімкнений." % OnlineSession.address(), true)
+
+func _show_join_overlay(text: String, with_buttons: bool) -> void:
+	if is_instance_valid(_join_overlay):
+		_join_overlay.queue_free()
+	var layer: CanvasLayer = CanvasLayer.new()
+	layer.layer = 60
+	add_child(layer)
+	_join_overlay = layer
+	var dim: ColorRect = ColorRect.new()
+	dim.color = Color(0.02, 0.025, 0.035, 0.82)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.theme = MenuSkin.theme()
+	layer.add_child(dim)
+	var box: VBoxContainer = VBoxContainer.new()
+	box.set_anchors_preset(Control.PRESET_CENTER)
+	box.custom_minimum_size = Vector2(560, 0)
+	box.position = Vector2(-280, -90)
+	box.add_theme_constant_override("separation", 16)
+	dim.add_child(box)
+	var label: Label = MenuSkin.title(text, 26)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(label)
+	if with_buttons:
+		var row: HBoxContainer = HBoxContainer.new()
+		row.alignment = BoxContainer.ALIGNMENT_CENTER
+		row.add_theme_constant_override("separation", 12)
+		box.add_child(row)
+		var retry: Button = Button.new()
+		retry.text = "Повторити"
+		retry.custom_minimum_size = Vector2(180, 52)
+		retry.pressed.connect(_join_server)
+		row.add_child(retry)
+		var back: Button = Button.new()
+		back.text = "У меню"
+		back.custom_minimum_size = Vector2(180, 52)
+		back.pressed.connect(func() -> void: get_tree().change_scene_to_file("res://client/scenes/menu/main_menu.tscn"))
+		row.add_child(back)
 
 func _play_intro() -> void:
 	intro = IntroCinematic.new()
 	intro.world = self
-	intro.hero_name = str(local_player.stats.get("name", "Мандрівник"))
+	var pending: Dictionary = get_node("/root/NetworkManager").pending_hero
+	intro.hero_name = str(pending.get("name", local_player.stats.get("name", "Мандрівник")))
 	add_child(intro)
 
 func _bind_companion() -> void:
