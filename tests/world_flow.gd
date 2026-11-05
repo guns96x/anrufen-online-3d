@@ -29,7 +29,7 @@ func run() -> void:
 	var hud: GameHUD = world.hud
 	var progression: ProgressionController = hud.progression
 	progression.auto_save_enabled = false
-	check(get_nodes_in_group("npcs").size() == 9, "story and service citizens exist")
+	check(get_nodes_in_group("npcs").size() == GuanlinLayout.CITIZENS.size(), "story and service citizens exist")
 	check(get_nodes_in_group("monsters").size() == 16, "original wildlife and five bandits exist")
 	check(QuestData.DEFINITIONS.size() == 10 and not QuestData.DEFINITIONS.has(80003), "source investigation and cooking chain replace invented forging quest")
 	hud.quest_completed.connect(func(qid: int, _xp: int, _atk: int) -> void: completions[qid] = completions.get(qid, 0) + 1)

@@ -80,12 +80,68 @@ func house(pos: Vector3, yaw_deg: float, w: int, d: int, storeys: int, spec: Dic
 	if spec.get("chimney", false):
 		place(root, "Prop_Chimney", Vector3(hw - 1.0, top + 1.0, -hd + 1.0))
 	_solid(root, Vector3(0, top * 0.5, 0), Vector3(w * CELL, top, d * CELL))
+	bake(root)
 	return root
+
+## Merges every kit piece under root into one mesh per texture set, so a house
+## costs a handful of draw calls on mobile instead of one per wall surface.
+func bake(root: Node3D) -> void:
+	var tools: Dictionary = {}
+	var materials: Dictionary = {}
+	var pieces: Array[Node] = []
+	for child: Node in root.get_children():
+		if child is StaticBody3D or child is Light3D or child is Label3D or child.name == "Baked" 				or not child.find_children("*", "Label3D", true, false).is_empty() 				or not child.find_children("*", "Light3D", true, false).is_empty():
+			continue
+		pieces.append(child)
+		var meshes: Array[Node] = child.find_children("*", "MeshInstance3D", true, false)
+		if child is MeshInstance3D: meshes.append(child)
+		for node: Node in meshes:
+			if not node is MeshInstance3D:
+				continue
+			var mi: MeshInstance3D = node
+			var xf: Transform3D = _relative_transform(mi, root)
+			for surface: int in mi.mesh.get_surface_count():
+				var mat: Material = mi.get_active_material(surface)
+				var key: String = _material_key(mat)
+				if not tools.has(key):
+					var st: SurfaceTool = SurfaceTool.new()
+					st.begin(Mesh.PRIMITIVE_TRIANGLES)
+					tools[key] = st
+					materials[key] = mat
+				(tools[key] as SurfaceTool).append_from(mi.mesh, surface, xf)
+	# ImporterMesh keeps automatic LODs for the merged geometry, so distant houses stay cheap.
+	var importer: ImporterMesh = ImporterMesh.new()
+	for key: String in tools:
+		var st: SurfaceTool = tools[key]
+		st.index()
+		importer.add_surface(Mesh.PRIMITIVE_TRIANGLES, st.commit_to_arrays(), [], {}, materials[key])
+	importer.generate_lods(25.0, 60.0, [])
+	var merged: ArrayMesh = importer.get_mesh()
+	for piece: Node in pieces:
+		root.remove_child(piece)
+		piece.queue_free()
+	var baked: MeshInstance3D = MeshInstance3D.new()
+	baked.name = "Baked"
+	baked.mesh = merged
+	root.add_child(baked)
+
+func _relative_transform(node: Node3D, root: Node3D) -> Transform3D:
+	var xf: Transform3D = Transform3D.IDENTITY
+	var current: Node = node
+	while current != root and current is Node3D:
+		xf = (current as Node3D).transform * xf
+		current = current.get_parent()
+	return xf
+
+func _material_key(mat: Material) -> String:
+	var base: BaseMaterial3D = mat as BaseMaterial3D
+	if base and base.albedo_texture:
+		return base.albedo_texture.resource_path + str(base.transparency)
+	return str(mat.get_instance_id()) if mat else "none"
 
 func _solid(parent: Node3D, pos: Vector3, size: Vector3) -> void:
 	var body: StaticBody3D = StaticBody3D.new()
 	body.position = pos
-	body.collision_layer = 1 | 4   # characters and camera obstruction
 	var shape: BoxShape3D = BoxShape3D.new()
 	shape.size = size
 	var col: CollisionShape3D = CollisionShape3D.new()

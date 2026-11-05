@@ -65,11 +65,11 @@ func run() -> void:
 	await physics_frame
 	var followers: Array[Node] = world.find_children("*","CompanionFollower",true,false)
 	check(followers.size() == 1 and followers[0].visible,"summoned pet visible in actual world")
-	var path: PackedVector3Array = player.pathfinder.find_route(Vector3(0,0,7),Vector3(0,0,-11),player.get_world_3d().direct_space_state)
+	var path: PackedVector3Array = player.pathfinder.find_route(GuanlinLayout.PLAZA+Vector3(0,0,7),GuanlinLayout.PLAZA+Vector3(0,0,-7),player.get_world_3d().direct_space_state)
 	check(not path.is_empty(),"NPC route finds path around fountain")
 	var blocked: bool = false
 	for point: Vector3 in path:
-		if Vector2(point.x,point.z).length() < 2.5:
+		if Vector2(point.x-GuanlinLayout.PLAZA.x,point.z-GuanlinLayout.PLAZA.z).length() < 2.5:
 			blocked = true
 	check(not blocked,"route avoids fountain collision")
 	var save_path: String = "res://build/functions-profile.json"

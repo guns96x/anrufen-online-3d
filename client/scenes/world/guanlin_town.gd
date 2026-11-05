@@ -167,27 +167,48 @@ func _closest_npc(max_dist: float) -> NPC:
 				best = n
 	return best
 
+## Ukrainian display names for the original Guanlin citizens (GuanlinLayout.CITIZENS).
+const CITIZEN_NAMES: Dictionary = {
+	"mayor": "Староста Ґуаньліня · 观林镇镇长", "ranger": "Лісовий рейнджер · 护林游侠",
+	"militia_captain": "Капітан ополчення · 民兵队长", "gourmand": "Ласун · 馋鬼",
+	"widow_anna": "Вдова Анна · 寡妇安娜", "smuggler": "Контрабандист · 走私者",
+	"madman": "Божевільний · 疯子", "madmans_wife": "Дружина божевільного · 疯子的老婆",
+	"tribune": "Трибун · 护民官", "tom": "Том · 汤姆", "jessie": "Джессі · 杰西",
+	"alchemist": "Алхімік · 炼金师", "breeder": "Садівник-селекціонер · 育种园丁",
+	"doctor_jack": "Лікар Джек · 杰克医生", "mailbox": "Поштова скринька · 人类信箱",
+	"jeweller": "Ювелір · 宝石匠", "beast_tamer": "Дресирувальник · 驯兽师",
+	"weapon_merchant": "Торговець зброєю · 武器商人", "item_merchant": "Крамар · 道具商人",
+	"resident": "Мешканець · 人类居民", "stable_master": "Господар станції · 驿站老板",
+	"mystery_merchant": "Таємничий торговець · 神秘商人", "arena_steward": "Розпорядник арени · 竞技场管理员",
+	"consign_gems": "Комісія: самоцвіти · 珍奇宝石寄售", "consign_weapons": "Комісія: зброя · 武器寄售",
+	"consign_armor": "Комісія: обладунки · 防具寄售", "consign_jewelry": "Комісія: прикраси · 饰品寄售",
+	"consign_beasts": "Комісія: звірі · 魔法兽寄售", "consign_goods": "Комісія: крам · 杂货寄售",
+	"armor_merchant": "Торговець обладунками · 防具商人", "accessory_merchant": "Торговка прикрасами · 饰品商人",
+}
+const CITIZEN_QUESTS: Dictionary = {50164: 80004, 50166: 80552, 50179: 80591, 50167: 80006, 50168: 80012, 50169: 80010}
+## Scene node names kept stable for saves, tests and tools.
+const CITIZEN_NODES: Dictionary = {50164: "NPC_Elder", 50166: "NPC_Militia", 50179: "NPC_Weaponsmith",
+	50167: "NPC_Gourmand", 50168: "NPC_Anna", 50169: "NPC_Smuggler", 50180: "NPC_Breeder",
+	50182: "NPC_Jeweler", 50184: "NPC_Postmaster"}
+const ARCHETYPE_MODELS: Dictionary = {"woodcutter_wife": "anna", "girl": "anna", "youth": "bandit",
+	"coachman": "bandit", "blacksmith": "bandit", "guard": "wayfarer", "warrior": "wayfarer", "general": "wayfarer"}
+
 func _configure_citizens() -> void:
-	$NPC_Elder.configure_npc("Староста Ґуаньліня · 观林镇镇长", "", 80004, 50164)
-	$NPC_Militia.configure_npc("Капітан ополчення · 民兵队长", "", 80552, 50166)
-	$NPC_Weaponsmith.configure_npc("Торговець зброєю · 武器商人", "", 80591, 50179)
-	_replace_citizen_model($NPC_Elder, "elder")
-	_replace_citizen_model($NPC_Weaponsmith, "bandit")
-	_replace_citizen_model($NPC_Militia, "wayfarer")
-	for entry: Array in [
-		["NPC_Gourmand", "Ласун · 馋鬼", 50167, 80006, Vector3(-10, 0, 8), "elder"],
-		["NPC_Anna", "Вдова Анна · 寡妇安娜", 50168, 80012, Vector3(15, 0, 12), "anna"],
-		["NPC_Smuggler", "Контрабандист · 走私者", 50169, 80010, Vector3(-10, 0, 17), "bandit"],
-		["NPC_Breeder", "Дресирувальник · 驯兽师", 50180, 0, Vector3(23,0,11), "elder"],
-		["NPC_Jeweler", "Ювелір · 宝石匠", 50182, 0, Vector3(-23,0,10), "anna"],
-		["NPC_Postmaster", "Господар станції · 驿站老板", 50184, 0, Vector3(7,0,13), "bandit"],
-	]:
-		var npc: NPC = preload("res://client/scenes/entities/npc.tscn").instantiate()
-		npc.name = entry[0]
-		npc.position = entry[4]
-		add_child(npc)
-		npc.configure_npc(entry[1], "", entry[3], entry[2])
-		_replace_citizen_model(npc, entry[5])
+	var used: Dictionary = {}
+	for entry: Array in GuanlinLayout.CITIZENS:
+		var id: int = entry[0]
+		var base_name: String = CITIZEN_NODES.get(id, "NPC_%s" % String(entry[1]).to_pascal_case())
+		used[base_name] = used.get(base_name, 0) + 1
+		var node_name: String = base_name if used[base_name] == 1 else base_name + str(used[base_name])
+		var npc: NPC = get_node_or_null(node_name)
+		if npc == null:
+			npc = preload("res://client/scenes/entities/npc.tscn").instantiate()
+			npc.name = node_name
+			add_child(npc)
+		npc.position = entry[2]
+		npc.rotation.y = atan2(-npc.position.x, -(npc.position.z - GuanlinLayout.TOWN_Z)) if absf(npc.position.x) > 0.5 else 0.0
+		npc.configure_npc(CITIZEN_NAMES.get(entry[1], String(entry[1])), "", CITIZEN_QUESTS.get(id, 0), id)
+		_replace_citizen_model(npc, ARCHETYPE_MODELS.get(entry[3], "elder"))
 
 func _replace_citizen_model(npc: NPC, model_name: String) -> void:
 	for child: Node in npc.visual_root.get_children():

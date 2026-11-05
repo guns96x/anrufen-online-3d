@@ -2,6 +2,8 @@ class_name GridPathfinder
 extends RefCounted
 
 const CELL: float = 1.5
+const MIN_CELL: Vector2i = Vector2i(int(GuanlinLayout.BOUNDS_MIN.x / CELL), int(GuanlinLayout.BOUNDS_MIN.y / CELL))
+const MAX_CELL: Vector2i = Vector2i(int(GuanlinLayout.BOUNDS_MAX.x / CELL), int(GuanlinLayout.BOUNDS_MAX.y / CELL))
 var blocked: Dictionary = {}
 var _shape: SphereShape3D = SphereShape3D.new()
 
@@ -55,7 +57,7 @@ func find_route(start: Vector3, end: Vector3, space: PhysicsDirectSpaceState3D) 
 		closed[current] = true
 		for offset: Vector2i in [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]:
 			var next: Vector2i = current + offset
-			if next.x < -25 or next.x > 25 or next.y < -21 or next.y > 42 or closed.has(next) or _is_blocked(next,space):
+			if next.x < MIN_CELL.x or next.x > MAX_CELL.x or next.y < MIN_CELL.y or next.y > MAX_CELL.y or closed.has(next) or _is_blocked(next,space):
 				continue
 			var next_cost: int = int(cost[current]) + 1
 			if next_cost < int(cost.get(next, 999999)):

@@ -2,7 +2,13 @@ class_name ServerGameSession
 extends Node
 
 # All commands operate on the server-owned profile. Clients send intent only.
-const CITIZENS: Dictionary = {50164:Vector3(0,0,-11),50166:Vector3(-13,0,2),50179:Vector3(13,0,-6),50167:Vector3(-10,0,8),50168:Vector3(15,0,12),50169:Vector3(-10,0,17),50180:Vector3(23,0,11),50182:Vector3(-23,0,10),50184:Vector3(7,0,13)}
+static var CITIZENS: Dictionary = _citizen_positions()
+
+static func _citizen_positions() -> Dictionary:
+	var result: Dictionary = {}
+	for entry: Array in GuanlinLayout.CITIZENS:
+		if not result.has(entry[0]): result[entry[0]] = entry[2]
+	return result
 var account: int
 var social: SocialState
 var world: WorldSimulation

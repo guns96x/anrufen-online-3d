@@ -1,17 +1,13 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://client/scenes/world/guanlin_town.gd" id="1_world"]
 [ext_resource type="PackedScene" path="res://client/scenes/ui/hud.tscn" id="2_hud"]
 [ext_resource type="PackedScene" path="res://client/scenes/entities/player.tscn" id="3_player"]
 [ext_resource type="PackedScene" path="res://client/scenes/entities/npc.tscn" id="4_npc"]
 [ext_resource type="PackedScene" path="res://client/scenes/entities/monster.tscn" id="5_monster"]
-[ext_resource type="PackedScene" path="res://assets/models/v2/hall.glb" id="6_hall"]
-[ext_resource type="PackedScene" path="res://assets/models/v2/cottage.glb" id="7_house"]
 [ext_resource type="PackedScene" path="res://assets/models/v2/fountain.glb" id="8_fountain"]
-[ext_resource type="PackedScene" path="res://assets/models/prop_training_dummy.glb" id="9_dummy"]
 [ext_resource type="PackedScene" path="res://assets/models/v2/oak.glb" id="10_tree"]
 [ext_resource type="PackedScene" path="res://assets/models/rock_boulder.glb" id="11_rock"]
-[ext_resource type="PackedScene" path="res://assets/models/prop_fence.glb" id="12_fence"]
 [ext_resource type="PackedScene" path="res://assets/models/v2/boar.glb" id="13_boar_mesh"]
 [ext_resource type="PackedScene" path="res://assets/models/v2/spider.glb" id="14_spider_mesh"]
 
@@ -58,10 +54,10 @@ roughness = 0.85
 
 [sub_resource type="BoxMesh" id="BoxMesh_ground"]
 material = SubResource("StandardMaterial3D_grass")
-size = Vector3(140, 2, 160)
+size = Vector3(150, 2, 170)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground_col"]
-size = Vector3(140, 2, 160)
+size = Vector3(150, 2, 170)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cobble"]
 albedo_color = Color(0.48, 0.45, 0.42, 1)
@@ -88,7 +84,7 @@ directional_shadow_split_1 = 0.15
 directional_shadow_max_distance = 60.0
 
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_ground")
@@ -101,55 +97,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("BoxMesh_road")
 
 [node name="Fountain" parent="." instance=ExtResource("8_fountain")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="TownHall" parent="." instance=ExtResource("6_hall")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
-
-[node name="HouseBlacksmith" parent="." instance=ExtResource("7_house")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 18, 0, -8)
-
-[node name="HouseAlchemy" parent="." instance=ExtResource("7_house")]
-transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 19, 0, 6)
-
-[node name="HouseMilitia" parent="." instance=ExtResource("7_house")]
-transform = Transform3D(-0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, -0.34202, -18, 0, -4)
-
-[node name="TrainingGrounds" type="Node3D" parent="."]
-
-[node name="Dummy1" parent="TrainingGrounds" instance=ExtResource("9_dummy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 5)
-
-[node name="Dummy2" parent="TrainingGrounds" instance=ExtResource("9_dummy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 5)
-
-[node name="Dummy3" parent="TrainingGrounds" instance=ExtResource("9_dummy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="NPC_Elder" parent="." instance=ExtResource("4_npc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 0, -49.2)
 npc_name = "Mayor of Guanlin (观林镇镇长)"
 dialogue_text = "Welcome to Guanlin Town! Wild boars from the south forest are trampling our fields and threatening the village road. Venture past the south gate and defeat 3 Wild Boars to protect the town!"
 
 [node name="NPC_Militia" parent="." instance=ExtResource("4_npc")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -13, 0, 2)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.4, 0, -25.2)
 npc_name = "Militia Captain (民兵队长)"
 dialogue_text = "Recruit! Practice your sword swings on the training dummies, then march south. Forest Spiders have nested past the boar fields. Clear out 3 of them for the militia!"
 quest_id = 80002
 
 [node name="NPC_Weaponsmith" parent="." instance=ExtResource("4_npc")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 13, 0, -6)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 8, 0, -10.8)
 npc_name = "Weaponsmith (武器商人)"
 dialogue_text = "Finest steel blades forged from Guanlin iron ore! Hunt 2 Scavenger Jackals in the deep south forest and bring me their tusks, and I'll forge you a blade worthy of a knight."
 quest_id = 80003
-
-[node name="SouthVillageGate" type="Node3D" parent="."]
-
-[node name="GateFenceL" parent="SouthVillageGate" instance=ExtResource("12_fence")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 16)
-
-[node name="GateFenceR" parent="SouthVillageGate" instance=ExtResource("12_fence")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 16)
 
 [node name="Monsters" type="Node3D" parent="."]
 

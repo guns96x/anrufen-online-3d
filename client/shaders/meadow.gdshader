@@ -12,10 +12,13 @@ void fragment() {
  vec2 p=world_pos.xz;
  float n=noise(p*.35)*.65+noise(p*1.6)*.25+noise(p*7.0)*.1;
  vec3 grass=mix(vec3(.055,.10,.027),vec3(.19,.26,.07),n);
- float lane=1.0-smoothstep(4.3,5.5,abs(p.x)+noise(p*.8)*.7);
- lane*=1.0-smoothstep(30.0,34.0,p.y);
- float plaza=1.0-smoothstep(8.6,9.6,length(p));
- float trail=(1.0-smoothstep(1.7,3.1,abs(p.x)+noise(p*.5)*.8))*smoothstep(16.0,24.0,p.y);
+ // Guanlin roads (GuanlinLayout): gate road along x=0, cross street along z=-30, plaza at (0,-30).
+ float edge=noise(p*.8)*.7;
+ float lane=(1.0-smoothstep(3.2,4.2,abs(p.x)+edge))*smoothstep(-58.0,-55.0,p.y)*(1.0-smoothstep(14.0,18.0,p.y));
+ float street=(1.0-smoothstep(2.8,3.8,abs(p.y+30.0)+edge))*smoothstep(-36.0,-33.0,p.x)*(1.0-smoothstep(37.0,40.0,p.x));
+ lane=max(lane,street);
+ float plaza=1.0-smoothstep(6.3,7.2,length(p-vec2(0.0,-30.0)));
+ float trail=(1.0-smoothstep(1.7,3.1,abs(p.x)+noise(p*.5)*.8))*smoothstep(14.0,20.0,p.y);
  vec3 stone=texture(paving,p*.19).rgb*.82;
  vec3 dirt=mix(vec3(.25,.19,.105),vec3(.42,.33,.19),n);
  ALBEDO=mix(mix(grass,dirt,trail),stone,max(lane,plaza));

@@ -10,8 +10,8 @@ const TREE_SCENE: PackedScene = preload("res://assets/models/v2/oak.glb")
 const ROCK_SCENE: PackedScene = preload("res://assets/models/rock_boulder.glb")
 
 ## Playable area (world units). Outside of it is decorative forest.
-@export var bounds_min: Vector2 = Vector2(-40.0, -34.0)
-@export var bounds_max: Vector2 = Vector2(40.0, 66.0)
+@export var bounds_min: Vector2 = GuanlinLayout.BOUNDS_MIN
+@export var bounds_max: Vector2 = GuanlinLayout.BOUNDS_MAX
 @export var grass_count: int = 6000
 @export var flower_count: int = 500
 @export var rng_seed: int = 1337
@@ -22,13 +22,8 @@ var _tree_transforms: Array[Transform3D] = []
 
 func _ready() -> void:
 	rng.seed = rng_seed
-	_blocked = [
-		Rect2(-7.0, -34.0, 14.0, 100.0),  # main road
-		Rect2(-11.0, -26.0, 22.0, 13.0),  # town hall
-		Rect2(-5.0, -5.0, 10.0, 10.0),    # fountain plaza
-		Rect2(12.0, -14.0, 13.0, 26.0),   # east houses
-		Rect2(-24.0, -10.0, 13.0, 18.0),  # militia house + dummies
-	]
+	_blocked = GuanlinLayout.blocked_rects()
+	_blocked.append(Rect2(-24.0, -29.0, 6.0, 20.0))  # consignment arcade
 	_style_ground()
 	_build_paths()
 	_build_plaza()
@@ -80,6 +75,7 @@ func _build_paths() -> void:
 		[Vector3(-11.0, 0.03, 5.0), Vector3(8.0, 0.06, 3.0), 0.0],      # to training ground
 	]
 	for p: Array in paths:
+		continue
 		var mi: MeshInstance3D = MeshInstance3D.new()
 		var box: BoxMesh = BoxMesh.new()
 		box.size = p[1]
@@ -108,24 +104,24 @@ func _build_plaza() -> void:
 
 	var ring: MeshInstance3D = MeshInstance3D.new()
 	var rmesh: CylinderMesh = CylinderMesh.new()
-	rmesh.top_radius = 9.5
-	rmesh.bottom_radius = 9.5
+	rmesh.top_radius = GuanlinLayout.PLAZA_RADIUS + 0.5
+	rmesh.bottom_radius = GuanlinLayout.PLAZA_RADIUS + 0.5
 	rmesh.height = 0.08
 	rmesh.radial_segments = 48
 	rmesh.material = _flat_material(Color(0.42, 0.36, 0.3))
 	ring.mesh = rmesh
-	ring.position = Vector3(0, 0.07, 0)
+	ring.position = GuanlinLayout.PLAZA + Vector3(0, 0.07, 0)
 	add_child(ring)
 
 	var plaza: MeshInstance3D = MeshInstance3D.new()
 	var pmesh: CylinderMesh = CylinderMesh.new()
-	pmesh.top_radius = 9.0
-	pmesh.bottom_radius = 9.0
+	pmesh.top_radius = GuanlinLayout.PLAZA_RADIUS
+	pmesh.bottom_radius = GuanlinLayout.PLAZA_RADIUS
 	pmesh.height = 0.1
 	pmesh.radial_segments = 48
 	pmesh.material = mat
 	plaza.mesh = pmesh
-	plaza.position = Vector3(0, 0.08, 0)
+	plaza.position = GuanlinLayout.PLAZA + Vector3(0, 0.08, 0)
 	add_child(plaza)
 
 	# Road surface gets the same cobble texture
@@ -172,7 +168,7 @@ func _build_grass() -> void:
 	while transforms.size() < grass_count and tries < grass_count * 3:
 		tries += 1
 		var p: Vector2 = _rand_point(-6.0)
-		if _is_blocked(p) or p.length() < 10.0:
+		if _is_blocked(p):
 			continue
 		var s: float = rng.randf_range(0.7, 1.5)
 		var basis: Basis = Basis(Vector3.UP, rng.randf() * TAU).scaled(Vector3(s, s * rng.randf_range(0.8, 1.4), s))
@@ -208,7 +204,7 @@ func _build_flowers() -> void:
 	while transforms.size() < flower_count:
 		# Flowers grow in small clusters
 		var center: Vector2 = _rand_point(-4.0)
-		if _is_blocked(center) or center.length() < 10.0:
+		if _is_blocked(center):
 			continue
 		var col: Color = palette[rng.randi() % palette.size()]
 		for k: int in rng.randi_range(4, 9):
@@ -278,7 +274,7 @@ func _batch_trees(parent: Node3D) -> void:
 func _scatter_rocks() -> void:
 	for i: int in 16:
 		var p: Vector2 = _rand_point(3.0)
-		if _is_blocked(p) or p.length() < 12.0:
+		if _is_blocked(p) or p.y < GuanlinLayout.GATE_Z + 4.0 and p.y > -70.0:
 			continue
 		var r: Node3D = ROCK_SCENE.instantiate()
 		var s: float = rng.randf_range(0.6, 1.6)
@@ -298,9 +294,9 @@ func _build_lamps() -> void:
 	glow_mat.emission = Color(1.0, 0.75, 0.35)
 	glow_mat.emission_energy_multiplier = 3.0
 	var spots: Array[Vector3] = [
-		Vector3(-7.5, 0, -12), Vector3(7.5, 0, -12),
-		Vector3(-7.5, 0, 10), Vector3(7.5, 0, 10),
-		Vector3(-7.5, 0, 24), Vector3(7.5, 0, 24),
+		Vector3(-4.2, 0, -50), Vector3(4.2, 0, -44), Vector3(-4.2, 0, -14),
+		Vector3(4.2, 0, -2), Vector3(-4.2, 0, 8), Vector3(4.2, 0, 8),
+		Vector3(-14, 0, -26.5), Vector3(14, 0, -33.5), Vector3(28, 0, -26.5), Vector3(-28, 0, -33.5),
 	]
 	for spot: Vector3 in spots:
 		var lamp: Node3D = Node3D.new()
@@ -423,7 +419,7 @@ func _build_pollen() -> void:
 	motes.visibility_aabb = AABB(Vector3(-60, -2, -60), Vector3(120, 20, 160))
 	var pm: ParticleProcessMaterial = ParticleProcessMaterial.new()
 	pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
-	pm.emission_box_extents = Vector3(40, 2, 50)
+	pm.emission_box_extents = Vector3(42, 2, 66)
 	pm.direction = Vector3(0.3, 1, 0)
 	pm.spread = 60.0
 	pm.initial_velocity_min = 0.1
@@ -448,7 +444,7 @@ func _build_pollen() -> void:
 	mat.albedo_color = Color(1, 0.95, 0.6)
 	quad.material = mat
 	motes.draw_pass_1 = quad
-	motes.position = Vector3(0, 2.5, 15)
+	motes.position = Vector3(0, 2.5, -10)
 	motes.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(motes)
 

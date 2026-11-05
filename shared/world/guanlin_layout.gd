@@ -5,39 +5,55 @@ extends RefCounted
 ## (docs/reference/guanlin). The original 50x50 isometric tiles map to metres:
 ## x = (tile_y - 22) * TILE, z = TOWN_Z + (tile_x - 21) * TILE. The original east
 ## gate to Sunny Forest faces +Z, where the forest area of this scene begins.
-## Positions follow the original districts; the look is a modern reinterpretation.
+## Districts and citizens follow the original; the look is a modern reinterpretation.
 
 const TILE: float = 1.6
 const TOWN_Z: float = -30.0
 const GATE_Z: float = 12.0
-const BOUNDS_MIN: Vector2 = Vector2(-46.0, -72.0)
+const PLAZA: Vector3 = Vector3(0, 0, TOWN_Z)
+const PLAZA_RADIUS: float = 6.5
+const BOUNDS_MIN: Vector2 = Vector2(-46.0, -74.0)
 const BOUNDS_MAX: Vector2 = Vector2(46.0, 66.0)
 
-## Road centre lines: [from, to, width]. The original crossroads sits at tile (21, 22).
+## Road centre lines: [from, to, half width]. The original crossroads sits at tile (21, 22).
 const ROADS: Array = [
-	[Vector3(0, 0, -66), Vector3(0, 0, GATE_Z + 4.0), 7.0],   # west square -> forest gate
-	[Vector3(-34, 0, TOWN_Z), Vector3(38, 0, TOWN_Z), 6.0],   # north-south high street
+	[Vector2(0, -56), Vector2(0, GATE_Z + 4.0), 3.4],   # tavern -> plaza -> forest gate
+	[Vector2(-34, TOWN_Z), Vector2(38, TOWN_Z), 3.0],    # cross street (original north-south road)
 ]
 
-## Landmarks: id -> [position, yaw_degrees, footprint (x, z)].
-const BUILDINGS: Dictionary = {
-	"chapel": [Vector3(-27.0, 0, -41.0), 90.0, Vector2(11, 15)],
-	"tavern": [Vector3(-3.0, 0, -61.0), 0.0, Vector2(14, 10)],
-	"stall_consignment": [Vector3(-21.0, 0, -20.0), 90.0, Vector2(6, 16)],
-	"stall_market_n": [Vector3(-11.2, 0, -17.2), 0.0, Vector2(5, 5)],
-	"stall_market_s": [Vector3(8.0, 0, -4.4), 0.0, Vector2(5, 5)],
-	"stall_gate": [Vector3(-9.6, 0, 0.4), 0.0, Vector2(5, 5)],
-	"signpost": [Vector3(0.0, 0, -55.0), 0.0, Vector2(1, 1)],
-	"gate": [Vector3(0.0, 0, GATE_Z), 0.0, Vector2(9, 2)],
-}
+## Kit houses: [id, position, yaw_deg, cells_w, cells_d, storeys, spec]. Front faces local +Z.
+const HOUSES: Array = [
+	["chapel", Vector3(-27, 0, -41), 90.0, 3, 7, 1, {"base": "UnevenBrick", "roof": "Roof_RoundTiles_6x14", "gable": "Roof_Front_Brick6", "door": 1, "windows": "Thin_Round"}],
+	["chapel_tower", Vector3(-27, 0, -51), 90.0, 2, 2, 3, {"base": "UnevenBrick", "upper": "UnevenBrick", "roof": "Roof_Tower_RoundTiles", "door": 9, "windows": "Thin_Round"}],
+	["tavern", Vector3(0, 0, -62.5), 0.0, 4, 6, 2, {"roof": "Roof_RoundTiles_8x12", "gable": "Roof_Front_Brick8", "door": 1, "chimney": true}],
+	["mayor_house", Vector3(13, 0, -46), -90.0, 3, 4, 2, {"roof": "Roof_RoundTiles_6x8", "gable": "Roof_Front_Brick6", "chimney": true}],
+	["home_ne1", Vector3(25, 0, -53), -90.0, 3, 3, 2, {"roof": "Roof_RoundTiles_6x6", "gable": "Roof_Front_Brick6"}],
+	["home_ne2", Vector3(25, 0, -42), -90.0, 3, 3, 2, {"base": "Plaster", "roof": "Roof_RoundTiles_6x6", "gable": "Roof_Front_Brick6", "chimney": true}],
+	["home_kids", Vector3(-15, 0, -57), 0.0, 3, 3, 2, {"roof": "Roof_RoundTiles_6x6", "gable": "Roof_Front_Brick6"}],
+	["alchemy", Vector3(16, 0, -19), -90.0, 3, 4, 2, {"base": "Plaster", "roof": "Roof_RoundTiles_6x8", "gable": "Roof_Front_Brick6", "chimney": true}],
+	["smithy", Vector3(16, 0, -3), -90.0, 3, 3, 1, {"roof": "Roof_RoundTiles_6x6", "gable": "Roof_Front_Brick6", "chimney": true}],
+	["inn", Vector3(-14, 0, 3), 90.0, 3, 4, 2, {"roof": "Roof_RoundTiles_6x8", "gable": "Roof_Front_Brick6"}],
+	["home_sw", Vector3(-30, 0, -3), 90.0, 3, 3, 2, {"base": "Plaster", "roof": "Roof_RoundTiles_6x6", "gable": "Roof_Front_Brick6"}],
+	["home_w", Vector3(-31, 0, -62), 0.0, 3, 3, 2, {"roof": "Roof_RoundTiles_6x6", "gable": "Roof_Front_Brick6", "chimney": true}],
+]
 
-## Palisade runs: closed town wall with a single opening at the forest gate.
+## Market canopies: [position, yaw_deg, length_m, cloth colour].
+const STALLS: Array = [
+	[Vector3(-21, 0, -19), 90.0, 18.0, Color("7d3b2e")],   # consignment arcade (six traders)
+	[Vector3(-11.2, 0, -16.5), 0.0, 4.0, Color("2f5d7c")],
+	[Vector3(8.5, 0, -6.5), 0.0, 4.0, Color("8a6a2a")],
+	[Vector3(6.5, 0, 2.5), 0.0, 4.0, Color("4b6b3a")],
+]
+
+const TRAINING_DUMMIES: Array = [Vector3(13, 0, -25), Vector3(15.5, 0, -25), Vector3(18, 0, -25)]
+
+## Closed town palisade with a single opening at the forest gate.
 const PALISADE: Array = [
-	[Vector3(-40, 0, GATE_Z), Vector3(-4.5, 0, GATE_Z)],
-	[Vector3(4.5, 0, GATE_Z), Vector3(40, 0, GATE_Z)],
-	[Vector3(-40, 0, GATE_Z), Vector3(-40, 0, -68)],
-	[Vector3(40, 0, GATE_Z), Vector3(40, 0, -68)],
-	[Vector3(-40, 0, -68), Vector3(40, 0, -68)],
+	[Vector2(-40, GATE_Z), Vector2(-4.5, GATE_Z)],
+	[Vector2(4.5, GATE_Z), Vector2(40, GATE_Z)],
+	[Vector2(-40, GATE_Z), Vector2(-40, -70)],
+	[Vector2(40, GATE_Z), Vector2(40, -70)],
+	[Vector2(-40, -70), Vector2(40, -70)],
 ]
 
 ## Every citizen of the original scene record 120005 with its source tile.
@@ -81,3 +97,31 @@ const CITIZENS: Array = [
 
 ## Original player arrival tile (42, 22): just inside the forest gate.
 const PLAYER_SPAWN: Vector3 = Vector3(0.0, 0, 3.6)
+
+## XZ rectangles that set dressing must keep clear (roads, plaza, buildings).
+static func blocked_rects() -> Array[Rect2]:
+	var rects: Array[Rect2] = []
+	for road: Array in ROADS:
+		var a: Vector2 = road[0]
+		var b: Vector2 = road[1]
+		var hw: float = road[2] + 0.8
+		rects.append(Rect2(minf(a.x, b.x) - hw, minf(a.y, b.y) - hw, absf(b.x - a.x) + hw * 2.0, absf(b.y - a.y) + hw * 2.0))
+	rects.append(Rect2(PLAZA.x - PLAZA_RADIUS - 1.0, PLAZA.z - PLAZA_RADIUS - 1.0, PLAZA_RADIUS * 2.0 + 2.0, PLAZA_RADIUS * 2.0 + 2.0))
+	for h: Array in HOUSES:
+		var p: Vector3 = h[1]
+		var quarter: bool = absf(fmod(float(h[2]), 180.0)) > 45.0
+		var sx: float = (h[4] if quarter else h[3]) * 2.0 + 3.0
+		var sz: float = (h[3] if quarter else h[4]) * 2.0 + 3.0
+		rects.append(Rect2(p.x - sx * 0.5, p.z - sz * 0.5, sx, sz))
+	return rects
+
+static func on_road(p: Vector2) -> bool:
+	if p.distance_to(Vector2(PLAZA.x, PLAZA.z)) < PLAZA_RADIUS:
+		return true
+	for road: Array in ROADS:
+		var a: Vector2 = road[0]
+		var b: Vector2 = road[1]
+		var t: float = clampf((p - a).dot(b - a) / (b - a).length_squared(), 0.0, 1.0)
+		if p.distance_to(a.lerp(b, t)) < float(road[2]):
+			return true
+	return false
