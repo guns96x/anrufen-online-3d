@@ -20,6 +20,8 @@ func _ready() -> void:
 	var presentation: VillagePresentation = VillagePresentation.new()
 	presentation.name = "VillagePresentation"
 	add_child(presentation)
+	ToonStyle.grade($WorldEnvironment.environment, $DirectionalLight3D)
+	call_deferred("_toon_world")
 	_configure_citizens()
 	_spawn_bandits()
 	_dress_creatures()
@@ -126,6 +128,13 @@ func _play_intro() -> void:
 	var pending: Dictionary = get_node("/root/NetworkManager").pending_hero
 	intro.hero_name = str(pending.get("name", local_player.stats.get("name", "Мандрівник")))
 	add_child(intro)
+
+## Cel-shades the static town after the builders have baked their meshes.
+func _toon_world() -> void:
+	for path: String in ["VillagePresentation", "WorldDecor", "Fountain", "ForestFoliage"]:
+		var node: Node = get_node_or_null(path)
+		if node:
+			ToonStyle.apply(node)
 
 func _bind_companion() -> void:
 	var follower: CompanionFollower = CompanionFollower.new()
@@ -321,6 +330,7 @@ func _dress_creatures() -> void:
 		var model: Node3D = (load(CREATURES[key][0]) as PackedScene).instantiate()
 		model.scale = Vector3.ONE * float(CREATURES[key][1])
 		model.rotation.y = deg_to_rad(float(CREATURES[key][2]))
+		ToonStyle.apply(model, true, 0.025 / maxf(float(CREATURES[key][1]), 0.01))
 		monster.visual_root.add_child(model)
 		MobAnimator.attach(monster, "creature")
 		if monster.role.is_empty():

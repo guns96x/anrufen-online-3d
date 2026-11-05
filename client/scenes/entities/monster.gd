@@ -250,6 +250,7 @@ func take_damage(dmg_result: Dictionary, attacker: Node3D) -> void:
 	if is_crit:
 		txt = "CRIT! " + txt
 	_spawn_damage_text(global_position + Vector3(0, 1.4, 0), txt, col)
+	Vfx.hit(get_parent(), global_position + Vector3(0, 0.9, 0), is_crit)
 
 	# Hurt reaction
 	if animator:
@@ -283,6 +284,7 @@ func die(killer: Node3D) -> void:
 
 	name_label.hide()
 	hp_bar_3d.hide()
+	Vfx.death(get_parent(), global_position)
 	# Death: play the clip, then sink out of sight
 	var tween: Tween = create_tween()
 	if animator:

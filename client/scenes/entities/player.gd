@@ -465,6 +465,7 @@ func perform_skill_1() -> void:
 		"heal":
 			stats["hp"] = mini(int(stats["max_hp"]),int(stats["hp"])+20+rank*12)
 			CombatFeedback.arc(get_parent(),global_position,0,Color(0.3,1,0.5,0.8),1.5)
+			Vfx.heal(get_parent(),global_position)
 		"heavy":
 			current_target = target
 			var result: Dictionary = CombatFormulas.calculate_damage(stats,target.stats,2.0+rank*0.2,CombatFormulas.DamageType.PHY)
@@ -484,7 +485,7 @@ func _cast_projectile(target: Monster, rank: int, ice: bool) -> void:
 	projectile.mesh = sphere
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = Color(0.25,0.75,1.0) if ice else Color(1.0,0.4,0.08)
+	material.albedo_color = Color(0.6,1.9,2.5) if ice else Color(2.6,1.0,0.2)   # HDR so the bolt blooms
 	projectile.material_override = material
 	get_parent().add_child(projectile)
 	projectile.global_position = global_position + Vector3.UP*1.2
@@ -496,6 +497,10 @@ func _cast_projectile(target: Monster, rank: int, ice: bool) -> void:
 		if is_instance_valid(target) and not target.is_dead() and target.global_position.distance_to(destination-Vector3.UP) < 1.8:
 			var result: Dictionary = CombatFormulas.calculate_damage(stats,target.stats,(1.5 if ice else 2.0)+rank*0.2,CombatFormulas.DamageType.WATER if ice else CombatFormulas.DamageType.FIRE)
 			target.take_damage(result,self)
+			if ice:
+				Vfx.ice(get_parent(),destination)
+			else:
+				Vfx.fire(get_parent(),destination)
 			if ice and not result.get("is_miss",false):
 				target.slow_timer = 3.0
 		projectile.queue_free())
@@ -610,6 +615,7 @@ func _level_up() -> void:
 	stats["hp"] = stats["max_hp"]
 	stats["mp"] = stats["max_mp"]
 	_float_text(global_position + Vector3(0, 2.2, 0), "LEVEL UP! Lv.%d" % lv, Color.GOLD)
+	Vfx.pillar(get_parent(), global_position)
 	leveled_up.emit(lv)
 
 func _float_text(world_pos: Vector3, text: String, color: Color) -> void:

@@ -101,6 +101,7 @@ func _rebuild() -> void:
 		actor.visual_root.add_child(model)
 		anim = model.find_child("AnimationPlayer", true, false)
 		NewHero.dress_race(model, race)
+		ToonStyle.apply(model, true)
 		for loop: String in ["Idle", "Running_A", "Walking_A", "2H_Melee_Idle", "Blocking", "Sit_Chair_Idle", "Death_A_Pose"]:
 			if anim.has_animation(loop):
 				anim.get_animation(loop).loop_mode = Animation.LOOP_LINEAR

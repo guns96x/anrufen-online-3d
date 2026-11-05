@@ -7,7 +7,8 @@ static func arc(parent: Node3D, origin: Vector3, yaw: float, color: Color, radiu
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
-	mat.albedo_color = color
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.albedo_color = Color(color.r * 2.0, color.g * 2.0, color.b * 2.0, color.a)   # HDR for bloom
 	mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, mat)
 	for i: int in 18:
 		var a: float = -1.1 + float(i) / 18.0 * 2.2
