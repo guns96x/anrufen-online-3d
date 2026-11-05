@@ -59,6 +59,7 @@ var _save_queued: bool = false
 var _potion_timer: float = 0.0
 var _auto_medicine_sent: Dictionary = {}
 var _service_button: Button
+var skin: HudSkin
 
 var _action_buttons: Array[Button] = []
 var _button_labels: Dictionary = {}
@@ -118,6 +119,7 @@ func _ready() -> void:
 	services.changed.connect(on_systems_changed)
 	SettingsStore.current().changed.connect(func(_key: String,_value: Variant) -> void: joystick.base_circle.modulate.a = float(SettingsStore.current().get_value("joystick_opacity")))
 
+	skin = HudSkin.apply(self)
 	call_deferred("_bind_player_from_group")
 	update_quest_tracker()
 
@@ -260,12 +262,13 @@ func is_point_over_ui(pos: Vector2) -> bool:
 			return true
 	if minimap and minimap.get_global_rect().has_point(pos):
 		return true
+	if skin and skin.is_over(pos):
+		return true
 	return false
 
 func _press_button(b: Button) -> void:
-	var tween: Tween = create_tween()
-	tween.tween_property(b, "scale", Vector2(0.88, 0.88), 0.05)
-	tween.tween_property(b, "scale", Vector2.ONE, 0.08)
+	if skin:
+		skin.feedback(b)
 	if b.has_meta("skill_slot"):
 		assigned_skill_pressed.emit(str(b.get_meta("skill_slot")))
 	elif b == attack_btn:
@@ -304,7 +307,6 @@ func update_cooldowns(player: Player) -> void:
 		var left: float = player.get_cooldown_left(_button_cooldown_keys[b])
 		if left > 0.05 and _button_cooldown_keys[b] != "attack":
 			b.text = "%.1f" % left
-			b.modulate = Color(0.6, 0.6, 0.6, 1.0)
 		else:
 			b.text = _button_labels[b]
 			if b == skill1_btn:
@@ -316,7 +318,6 @@ func update_cooldowns(player: Player) -> void:
 				var id: int = int(player.stats.get("hotbar",{}).get(slot,0))
 				b.text = slot+"\n"+_skill_short_name(id)
 				b.tooltip_text = str(CharacterSystem.SKILLS.get(id,{}).get("name","Навичка"))
-			b.modulate = Color.WHITE
 
 func _skill_short_name(id: int) -> String:
 	return str({90014:"УДАР+",90036:"ВОГОНЬ",90035:"КРИГА",90041:"ЛІКУВ.",90020:"МЕЧ",90021:"КИНДЖ.",90095:"РОЗМАХ",90122:"ВОГОНЬ",90123:"КРИГА",90126:"ЛІКУВ.",90129:"ЩИТ",90104:"АУРА",90131:"АУРА",90132:"ГРУПА",90135:"СТИХІЇ",90139:"ПРОКЛ."}.get(id,str(CharacterSystem.SKILLS.get(id,{}).get("name","НАВИЧКА")).get_slice(" ",0).left(7).to_upper()))
@@ -336,7 +337,8 @@ func show_banner(text: String, color: Color = Color.GOLD) -> void:
 	var lbl: Label = Label.new()
 	lbl.text = text
 	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	lbl.add_theme_font_size_override("font_size", 30)
+	lbl.add_theme_font_override("font", HudSkin.TITLE_FONT)
+	lbl.add_theme_font_size_override("font_size", 38)
 	lbl.add_theme_color_override("font_color", color)
 	lbl.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.85))
 	lbl.add_theme_constant_override("outline_size", 8)
@@ -519,7 +521,7 @@ func update_quest_tracker() -> void:
 		quest_obj_lbl.text = "Поговори з жителем, позначеним !"
 	else:
 		quest_obj_lbl.text = "\n".join(lines)
-	$TopRight.offset_bottom = 24.0 + clampf(float(quest_obj_lbl.get_line_count()) * 18.0 + 48.0, 116.0, 240.0)
+	$TopRight.offset_bottom = $TopRight.offset_top + clampf(float(quest_obj_lbl.get_line_count()) * 18.0 + 48.0, 70.0, 240.0)
 
 func _citizen_title(citizen_id: int) -> String:
 	return {50164: "Староста", 50166: "Капітан", 50179: "Торговець зброєю", 50167: "Ласун", 50168: "Вдова Анна", 50169: "Контрабандист"}.get(citizen_id, "Житель")

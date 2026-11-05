@@ -1,0 +1,132 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d8b66a;--gold2:#f3dfa4;--ink:#0d1016;--glass:rgba(12,15,22,.72);--hp:#c8352e;--mp:#2f6fd6;--xp:#d8b66a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;height:900px;background:url(bg.png) center/cover;font-family:Inter,sans-serif;color:#eee;position:relative;overflow:hidden}
+.ico{width:100%;height:100%;display:block}
+/* portrait */
+.unit{position:absolute;left:24px;top:20px;display:flex;align-items:center;gap:0}
+.port{width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#3b4558,#11151d);border:3px solid var(--gold);box-shadow:0 0 0 2px #000,0 6px 18px rgba(0,0,0,.6);position:relative;z-index:2;display:grid;place-items:center}
+.port img{width:64px;height:64px}
+.lvl{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);background:linear-gradient(#2a2216,#120e08);border:2px solid var(--gold);border-radius:12px;padding:1px 10px;font:700 15px Inter;color:var(--gold2)}
+.bars{margin-left:-16px;padding:10px 16px 10px 26px;background:linear-gradient(90deg,var(--glass),rgba(12,15,22,.25));border-top:1px solid rgba(216,182,106,.5);border-bottom:1px solid rgba(216,182,106,.5);clip-path:polygon(0 0,100% 0,94% 100%,0 100%);width:330px}
+.name{font:700 20px 'Cormorant SC',serif;color:var(--gold2);letter-spacing:.5px;margin-bottom:5px}
+.bar{height:15px;border-radius:3px;background:#1a1d24;border:1px solid #000;position:relative;margin-bottom:5px;overflow:hidden}
+.bar i{position:absolute;inset:0;width:var(--v);background:linear-gradient(#ff6a5a,var(--hp) 55%,#7d1712)}
+.bar.mp i{background:linear-gradient(#6aa7ff,var(--mp) 55%,#163f86)}
+.bar b{position:absolute;inset:0;font:700 11px Inter;display:grid;place-items:center;text-shadow:0 1px 2px #000}
+.xp{height:4px;background:#1a1d24;border-radius:2px}.xp i{display:block;height:100%;width:38%;background:var(--xp);border-radius:2px}
+.buffs{display:flex;gap:6px;margin:8px 0 0 112px}
+.buff{width:30px;height:30px;border-radius:6px;border:1px solid var(--gold);background:#141820;padding:4px}
+/* target */
+.target{position:absolute;left:50%;top:22px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:var(--glass);border:1px solid rgba(216,182,106,.55);border-radius:30px;padding:6px 18px 6px 6px}
+.target .tp{width:46px;height:46px;border-radius:50%;border:2px solid #b8433a;background:#1b1214;padding:7px}
+.target .tn{font:700 16px 'Cormorant SC',serif;color:#ffb3a8}
+.target .bar{width:220px;margin:3px 0 0}
+/* minimap */
+.mini{position:absolute;right:24px;top:20px;width:190px;height:190px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 0 0 2px #000,0 6px 18px rgba(0,0,0,.6);background:radial-gradient(circle,#4c6a3a 0,#2b3d23 70%);overflow:hidden}
+.mini:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:18px;transform:translateX(-50%);background:#a08a64}
+.mini:after{content:"";position:absolute;top:44%;left:0;right:0;height:16px;background:#a08a64}
+.dot{position:absolute;width:9px;height:9px;border-radius:50%;border:1px solid #000;z-index:2}
+.me{left:91px;top:120px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:16px solid #fff;border-radius:0;z-index:3}
+.zone{position:absolute;right:24px;top:218px;width:190px;text-align:center;font:700 15px 'Cormorant SC',serif;color:var(--gold2);text-shadow:0 1px 3px #000}
+.zone small{display:block;font:600 11px Inter;color:#cfd6e3}
+.minibtns{position:absolute;right:220px;top:28px;display:flex;flex-direction:column;gap:8px}
+.mb{width:42px;height:42px;border-radius:50%;background:var(--glass);border:1px solid var(--gold);padding:9px}
+/* quests */
+.quest{position:absolute;right:24px;top:262px;width:260px;background:linear-gradient(270deg,var(--glass),rgba(12,15,22,0));padding:10px 14px;border-right:2px solid var(--gold);text-align:right}
+.quest h4{font:700 15px 'Cormorant SC',serif;color:var(--gold2)}
+.quest p{font:500 12.5px Inter;color:#e6e9ef;margin-top:3px}
+.quest p em{color:#9fe08a;font-style:normal}
+/* chat */
+.chat{position:absolute;left:24px;bottom:236px;width:330px;font:500 12.5px Inter;color:#e7eaf0;text-shadow:0 1px 2px #000;line-height:1.5}
+.chat .s{color:#f3c86b}.chat .w{color:#9fd4ff}
+/* joystick */
+.joy{position:absolute;left:70px;bottom:60px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06),rgba(0,0,0,.35));border:2px solid rgba(216,182,106,.45)}
+.joy i{position:absolute;left:50%;top:50%;width:70px;height:70px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 40% 35%,#596379,#1c212c);border:2px solid var(--gold)}
+/* skills */
+.skills{position:absolute;right:30px;bottom:30px;width:330px;height:330px}
+.atk{position:absolute;right:0;bottom:0;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle at 45% 35%,#5a3b2a,#1b120c);border:3px solid var(--gold);box-shadow:0 0 0 2px #000,0 0 26px rgba(216,182,106,.35);padding:26px}
+.sk{position:absolute;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 45% 35%,#2d3a52,#0f141d);border:2px solid var(--gold);box-shadow:0 0 0 2px #000;padding:15px}
+.sk .cd{position:absolute;inset:0;border-radius:50%;background:conic-gradient(rgba(0,0,0,.72) var(--c),transparent 0);display:grid;place-items:center;font:700 20px Inter;color:#fff;text-shadow:0 1px 3px #000}
+.sk .key{position:absolute;bottom:-6px;right:-2px;background:#000;border:1px solid var(--gold);border-radius:6px;font:700 10px Inter;color:var(--gold2);padding:0 5px}
+.s1{right:150px;bottom:10px}.s2{right:142px;bottom:104px}.s3{right:84px;bottom:176px}.s4{right:0;bottom:200px}
+.dash{right:224px;bottom:180px;width:60px;height:60px;padding:12px}
+.pot{position:absolute;right:376px;bottom:34px;display:flex;gap:10px}
+.p{width:56px;height:56px;border-radius:12px;background:var(--glass);border:1px solid var(--gold);padding:10px;position:relative}
+.p b{position:absolute;right:3px;bottom:1px;font:700 12px Inter;text-shadow:0 1px 2px #000}
+.talk{position:absolute;right:378px;bottom:120px;height:44px;padding:0 18px 0 8px;border-radius:22px;background:linear-gradient(#e2c07a,#a9853f);color:#1a1206;font:700 15px Inter;display:flex;align-items:center;gap:8px;box-shadow:0 3px 10px rgba(0,0,0,.5)}
+.talk img{width:30px;height:30px}
+/* top menu */
+.menu{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:8px;background:var(--glass);border:1px solid rgba(216,182,106,.45);border-radius:16px;padding:7px 10px}
+.m{width:46px;height:46px;border-radius:10px;padding:9px;border:1px solid transparent;position:relative}
+.m:hover,.m.on{border-color:var(--gold);background:rgba(216,182,106,.12)}
+.m .n{position:absolute;top:-4px;right:-4px;background:#c8352e;border-radius:9px;font:700 10px Inter;padding:0 5px}
+.label{position:absolute;transform:translateX(-50%);font:700 13px Inter;color:#fff;text-shadow:0 1px 3px #000,0 0 6px #000;text-align:center;white-space:nowrap}
+.label small{display:block;font:600 11px Inter;color:#f3d48a}
+.mark{color:#ffd23f;font:900 30px Inter;text-shadow:0 0 8px #000}
+</style></head><body>
+<div class="unit">
+ <div class="port"><img src="https://api.iconify.design/game-icons/visored-helm.svg?color=%23f3dfa4"><span class="lvl">12</span></div>
+ <div class="bars"><div class="name">Мандрівник · Лицар</div>
+  <div class="bar" style="--v:82%"><i></i><b>820 / 1000</b></div>
+  <div class="bar mp" style="--v:55%"><i></i><b>165 / 300</b></div>
+  <div class="xp"><i></i></div></div>
+</div>
+<div class="buffs" style="position:absolute;left:24px;top:136px;margin:0">
+ <div class="buff"><img class="ico" src="https://api.iconify.design/game-icons/shield-reflect.svg?color=%239fd4ff"></div>
+ <div class="buff"><img class="ico" src="https://api.iconify.design/game-icons/fist.svg?color=%23ffb36b"></div>
+ <div class="buff"><img class="ico" src="https://api.iconify.design/game-icons/health-normal.svg?color=%239fe08a"></div>
+</div>
+
+<div class="target"><div class="tp"><img class="ico" src="https://api.iconify.design/game-icons/boar.svg?color=%23ffb3a8"></div>
+ <div><div class="tn">Дикий вепр · Рів. 9</div><div class="bar" style="--v:46%"><i></i><b>46%</b></div></div></div>
+
+<div class="minibtns">
+ <div class="mb"><img class="ico" src="https://api.iconify.design/game-icons/treasure-map.svg?color=%23f3dfa4"></div>
+ <div class="mb"><img class="ico" src="https://api.iconify.design/game-icons/envelope.svg?color=%23f3dfa4"></div>
+ <div class="mb"><img class="ico" src="https://api.iconify.design/game-icons/swords-emblem.svg?color=%23f3dfa4"></div>
+</div>
+<div class="mini">
+ <span class="dot" style="left:60px;top:70px;background:#ffd23f"></span>
+ <span class="dot" style="left:130px;top:62px;background:#ffd23f"></span>
+ <span class="dot" style="left:150px;top:140px;background:#e04a3a"></span>
+ <span class="dot" style="left:40px;top:120px;background:#9fd4ff"></span>
+ <span class="dot me"></span>
+</div>
+<div class="zone">Ґуаньлінь<small>Площа · мирна зона</small></div>
+<div class="quest"><h4>Слідство капітана</h4><p>Звіт Ласуна: розбійники <em>7/10</em></p><p>Звіт вдови Анни: павуки <em>10/10 ✓</em></p><p>Досягни 8 рівня <em>✓</em></p></div>
+
+<div class="chat"><div><span class="s">[Світ]</span> Ґрім: хто на вепрів?</div><div><span class="w">[Гільдія]</span> Ліра: збір біля воріт</div><div style="color:#9fe08a">+46 досвіду · +12 міді</div></div>
+
+<div class="label" style="left:808px;top:350px">Мандрівник<small>Лицар Ґуаньліня</small></div>
+<div class="label" style="left:530px;top:305px"><span class="mark">!</span><br>Капітан ополчення</div>
+<div class="label" style="left:1240px;top:350px">Алхімік<small>Зілля · Синтез</small></div>
+
+<div class="joy"><i></i></div>
+
+<div class="talk"><img src="https://api.iconify.design/game-icons/talk.svg?color=%231a1206">Говорити</div>
+<div class="pot">
+ <div class="p"><img class="ico" src="https://api.iconify.design/game-icons/health-potion.svg?color=%23ff6a5a"><b>×12</b></div>
+ <div class="p"><img class="ico" src="https://api.iconify.design/game-icons/magic-potion.svg?color=%236aa7ff"><b>×8</b></div>
+</div>
+<div class="skills">
+ <div class="atk"><img class="ico" src="https://api.iconify.design/game-icons/broadsword.svg?color=%23f3dfa4"></div>
+ <div class="sk s1"><img class="ico" src="https://api.iconify.design/game-icons/sword-slice.svg?color=%23ffd27a"><span class="key">1</span></div>
+ <div class="sk s2"><img class="ico" src="https://api.iconify.design/game-icons/fire-ring.svg?color=%23ff8a4a"><div class="cd" style="--c:62%">4</div><span class="key">2</span></div>
+ <div class="sk s3"><img class="ico" src="https://api.iconify.design/game-icons/ice-spear.svg?color=%239fd4ff"><span class="key">3</span></div>
+ <div class="sk s4"><img class="ico" src="https://api.iconify.design/game-icons/healing.svg?color=%239fe08a"><span class="key">4</span></div>
+ <div class="sk dash"><img class="ico" src="https://api.iconify.design/game-icons/sprint.svg?color=%23e8e8e8"></div>
+</div>
+<div class="menu">
+ <div class="m on"><img class="ico" src="https://api.iconify.design/game-icons/knapsack.svg?color=%23f3dfa4"></div>
+ <div class="m"><img class="ico" src="https://api.iconify.design/game-icons/battle-gear.svg?color=%23f3dfa4"></div>
+ <div class="m"><img class="ico" src="https://api.iconify.design/game-icons/spell-book.svg?color=%23f3dfa4"><span class="n">1</span></div>
+ <div class="m"><img class="ico" src="https://api.iconify.design/game-icons/scroll-quill.svg?color=%23f3dfa4"></div>
+ <div class="m"><img class="ico" src="https://api.iconify.design/game-icons/dragon-head.svg?color=%23f3dfa4"></div>
+ <div class="m"><img class="ico" src="https://api.iconify.design/game-icons/three-friends.svg?color=%23f3dfa4"></div>
+ <div class="m"><img class="ico" src="https://api.iconify.design/game-icons/cog.svg?color=%23f3dfa4"></div>
+</div>
+</body></html>
