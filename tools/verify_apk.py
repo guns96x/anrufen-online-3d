@@ -12,7 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sdk = Path(os.environ['LOCALAPPDATA']) / 'Android/Sdk'
 analyzer = sdk / 'cmdline-tools/latest/bin/apkanalyzer.bat'
 signer = sdk / 'build-tools/36.0.0/apksigner.bat'
-expected_certificate = '0ef986d8b85c5d6b835f3ccfb9eccc5e636d5389bfc6705ae5745a41e9b40faa'
+# Release key since v0.9.5 (C:/Users/pavlo/.android-keys, outside the repo); earlier builds used the debug key.
+expected_certificate = 'b989bbabb927aeb77d3f62b1adb72faae2fdb70da5981ad37164cbf0aaa847a1'
 
 
 def run(args):
