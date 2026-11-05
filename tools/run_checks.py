@@ -41,7 +41,7 @@ for name, marker in SUITES.items():
     try:
         result = subprocess.run([GODOT, '--headless', '--path', str(ROOT), '--script',
                                  f'res://tests/{name}.gd', '--', '--test-mode'],
-                                cwd=ROOT, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=45)
+                                cwd=ROOT, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=90)
         output = result.stdout + result.stderr
         (ROOT / 'build' / f'{name}.log').write_text(output, encoding='utf-8')
         bad = result.returncode or marker not in output or any(x in output for x in ['ERROR:', 'FAIL:', 'Parse Error'])

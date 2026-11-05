@@ -49,8 +49,20 @@ func _ready() -> void:
 	bridge.world = self
 	add_child(bridge)
 	_update_hud_stats()
-	hud.show_banner("Ґуаньлінь", Color(1.0, 0.92, 0.7))
+	if NewHero.play_intro:
+		NewHero.play_intro = false
+		call_deferred("_play_intro")
+	else:
+		hud.show_banner("Ґуаньлінь", Color(1.0, 0.92, 0.7))
 	print("[GuanlinTown] 3D World initialized. Ready for player!")
+
+var intro: IntroCinematic
+
+func _play_intro() -> void:
+	intro = IntroCinematic.new()
+	intro.world = self
+	intro.hero_name = str(local_player.stats.get("name", "Мандрівник"))
+	add_child(intro)
 
 func _bind_companion() -> void:
 	var follower: CompanionFollower = CompanionFollower.new()
@@ -272,6 +284,8 @@ func _process(delta: float) -> void:
 var _kb_was_moving: bool = false
 
 func _read_keyboard_movement() -> void:
+	if is_instance_valid(intro):
+		local_player.controls_blocked = true
 	if local_player.controls_blocked:
 		local_player.set_move_vector(Vector2.ZERO)
 		return

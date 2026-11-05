@@ -67,7 +67,9 @@ func bind_player(player: Node) -> void:
 		stats["copper"] = QuestData.PROVISIONAL_INITIAL_COPPER
 	if not stats.has("inventory"):
 		stats["inventory"] = {}
-	if auto_save_enabled:
+	if NewHero.apply(stats, save_file_path):
+		_save_if_enabled()
+	elif auto_save_enabled:
 		if FileAccess.file_exists(save_file_path):
 			load_from_file()
 		elif FileAccess.file_exists(save_file_path + ".bak"):

@@ -37,6 +37,7 @@ var strike_left: float = 0.0:
 
 var _base: String = ""
 var _tier: int = -1
+var _race: int = 0
 var _action_left: float = 0.0
 var _combo: int = 0
 var _dead: bool = false
@@ -48,8 +49,12 @@ func _rebuild() -> void:
 	var stats: Dictionary = actor.stats
 	var base: String = MAGE if int(stats.get("class_id", 130001)) in MAGE_CLASSES else KNIGHT
 	var tier: int = clampi(int(stats.get("level", 1)) / 10, 0, 3)
-	if base == _base and tier == _tier:
+	var race: int = int(stats.get("race_id", 250001))
+	if base == _base and tier == _tier and race == _race:
 		return
+	if race != _race:
+		_base = ""
+	_race = race
 	if base != _base:
 		for child: Node in actor.visual_root.get_children():
 			child.queue_free()
@@ -57,6 +62,7 @@ func _rebuild() -> void:
 		model.rotation.y = PI   # KayKit faces +Z; the player's visual faces -Z
 		actor.visual_root.add_child(model)
 		anim = model.find_child("AnimationPlayer", true, false)
+		NewHero.dress_race(model, int(stats.get("race_id", 250001)))
 		for loop: String in ["Idle", "Running_A", "Walking_A", "2H_Melee_Idle", "Blocking", "Sit_Chair_Idle", "Death_A_Pose"]:
 			if anim.has_animation(loop):
 				anim.get_animation(loop).loop_mode = Animation.LOOP_LINEAR
@@ -69,7 +75,7 @@ func _rebuild() -> void:
 		for suffix: String in BODY:
 			if part.ends_with("_" + suffix):
 				visible_part = true
-		(node as MeshInstance3D).visible = visible_part
+		(node as MeshInstance3D).visible = visible_part and not (_race == 250002 and part.ends_with("_Helmet"))
 
 ## Stand-alone dressed model for menus (equipment preview), idling.
 static func preview_model(stats: Dictionary) -> Node3D:
@@ -83,6 +89,7 @@ static func preview_model(stats: Dictionary) -> Node3D:
 			if part.ends_with("_" + suffix):
 				keep = true
 		(node as MeshInstance3D).visible = keep
+	NewHero.dress_race(model, int(stats.get("race_id", 250001)))
 	var player: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
 	if player and player.has_animation("Idle"):
 		player.get_animation("Idle").loop_mode = Animation.LOOP_LINEAR
