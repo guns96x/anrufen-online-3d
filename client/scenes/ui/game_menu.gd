@@ -18,21 +18,36 @@ var _trade_draft_id: int = 0
 var _trade_item_draft: Dictionary = {}
 var _shop_filter: String = "all"
 var _last_world_controls: String = ""
+var _nav_buttons: Dictionary = {}
+var _bag_selected: int = 0
+var _bag_filter: String = "all"
 const TABS: Dictionary = {"inventory":"Сумка", "equipment":"Спорядження", "character":"Персонаж", "skills":"Навички", "journal":"Щоденник", "map":"Карта й пошук", "shop":"Торгівля", "warehouse":"Склад", "crafting":"Синтез", "pets":"Магічні звірі", "social":"Мережа та спільнота", "settings":"Налаштування"}
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	var dim: ColorRect = ColorRect.new()
-	dim.color = Color(0.015,0.025,0.035,0.97)
+	dim.color = Color(0.02,0.025,0.035,0.86)
 	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
+	theme = MenuSkin.theme()
+	var window: Panel = Panel.new()
+	var frame: StyleBoxFlat = HudSkin.panel_style(Color(0.07,0.085,0.115,0.97),HudSkin.GOLD,18,1)
+	frame.shadow_size = 24
+	window.add_theme_stylebox_override("panel",frame)
+	window.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	window.offset_left = 18
+	window.offset_top = 14
+	window.offset_right = -18
+	window.offset_bottom = -14
+	window.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(window)
 	var margin: MarginContainer = MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	margin.add_theme_constant_override("margin_left",32)
-	margin.add_theme_constant_override("margin_right",32)
-	margin.add_theme_constant_override("margin_top",20)
-	margin.add_theme_constant_override("margin_bottom",20)
+	margin.add_theme_constant_override("margin_left",36)
+	margin.add_theme_constant_override("margin_right",36)
+	margin.add_theme_constant_override("margin_top",26)
+	margin.add_theme_constant_override("margin_bottom",22)
 	add_child(margin)
 	var layout: VBoxContainer = VBoxContainer.new()
 	layout.add_theme_constant_override("separation",12)
@@ -41,8 +56,9 @@ func _ready() -> void:
 	layout.add_child(top)
 	_heading = Label.new()
 	_heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_heading.add_theme_font_size_override("font_size",23)
-	_heading.add_theme_color_override("font_color",Color("e3c882"))
+	_heading.add_theme_font_override("font",HudSkin.TITLE_FONT)
+	_heading.add_theme_font_size_override("font_size",30)
+	_heading.add_theme_color_override("font_color",HudSkin.GOLD_LIGHT)
 	top.add_child(_heading)
 	_button(top,"Повернутися до гри",close_menu,220)
 	var body: HBoxContainer = HBoxContainer.new()
@@ -50,13 +66,20 @@ func _ready() -> void:
 	body.add_theme_constant_override("separation",22)
 	layout.add_child(body)
 	var navigation: ScrollContainer = ScrollContainer.new()
-	navigation.custom_minimum_size.x = 200
+	navigation.custom_minimum_size.x = 222
 	navigation.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	body.add_child(navigation)
 	var nav: VBoxContainer = VBoxContainer.new()
 	navigation.add_child(nav)
+	nav.add_theme_constant_override("separation",6)
 	for key: String in TABS:
-		_button(nav,TABS[key],func() -> void: open_tab(key),190)
+		var tab_button: Button = _button(nav,TABS[key],func() -> void: open_tab(key),214)
+		tab_button.add_theme_font_size_override("font_size",15)
+		tab_button.icon = HudSkin.icon(MenuSkin.TAB_ICONS.get(key,"cog"))
+		tab_button.expand_icon = true
+		tab_button.add_theme_constant_override("icon_max_width",26)
+		tab_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_nav_buttons[key] = tab_button
 	var scroll: ScrollContainer = ScrollContainer.new()
 	scroll.name = "ContentScroll"
 	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -186,6 +209,14 @@ func render() -> void:
 	if _content == null or player == null:
 		return
 	_heading.text = "%s · Рів. %d · %d міді · Сумка %d/%d" % [TABS[_tab], player.stats["level"], player.stats.get("copper",0),items.used_slots(),player.stats.get("bag_capacity",32)]
+	for key: String in _nav_buttons:
+		var active: bool = key == _tab
+		_nav_buttons[key].add_theme_color_override("font_color",Color("1a1206") if active else HudSkin.GOLD_LIGHT)
+		_nav_buttons[key].add_theme_color_override("icon_normal_color",Color("1a1206") if active else HudSkin.GOLD_LIGHT)
+		if active:
+			_nav_buttons[key].add_theme_stylebox_override("normal",theme.get_stylebox("pressed","Button"))
+		else:
+			_nav_buttons[key].remove_theme_stylebox_override("normal")
 	for child: Node in _content.get_children():
 		_content.remove_child(child)
 		child.queue_free()
@@ -203,42 +234,266 @@ func render() -> void:
 		"settings": _settings()
 		"social": _social()
 
+const BAG_FILTERS: Array = [["all","Усе"],["equipment","Спорядження"],["consumable","Зілля"],["material","Матеріали"],["pet","Звірі"]]
+
+func _bag_matches(item: Dictionary) -> bool:
+	var kind: String = str(item.get("kind",""))
+	match _bag_filter:
+		"equipment": return kind in ["equipment","mount"]
+		"consumable": return kind == "consumable"
+		"material": return kind == "material"
+		"pet": return kind.begins_with("pet")
+	return true
+
+## Bag: filters, an item grid with rarity frames and a detail card with actions.
 func _inventory() -> void:
-	_text("Предмети можна використати, одягнути, покласти на склад або захистити замком.")
-	var bar: HBoxContainer = _row("Розширення сумки: +5 комірок")
-	_button(bar,"Розширити",func() -> void: _game_action("expand_bag",{},services.expand_bag),140)
 	var keys: Array = player.stats["inventory"].keys()
 	keys.sort_custom(func(a: Variant,b: Variant) -> bool: return str(ItemCatalog.get_item(int(a)).get("label",a)) < str(ItemCatalog.get_item(int(b)).get("label",b)))
+	var split: HBoxContainer = HBoxContainer.new()
+	split.add_theme_constant_override("separation",22)
+	_content.add_child(split)
+	var left: VBoxContainer = VBoxContainer.new()
+	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	left.add_theme_constant_override("separation",12)
+	split.add_child(left)
+	var filters: HBoxContainer = HBoxContainer.new()
+	filters.add_theme_constant_override("separation",8)
+	left.add_child(filters)
+	for entry: Array in BAG_FILTERS:
+		var f: Button = _button(filters,entry[1],func() -> void:
+			_bag_filter = entry[0]
+			render(),0)
+		f.custom_minimum_size = Vector2(0,38)
+		if _bag_filter == entry[0]:
+			_primary(f)
+	var grid: GridContainer = GridContainer.new()
+	grid.columns = 7
+	grid.add_theme_constant_override("h_separation",10)
+	grid.add_theme_constant_override("v_separation",10)
+	left.add_child(grid)
+	var shown: Array = keys.filter(func(k: Variant) -> bool: return _bag_matches(ItemCatalog.get_item(int(k))))
+	if _bag_selected == 0 or str(_bag_selected) not in player.stats["inventory"]:
+		_bag_selected = int(shown[0]) if not shown.is_empty() else 0
+	for key: Variant in shown:
+		var id: int = int(key)
+		var tile: Button = MenuSkin.tile(ItemCatalog.get_item(id),items.count_item(id))
+		tile.button_pressed = id == _bag_selected
+		tile.tooltip_text = str(ItemCatalog.get_item(id).get("label",""))
+		tile.pressed.connect(func() -> void:
+			_bag_selected = id
+			render())
+		if id in items.locked_items:
+			var lock: TextureRect = TextureRect.new()
+			lock.texture = HudSkin.icon("padlock")
+			lock.modulate = HudSkin.GOLD_LIGHT
+			lock.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			lock.position = Vector2(5,5)
+			lock.size = Vector2(16,16)
+			lock.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			tile.add_child(lock)
+		grid.add_child(tile)
+	for i: int in mini(14,maxi(0,int(player.stats.get("bag_capacity",32)) - items.used_slots())):
+		var empty: Panel = Panel.new()
+		empty.custom_minimum_size = Vector2(76,76)
+		var dashed: StyleBoxFlat = HudSkin.panel_style(Color(1,1,1,0.02),Color(0.2,0.23,0.3,0.7),12,1)
+		dashed.shadow_size = 0
+		empty.add_theme_stylebox_override("panel",dashed)
+		grid.add_child(empty)
 	if keys.is_empty():
-		_text("Сумка порожня. Здобувай предмети з ворогів або відвідай торговця.")
-	for key: String in keys:
+		var hint: Label = Label.new()
+		hint.text = "Сумка порожня. Здобувай предмети з ворогів або відвідай торговця."
+		left.add_child(hint)
+	var footer: HBoxContainer = HBoxContainer.new()
+	footer.add_theme_constant_override("separation",12)
+	left.add_child(footer)
+	var coin: Label = Label.new()
+	coin.text = "%d міді" % int(player.stats.get("copper",0))
+	coin.add_theme_color_override("font_color",HudSkin.GOLD_LIGHT)
+	coin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	footer.add_child(coin)
+	var expand_label: Label = Label.new()
+	expand_label.text = "Розширення сумки: +5 комірок"
+	footer.add_child(expand_label)
+	_button(footer,"Розширити",func() -> void: _game_action("expand_bag",{},services.expand_bag),140)
+	# Detail card: one action row per item keeps every command reachable; only the selected one shows.
+	var card: PanelContainer = PanelContainer.new()
+	card.custom_minimum_size = Vector2(380,0)
+	var card_style: StyleBoxFlat = HudSkin.panel_style(Color(0.05,0.065,0.09,0.95),Color(0.85,0.71,0.42,0.45),14,1)
+	card_style.content_margin_left = 18
+	card_style.content_margin_right = 18
+	card_style.content_margin_top = 16
+	card_style.content_margin_bottom = 16
+	card.add_theme_stylebox_override("panel",card_style)
+	split.add_child(card)
+	var detail: VBoxContainer = VBoxContainer.new()
+	detail.add_theme_constant_override("separation",8)
+	card.add_child(detail)
+	for key: Variant in keys:
 		var id: int = int(key)
 		var item: Dictionary = ItemCatalog.get_item(id)
-		var locked: bool = id in items.locked_items
-		var row: HBoxContainer = _row("%s%s ×%d" % ["🔒 " if locked else "",item.get("label",item.get("name",key)),items.count_item(id)])
-		row.tooltip_text = str(item.get("description",""))
+		var r: int = MenuSkin.rarity(item)
+		var box: VBoxContainer = VBoxContainer.new()
+		box.visible = id == _bag_selected
+		box.add_theme_constant_override("separation",8)
+		detail.add_child(box)
+		var name_label: Label = MenuSkin.title(str(item.get("label",item.get("name",key))),24)
+		name_label.add_theme_color_override("font_color",MenuSkin.RARITY[r].lightened(0.5) if r > 0 else HudSkin.GOLD_LIGHT)
+		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		box.add_child(name_label)
+		var kind_label: Label = Label.new()
+		var kind_names: Dictionary = {"consumable":"Витратне","material":"Матеріал","mount":"Скакун","pet_egg":"Яйце звіра","pet_rune":"Руна звіра","pet_food":"Корм","pet_potion":"Зілля звіра"}
+		kind_label.text = "%s · %s  ·  ×%d" % [MenuSkin.RARITY_NAMES[r],MenuSkin.SLOT_NAMES.get(str(item.get("slot","")),kind_names.get(str(item.get("kind","")),"Предмет")),items.count_item(id)]
+		kind_label.add_theme_color_override("font_color",Color(0.66,0.7,0.78))
+		box.add_child(kind_label)
+		if not item.get("bonuses",{}).is_empty():
+			var bonus: Label = Label.new()
+			bonus.text = _bonuses(item.get("bonuses",{}))
+			bonus.add_theme_color_override("font_color",Color("9fe08a"))
+			box.add_child(bonus)
+		var about: Label = Label.new()
+		about.text = _clean_description(str(item.get("description","")))
+		about.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		about.add_theme_color_override("font_color",Color("c9b88a"))
+		about.add_theme_font_size_override("font_size",14)
+		box.add_child(about)
+		var row: HBoxContainer = HBoxContainer.new()
+		row.add_theme_constant_override("separation",8)
+		box.add_child(row)
+		var row_name: Label = Label.new()
+		row_name.text = "%s%s" % ["🔒 " if id in items.locked_items else "",item.get("label",item.get("name",key))]
+		row_name.visible = false
+		row.add_child(row_name)
 		if item.get("kind") == "equipment":
-			_button(row,"Одягнути",func() -> void: _game_action("equip",{"id":id},func() -> bool: return items.equip_item(id)))
+			_primary(_button(row,"Одягнути",func() -> void: _game_action("equip",{"id":id},func() -> bool: return items.equip_item(id))))
 		elif item.get("kind") == "mount":
-			_button(row,"Осідлати",func() -> void: _game_action("mount",{"id":id},func() -> bool: return MountSystem.mount(player.stats,id)))
+			_primary(_button(row,"Осідлати",func() -> void: _game_action("mount",{"id":id},func() -> bool: return MountSystem.mount(player.stats,id))))
 		elif item.get("kind") == "consumable" or (item.get("kind") in ["pet_potion","pet_food"] and item.has("effect")):
-			_button(row,"Вжити",func() -> void: _game_action("use",{"id":id},func() -> bool: return items.use_item(id)))
+			_primary(_button(row,"Вжити",func() -> void: _game_action("use",{"id":id},func() -> bool: return items.use_item(id))))
 		_button(row,"Замок",func() -> void: _game_action("lock",{"id":id},func() -> bool: return services.lock_item(id)),80)
 		_button(row,"Склад",func() -> void: _game_action("deposit",{"id":id},func() -> bool: return _deposit_nearby(id)),80)
 		_button(row,"Викинути 1",func() -> void: _game_action("discard",{"id":id},func() -> bool: return items.discard_item(id)),115)
 
+## Drops source asset paths and untranslated Chinese lines from item descriptions.
+func _clean_description(text: String) -> String:
+	var lines: PackedStringArray = []
+	var cjk: RegEx = RegEx.create_from_string("[\\x{4e00}-\\x{9fff}]")
+	for line: String in text.split("\n"):
+		if line.contains("\\") or line.contains(".bmp") or cjk.search(line) != null:
+			continue
+		lines.append(line)
+	return "\n".join(lines)
+
+func _primary(button: Button) -> Button:
+	button.add_theme_stylebox_override("normal",theme.get_stylebox("pressed","Button"))
+	button.add_theme_color_override("font_color",Color("1a1206"))
+	return button
+
+## Equipment: a paper doll around a live 3D preview of the hero, then totals.
 func _equipment() -> void:
-	_text("Екіпірування впливає на бойові характеристики. При заміні річ повертається в сумку.")
 	var equipment: Dictionary = player.stats.get("equipment",{})
+	var split: HBoxContainer = HBoxContainer.new()
+	split.add_theme_constant_override("separation",26)
+	_content.add_child(split)
+	var doll: HBoxContainer = HBoxContainer.new()
+	doll.add_theme_constant_override("separation",14)
+	split.add_child(doll)
+	var columns: Array = [["head","necklace","body","belt","shoes"],["weapon","shield","glove","ring"]]
+	var left_col: VBoxContainer = VBoxContainer.new()
+	var right_col: VBoxContainer = VBoxContainer.new()
+	for col: VBoxContainer in [left_col,right_col]:
+		col.add_theme_constant_override("separation",10)
+	doll.add_child(left_col)
+	doll.add_child(_hero_preview())
+	doll.add_child(right_col)
+	for c: int in 2:
+		for slot: String in columns[c]:
+			var holder: VBoxContainer = VBoxContainer.new()
+			holder.add_theme_constant_override("separation",2)
+			(left_col if c == 0 else right_col).add_child(holder)
+			if equipment.has(slot):
+				var item: Dictionary = ItemCatalog.get_item(int(equipment[slot]))
+				var tile: Button = MenuSkin.tile(item,1,70)
+				tile.toggle_mode = false
+				tile.tooltip_text = "%s · %s\n%s" % [MenuSkin.SLOT_NAMES.get(slot,slot),item.get("label",item.get("name","")),_bonuses(item.get("bonuses",{}))]
+				holder.add_child(tile)
+				var take_off: Button = _button(holder,"Зняти",func() -> void: _game_action("unequip",{"slot":slot},func() -> bool: return items.unequip_item(slot)),70)
+				take_off.custom_minimum_size = Vector2(70,28)
+				take_off.add_theme_font_size_override("font_size",12)
+			else:
+				var empty: Button = MenuSkin.tile({"kind":"equipment","slot":slot},1,70)
+				empty.disabled = true
+				empty.modulate = Color(1,1,1,0.35)
+				empty.tooltip_text = MenuSkin.SLOT_NAMES.get(slot,slot)
+				holder.add_child(empty)
+	var stats_box: VBoxContainer = VBoxContainer.new()
+	stats_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	stats_box.add_theme_constant_override("separation",8)
+	split.add_child(stats_box)
+	var stats: Dictionary = player.stats
+	stats_box.add_child(MenuSkin.title("Сила бою  %d" % (int(stats.get("attack",0)) * 4 + int(stats.get("defense",0)) * 3 + int(stats.get("max_hp",0)) / 5),30))
+	var lines: Array = [["Атака",stats.get("attack",0)],["Магічна атака",stats.get("magic_attack",stats.get("attack",0))],["Захист",stats.get("defense",0)],["Здоров'я",stats.get("max_hp",0)],["Мана",stats.get("max_mp",0)],["Критичний удар","%d%%" % roundi(float(stats.get("crit_rate",0))*100)]]
+	for entry: Array in lines:
+		var line: HBoxContainer = HBoxContainer.new()
+		var k: Label = Label.new()
+		k.text = entry[0]
+		k.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		k.add_theme_color_override("font_color",Color(0.66,0.7,0.78))
+		var v: Label = Label.new()
+		v.text = str(entry[1])
+		line.add_child(k)
+		line.add_child(v)
+		stats_box.add_child(line)
+	var totals: Label = Label.new()
+	totals.text = "Бонуси спорядження: " + (_bonuses(items.bonus_totals()) if not items.bonus_totals().is_empty() else "немає")
+	totals.add_theme_color_override("font_color",Color("9fe08a"))
+	totals.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	stats_box.add_child(totals)
 	if equipment.is_empty():
-		_text("Нічого не одягнено. Вибери річ у сумці.")
-	for slot: String in equipment:
-		var item: Dictionary = ItemCatalog.get_item(int(equipment[slot]))
-		var row: HBoxContainer = _row("%s · %s\n%s" % [slot,item.get("label",item.get("name","")),_bonuses(item.get("bonuses",{}))])
-		_button(row,"Зняти",func() -> void: _game_action("unequip",{"slot":slot},func() -> bool: return items.unequip_item(slot)))
-	_text("Разом: " + _bonuses(items.bonus_totals()))
+		var hint: Label = Label.new()
+		hint.text = "Нічого не одягнено. Вибери річ у сумці."
+		stats_box.add_child(hint)
 	if player.stats.get("mounted",false):
-		_button(_content,"Спішитися",func() -> void: _game_action("dismount",{},func() -> void: MountSystem.dismount(player.stats)),240)
+		_button(stats_box,"Спішитися",func() -> void: _game_action("dismount",{},func() -> void: MountSystem.dismount(player.stats)),240)
+
+func _hero_preview() -> Control:
+	var frame: SubViewportContainer = SubViewportContainer.new()
+	frame.custom_minimum_size = Vector2(300,430)
+	frame.stretch = true
+	if DisplayServer.get_name() == "headless":
+		return frame
+	var view: SubViewport = SubViewport.new()
+	view.own_world_3d = true
+	view.transparent_bg = true
+	view.msaa_3d = Viewport.MSAA_4X
+	frame.add_child(view)
+	var stage: Node3D = Node3D.new()
+	view.add_child(stage)
+	var env: WorldEnvironment = WorldEnvironment.new()
+	env.environment = Environment.new()
+	env.environment.background_mode = Environment.BG_CLEAR_COLOR
+	env.environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	env.environment.ambient_light_color = Color(0.45,0.45,0.5)
+	env.environment.tonemap_mode = Environment.TONE_MAPPER_ACES
+	stage.add_child(env)
+	var key: DirectionalLight3D = DirectionalLight3D.new()
+	key.rotation_degrees = Vector3(-30,25,0)
+	stage.add_child(key)
+	var rim: DirectionalLight3D = DirectionalLight3D.new()
+	rim.rotation_degrees = Vector3(-15,170,0)
+	rim.light_color = Color(1,0.82,0.5)
+	rim.light_energy = 1.2
+	stage.add_child(rim)
+	var model: Node3D = HeroAvatar.preview_model(player.stats)
+	model.rotation.y = deg_to_rad(-15)
+	stage.add_child(model)
+	var turn: Tween = model.create_tween().set_loops()
+	turn.tween_property(model,"rotation:y",deg_to_rad(15),3.0).set_trans(Tween.TRANS_SINE)
+	turn.tween_property(model,"rotation:y",deg_to_rad(-15),3.0).set_trans(Tween.TRANS_SINE)
+	var cam: Camera3D = Camera3D.new()
+	cam.fov = 30
+	stage.add_child(cam)
+	cam.look_at_from_position(Vector3(0,1.15,6.4),Vector3(0,0.85,0))
+	return frame
 
 func _bonuses(values: Dictionary) -> String:
 	var parts: PackedStringArray = []

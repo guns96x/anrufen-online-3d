@@ -71,6 +71,24 @@ func _rebuild() -> void:
 				visible_part = true
 		(node as MeshInstance3D).visible = visible_part
 
+## Stand-alone dressed model for menus (equipment preview), idling.
+static func preview_model(stats: Dictionary) -> Node3D:
+	var mage: bool = int(stats.get("class_id", 130001)) in MAGE_CLASSES
+	var model: Node3D = (load(MAGE if mage else KNIGHT) as PackedScene).instantiate()
+	var props: Array = (MAGE_TIERS if mage else KNIGHT_TIERS)[clampi(int(stats.get("level", 1)) / 10, 0, 3)]
+	for node: Node in model.find_children("*", "MeshInstance3D", true, false):
+		var part: String = String(node.name)
+		var keep: bool = props.has(part)
+		for suffix: String in BODY:
+			if part.ends_with("_" + suffix):
+				keep = true
+		(node as MeshInstance3D).visible = keep
+	var player: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
+	if player and player.has_animation("Idle"):
+		player.get_animation("Idle").loop_mode = Animation.LOOP_LINEAR
+		player.play("Idle")
+	return model
+
 func _two_handed() -> bool:
 	return _base == KNIGHT and _tier >= 3
 
