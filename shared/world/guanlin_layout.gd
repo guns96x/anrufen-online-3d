@@ -125,3 +125,31 @@ static func on_road(p: Vector2) -> bool:
 		if p.distance_to(a.lerp(b, t)) < float(road[2]):
 			return true
 	return false
+
+## Solid obstacles for the headless server, which has no physics scene:
+## building footprints, stalls, the fountain and the palisade with its gate gap.
+static func blocks(p: Vector2) -> bool:
+	if p.distance_to(Vector2(PLAZA.x, PLAZA.z)) < 2.4:
+		return true
+	for h: Array in HOUSES:
+		var c: Vector3 = h[1]
+		var quarter: bool = absf(fmod(float(h[2]), 180.0)) > 45.0
+		var hx: float = (h[4] if quarter else h[3]) * 1.0 + 0.4
+		var hz: float = (h[3] if quarter else h[4]) * 1.0 + 0.4
+		if absf(p.x - c.x) < hx and absf(p.y - c.z) < hz:
+			return true
+	for s: Array in STALLS:
+		var c: Vector3 = s[0]
+		var along_x: bool = absf(fmod(float(s[1]), 180.0)) < 45.0
+		var half_long: float = float(s[2]) * 0.5
+		if along_x and absf(p.x - c.x) < half_long and absf(p.y - (c.z + 0.6)) < 0.7:
+			return true
+		if not along_x and absf(p.y - c.z) < half_long and absf(p.x - (c.x + 0.6)) < 0.7:
+			return true
+	for run: Array in PALISADE:
+		var a: Vector2 = run[0]
+		var b: Vector2 = run[1]
+		var t: float = clampf((p - a).dot(b - a) / (b - a).length_squared(), 0.0, 1.0)
+		if p.distance_to(a.lerp(b, t)) < 0.6:
+			return true
+	return false

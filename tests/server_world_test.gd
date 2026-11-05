@@ -72,10 +72,10 @@ func run() -> void:
 	stopped = sim.actors[101]["position"]
 	sim.tick(NAN)
 	check(sim.actors[101]["position"] == stopped,"nonfinite delta ignored")
-	sim.actors[101]["position"] = Vector3(39,0,65)
+	sim.actors[101]["position"] = Vector3(WorldSimulation.MAX_X,0,WorldSimulation.MAX_Z)
 	sim.set_input(101,Vector2.RIGHT,0)
 	sim.tick(0.25)
-	check(sim.actors[101]["position"].x == 39.0,"map boundary enforced")
+	check(sim.actors[101]["position"].x == WorldSimulation.MAX_X,"map boundary enforced")
 	sim.actors[101]["position"] = Vector3.ZERO
 	sim.movement_allowed = func(_from: Vector3,_to: Vector3) -> bool: return false
 	sim.set_input(101,Vector2.RIGHT,0)

@@ -455,7 +455,7 @@ func _monster_reward(account: int, key: String) -> void:
 		return
 	var monster: Dictionary = simulation.monsters[key]
 	var session: ServerGameSession = _sessions[account]
-	var xp: int = int(float(monster["max_hp"]) * 0.5 + float(monster["attack_damage"]) * 1.5)
+	var xp: int = int(monster.get("exp", float(monster["max_hp"]) * 0.5 + float(monster["attack_damage"]) * 1.5))
 	session.actor.gain_exp(xp)
 	session.progression.add_monster_kill(int(monster["monster_id"]))
 	var uid: String = str(session.actor.stats.get("summoned_pet",""))

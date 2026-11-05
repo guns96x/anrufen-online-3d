@@ -234,6 +234,15 @@ const CREATURES: Dictionary = {
 }
 
 func _dress_creatures() -> void:
+	for entry: Array in GuanlinSpawns.ENCOUNTERS:
+		var spawned: Monster = $Monsters.get_node_or_null(String(entry[0])) as Monster
+		if spawned:
+			spawned.monster_name = GuanlinSpawns.display_name(entry)
+			spawned.level = int(entry[4])
+			spawned.role = str(entry[3])
+			spawned.apply_balance()
+			spawned.current_hp = spawned.max_hp
+			spawned._update_labels()
 	for node: Node in $Monsters.get_children():
 		var monster: Monster = node as Monster
 		if monster == null or monster.animator != null:
@@ -251,7 +260,8 @@ func _dress_creatures() -> void:
 		model.rotation.y = deg_to_rad(float(CREATURES[key][2]))
 		monster.visual_root.add_child(model)
 		MobAnimator.attach(monster, "creature")
-		monster.role = {"вепр": "beast", "павук": "swarm", "шакал": "hunter"}[key]
+		if monster.role.is_empty():
+			monster.role = {"вепр": "beast", "павук": "swarm", "шакал": "hunter"}[key]
 		monster.apply_balance()
 		monster.current_hp = monster.max_hp
 		monster._update_labels()

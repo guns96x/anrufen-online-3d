@@ -16,33 +16,16 @@ var forage: ForestForage = ForestForage.new()
 
 const INPUT_TIMEOUT: float = 0.35
 const MAX_STEP: float = 0.25
-const MIN_X: float = -39.0
-const MAX_X: float = 39.0
-const MIN_Z: float = -33.0
-const MAX_Z: float = 65.0
+const MIN_X: float = GuanlinLayout.BOUNDS_MIN.x + 1.0
+const MAX_X: float = GuanlinLayout.BOUNDS_MAX.x - 1.0
+const MIN_Z: float = GuanlinLayout.BOUNDS_MIN.y + 1.0
+const MAX_Z: float = GuanlinLayout.BOUNDS_MAX.y - 1.0
 const MELEE_RANGE: float = 3.5
 
 func _init() -> void:
-	var encounters: Array = [
-		["WildBoar1",70073,Vector3(-8,0,28),50,10,3.5],
-		["WildBoar2",70073,Vector3(10,0,30),50,10,3.5],
-		["WildBoar3",70073,Vector3(-16,0,24),50,10,3.5],
-		["WildBoar4",70073,Vector3(18,0,26),50,10,3.5],
-		["ForestSpider1",70076,Vector3(16,0,42),65,13,3.5],
-		["ForestSpider2",70076,Vector3(-12,0,44),65,13,3.5],
-		["ForestSpider3",70076,Vector3(24,0,40),65,13,3.5],
-		["ForestSpider4",70076,Vector3(-22,0,38),65,13,3.5],
-		["ScavengerJackal1",70115,Vector3(4,0,56),90,17,4.2],
-		["ScavengerJackal2",70115,Vector3(-8,0,58),90,17,4.2],
-		["ScavengerJackal3",70115,Vector3(14,0,55),90,17,4.2],
-		["Bandit1",70071,Vector3(27,0,28),70,14,3.5],
-		["Bandit2",70071,Vector3(30,0,39),70,14,3.5],
-		["Bandit3",70071,Vector3(-29,0,27),70,14,3.5],
-		["Bandit4",70071,Vector3(-31,0,47),70,14,3.5],
-		["Bandit5",70071,Vector3(28,0,57),70,14,3.5],
-	]
-	for entry: Array in encounters:
-		monsters[entry[0]] = {"monster_id":entry[1],"type":entry[1],"position":entry[2],"spawn":entry[2],"hp":entry[3],"max_hp":entry[3],"attack_damage":entry[4],"speed":entry[5],"stats":{"defense":4,"evasion":0.05,"element":1},"state":"idle","target":0,"warning_target":0,"warning_timer":0.0,"warning_position":Vector3.ZERO,"respawn_timer":0.0,"attack_cooldown":0.0,"slow_timer":0.0}
+	for entry: Array in GuanlinSpawns.ENCOUNTERS:
+		var numbers: Dictionary = Balance.monster(int(entry[4]), str(entry[3]))
+		monsters[entry[0]] = {"monster_id":entry[1],"type":entry[1],"position":entry[2],"spawn":entry[2],"hp":numbers["max_hp"],"max_hp":numbers["max_hp"],"attack_damage":numbers["attack"],"speed":GuanlinSpawns.SPEEDS[entry[3]],"level":entry[4],"exp":numbers["exp"],"name":GuanlinSpawns.display_name(entry),"stats":{"defense":numbers["defense"],"evasion":numbers["evasion"],"element":1,"level":entry[4]},"state":"idle","target":0,"warning_target":0,"warning_timer":0.0,"warning_position":Vector3.ZERO,"respawn_timer":0.0,"attack_cooldown":0.0,"slow_timer":0.0}
 
 func bind_social(value: SocialState) -> void:
 	social = value
@@ -356,7 +339,8 @@ func _clear_requests(id: int) -> void:
 
 func _allowed(from: Vector3, to: Vector3) -> bool:
 	if not movement_allowed.is_valid():
-		return true
+		# Dedicated server: the town plan is the collision map; never trap someone already inside.
+		return not GuanlinLayout.blocks(Vector2(to.x, to.z)) or GuanlinLayout.blocks(Vector2(from.x, from.z))
 	var result: Variant = movement_allowed.call(from,to)
 	return typeof(result) == TYPE_BOOL and result
 
@@ -524,7 +508,7 @@ func _resolve_monster_attack(key: String) -> void:
 	var target: int = int(monster["warning_target"])
 	if not _alive(target) or monster["position"].distance_to(actors[target]["position"]) > 2.15 or actors[target]["position"].distance_to(monster["warning_position"]) >= 1.5:
 		return
-	var attack_stats: Dictionary = {"attack":monster["attack_damage"],"accuracy":1.0,"crit_rate":0.0,"element":1}
+	var attack_stats: Dictionary = {"attack":monster["attack_damage"],"accuracy":1.0,"crit_rate":0.05,"element":1,"level":int(monster.get("level",1))}
 	var result: Dictionary = CombatFormulas.calculate_damage(attack_stats,_profile(target))
 	var amount: int = 0 if result.get("is_miss",false) else int(result.get("damage",0))
 	amount = _damage_actor(0,target,amount,key)
