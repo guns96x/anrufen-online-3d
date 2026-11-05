@@ -1,0 +1,81 @@
+{
+  "cottage": {
+    "triangles": 3158,
+    "materials": 8,
+    "dimensions_m": [
+      5.902192115783691,
+      6.164999961853027,
+      6.190000057220459
+    ]
+  },
+  "hall": {
+    "triangles": 4378,
+    "materials": 8,
+    "dimensions_m": [
+      8.080498695373535,
+      7.464999675750732,
+      10.829999923706055
+    ]
+  },
+  "oak": {
+    "triangles": 912,
+    "materials": 5,
+    "dimensions_m": [
+      5.662876129150391,
+      5.667631149291992,
+      6.095833778381348
+    ]
+  },
+  "jackal": {
+    "triangles": 548,
+    "materials": 4,
+    "dimensions_m": [
+      0.8559520244598389,
+      2.7486419677734375,
+      1.8599998950958252
+    ]
+  },
+  "wayfarer": {
+    "polygons": 946,
+    "articulated_limbs": 4
+  },
+  "elder": {
+    "polygons": 686,
+    "articulated_limbs": 4
+  },
+  "anna": {
+    "polygons": 838,
+    "articulated_limbs": 4
+  },
+  "bandit": {
+    "polygons": 946,
+    "articulated_limbs": 4
+  },
+  "fountain": {
+    "triangles": 992,
+    "materials": 3,
+    "dimensions_m": [
+      4.820000171661377,
+      4.820000648498535,
+      2.5999999046325684
+    ]
+  },
+  "boar": {
+    "triangles": 96,
+    "materials": 3,
+    "dimensions_m": [
+      0.7600000500679016,
+      1.8250001668930054,
+      0.9749999642372131
+    ]
+  },
+  "spider": {
+    "triangles": 312,
+    "materials": 2,
+    "dimensions_m": [
+      1.9491491317749023,
+      1.7964863777160645,
+      1.2300001382827759
+    ]
+  }
+}

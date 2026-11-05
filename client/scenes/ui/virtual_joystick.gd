@@ -26,8 +26,15 @@ func _ready() -> void:
 	base_circle.modulate = Color(1, 1, 1, 0.4)
 
 func _input(event: InputEvent) -> void:
+	var hud: Node = get_tree().get_first_node_in_group("hud")
+	if hud and hud.has_method("is_modal_active") and hud.is_modal_active():
+		if is_pressed:
+			_reset()
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed:
+			if hud and hud.has_method("is_point_over_ui") and hud.is_point_over_ui(event.position):
+				return
 			var vp_size = get_viewport_rect().size
 			# Left 45% of the screen is joystick zone
 			if event.position.x < vp_size.x * 0.45 and event.position.y > vp_size.y * 0.25:
@@ -69,7 +76,7 @@ func _reset() -> void:
 	output = Vector2.ZERO
 	current_pos = center_pos
 	_update_knob()
-	base_circle.modulate = Color(1, 1, 1, 0.4)
+	base_circle.modulate = Color(1, 1, 1, float(SettingsStore.current().get_value("joystick_opacity")) * 0.6)
 	if is_floating:
 		base_circle.position = initial_base_pos
 		center_pos = initial_base_pos + base_circle.size / 2.0
@@ -78,5 +85,7 @@ func _reset() -> void:
 	joystick_updated.emit(Vector2.ZERO)
 
 func _update_knob() -> void:
+	# Knob is a child of Base: position it in Base-local space so it is always
+	# centred on the ring regardless of where the joystick sits on screen.
 	if knob:
-		knob.global_position = current_pos - knob.size / 2.0
+		knob.position = base_circle.size / 2.0 + (current_pos - center_pos) - knob.size / 2.0

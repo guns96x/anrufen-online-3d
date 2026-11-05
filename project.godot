@@ -8,13 +8,14 @@ config_version=5
 
 config/name="Covenant Chronicles 3D"
 config/description="3D Reimagined Fantasy RPG"
-config/version="0.1.0"
+config/version="0.6.0"
 run/main_scene="res://client/scenes/world/guanlin_town.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
+GameSettings="*res://shared/settings/game_settings.gd"
 NetworkManager="*res://shared/network/network_manager.gd"
 
 [display]

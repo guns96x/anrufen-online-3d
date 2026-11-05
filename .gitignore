@@ -8,3 +8,5 @@ export_presets.cfg
 *.tmp
 build/
 bin/
+
+__pycache__/

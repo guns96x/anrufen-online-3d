@@ -1,0 +1,65 @@
+{
+  "script.ini": {
+    "id": 5003,
+    "payload_sha256": "70c90259ebc3f41b9ecb9a4a65d3ced674cdef308560a65f773c08dca472a5ef",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 297
+  },
+  "data\\horse_data.lua": {
+    "id": 5001,
+    "payload_sha256": "91022ab02cd8abaa43a7ab0d9371e70dccb9a8bcbf96bd44ec07fa7c04302f26",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 100
+  },
+  "calculate_share.lua": {
+    "id": 5004,
+    "payload_sha256": "5e07d1f5fcd3cb2213ddf0845b335027c6a0d5031a3ed139e6b41db3c3059cc1",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 522
+  },
+  "skill_2nd\\share\\skill_const_2nd.lua": {
+    "id": 5005,
+    "payload_sha256": "10459d37531b1f94806f634e66396d0e998daedeb9e41b146843f58afa909cb7",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 35138
+  },
+  "attribute_const.lua": {
+    "id": 5002,
+    "payload_sha256": "c4649e3b7839c51178cf42653c3470735df944fe36b8e0d8e70426306ddd3984",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 2833
+  },
+  "clt_script\\frame.lua": {
+    "id": 5006,
+    "payload_sha256": "9b90d8b6c5db76efe6ad07c601658183c4f6fcf09fa39d2c3fbcd5b8289d4464",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 838
+  },
+  "clt_script\\item.lua": {
+    "id": 5007,
+    "payload_sha256": "9eebf619fb87c92826fc39657500e31bf659a8a056f86a56954ff09db3ea83ef",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 4368
+  },
+  "clt_script\\ui_comm.lua": {
+    "id": 5008,
+    "payload_sha256": "d9d44c7b1ecd66985cecf9f2c098644095cce0e2983fce49a951d2bb0a097adb",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 1035
+  },
+  "clt_script\\ui_CashShop.lua": {
+    "id": 5009,
+    "payload_sha256": "8ce5fa6edc5b7bd93dbf95881e248d619ad96929988db8de4639a17d6619ba15",
+    "payload_encoding": "gbk",
+    "export_encoding": "utf-8",
+    "bytes": 1360
+  }
+}

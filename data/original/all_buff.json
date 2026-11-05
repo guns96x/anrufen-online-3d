@@ -1,0 +1,388 @@
+[
+  {
+    "id": 210001,
+    "offset": 575,
+    "strings": [
+      "神圣之盾",
+      "icon\\buff\\BUFF_ex11.bmp",
+      "特效-神圣之盾"
+    ]
+  },
+  {
+    "id": 210002,
+    "offset": 667,
+    "strings": [
+      "体力增加",
+      "icon\\buff\\BUFF_ex11.bmp",
+      "特效-神圣之盾"
+    ]
+  },
+  {
+    "id": 210003,
+    "offset": 766,
+    "strings": [
+      "法力盾",
+      "icon\\buff\\BUFF_ex7.bmp",
+      "特效-法力盾"
+    ]
+  },
+  {
+    "id": 210004,
+    "offset": 855,
+    "strings": [
+      "神圣之盾",
+      "icon\\buff\\BUFF_ex11.bmp",
+      "特效-神圣之盾"
+    ]
+  },
+  {
+    "id": 210005,
+    "offset": 947,
+    "strings": [
+      "骑士_仇恨",
+      "icon\\buff\\BUFF_ex10.bmp"
+    ]
+  },
+  {
+    "id": 210000,
+    "offset": 1031,
+    "strings": [
+      "抗性光环",
+      "icon\\buff\\BUFF_basic7.bmp"
+    ]
+  },
+  {
+    "id": 210007,
+    "offset": 1113,
+    "strings": [
+      "弱化术",
+      "icon\\buff\\BUFF_basic5.bmp",
+      "特效-弱化术"
+    ]
+  },
+  {
+    "id": 210008,
+    "offset": 1204,
+    "strings": [
+      "死亡标记",
+      "icon\\buff\\BUFF_ex16.bmp",
+      "特效-死亡标记"
+    ]
+  },
+  {
+    "id": 210009,
+    "offset": 1298,
+    "strings": [
+      "抗性降低",
+      "icon\\buff\\BUFF_basic7.bmp",
+      "特效-抗性减少"
+    ]
+  },
+  {
+    "id": 210006,
+    "offset": 1395,
+    "strings": [
+      "冻结",
+      "icon\\buff\\BUFF_ex11.bmp"
+    ]
+  },
+  {
+    "id": 210010,
+    "offset": 1471,
+    "strings": [
+      "狂暴化",
+      "icon\\buff\\BUFF_ex19.bmp",
+      "特效-狂暴BUFF"
+    ]
+  },
+  {
+    "id": 210011,
+    "offset": 1563,
+    "strings": [
+      "icon\\buff"
+    ]
+  },
+  {
+    "id": 210012,
+    "offset": 1611,
+    "strings": [
+      "法力光环",
+      "buff\\BUFF_ex3.bmp"
+    ]
+  },
+  {
+    "id": 210013,
+    "offset": 1681,
+    "strings": [
+      "魔法盾",
+      "buff\\BUFF_ex12.bmp",
+      "特效-弱化术"
+    ]
+  },
+  {
+    "id": 210014,
+    "offset": 1767,
+    "strings": [
+      "元素赐生",
+      "buff\\BUFF_ex1.bmp"
+    ]
+  },
+  {
+    "id": 210015,
+    "offset": 1837,
+    "strings": [
+      "冻结",
+      "buff\\BUFF_basic4.bmp",
+      "特效-冻结"
+    ]
+  },
+  {
+    "id": 210016,
+    "offset": 1919,
+    "strings": [
+      "元素支配",
+      "buff\\BUFF_ex7.bmp"
+    ]
+  },
+  {
+    "id": 210017,
+    "offset": 1989,
+    "strings": [
+      "死亡标记",
+      "buff\\BUFF_sp3.bmp"
+    ]
+  },
+  {
+    "id": 210018,
+    "offset": 2058,
+    "strings": [
+      "暗影诅咒",
+      "buff\\BUFF_sp3.bmp",
+      "特效-抗性减少"
+    ]
+  },
+  {
+    "id": 210019,
+    "offset": 2146,
+    "strings": [
+      "速度爆发",
+      "buff\\BUFF_basic3.bmp",
+      "特效-加速"
+    ]
+  },
+  {
+    "id": 210020,
+    "offset": 2235,
+    "strings": [
+      "坚韧光环",
+      "buff\\BUFF_ex1.bmp"
+    ]
+  },
+  {
+    "id": 210021,
+    "offset": 2305,
+    "strings": [
+      "狂暴化",
+      "buff\\BUFF_basic7.bmp",
+      "特效-狂暴BUFF"
+    ]
+  },
+  {
+    "id": 210022,
+    "offset": 2390,
+    "strings": [
+      "骑士盾",
+      "buff\\",
+      "特效-法力盾"
+    ]
+  },
+  {
+    "id": 210023,
+    "offset": 2450,
+    "strings": [
+      "体力回复",
+      "buff\\BUFF_ex21.bmp",
+      "特效-缓缓加红"
+    ]
+  },
+  {
+    "id": 210024,
+    "offset": 2540,
+    "strings": [
+      "法力灼烧",
+      "buff\\BUFF_ex22.bmp",
+      "特效-缓缓加蓝"
+    ]
+  },
+  {
+    "id": 210025,
+    "offset": 2629,
+    "strings": [
+      "抗性增加",
+      "buff\\BUFF_ex7.bmp"
+    ]
+  },
+  {
+    "id": 210026,
+    "offset": 2699,
+    "strings": [
+      "防御增加",
+      "buff\\BUFF_ex11.bmp"
+    ]
+  },
+  {
+    "id": 210027,
+    "offset": 2770,
+    "strings": [
+      "物攻增加",
+      "buff\\BUFF_ex9.bmp"
+    ]
+  },
+  {
+    "id": 210028,
+    "offset": 2840,
+    "strings": [
+      "魔攻增加",
+      "buff\\BUFF_ex5.bmp"
+    ]
+  },
+  {
+    "id": 210029,
+    "offset": 2910,
+    "strings": [
+      "buff\\BUFF_ex5.bmp",
+      "特效-抗性减少"
+    ]
+  },
+  {
+    "id": 210030,
+    "offset": 2992,
+    "strings": [
+      "黑暗之盾",
+      "buff\\BUFF_ex8.bmp",
+      "特效-法力盾"
+    ]
+  },
+  {
+    "id": 210031,
+    "offset": 3078,
+    "strings": [
+      "固体化",
+      "buff\\BUFF_ex18.bmp",
+      "特效-神圣之盾"
+    ]
+  },
+  {
+    "id": 210032,
+    "offset": 3166,
+    "strings": [
+      "液体化",
+      "buff\\BUFF_res4.bmp",
+      "特效-弱化术"
+    ]
+  },
+  {
+    "id": 210033,
+    "offset": 3252,
+    "strings": [
+      "气化",
+      "buff\\BUFF_res8.bmp",
+      "特效-法力盾"
+    ]
+  },
+  {
+    "id": 210034,
+    "offset": 3336,
+    "strings": [
+      "衰老",
+      "buff\\BUFF_basic5.bmp",
+      "特效-死亡标记"
+    ]
+  },
+  {
+    "id": 210035,
+    "offset": 3425,
+    "strings": [
+      "流血",
+      "buff\\BUFF_basic1.bmp"
+    ]
+  },
+  {
+    "id": 210036,
+    "offset": 3495,
+    "strings": [
+      "祭品",
+      "buff\\BUFF_ex19.bmp",
+      "特效-死亡标记"
+    ]
+  },
+  {
+    "id": 210037,
+    "offset": 3581,
+    "strings": [
+      "补充体力",
+      "buff\\BUFF_ex21.bmp"
+    ]
+  },
+  {
+    "id": 210038,
+    "offset": 3653,
+    "strings": [
+      "补充法力",
+      "buff\\BUFF_ex22.bmp"
+    ]
+  },
+  {
+    "id": 210039,
+    "offset": 3724,
+    "strings": [
+      "用力过猛",
+      "buff\\BUFF_ex15.bmp"
+    ]
+  },
+  {
+    "id": 210040,
+    "offset": 3796,
+    "strings": [
+      "计时器",
+      "buff\\BUFF_ex15.bmp"
+    ]
+  },
+  {
+    "id": 210041,
+    "offset": 3866,
+    "strings": [
+      "战争药剂",
+      "buff\\BUFF_ex9.bmp"
+    ]
+  },
+  {
+    "id": 210042,
+    "offset": 3936,
+    "strings": [
+      "钢铁药剂",
+      "buff\\BUFF_ex11.bmp"
+    ]
+  },
+  {
+    "id": 210043,
+    "offset": 4007,
+    "strings": [
+      "杀戮药剂",
+      "buff\\BUFF_ex13.bmp"
+    ]
+  },
+  {
+    "id": 210044,
+    "offset": 4079,
+    "strings": [
+      "史莱姆药剂",
+      "buff\\BUFF_ex17.bmp"
+    ]
+  },
+  {
+    "id": 10000001,
+    "offset": 4153,
+    "strings": []
+  }
+]

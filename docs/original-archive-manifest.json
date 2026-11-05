@@ -1,0 +1,90 @@
+{
+  "all_prop": {
+    "records": 1036,
+    "sha256": "524b7bf1dcbb07b46608bcf47f35d7ffbd90d8a8702075b4088dc1dc61926dc2"
+  },
+  "all_pet": {
+    "records": 28,
+    "sha256": "d4918457d447127b0a4af04332490a4f675a3525e89ff6c05d64364ceefb024d"
+  },
+  "all_petData": {
+    "records": 5,
+    "sha256": "98fa72d7683a937f431da7372c8f2bffd57233b8a8dd2a8c75d6b109824cd5fd"
+  },
+  "all_title": {
+    "records": 138,
+    "sha256": "0d19d4b4f202e927cb2cc3dc1feb1aafe79a6c06358b0b851a086a3c3600c505"
+  },
+  "all_skill": {
+    "records": 166,
+    "sha256": "83cfbbaa815ab4db59f75484622eb9ef25cbdc9d5ce0d977d264ce5cbdd81a92"
+  },
+  "all_skilltree": {
+    "records": 19,
+    "sha256": "2bad87ffeae7384872993c1212e00fbea37bb64b4c9982f7357842da9013c55a"
+  },
+  "all_shop": {
+    "records": 32,
+    "sha256": "d6babd23889d75765d5f9a8ee28a66dcd8927ecf578facff8cda3722266d6e8c"
+  },
+  "all_combine": {
+    "records": 17,
+    "sha256": "c7084c45f83e412d2524c3a993666a89b85cfd1a5bf2641ed5eb9a530a8678ac"
+  },
+  "all_buff": {
+    "records": 46,
+    "sha256": "0bd6b11969036cf440c11b9caeef38c5e51b6a41cdef248232493a493a141dd4"
+  },
+  "all_guarder": {
+    "records": 27,
+    "sha256": "041d92d71c7debe943e0c4d95368875f2c8a3b5c05edd8fa25a6b1f68d58e511"
+  },
+  "all_union": {
+    "records": 2,
+    "sha256": "61c04efc8a46904a7137c397a3075c3a905f934959c4e1d48235c727e48669c6"
+  },
+  "all_citizen": {
+    "records": 455,
+    "sha256": "3630002c0d3e6655fe9f68e7e039d37ebc0582e9355a141a223563da93aa945e"
+  },
+  "all_suit": {
+    "records": 42,
+    "sha256": "852d309efe6abdd2cb23a98bf5ae5dbb5d95fe5bb2cc1caa82a261dc7e4ab19f"
+  },
+  "all_role": {
+    "records": 9,
+    "sha256": "f56e54613e37388733bcd2bc7e9230032f75e0248d7a8ba82ec7cde9a4b38424"
+  },
+  "all_race": {
+    "records": 3,
+    "sha256": "24a572168ee3eb2d09f178acf568f83769156d5fb7985d74f216ffca6a253cad"
+  },
+  "AnbufenUI": {
+    "records": 62,
+    "sha256": "64ad7fef4c0850d5a7ed6bd4b4b6226d1dce029342ad03f2ea9facbf340bf7db"
+  },
+  "all_task": {
+    "records": 713,
+    "sha256": "4fda6ba3f23a56db78b09223ec5cdedbc8798eff2213f9bf3806c3db2fd08b37"
+  },
+  "all_equip": {
+    "records": 787,
+    "sha256": "91bbaa5e5b141dc0607053594ef9b4eaeaa549309bf991813d265dc5c992ccad"
+  },
+  "all_monster": {
+    "records": 384,
+    "sha256": "19ce4284f957b8f9f2c1751782c62bb41c5133a3f28677dc01d9b5f517da9fbe"
+  },
+  "all_scene": {
+    "records": 227,
+    "sha256": "bd08073fd7ba0f5e897e0f156a79a59a62a261c3d67d22798d5f6b5b28a4038d"
+  },
+  "all_character": {
+    "records": 13,
+    "sha256": "5b95fd7e358264ee503fc4662dbe462ea4a8b341700422c3b211fb60643b4b72"
+  },
+  "all_property": {
+    "records": 1627,
+    "sha256": "2948dee3c1e3f9e86cd1cb2fb7582e0ac0cae326108cd009f0ef7cc471782203"
+  }
+}

@@ -1,0 +1,6054 @@
+{
+  "attribute_constants": {
+    "path": "data/original/scripts/attribute_const.lua",
+    "sha256": "7714bf9c1d86f9b8bc7ccab5e5583dd39ef00f33344cfdf399da2da2124968c3"
+  },
+  "records": [
+    {
+      "affix_name": "数字之",
+      "buy_price": 1,
+      "decoded_end": 236,
+      "effects": [
+        {
+          "attribute_id": 20,
+          "attribute_names": [
+            "PHYSICAL_ATTACK"
+          ],
+          "raw_hex": "010000001400000000000000000034400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            20,
+            0,
+            1077149696,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 20.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 144,
+      "id": 30007,
+      "is_test": true,
+      "name": "测试_数字之魂",
+      "raw_first_seven": [
+        1,
+        1,
+        1,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [],
+      "sell_price": 1,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          131,
+          236
+        ],
+        "archive_offset": 96160,
+        "index_name": "",
+        "payload_sha256": "3fde2d939c8542862c59773b13003734f125e074338eeb36dd190940563d3b70",
+        "payload_size": 236,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0500000017000000",
+            "offset": 124
+          }
+        ],
+        "strings": [
+          {
+            "end": 22,
+            "start": 4,
+            "text": "测试_数字之魂"
+          },
+          {
+            "end": 82,
+            "start": 22,
+            "text": "item\\stone\\icon_dj_lans2.bmp"
+          },
+          {
+            "end": 98,
+            "start": 82,
+            "text": "测试前置合成"
+          },
+          {
+            "end": 114,
+            "start": 98,
+            "text": "测试前置合成"
+          },
+          {
+            "end": 124,
+            "start": 114,
+            "text": "数字之"
+          },
+          {
+            "end": 144,
+            "start": 132,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "顽石的",
+      "buy_price": 1,
+      "decoded_end": 236,
+      "effects": [
+        {
+          "attribute_id": 22,
+          "attribute_names": [
+            "MAGIC_ATTACK"
+          ],
+          "raw_hex": "010000001600000000000000000034400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            22,
+            0,
+            1077149696,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 20.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 144,
+      "id": 30008,
+      "is_test": true,
+      "name": "测试_顽石之魄",
+      "raw_first_seven": [
+        1,
+        1,
+        1,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [],
+      "sell_price": 1,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          133,
+          236
+        ],
+        "archive_offset": 96307,
+        "index_name": "",
+        "payload_sha256": "9c3fd771106b436210fe81c9c5c7e667acad81a84c7374359d3899bd76508c64",
+        "payload_size": 236,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0500000018000000",
+            "offset": 124
+          }
+        ],
+        "strings": [
+          {
+            "end": 22,
+            "start": 4,
+            "text": "测试_顽石之魄"
+          },
+          {
+            "end": 82,
+            "start": 22,
+            "text": "item\\task\\icon_dj_task19.bmp"
+          },
+          {
+            "end": 98,
+            "start": 82,
+            "text": "测试后置合成"
+          },
+          {
+            "end": 114,
+            "start": 98,
+            "text": "测试后置合成"
+          },
+          {
+            "end": 124,
+            "start": 114,
+            "text": "顽石的"
+          },
+          {
+            "end": 144,
+            "start": 132,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "寒霜之",
+      "buy_price": 100,
+      "decoded_end": 316,
+      "effects": [
+        {
+          "attribute_id": 65,
+          "attribute_names": [
+            "DARK_RESIST"
+          ],
+          "raw_hex": "010000004100000000000000000039400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            65,
+            0,
+            1077477376,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 25.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 196,
+      "id": 30206,
+      "is_test": false,
+      "name": "石菇",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          214,
+          316
+        ],
+        "archive_offset": 100067,
+        "index_name": "",
+        "payload_sha256": "96f26a2f73ee937798feb616dcc3f0dcaea8ed2c1929455b5fcf5766ea1db8f8",
+        "payload_size": 316,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 176
+          }
+        ],
+        "strings": [
+          {
+            "end": 12,
+            "start": 4,
+            "text": "石菇"
+          },
+          {
+            "end": 80,
+            "start": 12,
+            "text": "item\\stone\\icon_dj_tiehuashi.BMP"
+          },
+          {
+            "end": 142,
+            "start": 80,
+            "text": "幽暗的山谷中缓慢生长的“岩石”，凝聚了黑暗中的决心和魔力。"
+          },
+          {
+            "end": 166,
+            "start": 142,
+            "text": "附加暗抗性的附魔材料"
+          },
+          {
+            "end": 176,
+            "start": 166,
+            "text": "寒霜之"
+          },
+          {
+            "end": 196,
+            "start": 184,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "寒霜之",
+      "buy_price": 100,
+      "decoded_end": 320,
+      "effects": [
+        {
+          "attribute_id": 65,
+          "attribute_names": [
+            "DARK_RESIST"
+          ],
+          "raw_hex": "010000004100000000000000000045400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            65,
+            0,
+            1078263808,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 42.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 200,
+      "id": 30207,
+      "is_test": false,
+      "name": "微光石菇",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          217,
+          320
+        ],
+        "archive_offset": 100297,
+        "index_name": "",
+        "payload_sha256": "b2be5fa5b1b0e16d706790c65ed60400686d87a86963b56daea338789895fe62",
+        "payload_size": 320,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 180
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "微光石菇"
+          },
+          {
+            "end": 84,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_tiehuashi.BMP"
+          },
+          {
+            "end": 146,
+            "start": 84,
+            "text": "幽暗的山谷中缓慢生长的“岩石”，凝聚了黑暗中的决心和魔力。"
+          },
+          {
+            "end": 170,
+            "start": 146,
+            "text": "附加暗抗性的附魔材料"
+          },
+          {
+            "end": 180,
+            "start": 170,
+            "text": "寒霜之"
+          },
+          {
+            "end": 200,
+            "start": 188,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "寒霜之",
+      "buy_price": 100,
+      "decoded_end": 310,
+      "effects": [
+        {
+          "attribute_id": 65,
+          "attribute_names": [
+            "DARK_RESIST"
+          ],
+          "raw_hex": "01000000410000000000000000004b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            65,
+            0,
+            1078657024,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 54.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 190,
+      "id": 30208,
+      "is_test": false,
+      "name": "影宝石",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          200,
+          310
+        ],
+        "archive_offset": 100530,
+        "index_name": "",
+        "payload_sha256": "d75aeb9eef2d010ddb7025dfcd958e4f949c5f33cc2a45f48c4a8c9d6d5129e1",
+        "payload_size": 310,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 170
+          }
+        ],
+        "strings": [
+          {
+            "end": 14,
+            "start": 4,
+            "text": "影宝石"
+          },
+          {
+            "end": 92,
+            "start": 14,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 136,
+            "start": 92,
+            "text": "宝石中心转动着阴影，想要吞噬更大的黑暗。"
+          },
+          {
+            "end": 160,
+            "start": 136,
+            "text": "附加暗抗性的附魔材料"
+          },
+          {
+            "end": 170,
+            "start": 160,
+            "text": "寒霜之"
+          },
+          {
+            "end": 190,
+            "start": 178,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "寒霜之",
+      "buy_price": 100,
+      "decoded_end": 314,
+      "effects": [
+        {
+          "attribute_id": 65,
+          "attribute_names": [
+            "DARK_RESIST"
+          ],
+          "raw_hex": "010000004100000000000000004050400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            65,
+            0,
+            1079001088,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 65.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 194,
+      "id": 30216,
+      "is_test": false,
+      "name": "远古影宝石",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          206,
+          314
+        ],
+        "archive_offset": 100746,
+        "index_name": "",
+        "payload_sha256": "d121add7b9ad4ddc8b9b02852efc736c1f981e3b060c6e7f374a74c3b8e93267",
+        "payload_size": 314,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 174
+          }
+        ],
+        "strings": [
+          {
+            "end": 18,
+            "start": 4,
+            "text": "远古影宝石"
+          },
+          {
+            "end": 96,
+            "start": 18,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 140,
+            "start": 96,
+            "text": "宝石中心转动着阴影，想要吞噬更大的黑暗。"
+          },
+          {
+            "end": 164,
+            "start": 140,
+            "text": "附加暗抗性的附魔材料"
+          },
+          {
+            "end": 174,
+            "start": 164,
+            "text": "寒霜之"
+          },
+          {
+            "end": 194,
+            "start": 182,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "寒霜之",
+      "buy_price": 100,
+      "decoded_end": 358,
+      "effects": [
+        {
+          "attribute_id": 61,
+          "attribute_names": [
+            "FIRE_RESIST"
+          ],
+          "raw_hex": "010000003d00000000000000000039400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            61,
+            0,
+            1077477376,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 25.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 238,
+      "id": 30251,
+      "is_test": false,
+      "name": "冰晶矿",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          248,
+          358
+        ],
+        "archive_offset": 96456,
+        "index_name": "",
+        "payload_sha256": "ab4e2f2960c96c507824127e8e84b124c629bce7c5ed3a6214174bc39ab6055a",
+        "payload_size": 358,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 218
+          }
+        ],
+        "strings": [
+          {
+            "end": 14,
+            "start": 4,
+            "text": "冰晶矿"
+          },
+          {
+            "end": 90,
+            "start": 14,
+            "text": "item\\stone\\icon_dj_bingjingkuang.BMP"
+          },
+          {
+            "end": 184,
+            "start": 90,
+            "text": "埋藏在雪山深处的矿石，经过多年的寒冷和挤压变成了散发着冷气的晶体，可以快速的吸收周围的热度"
+          },
+          {
+            "end": 208,
+            "start": 184,
+            "text": "附加火抗性的附魔材料"
+          },
+          {
+            "end": 218,
+            "start": 208,
+            "text": "寒霜之"
+          },
+          {
+            "end": 238,
+            "start": 226,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "温暖的",
+      "buy_price": 100,
+      "decoded_end": 334,
+      "effects": [
+        {
+          "attribute_id": 63,
+          "attribute_names": [
+            "WATER_RESIST"
+          ],
+          "raw_hex": "010000003f00000000000000000039400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            63,
+            0,
+            1077477376,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 25.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 214,
+      "id": 30318,
+      "is_test": false,
+      "name": "火熔矿",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          219,
+          334
+        ],
+        "archive_offset": 96720,
+        "index_name": "",
+        "payload_sha256": "ec5127ad0e92b0a897f35d4e53ac198f324d5f575352b9f42f4c548e69f8d1c8",
+        "payload_size": 334,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 194
+          }
+        ],
+        "strings": [
+          {
+            "end": 14,
+            "start": 4,
+            "text": "火熔矿"
+          },
+          {
+            "end": 88,
+            "start": 14,
+            "text": "item\\stone\\icon_dj_huorongkuang.BMP"
+          },
+          {
+            "end": 160,
+            "start": 88,
+            "text": "从岩浆中萃取出的半融化状态的矿石，用其铸造的武具皆带着令人温暖的温度"
+          },
+          {
+            "end": 184,
+            "start": 160,
+            "text": "附加冰抗性的附魔材料"
+          },
+          {
+            "end": 194,
+            "start": 184,
+            "text": "温暖的"
+          },
+          {
+            "end": 214,
+            "start": 202,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "坚固的",
+      "buy_price": 100,
+      "decoded_end": 300,
+      "effects": [
+        {
+          "attribute_id": 21,
+          "attribute_names": [
+            "PHYSICAL_DEFENCE"
+          ],
+          "raw_hex": "01000000150000000000000000003c400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            21,
+            0,
+            1077673984,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 28.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 180,
+      "id": 30319,
+      "is_test": false,
+      "name": "防御神符",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          192,
+          300
+        ],
+        "archive_offset": 96955,
+        "index_name": "",
+        "payload_sha256": "29af96e9ddb17c765cbb94937f30e05345a6622390124cb8c58e784f106d570e",
+        "payload_size": 300,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 160
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "防御神符"
+          },
+          {
+            "end": 90,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_fangyushenfu.BMP"
+          },
+          {
+            "end": 120,
+            "start": 90,
+            "text": "刻着弗雷与芙蕾雅祝福的符文"
+          },
+          {
+            "end": 150,
+            "start": 120,
+            "text": "附加防御增强属性的附魔材料"
+          },
+          {
+            "end": 160,
+            "start": 150,
+            "text": "坚固的"
+          },
+          {
+            "end": 180,
+            "start": 168,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "灵巧之",
+      "buy_price": 100,
+      "decoded_end": 300,
+      "effects": [
+        {
+          "attribute_id": 44,
+          "attribute_names": [
+            "JOOK_RATE"
+          ],
+          "raw_hex": "010000002c00000000000000000020400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            44,
+            0,
+            1075838976,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 8.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 180,
+      "id": 30320,
+      "is_test": false,
+      "name": "浪人神符",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          193,
+          300
+        ],
+        "archive_offset": 97163,
+        "index_name": "",
+        "payload_sha256": "c2d6bd2d0206cb2b9b7088309fa0d25781fab90f8c8ccc46738ad90c6a88bd2a",
+        "payload_size": 300,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 160
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "浪人神符"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_langrenshenfu.BMP"
+          },
+          {
+            "end": 120,
+            "start": 92,
+            "text": "刻着琼与古兰恩祝福的符文"
+          },
+          {
+            "end": 150,
+            "start": 120,
+            "text": "附加闪避增加属性的附魔材料"
+          },
+          {
+            "end": 160,
+            "start": 150,
+            "text": "灵巧之"
+          },
+          {
+            "end": 180,
+            "start": 168,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "北风之",
+      "buy_price": 200,
+      "decoded_end": 362,
+      "effects": [
+        {
+          "attribute_id": 61,
+          "attribute_names": [
+            "FIRE_RESIST"
+          ],
+          "raw_hex": "010000003d00000000000000000045400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            61,
+            0,
+            1078263808,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 42.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 242,
+      "id": 30321,
+      "is_test": false,
+      "name": "大块冰晶矿",
+      "raw_first_seven": [
+        1,
+        200,
+        20,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 20,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          252,
+          362
+        ],
+        "archive_offset": 97372,
+        "index_name": "",
+        "payload_sha256": "841293e953958a07e2e048c5da2c09732ba423b4ad8bbbb91f54143886ae9ac2",
+        "payload_size": 362,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 222
+          }
+        ],
+        "strings": [
+          {
+            "end": 18,
+            "start": 4,
+            "text": "大块冰晶矿"
+          },
+          {
+            "end": 94,
+            "start": 18,
+            "text": "item\\stone\\icon_dj_bingjingkuang.BMP"
+          },
+          {
+            "end": 188,
+            "start": 94,
+            "text": "埋藏在雪山深处的矿石，经过多年的寒冷和挤压变成了散发着冷气的晶体，可以快速的吸收周围的热度"
+          },
+          {
+            "end": 212,
+            "start": 188,
+            "text": "附加火抗性的附魔材料"
+          },
+          {
+            "end": 222,
+            "start": 212,
+            "text": "北风之"
+          },
+          {
+            "end": 242,
+            "start": 230,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "深红的",
+      "buy_price": 200,
+      "decoded_end": 338,
+      "effects": [
+        {
+          "attribute_id": 63,
+          "attribute_names": [
+            "WATER_RESIST"
+          ],
+          "raw_hex": "010000003f00000000000000000045400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            63,
+            0,
+            1078263808,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 42.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 218,
+      "id": 30322,
+      "is_test": false,
+      "name": "大块火熔矿",
+      "raw_first_seven": [
+        1,
+        200,
+        20,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 20,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          228,
+          338
+        ],
+        "archive_offset": 97640,
+        "index_name": "",
+        "payload_sha256": "eda8989184c618fee05f0d8148b74a8b0ee17483d0325b77d608a515c44fea55",
+        "payload_size": 338,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 198
+          }
+        ],
+        "strings": [
+          {
+            "end": 18,
+            "start": 4,
+            "text": "大块火熔矿"
+          },
+          {
+            "end": 92,
+            "start": 18,
+            "text": "item\\stone\\icon_dj_huorongkuang.BMP"
+          },
+          {
+            "end": 164,
+            "start": 92,
+            "text": "从岩浆中萃取出的半融化状态的矿石，用其铸造的武具皆带着令人温暖的温度"
+          },
+          {
+            "end": 188,
+            "start": 164,
+            "text": "附加冰抗性的附魔材料"
+          },
+          {
+            "end": 198,
+            "start": 188,
+            "text": "深红的"
+          },
+          {
+            "end": 218,
+            "start": 206,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "超强的",
+      "buy_price": 200,
+      "decoded_end": 304,
+      "effects": [
+        {
+          "attribute_id": 21,
+          "attribute_names": [
+            "PHYSICAL_DEFENCE"
+          ],
+          "raw_hex": "010000001500000000000000000048400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            21,
+            0,
+            1078460416,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 48.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 184,
+      "id": 30323,
+      "is_test": false,
+      "name": "微光防御神符",
+      "raw_first_seven": [
+        1,
+        200,
+        20,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 20,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          195,
+          304
+        ],
+        "archive_offset": 97884,
+        "index_name": "",
+        "payload_sha256": "d74eddf982a7d369ef6e6d207efbe25d87c00cc55cab00302b76b5902f693bf5",
+        "payload_size": 304,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 164
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "微光防御神符"
+          },
+          {
+            "end": 94,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_fangyushenfu.BMP"
+          },
+          {
+            "end": 124,
+            "start": 94,
+            "text": "刻着弗雷与芙蕾雅祝福的符文"
+          },
+          {
+            "end": 154,
+            "start": 124,
+            "text": "附加防御增强属性的附魔材料"
+          },
+          {
+            "end": 164,
+            "start": 154,
+            "text": "超强的"
+          },
+          {
+            "end": 184,
+            "start": 172,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "狡黠之",
+      "buy_price": 200,
+      "decoded_end": 304,
+      "effects": [
+        {
+          "attribute_id": 44,
+          "attribute_names": [
+            "JOOK_RATE"
+          ],
+          "raw_hex": "010000002c0000000000000000002e400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            44,
+            0,
+            1076756480,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 15.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 184,
+      "id": 30324,
+      "is_test": false,
+      "name": "微光浪人神符",
+      "raw_first_seven": [
+        1,
+        200,
+        20,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 20,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          196,
+          304
+        ],
+        "archive_offset": 98095,
+        "index_name": "",
+        "payload_sha256": "c2ebd30925ee0566bb62036e33617756067a601f6ee3b6c8ebd7376555b8ffc9",
+        "payload_size": 304,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 164
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "微光浪人神符"
+          },
+          {
+            "end": 96,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_langrenshenfu.BMP"
+          },
+          {
+            "end": 124,
+            "start": 96,
+            "text": "刻着琼与古兰恩祝福的符文"
+          },
+          {
+            "end": 154,
+            "start": 124,
+            "text": "附加闪避增加属性的附魔材料"
+          },
+          {
+            "end": 164,
+            "start": 154,
+            "text": "狡黠之"
+          },
+          {
+            "end": 184,
+            "start": 172,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "火灵之",
+      "buy_price": 350,
+      "decoded_end": 288,
+      "effects": [
+        {
+          "attribute_id": 61,
+          "attribute_names": [
+            "FIRE_RESIST"
+          ],
+          "raw_hex": "010000003d0000000000000000004b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            61,
+            0,
+            1078657024,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 54.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 168,
+      "id": 30325,
+      "is_test": false,
+      "name": "红宝石",
+      "raw_first_seven": [
+        1,
+        350,
+        35,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 35,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          176,
+          288
+        ],
+        "archive_offset": 98307,
+        "index_name": "",
+        "payload_sha256": "06f53a791be9ff7cf336710e43039bbaf2239e82a7b25ba851b4aee9780a74ae",
+        "payload_size": 288,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 148
+          }
+        ],
+        "strings": [
+          {
+            "end": 14,
+            "start": 4,
+            "text": "红宝石"
+          },
+          {
+            "end": 88,
+            "start": 14,
+            "text": "item\\stone\\icon_dj_huorongkuang.BMP"
+          },
+          {
+            "end": 114,
+            "start": 88,
+            "text": "亲和烈火之魂的世间珠宝"
+          },
+          {
+            "end": 138,
+            "start": 114,
+            "text": "附加火抗性的附魔材料"
+          },
+          {
+            "end": 148,
+            "start": 138,
+            "text": "火灵之"
+          },
+          {
+            "end": 168,
+            "start": 156,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "水灵之",
+      "buy_price": 350,
+      "decoded_end": 290,
+      "effects": [
+        {
+          "attribute_id": 63,
+          "attribute_names": [
+            "WATER_RESIST"
+          ],
+          "raw_hex": "010000003f0000000000000000004b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            63,
+            0,
+            1078657024,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 54.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 170,
+      "id": 30326,
+      "is_test": false,
+      "name": "蓝宝石",
+      "raw_first_seven": [
+        1,
+        350,
+        35,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 35,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          178,
+          290
+        ],
+        "archive_offset": 98499,
+        "index_name": "",
+        "payload_sha256": "74c440fa5d429e483ee2d3882a12e62c2f4cbb4fccdeadf16e7ddd65872a856b",
+        "payload_size": 290,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 150
+          }
+        ],
+        "strings": [
+          {
+            "end": 14,
+            "start": 4,
+            "text": "蓝宝石"
+          },
+          {
+            "end": 90,
+            "start": 14,
+            "text": "item\\stone\\icon_dj_bingjingkuang.BMP"
+          },
+          {
+            "end": 116,
+            "start": 90,
+            "text": "亲和流水之魂的世间珠宝"
+          },
+          {
+            "end": 140,
+            "start": 116,
+            "text": "附加冰抗性的附魔材料"
+          },
+          {
+            "end": 150,
+            "start": 140,
+            "text": "水灵之"
+          },
+          {
+            "end": 170,
+            "start": 158,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "光荣之",
+      "buy_price": 350,
+      "decoded_end": 328,
+      "effects": [
+        {
+          "attribute_id": 21,
+          "attribute_names": [
+            "PHYSICAL_DEFENCE"
+          ],
+          "raw_hex": "01000000150000000000000000804e400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            21,
+            0,
+            1078886400,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 61.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 208,
+      "id": 30327,
+      "is_test": false,
+      "name": "光荣神符",
+      "raw_first_seven": [
+        1,
+        350,
+        35,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 35,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          219,
+          328
+        ],
+        "archive_offset": 98693,
+        "index_name": "",
+        "payload_sha256": "471e56ee044a51bee4bbce36cf183e3cc0fd6e8fece5fa3d853119e90c5d31be",
+        "payload_size": 328,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 188
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "光荣神符"
+          },
+          {
+            "end": 90,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_fangyushenfu.BMP"
+          },
+          {
+            "end": 148,
+            "start": 90,
+            "text": "弗雷和芙蕾雅发明这种神符，好让直面危险的战士无所畏惧。"
+          },
+          {
+            "end": 178,
+            "start": 148,
+            "text": "附加防御增强属性的附魔材料"
+          },
+          {
+            "end": 188,
+            "start": 178,
+            "text": "光荣之"
+          },
+          {
+            "end": 208,
+            "start": 196,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "神妙的",
+      "buy_price": 350,
+      "decoded_end": 332,
+      "effects": [
+        {
+          "attribute_id": 44,
+          "attribute_names": [
+            "JOOK_RATE"
+          ],
+          "raw_hex": "010000002c00000000000000000033400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            44,
+            0,
+            1077084160,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 19.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 212,
+      "id": 30328,
+      "is_test": false,
+      "name": "隐士神符",
+      "raw_first_seven": [
+        1,
+        350,
+        35,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 35,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          225,
+          332
+        ],
+        "archive_offset": 98928,
+        "index_name": "",
+        "payload_sha256": "148d58afd97c63b706e418b76332b6036d29d2bc16860a030ec7ca23fa4c7173",
+        "payload_size": 332,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 192
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "隐士神符"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_langrenshenfu.BMP"
+          },
+          {
+            "end": 152,
+            "start": 92,
+            "text": "琼和古兰恩发明了这种神符，好让漂泊世间的旅人避开血光之灾"
+          },
+          {
+            "end": 182,
+            "start": 152,
+            "text": "附加闪避增加属性的附魔材料"
+          },
+          {
+            "end": 192,
+            "start": 182,
+            "text": "神妙的"
+          },
+          {
+            "end": 212,
+            "start": 200,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "炎心之",
+      "buy_price": 500,
+      "decoded_end": 296,
+      "effects": [
+        {
+          "attribute_id": 61,
+          "attribute_names": [
+            "FIRE_RESIST"
+          ],
+          "raw_hex": "010000003d00000000000000004050400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            61,
+            0,
+            1079001088,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 65.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 176,
+      "id": 30329,
+      "is_test": false,
+      "name": "完美的红宝石",
+      "raw_first_seven": [
+        1,
+        500,
+        50,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 50,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          188,
+          296
+        ],
+        "archive_offset": 99169,
+        "index_name": "",
+        "payload_sha256": "c008c0ccd1d4aca98feb2bf160f5288ab20c822033fcb1ac70e858bf2aae9afc",
+        "payload_size": 296,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 156
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "完美的红宝石"
+          },
+          {
+            "end": 96,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_bingjingkuang.BMP"
+          },
+          {
+            "end": 122,
+            "start": 96,
+            "text": "亲和烈火之魂的世间珠宝"
+          },
+          {
+            "end": 146,
+            "start": 122,
+            "text": "附加火抗性的附魔材料"
+          },
+          {
+            "end": 156,
+            "start": 146,
+            "text": "炎心之"
+          },
+          {
+            "end": 176,
+            "start": 164,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "伏流之",
+      "buy_price": 500,
+      "decoded_end": 294,
+      "effects": [
+        {
+          "attribute_id": 63,
+          "attribute_names": [
+            "WATER_RESIST"
+          ],
+          "raw_hex": "010000003f00000000000000004050400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            63,
+            0,
+            1079001088,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 65.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 174,
+      "id": 30330,
+      "is_test": false,
+      "name": "完美的蓝宝石",
+      "raw_first_seven": [
+        1,
+        500,
+        50,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 50,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          187,
+          294
+        ],
+        "archive_offset": 99373,
+        "index_name": "",
+        "payload_sha256": "a9d653fa492a75bbb534783b7df5c150609c08d0d89d3ec78f6ef17002a7d423",
+        "payload_size": 294,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 154
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "完美的蓝宝石"
+          },
+          {
+            "end": 94,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_huorongkuang.BMP"
+          },
+          {
+            "end": 120,
+            "start": 94,
+            "text": "亲和流水之魂的世间珠宝"
+          },
+          {
+            "end": 144,
+            "start": 120,
+            "text": "附加冰抗性的附魔材料"
+          },
+          {
+            "end": 154,
+            "start": 144,
+            "text": "伏流之"
+          },
+          {
+            "end": 174,
+            "start": 162,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "崇高的",
+      "buy_price": 500,
+      "decoded_end": 332,
+      "effects": [
+        {
+          "attribute_id": 21,
+          "attribute_names": [
+            "PHYSICAL_DEFENCE"
+          ],
+          "raw_hex": "010000001500000000000000004052400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            21,
+            0,
+            1079132160,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 73.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 212,
+      "id": 30331,
+      "is_test": false,
+      "name": "远古光荣神符",
+      "raw_first_seven": [
+        1,
+        500,
+        50,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 50,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          229,
+          332
+        ],
+        "archive_offset": 99576,
+        "index_name": "",
+        "payload_sha256": "556686109ca2d54cf033e7f1e61095bb36cd44e553fcf3a5c69300419eb0c05f",
+        "payload_size": 332,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 192
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "远古光荣神符"
+          },
+          {
+            "end": 94,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_fangyushenfu.BMP"
+          },
+          {
+            "end": 152,
+            "start": 94,
+            "text": "弗雷和芙蕾雅发明这种神符，好让直面危险的战士无所畏惧。"
+          },
+          {
+            "end": 182,
+            "start": 152,
+            "text": "附加防御增强属性的附魔材料"
+          },
+          {
+            "end": 192,
+            "start": 182,
+            "text": "崇高的"
+          },
+          {
+            "end": 212,
+            "start": 200,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "神龙之",
+      "buy_price": 500,
+      "decoded_end": 336,
+      "effects": [
+        {
+          "attribute_id": 44,
+          "attribute_names": [
+            "JOOK_RATE"
+          ],
+          "raw_hex": "010000002c00000000000000000037400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            44,
+            0,
+            1077346304,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 23.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 216,
+      "id": 30332,
+      "is_test": false,
+      "name": "远古隐士神符",
+      "raw_first_seven": [
+        1,
+        500,
+        50,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 50,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          230,
+          336
+        ],
+        "archive_offset": 99821,
+        "index_name": "",
+        "payload_sha256": "a7082d4bc5c0c3104c172611212947159293038a99498915ca6037c5f0a1f245",
+        "payload_size": 336,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 196
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "远古隐士神符"
+          },
+          {
+            "end": 96,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_langrenshenfu.BMP"
+          },
+          {
+            "end": 156,
+            "start": 96,
+            "text": "琼和古兰恩发明了这种神符，好让漂泊世间的旅人避开血光之灾"
+          },
+          {
+            "end": 186,
+            "start": 156,
+            "text": "附加闪避增加属性的附魔材料"
+          },
+          {
+            "end": 196,
+            "start": 186,
+            "text": "神龙之"
+          },
+          {
+            "end": 216,
+            "start": 204,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "武力",
+      "buy_price": 150,
+      "decoded_end": 366,
+      "effects": [
+        {
+          "attribute_id": 20,
+          "attribute_names": [
+            "PHYSICAL_ATTACK"
+          ],
+          "raw_hex": "010000001400000000000000000057400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            20,
+            0,
+            1079443456,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 92.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 246,
+      "id": 30333,
+      "is_test": false,
+      "name": "铁化石",
+      "raw_first_seven": [
+        1,
+        150,
+        15,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 15,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          253,
+          366
+        ],
+        "archive_offset": 101177,
+        "index_name": "",
+        "payload_sha256": "7252f730a4f711a8a0558107a9d97719f97eaebb7b62d0f6ff3c65034a54557e",
+        "payload_size": 366,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 226
+          }
+        ],
+        "strings": [
+          {
+            "end": 14,
+            "start": 4,
+            "text": "铁化石"
+          },
+          {
+            "end": 82,
+            "start": 14,
+            "text": "item\\stone\\icon_dj_tiehuashi.BMP"
+          },
+          {
+            "end": 184,
+            "start": 82,
+            "text": "被魔力置换成钢铁质地的古代生物遗骸，野兽之骨可以增加力量，恶魔之骨可以增加智慧，而龙之骨能粉碎一切"
+          },
+          {
+            "end": 218,
+            "start": 184,
+            "text": "附加物理攻击提高属性的附魔材料"
+          },
+          {
+            "end": 226,
+            "start": 218,
+            "text": "武力"
+          },
+          {
+            "end": 246,
+            "start": 234,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "预知",
+      "buy_price": 150,
+      "decoded_end": 366,
+      "effects": [
+        {
+          "attribute_id": 22,
+          "attribute_names": [
+            "MAGIC_ATTACK"
+          ],
+          "raw_hex": "010000001600000000000000000057400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            22,
+            0,
+            1079443456,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 92.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 246,
+      "id": 30334,
+      "is_test": false,
+      "name": "占卜神符",
+      "raw_first_seven": [
+        1,
+        150,
+        15,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 15,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          261,
+          366
+        ],
+        "archive_offset": 101446,
+        "index_name": "",
+        "payload_sha256": "fca15450b9f3b3e2f934f50ef23a8cf75bec1d84a3064a6e40af586809c9e38f",
+        "payload_size": 366,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 226
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "占卜神符"
+          },
+          {
+            "end": 90,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_zhanbushenfu.BMP"
+          },
+          {
+            "end": 184,
+            "start": 90,
+            "text": "上古先民用生物的脏器来占卜吉凶，诸神哀伤其残忍，便赐给凡人这些石片，通过他们暗示未来的事情"
+          },
+          {
+            "end": 218,
+            "start": 184,
+            "text": "附加魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 226,
+            "start": 218,
+            "text": "预知"
+          },
+          {
+            "end": 246,
+            "start": 234,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "精准",
+      "buy_price": 150,
+      "decoded_end": 350,
+      "effects": [
+        {
+          "attribute_id": 43,
+          "attribute_names": [
+            "SHOOT_RATE"
+          ],
+          "raw_hex": "010000002b00000000000000000041400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            43,
+            0,
+            1078001664,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 34.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 230,
+      "id": 30336,
+      "is_test": false,
+      "name": "制导水晶",
+      "raw_first_seven": [
+        1,
+        150,
+        15,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 15,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          240,
+          350
+        ],
+        "archive_offset": 101723,
+        "index_name": "",
+        "payload_sha256": "a7db8a4d1bcb0788c6a6424c4e111fecb6151bfb3d7899124c22edb9469c5756",
+        "payload_size": 350,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 210
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "制导水晶"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 172,
+            "start": 94,
+            "text": "这种水晶能自动追踪事先确定的目标，曾经是多种娱乐活动的道具，现在它们只追踪"
+          },
+          {
+            "end": 202,
+            "start": 172,
+            "text": "附加命中提高属性的附魔材料"
+          },
+          {
+            "end": 210,
+            "start": 202,
+            "text": "精准"
+          },
+          {
+            "end": 230,
+            "start": 218,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "火焰",
+      "buy_price": 150,
+      "decoded_end": 330,
+      "effects": [
+        {
+          "attribute_id": 101,
+          "attribute_names": [
+            "FIRE_DAMAGE"
+          ],
+          "raw_hex": "010000006500000000000000000057400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            101,
+            0,
+            1079443456,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 92.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 210,
+      "id": 30337,
+      "is_test": false,
+      "name": "火焰魂灵",
+      "raw_first_seven": [
+        1,
+        150,
+        15,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 15,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          216,
+          330
+        ],
+        "archive_offset": 101979,
+        "index_name": "",
+        "payload_sha256": "c72db7f2326155b1a6d0d9fbf7531dd2748ee78456d4e1895b3ff5892408a86e",
+        "payload_size": 330,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 190
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "火焰魂灵"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_huoyanhunling.BMP"
+          },
+          {
+            "end": 148,
+            "start": 92,
+            "text": "一名沙罗曼蛇燃烧的子孙，渴望着在世界上引起更多的燃烧"
+          },
+          {
+            "end": 182,
+            "start": 148,
+            "text": "附加火焰攻击提高属性的附魔材料"
+          },
+          {
+            "end": 190,
+            "start": 182,
+            "text": "火焰"
+          },
+          {
+            "end": 210,
+            "start": 198,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "流水",
+      "buy_price": 150,
+      "decoded_end": 334,
+      "effects": [
+        {
+          "attribute_id": 103,
+          "attribute_names": [
+            "WATER_DAMAGE"
+          ],
+          "raw_hex": "010000006700000000000000000057400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            103,
+            0,
+            1079443456,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 92.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 214,
+      "id": 30338,
+      "is_test": false,
+      "name": "流水魂灵",
+      "raw_first_seven": [
+        1,
+        150,
+        15,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 15,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          221,
+          334
+        ],
+        "archive_offset": 102211,
+        "index_name": "",
+        "payload_sha256": "65b798e536ecf14622a3549f1d68677bec28939b56b5e1a5d43b7815d7aaf114",
+        "payload_size": 334,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 194
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "流水魂灵"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_liushuihunling.BMP"
+          },
+          {
+            "end": 148,
+            "start": 94,
+            "text": "一名温妮迪混沌的子孙，渴望着在世界上引发更多的疯狂"
+          },
+          {
+            "end": 186,
+            "start": 148,
+            "text": "附加冰系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 194,
+            "start": 186,
+            "text": "流水"
+          },
+          {
+            "end": 214,
+            "start": 202,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "巨人",
+      "buy_price": 300,
+      "decoded_end": 330,
+      "effects": [
+        {
+          "attribute_id": 20,
+          "attribute_names": [
+            "PHYSICAL_ATTACK"
+          ],
+          "raw_hex": "010000001400000000000000008062400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            20,
+            0,
+            1080197120,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 148.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 210,
+      "id": 30339,
+      "is_test": false,
+      "name": "大地之血",
+      "raw_first_seven": [
+        1,
+        300,
+        30,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 30,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          227,
+          330
+        ],
+        "archive_offset": 102448,
+        "index_name": "",
+        "payload_sha256": "bea932418ac83e6da3bfbfd923ed264ccedc829e9b5e1aa7d7d7511fef631f16",
+        "payload_size": 330,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 190
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "大地之血"
+          },
+          {
+            "end": 84,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_tiehuashi.BMP"
+          },
+          {
+            "end": 148,
+            "start": 84,
+            "text": "这种暗红色的矿藏时不时出现在大地深处，被认为是古代战士的血液"
+          },
+          {
+            "end": 182,
+            "start": 148,
+            "text": "附加物理攻击提高属性的附魔材料"
+          },
+          {
+            "end": 190,
+            "start": 182,
+            "text": "巨人"
+          },
+          {
+            "end": 210,
+            "start": 198,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "天使",
+      "buy_price": 300,
+      "decoded_end": 338,
+      "effects": [
+        {
+          "attribute_id": 22,
+          "attribute_names": [
+            "MAGIC_ATTACK"
+          ],
+          "raw_hex": "010000001600000000000000008062400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            22,
+            0,
+            1080197120,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 148.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 218,
+      "id": 30340,
+      "is_test": false,
+      "name": "天空之血",
+      "raw_first_seven": [
+        1,
+        300,
+        30,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 30,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          233,
+          338
+        ],
+        "archive_offset": 102691,
+        "index_name": "",
+        "payload_sha256": "5228236806935390ddcec76da23679f652b5ce64d4dfe3b12e5762336f47d6b7",
+        "payload_size": 338,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 198
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "天空之血"
+          },
+          {
+            "end": 90,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_zhanbushenfu.BMP"
+          },
+          {
+            "end": 156,
+            "start": 90,
+            "text": "这种浅红色的雨滴伴随着灾变降落到人间，被认为来自陨落神明的伤口"
+          },
+          {
+            "end": 190,
+            "start": 156,
+            "text": "附加魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 198,
+            "start": 190,
+            "text": "天使"
+          },
+          {
+            "end": 218,
+            "start": 206,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "穿心",
+      "buy_price": 300,
+      "decoded_end": 322,
+      "effects": [
+        {
+          "attribute_id": 43,
+          "attribute_names": [
+            "SHOOT_RATE"
+          ],
+          "raw_hex": "010000002b0000000000000000004e400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            43,
+            0,
+            1078853632,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 60.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 202,
+      "id": 30342,
+      "is_test": false,
+      "name": "箭头水晶",
+      "raw_first_seven": [
+        1,
+        300,
+        30,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 30,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          214,
+          322
+        ],
+        "archive_offset": 102940,
+        "index_name": "",
+        "payload_sha256": "b1eaa7502d57765e9e39aadeaeaaa192337a5ba7154db82a4621e5385214236a",
+        "payload_size": 322,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 182
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "箭头水晶"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 144,
+            "start": 94,
+            "text": "这种尖锐的水晶被认为是天使射向恶魔的第一波箭矢"
+          },
+          {
+            "end": 174,
+            "start": 144,
+            "text": "附加命中提高属性的附魔材料"
+          },
+          {
+            "end": 182,
+            "start": 174,
+            "text": "穿心"
+          },
+          {
+            "end": 202,
+            "start": 190,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "焚化",
+      "buy_price": 300,
+      "decoded_end": 352,
+      "effects": [
+        {
+          "attribute_id": 101,
+          "attribute_names": [
+            "FIRE_DAMAGE"
+          ],
+          "raw_hex": "010000006500000000000000008062400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            101,
+            0,
+            1080197120,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 148.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 232,
+      "id": 30343,
+      "is_test": false,
+      "name": "恶魔吐息",
+      "raw_first_seven": [
+        1,
+        300,
+        30,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 30,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          246,
+          352
+        ],
+        "archive_offset": 103170,
+        "index_name": "",
+        "payload_sha256": "66b22f127f0805dd6c5e3da53e99a5aa2a75215296ec4f4ed54eee51a788f8ed",
+        "payload_size": 352,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 212
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "恶魔吐息"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_huoyanhunling.BMP"
+          },
+          {
+            "end": 166,
+            "start": 92,
+            "text": "“士兵们为巨龙的喷吐而喝彩，随后又因为恶魔喷出的火焰哀号”——《诗篇》"
+          },
+          {
+            "end": 204,
+            "start": 166,
+            "text": "附加火系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 212,
+            "start": 204,
+            "text": "焚化"
+          },
+          {
+            "end": 232,
+            "start": 220,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "淹没",
+      "buy_price": 300,
+      "decoded_end": 370,
+      "effects": [
+        {
+          "attribute_id": 103,
+          "attribute_names": [
+            "WATER_DAMAGE"
+          ],
+          "raw_hex": "010000006700000000000000008062400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            103,
+            0,
+            1080197120,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 148.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 250,
+      "id": 30344,
+      "is_test": false,
+      "name": "海怪吐息",
+      "raw_first_seven": [
+        1,
+        300,
+        30,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 60,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 30,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          253,
+          370
+        ],
+        "archive_offset": 103432,
+        "index_name": "",
+        "payload_sha256": "33a6231dcbd858b3a8a74433cacb6ca03440b14b439fde350d1551daf65e18fd",
+        "payload_size": 370,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 230
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "海怪吐息"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_liushuihunling.BMP"
+          },
+          {
+            "end": 184,
+            "start": 94,
+            "text": "“哥布林英雄用胡椒刺激了海怪的咽喉，使其吐出了一又二分之一座城市”——哥布林的涂鸦壁画"
+          },
+          {
+            "end": 222,
+            "start": 184,
+            "text": "附加冰系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 230,
+            "start": 222,
+            "text": "淹没"
+          },
+          {
+            "end": 250,
+            "start": 238,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "巨龙",
+      "buy_price": 700,
+      "decoded_end": 368,
+      "effects": [
+        {
+          "attribute_id": 20,
+          "attribute_names": [
+            "PHYSICAL_ATTACK"
+          ],
+          "raw_hex": "010000001400000000000000002067400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            20,
+            0,
+            1080500224,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 185.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 248,
+      "id": 30345,
+      "is_test": false,
+      "name": "龙铁化石",
+      "raw_first_seven": [
+        1,
+        700,
+        70,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 70,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          258,
+          368
+        ],
+        "archive_offset": 103701,
+        "index_name": "",
+        "payload_sha256": "2d1b14964f32eb42e81e67964eebbcf7ee8713346d708e5a4ddc64bf5f607413",
+        "payload_size": 368,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 228
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "龙铁化石"
+          },
+          {
+            "end": 84,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_tiehuashi.BMP"
+          },
+          {
+            "end": 186,
+            "start": 84,
+            "text": "被魔力置换成钢铁质地的古代生物遗骸，野兽之骨可以增加力量，恶魔之骨可以增加智慧，而龙之骨能粉碎一切"
+          },
+          {
+            "end": 220,
+            "start": 186,
+            "text": "附加物理攻击提高属性的附魔材料"
+          },
+          {
+            "end": 228,
+            "start": 220,
+            "text": "巨龙"
+          },
+          {
+            "end": 248,
+            "start": 236,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "启示",
+      "buy_price": 700,
+      "decoded_end": 366,
+      "effects": [
+        {
+          "attribute_id": 22,
+          "attribute_names": [
+            "MAGIC_ATTACK"
+          ],
+          "raw_hex": "010000001600000000000000002067400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            22,
+            0,
+            1080500224,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 185.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 246,
+      "id": 30346,
+      "is_test": false,
+      "name": "占卜脏器",
+      "raw_first_seven": [
+        1,
+        700,
+        70,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 70,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          261,
+          366
+        ],
+        "archive_offset": 103975,
+        "index_name": "",
+        "payload_sha256": "6bda3f35f5ec8bd437bbc83318b7750f44c7ca4284dcb89997fbb583f0adbfcb",
+        "payload_size": 366,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 226
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "占卜脏器"
+          },
+          {
+            "end": 90,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_zhanbushenfu.BMP"
+          },
+          {
+            "end": 184,
+            "start": 90,
+            "text": "上古先民用生物的脏器来占卜吉凶，诸神哀伤其残忍，便赐给凡人这些石片，通过他们暗示未来的事情"
+          },
+          {
+            "end": 218,
+            "start": 184,
+            "text": "附加魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 226,
+            "start": 218,
+            "text": "启示"
+          },
+          {
+            "end": 246,
+            "start": 234,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "机巧",
+      "buy_price": 700,
+      "decoded_end": 354,
+      "effects": [
+        {
+          "attribute_id": 43,
+          "attribute_names": [
+            "SHOOT_RATE"
+          ],
+          "raw_hex": "010000002b00000000000000004053400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            43,
+            0,
+            1079197696,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 77.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 234,
+      "id": 30348,
+      "is_test": false,
+      "name": "上古制导水晶",
+      "raw_first_seven": [
+        1,
+        700,
+        70,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 70,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          247,
+          354
+        ],
+        "archive_offset": 104252,
+        "index_name": "",
+        "payload_sha256": "3ec3bb6b0580113b4fcf987d2a09524de8887458a8d2057086da20e87e0a23d0",
+        "payload_size": 354,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 214
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "上古制导水晶"
+          },
+          {
+            "end": 98,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 176,
+            "start": 98,
+            "text": "这种水晶能自动追踪事先确定的目标，曾经是多种娱乐活动的道具，现在它们只追踪"
+          },
+          {
+            "end": 206,
+            "start": 176,
+            "text": "附加命中提高属性的附魔材料"
+          },
+          {
+            "end": 214,
+            "start": 206,
+            "text": "机巧"
+          },
+          {
+            "end": 234,
+            "start": 222,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "烈焰",
+      "buy_price": 700,
+      "decoded_end": 334,
+      "effects": [
+        {
+          "attribute_id": 101,
+          "attribute_names": [
+            "FIRE_DAMAGE"
+          ],
+          "raw_hex": "010000006500000000000000002067400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            101,
+            0,
+            1080500224,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 185.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 214,
+      "id": 30349,
+      "is_test": false,
+      "name": "烈焰魂灵",
+      "raw_first_seven": [
+        1,
+        700,
+        70,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 70,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          225,
+          334
+        ],
+        "archive_offset": 104515,
+        "index_name": "",
+        "payload_sha256": "82e26b4c2389e694dc50dc9792fb7851887187a0ea8eadf4bdf57ad40e0f2988",
+        "payload_size": 334,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 194
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "烈焰魂灵"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_huoyanhunling.BMP"
+          },
+          {
+            "end": 148,
+            "start": 92,
+            "text": "一名沙罗曼蛇燃烧的子孙，渴望着在世界上引起更多的燃烧"
+          },
+          {
+            "end": 186,
+            "start": 148,
+            "text": "附加火系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 194,
+            "start": 186,
+            "text": "烈焰"
+          },
+          {
+            "end": 214,
+            "start": 202,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "漩涡",
+      "buy_price": 700,
+      "decoded_end": 334,
+      "effects": [
+        {
+          "attribute_id": 103,
+          "attribute_names": [
+            "WATER_DAMAGE"
+          ],
+          "raw_hex": "010000006700000000000000002067400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            103,
+            0,
+            1080500224,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 185.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 214,
+      "id": 30350,
+      "is_test": false,
+      "name": "漩涡魂灵",
+      "raw_first_seven": [
+        1,
+        700,
+        70,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 80,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            80,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 70,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          223,
+          334
+        ],
+        "archive_offset": 104756,
+        "index_name": "",
+        "payload_sha256": "1f2e546d07d9c63c37cb59aa961263671cfe77ac327877965bbabc051e2d34fb",
+        "payload_size": 334,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 194
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "漩涡魂灵"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_liushuihunling.BMP"
+          },
+          {
+            "end": 148,
+            "start": 94,
+            "text": "一名温妮迪混沌的子孙，渴望着在世界上引发更多的疯狂"
+          },
+          {
+            "end": 186,
+            "start": 148,
+            "text": "附加冰系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 194,
+            "start": 186,
+            "text": "漩涡"
+          },
+          {
+            "end": 214,
+            "start": 202,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "泰坦",
+      "buy_price": 1000,
+      "decoded_end": 334,
+      "effects": [
+        {
+          "attribute_id": 20,
+          "attribute_names": [
+            "PHYSICAL_ATTACK"
+          ],
+          "raw_hex": "01000000140000000000000000c06b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            20,
+            0,
+            1080803328,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 222.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 214,
+      "id": 30351,
+      "is_test": false,
+      "name": "原初大地之血",
+      "raw_first_seven": [
+        1,
+        1000,
+        100,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 100,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          233,
+          334
+        ],
+        "archive_offset": 104995,
+        "index_name": "",
+        "payload_sha256": "3430f23ae343bbf5f5efe64f421a8689f55c36e5a4327f0286f8307c50485ea1",
+        "payload_size": 334,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 194
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "原初大地之血"
+          },
+          {
+            "end": 88,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_tiehuashi.BMP"
+          },
+          {
+            "end": 152,
+            "start": 88,
+            "text": "这种暗红色的矿藏时不时出现在大地深处，被认为是古代战士的血液"
+          },
+          {
+            "end": 186,
+            "start": 152,
+            "text": "附加物理攻击提高属性的附魔材料"
+          },
+          {
+            "end": 194,
+            "start": 186,
+            "text": "泰坦"
+          },
+          {
+            "end": 214,
+            "start": 202,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "天神",
+      "buy_price": 1000,
+      "decoded_end": 342,
+      "effects": [
+        {
+          "attribute_id": 22,
+          "attribute_names": [
+            "MAGIC_ATTACK"
+          ],
+          "raw_hex": "01000000160000000000000000c06b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            22,
+            0,
+            1080803328,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 222.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 222,
+      "id": 30352,
+      "is_test": false,
+      "name": "原初天空之血",
+      "raw_first_seven": [
+        1,
+        1000,
+        100,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 100,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          241,
+          342
+        ],
+        "archive_offset": 105244,
+        "index_name": "",
+        "payload_sha256": "eba18ba2f80f2cb5584ef2d7ea661f8bd2eb34e9cc0d744ae0a2bd5eeddc0e18",
+        "payload_size": 342,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 202
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "原初天空之血"
+          },
+          {
+            "end": 94,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_zhanbushenfu.BMP"
+          },
+          {
+            "end": 160,
+            "start": 94,
+            "text": "这种浅红色的雨滴伴随着灾变降落到人间，被认为来自陨落神明的伤口"
+          },
+          {
+            "end": 194,
+            "start": 160,
+            "text": "附加魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 202,
+            "start": 194,
+            "text": "天神"
+          },
+          {
+            "end": 222,
+            "start": 210,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "誓仇",
+      "buy_price": 1000,
+      "decoded_end": 326,
+      "effects": [
+        {
+          "attribute_id": 43,
+          "attribute_names": [
+            "SHOOT_RATE"
+          ],
+          "raw_hex": "010000002b00000000000000008057400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            43,
+            0,
+            1079476224,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 94.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 206,
+      "id": 30354,
+      "is_test": false,
+      "name": "古代箭头水晶",
+      "raw_first_seven": [
+        1,
+        1000,
+        100,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 100,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          221,
+          326
+        ],
+        "archive_offset": 105501,
+        "index_name": "",
+        "payload_sha256": "ad8d1460fe28b8dbeebd5e89877aadf5191d51247863a2acf41e5107153aefe3",
+        "payload_size": 326,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 186
+          }
+        ],
+        "strings": [
+          {
+            "end": 20,
+            "start": 4,
+            "text": "古代箭头水晶"
+          },
+          {
+            "end": 98,
+            "start": 20,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 148,
+            "start": 98,
+            "text": "这种尖锐的水晶被认为是天使射向恶魔的第一波箭矢"
+          },
+          {
+            "end": 178,
+            "start": 148,
+            "text": "附加命中提高属性的附魔材料"
+          },
+          {
+            "end": 186,
+            "start": 178,
+            "text": "誓仇"
+          },
+          {
+            "end": 206,
+            "start": 194,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "焚天",
+      "buy_price": 1000,
+      "decoded_end": 352,
+      "effects": [
+        {
+          "attribute_id": 101,
+          "attribute_names": [
+            "FIRE_DAMAGE"
+          ],
+          "raw_hex": "01000000650000000000000000c06b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            101,
+            0,
+            1080803328,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 222.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 232,
+      "id": 30355,
+      "is_test": false,
+      "name": "邪神吐息",
+      "raw_first_seven": [
+        1,
+        1000,
+        100,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 100,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          246,
+          352
+        ],
+        "archive_offset": 105738,
+        "index_name": "",
+        "payload_sha256": "c525a35f39a45a6c6c3494ab0b137b909823840cb4d31674589617ac322b239b",
+        "payload_size": 352,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 212
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "邪神吐息"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_huoyanhunling.BMP"
+          },
+          {
+            "end": 166,
+            "start": 92,
+            "text": "“邪神发出一声叹息，天空化为真红，神军无人胆敢上前。”——《古神记事》"
+          },
+          {
+            "end": 204,
+            "start": 166,
+            "text": "附加火系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 212,
+            "start": 204,
+            "text": "焚天"
+          },
+          {
+            "end": 232,
+            "start": 220,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "淹没",
+      "buy_price": 1000,
+      "decoded_end": 344,
+      "effects": [
+        {
+          "attribute_id": 103,
+          "attribute_names": [
+            "WATER_DAMAGE"
+          ],
+          "raw_hex": "01000000670000000000000000c06b400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            103,
+            0,
+            1080803328,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 222.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 224,
+      "id": 30356,
+      "is_test": false,
+      "name": "海龙吐息",
+      "raw_first_seven": [
+        1,
+        1000,
+        100,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 100,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 100,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          231,
+          344
+        ],
+        "archive_offset": 106000,
+        "index_name": "",
+        "payload_sha256": "cb97dc20c5e5b721c0d02c189efd0e92d78dfa7d1c4291d7848729e800f361c6",
+        "payload_size": 344,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 204
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "海龙吐息"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_liushuihunling.BMP"
+          },
+          {
+            "end": 158,
+            "start": 94,
+            "text": "“海龙之王张开大口，用海啸吞噬了三百万恶魔的军队”——龙之歌"
+          },
+          {
+            "end": 196,
+            "start": 158,
+            "text": "附加冰系魔法攻击提高属性的附魔材料"
+          },
+          {
+            "end": 204,
+            "start": 196,
+            "text": "淹没"
+          },
+          {
+            "end": 224,
+            "start": 212,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    },
+    {
+      "affix_name": "灵巧之",
+      "buy_price": 100,
+      "decoded_end": 300,
+      "effects": [
+        {
+          "attribute_id": 44,
+          "attribute_names": [
+            "JOOK_RATE"
+          ],
+          "raw_hex": "010000002c00000000000000000020400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            44,
+            0,
+            1075838976,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 8.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 180,
+      "id": 30825,
+      "is_test": false,
+      "name": "浪人神符",
+      "raw_first_seven": [
+        1,
+        100,
+        10,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 10,
+      "side": "prefix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          193,
+          300
+        ],
+        "archive_offset": 100968,
+        "index_name": "",
+        "payload_sha256": "c2d6bd2d0206cb2b9b7088309fa0d25781fab90f8c8ccc46738ad90c6a88bd2a",
+        "payload_size": 300,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000017000000",
+            "offset": 160
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "浪人神符"
+          },
+          {
+            "end": 92,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_langrenshenfu.BMP"
+          },
+          {
+            "end": 120,
+            "start": 92,
+            "text": "刻着琼与古兰恩祝福的符文"
+          },
+          {
+            "end": 150,
+            "start": 120,
+            "text": "附加闪避增加属性的附魔材料"
+          },
+          {
+            "end": 160,
+            "start": 150,
+            "text": "灵巧之"
+          },
+          {
+            "end": 180,
+            "start": 168,
+            "text": "前缀材料"
+          }
+        ]
+      },
+      "source_label": "前缀材料"
+    },
+    {
+      "affix_name": "精准",
+      "buy_price": 150,
+      "decoded_end": 350,
+      "effects": [
+        {
+          "attribute_id": 43,
+          "attribute_names": [
+            "SHOOT_RATE"
+          ],
+          "raw_hex": "010000002b00000000000000000041400000000000000000000000000000000001000000000000000000000000000000",
+          "raw_post_value": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "raw_u32": [
+            1,
+            43,
+            0,
+            1078001664,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tag": 1,
+          "value": 34.0,
+          "value_encoding": "float64_le"
+        }
+      ],
+      "footer_offset": 230,
+      "id": 30826,
+      "is_test": false,
+      "name": "制导水晶",
+      "raw_first_seven": [
+        1,
+        150,
+        15,
+        20,
+        1,
+        0,
+        0
+      ],
+      "raw_terminators": [
+        0,
+        0
+      ],
+      "requirements": [
+        {
+          "class_id": 0,
+          "level_candidate": 30,
+          "level_candidate_is_inferred": true,
+          "raw": [
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "raw_condition_1": 0,
+          "raw_stat_constraints": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "sell_price": 15,
+      "side": "suffix",
+      "source": {
+        "archive_header_raw": [
+          1,
+          1,
+          240,
+          350
+        ],
+        "archive_offset": 106247,
+        "index_name": "",
+        "payload_sha256": "a7db8a4d1bcb0788c6a6424c4e111fecb6151bfb3d7899124c22edb9469c5756",
+        "payload_size": 350,
+        "prefix_unknown_segments": [
+          {
+            "hex": "eb030000",
+            "offset": 0
+          },
+          {
+            "hex": "0100000018000000",
+            "offset": 210
+          }
+        ],
+        "strings": [
+          {
+            "end": 16,
+            "start": 4,
+            "text": "制导水晶"
+          },
+          {
+            "end": 94,
+            "start": 16,
+            "text": "item\\stone\\icon_dj_zhidaoshuijing.BMP"
+          },
+          {
+            "end": 172,
+            "start": 94,
+            "text": "这种水晶能自动追踪事先确定的目标，曾经是多种娱乐活动的道具，现在它们只追踪"
+          },
+          {
+            "end": 202,
+            "start": 172,
+            "text": "附加命中提高属性的附魔材料"
+          },
+          {
+            "end": 210,
+            "start": 202,
+            "text": "精准"
+          },
+          {
+            "end": 230,
+            "start": 218,
+            "text": "后缀材料"
+          }
+        ]
+      },
+      "source_label": "后缀材料"
+    }
+  ],
+  "schema_version": 1,
+  "source_manifest": {
+    "all_prop": {
+      "records": 1036,
+      "sha256": "524b7bf1dcbb07b46608bcf47f35d7ffbd90d8a8702075b4088dc1dc61926dc2"
+    }
+  },
+  "summary": {
+    "all_records_fully_consumed": true,
+    "prefix_count": 22,
+    "record_count": 44,
+    "suffix_count": 22,
+    "test_record_ids": [
+      30007,
+      30008
+    ],
+    "value_scaling": "none: exact float64 source values"
+  }
+}

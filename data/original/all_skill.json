@@ -1,0 +1,2019 @@
+[
+  {
+    "id": 90011,
+    "offset": 2015,
+    "strings": [
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90093,
+    "offset": 2117,
+    "strings": [
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90033,
+    "offset": 2219,
+    "strings": [
+      "skill\\",
+      "特效-火爆炸",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90046,
+    "offset": 2365,
+    "strings": [
+      "skill\\",
+      "特效-大喷血"
+    ]
+  },
+  {
+    "id": 90001,
+    "offset": 2469,
+    "strings": [
+      "skill\\",
+      "特效-飞刀",
+      "BLOOD",
+      "skill\\snd_effect_skill_nife.pcm"
+    ]
+  },
+  {
+    "id": 90004,
+    "offset": 2619,
+    "strings": [
+      "skill\\",
+      "特效-七彩的刀光",
+      "特效-火爆炸",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90005,
+    "offset": 2792,
+    "strings": [
+      "skill\\",
+      "特效-大喷血"
+    ]
+  },
+  {
+    "id": 90008,
+    "offset": 2896,
+    "strings": [
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90034,
+    "offset": 2996,
+    "strings": [
+      "怪物火球术",
+      "skill\\",
+      "特效-火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90000,
+    "offset": 3177,
+    "strings": [
+      "怪物火球术",
+      "skill\\",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90047,
+    "offset": 3360,
+    "strings": [
+      "怪物超远火球术",
+      "skill\\",
+      "特效-火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90010,
+    "offset": 3545,
+    "strings": [
+      "怪物火球术",
+      "skill\\",
+      "FIRE_ATTACK2",
+      "FIRE_ATTACK2",
+      "skill\\snd_effect_skill_fireball2.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90013,
+    "offset": 3741,
+    "strings": [
+      "怪物火球术",
+      "skill\\",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_ice.pcm"
+    ]
+  },
+  {
+    "id": 90045,
+    "offset": 3909,
+    "strings": [
+      "怪物治疗术",
+      "skill\\",
+      "RESUME"
+    ]
+  },
+  {
+    "id": 90048,
+    "offset": 4031,
+    "strings": [
+      "怪物超远治疗术",
+      "skill\\",
+      "RESUME"
+    ]
+  },
+  {
+    "id": 90017,
+    "offset": 4156,
+    "strings": [
+      "怪物削弱术",
+      "skill\\",
+      "特效-弱化术"
+    ]
+  },
+  {
+    "id": 90019,
+    "offset": 4276,
+    "strings": [
+      "怪物死亡标记",
+      "skill\\",
+      "特效-黑暗火球"
+    ]
+  },
+  {
+    "id": 90142,
+    "offset": 4399,
+    "strings": [
+      "怪物火球术",
+      "skill\\",
+      "FIRE_ATTACK2",
+      "FIRE_ATTACK2",
+      "skill\\snd_effect_skill_fireball2.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90143,
+    "offset": 4584,
+    "strings": [
+      "怪物火球术",
+      "skill\\",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_ice.pcm"
+    ]
+  },
+  {
+    "id": 90002,
+    "offset": 4744,
+    "strings": [
+      "怪物普通攻击",
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90003,
+    "offset": 4858,
+    "strings": [
+      "物理重击",
+      "skill\\",
+      "特效-大喷血"
+    ]
+  },
+  {
+    "id": 90006,
+    "offset": 4978,
+    "strings": [
+      "物理范围攻击",
+      "skill\\",
+      "特效-刀光-红",
+      "BLOOD",
+      "skill\\snd_effect_skill_daoguang.pcm"
+    ]
+  },
+  {
+    "id": 90007,
+    "offset": 5165,
+    "strings": [
+      "怪物普通攻击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90009,
+    "offset": 5278,
+    "strings": [
+      "范围喷毒攻击，附带中毒效果",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-大喷血",
+      "特效-细碎爆炸",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90012,
+    "offset": 5475,
+    "strings": [
+      "怪物魔法攻击，对中毒玩家攻击翻倍",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-刀光",
+      "特效-蓝火球",
+      "特效-弱化术"
+    ]
+  },
+  {
+    "id": 90015,
+    "offset": 5633,
+    "strings": [
+      "吸血攻击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-缓缓加红",
+      "特效-死亡标记"
+    ]
+  },
+  {
+    "id": 90016,
+    "offset": 5767,
+    "strings": [
+      "怪物普通魔法攻击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-黑暗火球",
+      "特效-火爆炸"
+    ]
+  },
+  {
+    "id": 90018,
+    "offset": 5905,
+    "strings": [
+      "小范围群体魔法",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-冻结"
+    ]
+  },
+  {
+    "id": 90026,
+    "offset": 6034,
+    "strings": [
+      "大范围群体魔法",
+      "pic\\icon\\skill",
+      "skill\\",
+      "SPECIAL_ATTACK",
+      "特效-黑暗降临",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_relive.pcm"
+    ]
+  },
+  {
+    "id": 90028,
+    "offset": 6245,
+    "strings": [
+      "清群体玩家buff",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-狂暴BUFF"
+    ]
+  },
+  {
+    "id": 90029,
+    "offset": 6381,
+    "strings": [
+      "增益技能，减免伤害",
+      "pic\\icon\\skill",
+      "skill\\",
+      "LEVELUP",
+      "BUFF-怪物-黑暗之盾"
+    ]
+  },
+  {
+    "id": 90030,
+    "offset": 6533,
+    "strings": [
+      "怪物普通攻击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90031,
+    "offset": 6646,
+    "strings": [
+      "物理重击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-刀光",
+      "特效-大喷血"
+    ]
+  },
+  {
+    "id": 90032,
+    "offset": 6776,
+    "strings": [
+      "大范围群体魔法",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-冻结",
+      "特效-冰块碎裂"
+    ]
+  },
+  {
+    "id": 90050,
+    "offset": 6917,
+    "strings": [
+      "物理攻击物理防御大幅增加",
+      "pic\\icon\\skill",
+      "skill\\"
+    ]
+  },
+  {
+    "id": 90067,
+    "offset": 7032,
+    "strings": [
+      "魔法攻击魔法防御大幅增加，清除固体化状态",
+      "pic\\icon\\skill",
+      "skill\\"
+    ]
+  },
+  {
+    "id": 90085,
+    "offset": 7163,
+    "strings": [
+      "无敌状态+受到攻击回血，清除液体化状态",
+      "pic\\icon\\skill",
+      "skill\\"
+    ]
+  },
+  {
+    "id": 90086,
+    "offset": 7292,
+    "strings": [
+      "抹消自身所有增益状态，所有攻击防御降低",
+      "pic\\icon\\skill",
+      "skill\\",
+      "只由气化成功结束来触发一次，因此未作脚本连接，实际脚本在气化的尾帧判断中触发。"
+    ]
+  },
+  {
+    "id": 90087,
+    "offset": 7495,
+    "strings": [
+      "怪物普通攻击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90088,
+    "offset": 7608,
+    "strings": [
+      "范围物理攻击",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-刀光-红",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90089,
+    "offset": 7750,
+    "strings": [
+      "范围玩家流血状态+抽蓝",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-死亡标记",
+      "特效-大喷血",
+      "BUFF-怪物-流血"
+    ]
+  },
+  {
+    "id": 90090,
+    "offset": 7928,
+    "strings": [
+      "单体魔法攻击+燃烧状态+目标攻击力降为0",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特性-聚气",
+      "FIRE_ATTACK",
+      "BUFF-怪物-祭品"
+    ]
+  },
+  {
+    "id": 90091,
+    "offset": 8131,
+    "strings": [
+      "单体魔法攻击，献祭状态玩家伤害极重",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特性-聚气",
+      "特效-火球",
+      "FIRE_ATTACK2"
+    ]
+  },
+  {
+    "id": 90092,
+    "offset": 8318,
+    "strings": [
+      "大幅增加自身物理攻击力",
+      "pic\\icon\\skill",
+      "skill\\",
+      "特性-聚气"
+    ]
+  },
+  {
+    "id": 90109,
+    "offset": 8449,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90112,
+    "offset": 8550,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "BLOOD"
+    ]
+  },
+  {
+    "id": 90110,
+    "offset": 8655,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-火球",
+      "特效-大喷血",
+      "skill\\snd_effect_skill_nife.pcm"
+    ]
+  },
+  {
+    "id": 90111,
+    "offset": 8805,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-冰球",
+      "特效-大喷血",
+      "skill\\snd_effect_skill_nife.pcm"
+    ]
+  },
+  {
+    "id": 90101,
+    "offset": 8955,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-飞刀",
+      "BLOOD",
+      "skill\\snd_effect_skill_nife.pcm"
+    ]
+  },
+  {
+    "id": 90099,
+    "offset": 9107,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-火球",
+      "特效-大喷血",
+      "skill\\snd_effect_skill_nife.pcm"
+    ]
+  },
+  {
+    "id": 90100,
+    "offset": 9257,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-冰球",
+      "特效-大喷血",
+      "skill\\snd_effect_skill_nife.pcm"
+    ]
+  },
+  {
+    "id": 90102,
+    "offset": 9407,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90103,
+    "offset": 9575,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90108,
+    "offset": 9738,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-蓝火球",
+      "特效-黑暗降临",
+      "skill\\snd_effect_skill_relive.pcm"
+    ]
+  },
+  {
+    "id": 90114,
+    "offset": 9897,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-刀光-红",
+      "特效-七彩的刀光",
+      "特效-细碎爆炸",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90159,
+    "offset": 10069,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-刀光",
+      "特效-飞刀",
+      "BLOOD",
+      "skill\\snd_effect_skill_nife.pcm",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90164,
+    "offset": 10237,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-抗性减少",
+      "特效-大喷血"
+    ]
+  },
+  {
+    "id": 90160,
+    "offset": 10362,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特性-聚气",
+      "特效-黑暗火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90162,
+    "offset": 10536,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特性-聚气",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90163,
+    "offset": 10702,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-缓缓加红",
+      "特效-黑暗火球",
+      "特效-黑暗降临",
+      "skill\\snd_effect_skill_relive.pcm"
+    ]
+  },
+  {
+    "id": 90161,
+    "offset": 10870,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-死亡标记",
+      "特效-黑暗火球",
+      "FIRE_ATTACK2",
+      "skill\\snd_effect_skill_bomb.pcm"
+    ]
+  },
+  {
+    "id": 90165,
+    "offset": 11052,
+    "strings": [
+      "pic\\icon\\skill",
+      "skill\\",
+      "特效-弱化术",
+      "特效-七彩的刀光",
+      "特效-狂暴BUFF"
+    ]
+  },
+  {
+    "id": 90014,
+    "offset": 11191,
+    "strings": [
+      "猛力攻击",
+      "攻击：进行近程攻击。造成物理攻击伤害，不消耗法力值，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet13.bmp",
+      "skill\\",
+      "BLOOD",
+      "攻击：进行近程攻击。造成物理攻击伤害，不消耗法力值，冷却时间$cd$秒。",
+      "攻击：进行近程攻击。造成物理攻击伤害，不消耗法力值，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90024,
+    "offset": 11410,
+    "strings": [
+      "毁灭重击",
+      "攻击：进行近程攻击。附加伤害为物理攻击力的$const(add_phy_dam_rate)$%，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet02.bmp",
+      "skill\\",
+      "特效-大喷血",
+      "攻击：进行近程攻击。附加伤害为物理攻击力的$const(add_phy_dam_rate)$%，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "攻击：进行近程攻击。附加伤害为物理攻击力的$const(add_phy_dam_rate)$%，消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90025,
+    "offset": 11690,
+    "strings": [
+      "烈焰打击",
+      "攻击：附带火焰伤害的近程攻击。造成物理攻击伤害和火系魔法攻击伤害,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet12.bmp",
+      "skill\\",
+      "特效-火爆炸",
+      "攻击：附带火焰伤害的近程攻击。造成物理攻击伤害和火系魔法攻击伤害,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "攻击：附带火焰伤害的近程攻击。造成物理攻击伤害和火系魔法攻击伤害,消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90035,
+    "offset": 11946,
+    "strings": [
+      "冻寒打击",
+      "攻击：附带冰霜伤害的近程攻击。造成物理攻击伤害和冰系魔法攻击伤害,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet01.bmp",
+      "skill\\",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：附带冰霜伤害的近程攻击。造成物理攻击伤害和冰系魔法攻击伤害,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "攻击：附带冰霜伤害的近程攻击。造成物理攻击伤害和冰系魔法攻击伤害,消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90036,
+    "offset": 12239,
+    "strings": [
+      "火球术",
+      "攻击：喷出火球攻击敌人，造成火系魔法伤害，射程：中，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\warrior\\icon_skill_warrior9.bmp",
+      "skill\\",
+      "特效-火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：喷出火球攻击敌人，造成火系魔法伤害，射程：中，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "攻击：喷出火球攻击敌人，造成火系魔法伤害，射程：中，消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90038,
+    "offset": 12548,
+    "strings": [
+      "冰冻术",
+      "攻击：喷出冰霜攻击敌人，造成冰系魔法伤害，射程：远，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\warrior\\icon_skill_warrior11.bmp",
+      "skill\\",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：喷出冰霜攻击敌人，造成冰系魔法伤害，射程：远，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "攻击：喷出冰霜攻击敌人，造成冰系魔法伤害，射程：远，消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90039,
+    "offset": 12865,
+    "strings": [
+      "地狱之火",
+      "攻击：喷出大团的烈焰笼罩敌人。射程：中。造成额外$const(add_fire_dam_rate)$%伤害的火系魔法伤害，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\warrior\\icon_skill_warrior2.bmp",
+      "skill\\",
+      "FIRE_ATTACK",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball2.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：喷出大团的烈焰笼罩敌人。射程：中。造成额外$const(add_fire_dam_rate)$%伤害的火系魔法伤害，消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "攻击：喷出大团的烈焰笼罩敌人。射程：中。造成额外$const(add_fire_dam_rate)$%伤害的火系魔法伤害，消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90023,
+    "offset": 13252,
+    "strings": [
+      "战斗训练I",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "skill\\pet\\icon_skill_pet06.bmp",
+      "skill\\",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%."
+    ]
+  },
+  {
+    "id": 90053,
+    "offset": 13507,
+    "strings": [
+      "战斗训练II",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "skill\\pet\\icon_skill_pet06.bmp",
+      "skill\\",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%."
+    ]
+  },
+  {
+    "id": 90054,
+    "offset": 13767,
+    "strings": [
+      "战斗训练III",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "skill\\pet\\icon_skill_pet06.bmp",
+      "skill\\",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "被动：提升魔法兽物理攻击强度。增加本体物理攻击力$const(add_phy_attack_rate)$%，增加暴击率$const(add_fatal)$%."
+    ]
+  },
+  {
+    "id": 90037,
+    "offset": 14026,
+    "strings": [
+      "魔法学习I",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "skill\\pet\\icon_skill_pet08.bmp",
+      "skill\\",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%."
+    ]
+  },
+  {
+    "id": 90051,
+    "offset": 14278,
+    "strings": [
+      "魔法学习II",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "skill\\pet\\icon_skill_pet08.bmp",
+      "skill\\",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%."
+    ]
+  },
+  {
+    "id": 90052,
+    "offset": 14535,
+    "strings": [
+      "魔法学习III",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "skill\\pet\\icon_skill_pet08.bmp",
+      "skill\\",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%.",
+      "被动：提升魔法兽魔法攻击强度。增加本体魔法攻击力$const(add_magic_attack_rate)$%，增加暴击率$const(add_fatal)$%."
+    ]
+  },
+  {
+    "id": 90027,
+    "offset": 14791,
+    "strings": [
+      "健壮训练I",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%.",
+      "skill\\warrior\\icon_skill_lifeup.bmp",
+      "skill\\",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%.",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%."
+    ]
+  },
+  {
+    "id": 90055,
+    "offset": 15049,
+    "strings": [
+      "健壮训练II",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%.",
+      "skill\\warrior\\icon_skill_lifeup.bmp",
+      "skill\\",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%.",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%."
+    ]
+  },
+  {
+    "id": 90056,
+    "offset": 15311,
+    "strings": [
+      "健壮训练III",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%.",
+      "skill\\warrior\\icon_skill_lifeup.bmp",
+      "skill\\",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%.",
+      "被动：提升魔法兽体力上限。增加本体体力上限$const(add_hp_max_rate)$%,增加减免暴击率$const(add_luck)$%."
+    ]
+  },
+  {
+    "id": 90041,
+    "offset": 15572,
+    "strings": [
+      "医疗术I",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\warrior\\icon_skill_warrior6.bmp",
+      "skill\\",
+      "LIGHT_ATTACK",
+      "skill\\snd_effect_skill_light.pcm",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90049,
+    "offset": 15927,
+    "strings": [
+      "医疗术II",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\warrior\\icon_skill_warrior6.bmp",
+      "skill\\",
+      "LIGHT_ATTACK",
+      "skill\\snd_effect_skill_light.pcm",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90057,
+    "offset": 16285,
+    "strings": [
+      "医疗术III",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "skill\\warrior\\icon_skill_warrior6.bmp",
+      "skill\\",
+      "LIGHT_ATTACK",
+      "skill\\snd_effect_skill_light.pcm",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。",
+      "辅助：魔法兽对主人和自己进行治疗。回复量为各自本体体力上限的$const(cure_self_hp_rate)$%,消耗法力值$cost_mp$，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90058,
+    "offset": 16641,
+    "strings": [
+      "攻击灵气I",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。",
+      "skill\\pet\\icon_skill_pet04.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。"
+    ]
+  },
+  {
+    "id": 90059,
+    "offset": 16867,
+    "strings": [
+      "攻击灵气II",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。",
+      "skill\\pet\\icon_skill_pet04.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。"
+    ]
+  },
+  {
+    "id": 90060,
+    "offset": 17095,
+    "strings": [
+      "攻击灵气III",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。",
+      "skill\\pet\\icon_skill_pet04.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体攻击力$const(add_attack_rate)$%。"
+    ]
+  },
+  {
+    "id": 90061,
+    "offset": 17322,
+    "strings": [
+      "防御灵气I",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。",
+      "skill\\pet\\icon_skill_pet03.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。"
+    ]
+  },
+  {
+    "id": 90062,
+    "offset": 17556,
+    "strings": [
+      "防御灵气II",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。",
+      "skill\\pet\\icon_skill_pet03.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。"
+    ]
+  },
+  {
+    "id": 90063,
+    "offset": 17792,
+    "strings": [
+      "防御灵气III",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。",
+      "skill\\pet\\icon_skill_pet03.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体物理防御力$const(add_defence_rate)$%。"
+    ]
+  },
+  {
+    "id": 90064,
+    "offset": 18027,
+    "strings": [
+      "体力灵气I",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。",
+      "skill\\pet\\icon_skill_pet11.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。"
+    ]
+  },
+  {
+    "id": 90065,
+    "offset": 18258,
+    "strings": [
+      "体力灵气II",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。",
+      "skill\\pet\\icon_skill_pet11.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。"
+    ]
+  },
+  {
+    "id": 90066,
+    "offset": 18491,
+    "strings": [
+      "体力灵气III",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。",
+      "skill\\pet\\icon_skill_pet11.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体体力上限$const(add_hp_max_rate)$%。"
+    ]
+  },
+  {
+    "id": 90068,
+    "offset": 18723,
+    "strings": [
+      "抗火灵气I",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。",
+      "skill\\pet\\icon_skill_pet05.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。"
+    ]
+  },
+  {
+    "id": 90069,
+    "offset": 18955,
+    "strings": [
+      "抗火灵气II",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。",
+      "skill\\pet\\icon_skill_pet05.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。"
+    ]
+  },
+  {
+    "id": 90070,
+    "offset": 19189,
+    "strings": [
+      "抗火灵气III",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。",
+      "skill\\pet\\icon_skill_pet05.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体火抗性$const(add_fire_res_rate)$%。"
+    ]
+  },
+  {
+    "id": 90071,
+    "offset": 19423,
+    "strings": [
+      "抗冰灵气I",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。",
+      "skill\\pet\\icon_skill_pet10.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。"
+    ]
+  },
+  {
+    "id": 90072,
+    "offset": 19653,
+    "strings": [
+      "抗冰灵气II",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。",
+      "skill\\pet\\icon_skill_pet10.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。"
+    ]
+  },
+  {
+    "id": 90073,
+    "offset": 19885,
+    "strings": [
+      "抗冰灵气III",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。",
+      "skill\\pet\\icon_skill_pet10.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。",
+      "光环：魔法兽被召唤后，提升主人和自己本体冰抗性$const(add_ice_res_rate)$%。"
+    ]
+  },
+  {
+    "id": 90074,
+    "offset": 20117,
+    "strings": [
+      "闪避灵气I",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。",
+      "skill\\pet\\icon_skill_pet09.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。"
+    ]
+  },
+  {
+    "id": 90075,
+    "offset": 20336,
+    "strings": [
+      "闪避灵气II",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。",
+      "skill\\pet\\icon_skill_pet09.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。"
+    ]
+  },
+  {
+    "id": 90076,
+    "offset": 20557,
+    "strings": [
+      "闪避灵气III",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。",
+      "skill\\pet\\icon_skill_pet09.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_jook)$%的回避率。"
+    ]
+  },
+  {
+    "id": 90077,
+    "offset": 20778,
+    "strings": [
+      "命中灵气I",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。",
+      "skill\\pet\\icon_skill_pet07.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。"
+    ]
+  },
+  {
+    "id": 90078,
+    "offset": 20995,
+    "strings": [
+      "命中灵气II",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。",
+      "skill\\pet\\icon_skill_pet07.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。"
+    ]
+  },
+  {
+    "id": 90079,
+    "offset": 21214,
+    "strings": [
+      "命中灵气III",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。",
+      "skill\\pet\\icon_skill_pet07.bmp",
+      "skill\\",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。",
+      "光环：魔法兽被召唤后，提升主人和宠物$const(add_hit)$%的精准率。"
+    ]
+  },
+  {
+    "id": 90145,
+    "offset": 21432,
+    "strings": [
+      "猛攻",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为体力上限的2%，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet19.bmp",
+      "BLOOD",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为体力上限的2%，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为体力上限的2%，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90146,
+    "offset": 21667,
+    "strings": [
+      "魔法剑",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为本体攻击的$const(app_phy_rate)$%，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet21.bmp",
+      "BLOOD",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为本体攻击的$const(app_phy_rate)$%，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为本体攻击的$const(app_phy_rate)$%，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90147,
+    "offset": 21927,
+    "strings": [
+      "撕咬",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为自身等级的4倍，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet22.bmp",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为自身等级的4倍，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为自身等级的4倍，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90148,
+    "offset": 22147,
+    "strings": [
+      "刁钻突袭",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为对方等级的5倍，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet14.bmp",
+      "BLOOD",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为对方等级的5倍，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，附加攻击为对方等级的5倍，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90150,
+    "offset": 22385,
+    "strings": [
+      "猪突猛进",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，增加怪物对自身的仇恨值为自身等级的20倍，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet25.bmp",
+      "BLOOD",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，增加怪物对自身的仇恨值为自身等级的20倍，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，增加怪物对自身的仇恨值为自身等级的20倍，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90149,
+    "offset": 22640,
+    "strings": [
+      "灼热痰涕",
+      "攻击：消耗$cost_mp$点法力，使用火魔法攻击，增加怪物对自身的仇恨值为自身等级的20倍，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet26.bmp",
+      "skill\\",
+      "特效-火球",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "攻击：消耗$cost_mp$点法力，使用火魔法攻击，增加怪物对自身的仇恨值为自身等级的20倍，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用火魔法攻击，增加怪物对自身的仇恨值为自身等级的20倍，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90151,
+    "offset": 22947,
+    "strings": [
+      "抗魔幻冰",
+      "攻击：消耗$cost_mp$点法力，使用冰魔法攻击，并另自身所有抗性提高，效果为自身等级的3倍，持续$const(buff_duration)$秒，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet18.bmp",
+      "skill\\",
+      "特效-冰球",
+      "WATER_ATTACK",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_bubble.pcm",
+      "攻击：消耗$cost_mp$点法力，使用冰魔法攻击，并另自身所有抗性提高，效果为自身等级的3倍，持续$const(buff_duration)$秒，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用冰魔法攻击，并另自身所有抗性提高，效果为自身等级的3倍，持续$const(buff_duration)$秒，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90152,
+    "offset": 23321,
+    "strings": [
+      "游斗",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，并另自身物理防御提高，效果为自身等级的3倍，持续$const(buff_duration)$秒，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet24.bmp",
+      "BLOOD",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，并另自身物理防御提高，效果为自身等级的3倍，持续$const(buff_duration)$秒，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用物理攻击，并另自身物理防御提高，效果为自身等级的3倍，持续$const(buff_duration)$秒，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90153,
+    "offset": 23605,
+    "strings": [
+      "火焰戳刺",
+      "攻击：消耗$cost_mp$点法力，使用火魔法攻击，附加攻击为本体攻击的$const(app_rate)$%，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet17.bmp",
+      "skill\\",
+      "特效-火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：消耗$cost_mp$点法力，使用火魔法攻击，附加攻击为本体攻击的$const(app_rate)$%，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用火魔法攻击，附加攻击为本体攻击的$const(app_rate)$%，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90154,
+    "offset": 23932,
+    "strings": [
+      "寒冷之牙",
+      "攻击：消耗$cost_mp$点法力，使用冰魔法攻击，附加攻击为法力上限的2%，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet16.bmp",
+      "skill\\",
+      "特效-冰球",
+      "skill\\snd_effect_skill_wind.pcm",
+      "攻击：消耗$cost_mp$点法力，使用冰魔法攻击，附加攻击为法力上限的2%，冷却时间$cd$秒。",
+      "攻击：消耗$cost_mp$点法力，使用冰魔法攻击，附加攻击为法力上限的2%，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90155,
+    "offset": 24219,
+    "strings": [
+      "鸣叫",
+      "辅助：消耗$cost_mp$点法力，$const(buff_duration)$秒内增加主人和自身的物理攻击$const(app_phy)$点，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet20.bmp",
+      "skill\\",
+      "辅助：消耗$cost_mp$点法力，$const(buff_duration)$秒内增加主人和自身的物理攻击$const(app_phy)$点，冷却时间$cd$秒。",
+      "辅助：消耗$cost_mp$点法力，$const(buff_duration)$秒内增加主人和自身的物理攻击$const(app_phy)$点，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90156,
+    "offset": 24491,
+    "strings": [
+      "鼓舞",
+      "辅助：消耗$cost_mp$点法力，$const(buff_duration)$秒内增加主人和自身的魔法攻击$const(app_mag)$点，冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet15.bmp",
+      "skill\\",
+      "辅助：消耗$cost_mp$点法力，$const(buff_duration)$秒内增加主人和自身的魔法攻击$const(app_mag)$点，冷却时间$cd$秒。",
+      "辅助：消耗$cost_mp$点法力，$const(buff_duration)$秒内增加主人和自身的魔法攻击$const(app_mag)$点，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90157,
+    "offset": 24764,
+    "strings": [
+      "吸收",
+      "攻击：消耗法力$cost_mp$点，$const(remove_rate)$%的几率清除对方的$const(remove_num)$个有利效果。冷却时间$cd$秒。",
+      "skill\\pet\\icon_skill_pet23.bmp",
+      "skill\\",
+      "攻击：消耗法力$cost_mp$点，$const(remove_rate)$%的几率清除对方的$const(remove_num)$个有利效果。冷却时间$cd$秒。",
+      "攻击：消耗法力$cost_mp$点，$const(remove_rate)$%的几率清除对方的$const(remove_num)$个有利效果。冷却时间$cd$秒。。"
+    ]
+  },
+  {
+    "id": 90080,
+    "offset": 25029,
+    "strings": [
+      "精魂祝福",
+      "长期与自然精魂生活在一起的夜精灵比人类更能忍受元素的伤害，而且有更强的生命力。\\n随人物等级增加所有魔法抗性，体力上限。",
+      "skill\\warrior\\icon_skill_warrior34.bmp",
+      "skill\\",
+      "随人物等级提高四项魔法抗性，体力上限。",
+      "长期与自然精魂生活在一起的夜精灵比人类更能忍受元素的伤害，而且有更强的生命力。\\n随人物等级增加所有魔法抗性，体力上限。"
+    ]
+  },
+  {
+    "id": 90081,
+    "offset": 25297,
+    "strings": [
+      "生命萃取",
+      "夜精灵能够从敌人身上吸取生命元素，维持他们自己城市的繁华。",
+      "skill\\warrior\\icon_skill_warrior35.bmp",
+      "skill\\",
+      "5%几率掉落生命元素",
+      "夜精灵能够从敌人身上吸取生命元素，维持他们自己城市的繁华。"
+    ]
+  },
+  {
+    "id": 90082,
+    "offset": 25498,
+    "strings": [
+      "人类精神",
+      "顽强，进取，富有创造力——人类总是在相对短暂的生涯中开创出和其他长命种族相当的事业。\\n随人物等级增加物理防御力，法力上限。",
+      "skill\\warrior\\icon_skill_warrior33.bmp",
+      "skill\\",
+      "随人物等级提高物理防御，法力上限",
+      "顽强，进取，富有创造力——人类总是在相对短暂的生涯中开创出和其他长命种族相当的事业。\\n随人物等级增加物理防御力，法力上限。"
+    ]
+  },
+  {
+    "id": 90083,
+    "offset": 25767,
+    "strings": [
+      "贪婪",
+      "人人都喜欢钱，包括你。",
+      "skill\\warrior\\icon_skill_warrior32.bmp",
+      "skill\\",
+      "得钱多10%",
+      "人人都喜欢钱，包括你。"
+    ]
+  },
+  {
+    "id": 90020,
+    "offset": 25923,
+    "strings": [
+      "基础剑术",
+      "近身攻击：附加攻击力$const(add_phy)$点，不消耗法力。冷却时间$cd$秒。\\n下一阶：附加攻击力$const_next(add_phy)$点，不消耗法力。",
+      "skill\\warrior\\icon_skill_warrior13.bmp",
+      "skill\\snd_effect_skill_sword.pcm",
+      "BLOOD",
+      "skill\\snd_effect_skill_sword.pcm",
+      "近身攻击：附加攻击力$const(add_phy)$点，不消耗法力。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90022,
+    "offset": 26194,
+    "strings": [
+      "武器训练",
+      "被动：增加人物的物理攻击$const(add_phy)$点。\\n下一阶：增加人物的物理攻击$const_next(add_phy)$点。",
+      "skill\\warrior\\icon_skill_warrior8.bmp",
+      "skill\\",
+      "被动：增加人物的物理攻击$const_next(add_phy)$点。",
+      "被动：增加人物的物理攻击$const(add_phy)$点。"
+    ]
+  },
+  {
+    "id": 90042,
+    "offset": 26390,
+    "strings": [
+      "健壮",
+      "被动：提高人物的体力上限$const(add_hp_max)$点。\\n下一阶：提高人物的体力上限$const_next(add_hp_max)$点。",
+      "skill\\warrior\\icon_skill_warrior15.bmp",
+      "skill\\",
+      "被动：提高人物的体力上限$const_next(add_hp_max)$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "被动：提高人物的体力上限$const(add_hp_max)$点。"
+    ]
+  },
+  {
+    "id": 90095,
+    "offset": 26634,
+    "strings": [
+      "蓄力挥砍",
+      "近身攻击：附加攻击力$const(add_phy)$点，并在接下来的$const(buff_duration)$秒内增加物理攻击伤害$const(buff_phy)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：附加攻击力$const_next(add_phy)$点，并在接下来的$const_next(buff_duration)$秒内增加物理攻击伤害$const_next(buff_phy)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior2.bmp",
+      "skill\\",
+      "特效-刀光-红",
+      "BLOOD",
+      "skill\\snd_effect_skill_daoguang.pcm",
+      "近身攻击：附加攻击力$const_next(add_phy)$点，并在接下来的$const_next(buff_duration)$秒内增加物理攻击伤害$const_next(buff_phy)$点，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "近身攻击：附加攻击力$const(add_phy)$点，并在接下来的$const(buff_duration)$秒内增加物理攻击伤害$const(buff_phy)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90043,
+    "offset": 27088,
+    "strings": [
+      "灵敏",
+      "被动：增加人物闪避$const(add_flee)$点。\\n下一阶：增加人物闪避$const_next(add_flee)$点。",
+      "skill\\warrior\\icon_skill_warrior11.bmp",
+      "skill\\",
+      "被动：增加人物闪避$const(add_flee)$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "被动：增加人物闪避$const(add_flee)$点。"
+    ]
+  },
+  {
+    "id": 90021,
+    "offset": 27317,
+    "strings": [
+      "投掷飞刀",
+      "远程物理攻击：发挥自身攻击力$const(phy_basic)$%，并附加$const(add_phy)$点伤害，消耗法力$cost_mp$点。射程：中，冷却时间$cd$秒。\\n下一阶：发挥自身攻击力$const_next(phy_basic)$%，并附加$const_next(add_phy)$点伤害，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior31.bmp",
+      "特效-飞刀",
+      "特效-细碎爆炸",
+      "skill\\snd_effect_skill_nife.pcm",
+      "skill\\snd_effect_skill_pilipala.pcm",
+      "远程物理攻击：发挥自身攻击力$const_next(phy_basic)$%，并附加$const_next(add_phy)$点，消耗法力$cost_mp_next$点。射程：中，冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "远程物理攻击：发挥自身攻击力$const(phy_basic)$%，并附加$const(add_phy)$点伤害，消耗法力$cost_mp$点。射程：中，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90044,
+    "offset": 27757,
+    "strings": [
+      "双重打击",
+      "近身2段攻击：第一段攻击附加本体物理攻击力的$const(add_phy_rate)$%，第二段为圣属性攻击，攻击力$const(add_holy)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：第一段攻击附加本体物理攻击力的$const_next(add_phy_rate)$%，第二段为圣属性攻击，攻击力$const_next(add_holy)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior18.bmp",
+      "skill\\",
+      "特效-刀光",
+      "特效-大喷血",
+      "BLOOD",
+      "skill\\snd_effect_skill_daoguang.pcm",
+      "近身2段攻击：第一段攻击附加本体物理攻击力的$const_next(add_phy_rate)$%，第二段为圣属性攻击，攻击力$const_next(add_holy)$点，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_tree$投入的技能点总和达到$req_tree_lv$点。",
+      "近身2段攻击：第一段攻击附加本体物理攻击力的$const(add_phy_rate)$%，第二段为圣属性攻击，攻击力$const(add_holy)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90040,
+    "offset": 28260,
+    "strings": [
+      "精通防御",
+      "被动：增加人物的物理防御$const(add_phy_def)$点。\\n下一阶：增加人物的物理防御$const_next(add_phy_def)$点。",
+      "skill\\pet\\icon_skill_pet03.bmp",
+      "skill\\",
+      "被动：增加人物的物理防御$const_next(add_phy_def)$点。\\n学习条件：人物等级达到$req_level$级，$req_tree$投入的技能点总和达到$req_tree_lv$点。",
+      "被动：增加人物的物理防御$const(add_phy_def)$点。"
+    ]
+  },
+  {
+    "id": 90104,
+    "offset": 28541,
+    "strings": [
+      "坚韧光环",
+      "辅助：增加自己和同屏队友的体力上限$const(add_hp_max)$点，持续$const(buff_duration)$分钟，消耗法力$cost_mp$点。\\n下一阶：增加自己和同屏队友的体力上限$const_next(add_hp_max)$点，持续$const_next(buff_duration)$分钟，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior16.bmp",
+      "skill\\",
+      "辅助：增加自己和同屏队友的体力上限$const_next(add_hp_max)$点，持续$const_next(buff_duration)$分钟，消耗法力$cost_mp_next$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "辅助：增加自己和同屏队友的体力上限$const(add_hp_max)$点，持续$const(buff_duration)$分钟，消耗法力$cost_mp$点。"
+    ]
+  },
+  {
+    "id": 90084,
+    "offset": 28883,
+    "strings": [
+      "速度爆发",
+      "辅助：$const(buff_duration)$秒内自身移动速度增加$const(add_speed)$，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(buff_duration)$秒内自身移动速度增加$const_next(add_speed)$，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior1.bmp",
+      "skill\\",
+      "特性-聚气",
+      "skill\\snd_effect_skill_juqi.pcm",
+      "辅助：$const_next(buff_duration)$秒内自身移动速度增加$const_next(add_speed)$，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "辅助：$const(buff_duration)$秒内自身移动速度增加$const(add_speed)$，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90096,
+    "offset": 29284,
+    "strings": [
+      "加速愈合",
+      "被动：增加自身每10秒回复生命能力$const(hp_grow)$点。\\n下一阶：增加自身每10秒回复生命能力$const_next(hp_grow)$点。",
+      "skill\\warrior\\icon_skill_warrior7.bmp",
+      "skill\\",
+      "被动：增加自身每10秒回复生命能力$const_next(hp_grow)$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "被动：增加自身每10秒回复生命能力$const(hp_grow)$点。"
+    ]
+  },
+  {
+    "id": 90105,
+    "offset": 29542,
+    "strings": [
+      "破魂斩",
+      "远程攻击技能：燃烧目标法力，数值为自身物理攻击力的$const(add_phy_rate)$%，并额外附加$const(damage_mp)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：数值为自身物理攻击力的$const_next(add_phy_rate)$%，并额外附加$const_next(damage_mp)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior4.bmp",
+      "skill\\",
+      "特效-死亡标记",
+      "skill\\snd_effect_skill_deathtag.pcm",
+      "远程攻击技能：燃烧目标法力，数值为自身物理攻击力的$const_next(add_phy_rate)$%，并额外附加$const_next(damage_mp)$点，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "远程攻击技能：燃烧目标法力，数值为自身物理攻击力的$const(add_phy_rate)$%，并额外附加$const(damage_mp)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90106,
+    "offset": 29988,
+    "strings": [
+      "嘲弄",
+      "辅助：增加怪物对你的仇恨值$const(add_hate)$点，使之攻击自己，消耗法力$cost_mp$点。冷却时间45秒。\\n下一阶：增加怪物对你的仇恨值$const_next(add_hate)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior28.bmp",
+      "skill\\",
+      "特性-聚气",
+      "特效-嘲讽",
+      "skill\\snd_effect_skill_juqi.pcm",
+      "skill\\snd_effect_skill_chaonong.pcm",
+      "辅助：增加怪物对你的仇恨值$const_next(add_hate)$点，使之攻击自己，消耗法力$cost_mp_next$点。冷却时间45秒。\\n学习条件：人物等级达到$req_level$级，$req_tree$投入的技能点总和达到$req_tree_lv$点，消耗技能点1点。",
+      "辅助：增加怪物对你的仇恨值$const(add_hate)$点，使之攻击自己，消耗法力$cost_mp$点。冷却时间45秒。"
+    ]
+  },
+  {
+    "id": 90107,
+    "offset": 30464,
+    "strings": [
+      "守护光环",
+      "被动：增加人物体力上限，效果为本体体力上限的$const(add_hp_max_rate)$%，并增加所有抗性$const(add_resist)$点。\\n下一阶：增加人物体力上限，效果为本体体力上限的$const_next(add_hp_max_rate)$%，并增加所有抗性$const_next(add_resist)$点。",
+      "skill\\warrior\\icon_skill_warrior29.bmp",
+      "skill\\",
+      "被动：增加人物体力上限，效果为本体体力上限的$const_next(add_hp_max_rate)$%，并增加所有抗性$const_next(add_resist)$点。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "被动：增加人物体力上限，效果为本体体力上限的$const(add_hp_max_rate)$%，并增加所有抗性$const(add_resist)$点。"
+    ]
+  },
+  {
+    "id": 90113,
+    "offset": 30803,
+    "strings": [
+      "神圣之刃",
+      "攻击：消耗自身所有法力，转化成圣属性近距离攻击，附加精准率$const(add_hit)$%，法力转换攻击的比率为1：$const(tran_rate)$。冷却时间$cd$秒。\\n下一阶：附加精准率$const_next(add_hit)$%，法力转换攻击的比率为1：$const_next(tran_rate)$。",
+      "skill\\warrior\\icon_skill_warrior26.bmp",
+      "skill\\",
+      "特效-刀光-红",
+      "RELIVE",
+      "skill\\snd_effect_skill_daoguang.pcm",
+      "skill\\snd_effect_skill_relive.pcm",
+      "攻击：消耗自身所有法力，转化成圣属性近距离攻击，附加精准率$const_next(add_hit)$%，法力转换攻击的比率为1：$const_next(tran_rate)$。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：消耗自身所有法力，转化成圣属性近距离攻击，附加精准率$const(add_hit)$%，法力转换攻击的比率为1：$const(tran_rate)$。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90115,
+    "offset": 31281,
+    "strings": [
+      "骑士之盾",
+      "辅助：$const(buff_duration)$秒内，增加人物物理防御$const(add_resist)$点、所有抗性$const(add_resist)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(buff_duration)$秒内，增加人物物理防御$const_next(add_resist)$点、所有抗性$const_next(add_resist)$点，消耗法力$cost_mp$点。",
+      "skill\\warrior\\icon_skill_warrior19.bmp",
+      "skill\\",
+      "辅助：$const_next(buff_duration)$秒内，增加人物物理防御$const_next(add_resist)$点、所有抗性$const_next(add_resist)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n学习条件：学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(buff_duration)$秒内，增加人物物理防御$const(add_resist)$点、所有抗性$const(add_resist)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90119,
+    "offset": 31703,
+    "strings": [
+      "蔑视痛苦",
+      "辅助：$const(rem_buff_rate)$%的几率清除自身$const(rem_buff_num)$个不利效果，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(rem_buff_rate)$%的几率清除自身$const_next(rem_buff_num)$个不利效果，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior14.bmp",
+      "skill\\",
+      "特性-聚气",
+      "skill\\snd_effect_skill_juqi.pcm",
+      "辅助：$const_next(rem_buff_rate)$%的几率清除自身$const_next(rem_buff_num)$个不利效果，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(rem_buff_rate)$%的几率清除自身$const(rem_buff_num)$个不利效果，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90117,
+    "offset": 32147,
+    "strings": [
+      "愤怒打击",
+      "攻击：附加本体攻击力的$const(add_phy_rate)$，并额外附加$const(add_phy)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：附加本体攻击力的$const_next(add_phy_rate)$%，并额外附加$const_next(add_phy)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior3.bmp",
+      "skill\\",
+      "特效-刀光-红",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_daoguang.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：附加本体攻击力的$const_next(add_phy_rate)$%，并额外附加$const_next(add_phy)$点，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_tree$投入的技能点总和达到$req_tree_lv$点，消耗技能点1点。",
+      "攻击：附加本体攻击力的$const(add_phy_rate)$，并额外附加$const(add_phy)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90118,
+    "offset": 32640,
+    "strings": [
+      "撕裂",
+      "被动：增加人物暴击率$const(add_fatal)$%、命中$const(add_hit)$点、闪避$const(add_evade)$点。\\n下一阶：增加人物暴击率$const_next(add_fatal)$%、命中$const_next(add_hit)$点、闪避$const_next(add_evade)$点。",
+      "skill\\warrior\\icon_skill_attack_around.bmp",
+      "skill\\",
+      "被动：增加人物暴击率$const_next(add_fatal)$%、命中$const_next(add_hit)$点、闪避$const_next(add_evade)$点。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "被动：增加人物暴击率$const(add_fatal)$%、命中$const(add_hit)$点、闪避$const(add_evade)$点。"
+    ]
+  },
+  {
+    "id": 90116,
+    "offset": 32977,
+    "strings": [
+      "抹消",
+      "辅助：$const(rem_buff_rate)$%的几率清除对方的$const(rem_buff_num)$个有利效果，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(rem_buff_rate)$%的几率清除对方的$const_next(rem_buff_num)$个有利效果，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior35.bmp",
+      "skill\\",
+      "特效-飞刀",
+      "特效-狂暴BUFF",
+      "skill\\snd_effect_skill_nife.pcm",
+      "skill\\snd_effect_skill_deathtag.pcm",
+      "辅助：$const_next(rem_buff_rate)$%的几率清除对方的$const_next(rem_buff_num)$个有利效果，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(rem_buff_rate)$%的几率清除对方的$const(rem_buff_num)$个有利效果，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90120,
+    "offset": 33442,
+    "strings": [
+      "狂暴化",
+      "辅助：$const(buff_duration)$秒内增加本体物理攻击的$const(add_phy_rate)$%，体力上限$const(add_hp_max)$点，但是同时降低本体物理防御和抗性的$const(sub_def)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(buff_duration)$秒内增加本体物理攻击的$const_next(add_phy_rate)$%，体力上限$const_next(add_hp_max)$点，但是同时降低本体物理防御和抗性的$const_next(sub_def)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_crazy.bmp",
+      "skill\\",
+      "辅助：$const_next(buff_duration)$秒内增加本体物理攻击的$const_next(add_phy_rate)$%，体力上限$const_next(add_hp_max)$点，但是同时降低本体物理防御和抗性的$const_next(sub_def)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(buff_duration)$秒内增加本体物理攻击的$const(add_phy_rate)$%，体力上限$const(add_hp_max)$点，但是同时降低本体物理防御和抗性的$const(sub_def)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90121,
+    "offset": 33924,
+    "strings": [
+      "悍勇搏杀",
+      "攻击：3段攻击，每段攻击分别附加物理攻击$const(add_phy1)$、$const(add_phy2)$、$const(add_phy3)$，最后一段额外附加本体物理攻击$const(add_phy_rate)$%、暴击率$const(add_fatal_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：每段攻击分别附加物理攻击$const_next(add_phy1)$、$const_next(add_phy2)$、$const_next(add_phy3)$，最后一段额外附加本体物理攻击$const_next(add_phy_rate)$%、暴击率$const_next(add_fatal_rate)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior27.bmp",
+      "skill\\",
+      "特效-刀光-红",
+      "FIRE_ATTACK2",
+      "skill\\snd_effect_skill_daoguang.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：3段攻击，每段攻击分别附加物理攻击$const_next(add_phy1)$、$const_next(add_phy2)$、$const_next(add_phy3)$，最后一段额外附加本体物理攻击$const_next(add_phy_rate)$%、暴击率$const_next(add_fatal_rate)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：3段攻击，每段攻击分别附加物理攻击$const(add_phy1)$、$const(add_phy2)$、$const(add_phy3)$，最后一段额外附加本体物理攻击$const(add_phy_rate)$%、暴击率$const(add_fatal_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90122,
+    "offset": 34499,
+    "strings": [
+      "火球术",
+      "火系攻击法术：附加魔法攻击$const(add_fire)$点，消耗法力$cost_mp$点。射程：远，冷却时间$cd$秒。\\n下一阶：附加魔法攻击$const_next(add_fire)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior9.bmp",
+      "skill\\",
+      "特效-火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "火系攻击法术：附加魔法攻击$const(add_fire)$点，消耗法力$cost_mp$点。射程：远，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90124,
+    "offset": 34848,
+    "strings": [
+      "魔力学习",
+      "被动：提高人物的魔法攻击$const(add_mag)$点。\\n下一阶：提高人物的魔法攻击$const_next(add_mag)$点。",
+      "skill\\warrior\\icon_skill_warrior5.bmp",
+      "skill\\",
+      "被动：提高人物的魔法攻击$const_next(add_mag)$点。",
+      "被动：提高人物的魔法攻击$const(add_mag)$点。"
+    ]
+  },
+  {
+    "id": 90125,
+    "offset": 35043,
+    "strings": [
+      "法力强化",
+      "被动：提高人物的法力上限$const(add_mp_max)$点。\\n下一阶：提高人物的法力上限$const_next(add_mp_max)$点。",
+      "skill\\warrior\\icon_skill_warrior11.bmp",
+      "skill\\",
+      "被动：提高人物的法力上限$const_next(add_mp_max)$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "被动：提高人物的法力上限$const(add_mp_max)$点。"
+    ]
+  },
+  {
+    "id": 90126,
+    "offset": 35286,
+    "strings": [
+      "治疗术",
+      "辅助：回复自身体力$const(add_hp)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：回复自身体力$const_next(add_hp)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior7.bmp",
+      "skill\\",
+      "LIGHT_ATTACK",
+      "skill\\snd_effect_skill_light.pcm",
+      "辅助：回复自身体力$const_next(add_hp)$点，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "辅助：回复自身体力$const(add_hp)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90097,
+    "offset": 35660,
+    "strings": [
+      "法力控制",
+      "被动：增加人物命中$const(add_hit)$点。\\n下一阶：增加人物命中$const_next(add_hit)$点。",
+      "skill\\warrior\\icon_skill_warrior12.bmp",
+      "skill\\",
+      "被动：增加人物命中$const_next(add_hit)$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "被动：增加人物命中$const(add_hit)$点。"
+    ]
+  },
+  {
+    "id": 90123,
+    "offset": 35902,
+    "strings": [
+      "冰冻术",
+      "冰系攻击法术：附加魔法攻击$const(add_water)$点，技能暴击率增加$const(add_fatal)$%，消耗法力$cost_mp$点。射程：中，冷却时间$cd$秒。\\n下一阶：附加魔法攻击$const_next(add_water)$点，技能暴击率增加$const_next(add_fatal)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior4.bmp",
+      "skill\\",
+      "特效-冰球",
+      "WATER_ATTACK",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_bubble.pcm",
+      "冰系攻击法术：附加魔法攻击$const_next(add_water)$点，技能暴击率增加$const_next(add_fatal)$%，消耗法力$cost_mp_next$点。射程：中，冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "冰系攻击法术：附加魔法攻击$const(add_water)$点，技能暴击率增加$const(add_fatal)$%，消耗法力$cost_mp$点。射程：中，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90127,
+    "offset": 36345,
+    "strings": [
+      "烈火焚烧",
+      "近程火系攻击法术：附加自身魔法攻击力$const(add_fire_rate)$%，外加$const(add_fire_val)$点魔法攻击，消耗法力$cost_mp$点。射程：近，冷却时间$cd$秒。\\n下一阶：附加自身魔法攻击力$const_next(add_fire_rate)$%，外加$const_next(add_fire_val)$点魔法攻击，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior2.bmp",
+      "skill\\",
+      "FIRE_ATTACK",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_fireball2.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "近程火系攻击法术：附加自身魔法攻击力$const_next(add_fire_rate)$%，外加$const_next(add_fire_val)$点魔法攻击，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：$req_tree$投入的技能点总和达到$req_tree_lv$点。",
+      "近程火系攻击法术：附加自身魔法攻击力$const(add_fire_rate)$%，外加$const(add_fire_val)$点魔法攻击，消耗法力$cost_mp$点。射程：近，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90130,
+    "offset": 36829,
+    "strings": [
+      "自然抵抗",
+      "被动：增加人物的所有抗性和防御$const(add_resist)$点。\\n下一阶：增加人物的所有抗性和防御$const_next(add_resist)$点。",
+      "skill\\warrior\\icon_skill_warrior14.bmp",
+      "skill\\",
+      "被动：增加人物的所有抗性和防御$const_next(add_resist)$点。\\n学习条件：$req_tree$投入的技能点总和达到$req_tree_lv$点。",
+      "被动：增加人物的所有抗性和防御$const(add_resist)$点。"
+    ]
+  },
+  {
+    "id": 90131,
+    "offset": 37093,
+    "strings": [
+      "法力光环",
+      "辅助：增加自己和同屏队友的法力上限$const(add_mp_max)$点，持续$const(buff_duration)$分钟，消耗法力$cost_mp$点。\\n下一阶：增加自己和同屏队友的法力上限$const_next(add_mp_max)$点，持续$const_next(buff_duration)$分钟，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior17.bmp",
+      "skill\\",
+      "辅助：增加自己和同屏队友的法力上限$const_next(add_mp_max)$点，持续$const_next(buff_duration)$分钟，消耗法力$cost_mp_next$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "辅助：增加自己和同屏队友的法力上限$const(add_mp_max)$点，持续$const(buff_duration)$分钟，消耗法力$cost_mp$点。"
+    ]
+  },
+  {
+    "id": 90129,
+    "offset": 37426,
+    "strings": [
+      "魔法盾",
+      "辅助：30秒内所受伤害的$const(work_rate)$%转为消耗法力，每1点伤害需要消耗$const(mp_trans_hp)$点法力，技能施放需要法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：30秒内所受伤害的$const_next(work_rate)$%转为消耗法力，每1点伤害需要消耗$const_next(mp_trans_hp)$点法力，技能施放需要法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior6.bmp",
+      "skill\\",
+      "辅助：释放魔法盾保护自身。30秒内所受伤害的$const_next(work_rate)$%转为消耗法力，每1点伤害需要消耗$const_next(mp_trans_hp)$点法力，技能施放需要法力$cost_mp_next$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "辅助：30秒内所受伤害的$const(work_rate)$%转为消耗法力，每1点伤害需要消耗$const(mp_trans_hp)$点法力，技能施放需要法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90098,
+    "offset": 37805,
+    "strings": [
+      "法力再生",
+      "被动：增加自身每10秒回复法力能力$const(mp_grow)$点。\\n下一阶：增加自身每10秒回复法力能力$const_next(mp_grow)$点。",
+      "skill\\warrior\\icon_skill_warrior10.bmp",
+      "skill\\",
+      "被动：增加自身每10秒回复法力能力$const_next(mp_grow)$点。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "被动：增加自身每10秒回复法力能力$const(mp_grow)$点。"
+    ]
+  },
+  {
+    "id": 90128,
+    "offset": 38063,
+    "strings": [
+      "暴风雪",
+      "冰系范围攻击法术：发挥自身魔法攻击力$const(basic_attack_rate)$%，并附加$const(add_water)$点伤害，消耗法力$cost_mp$点。射程：远，范围：中冷却时间$cd$秒。\\n下一阶：发挥自身魔法攻击力$const_next(basic_attack_rate)$%，并附加$const_next(add_water)$点伤害，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_ice.bmp",
+      "skill\\",
+      "特效-冰球",
+      "特效-冰块碎裂",
+      "skill\\snd_effect_skill_wind.pcm",
+      "snd_effect_skill_ice.pcm",
+      "冰系范围攻击法术：发挥自身魔法攻击力$const_next(basic_attack_rate)$%，并附加$const_next(add_water)$点伤害，消耗法力$cost_mp_next$点。射程：远，范围：中冷却时间$cd$秒。\\n学习条件：$req_skill$达到$req_skill_lv$阶。",
+      "冰系范围攻击法术：发挥自身魔法攻击力$const(basic_attack_rate)$%，并附加$const(add_water)$点伤害，消耗法力$cost_mp$点。射程：远，范围：中冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90132,
+    "offset": 38531,
+    "strings": [
+      "群体治疗",
+      "辅助：回复自身和同屏队友体力，效果为本体体力上限的$const(add_hp_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：回复自身和同屏队友体力，效果为本体体力上限的$const_next(add_hp_rate)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior10.bmp",
+      "skill\\",
+      "LIGHT_ATTACK",
+      "skill\\snd_effect_skill_light.pcm",
+      "辅助：回复自身和同屏队友体力，效果为本体体力上限的$const_next(add_hp_rate)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_tree$投入的技能点总和达到$req_tree_lv$点，消耗技能点1点。",
+      "辅助：回复自身和同屏队友体力，效果为本体体力上限的$const(add_hp_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90133,
+    "offset": 39028,
+    "strings": [
+      "元素赐生",
+      "被动：增加人物体力上限，效果为本体体力上限的$const(add_hp_max_rate)$%，并增加物理防御$const(add_def)$点。\\n下一阶：增加人物体力上限，效果为本体体力上限的const_next(add_hp_max_rate)%，并增加物理防御$const_next(add_def)$点。",
+      "skill\\warrior\\icon_skill_warrior6.bmp",
+      "skill\\",
+      "被动：增加人物体力上限，效果为本体体力上限的const_next(add_hp_max_rate)%，并增加物理防御$const_next(add_def)$点。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "被动：增加人物体力上限，效果为本体体力上限的$const(add_hp_max_rate)$%，并增加物理防御$const(add_def)$点。"
+    ]
+  },
+  {
+    "id": 90134,
+    "offset": 39369,
+    "strings": [
+      "寒冰噬骨",
+      "攻击：附加魔法攻击$const(add_water)$点，额外附加本体魔法攻击的$const(add_water_rate)$%，有$const(buff_rate)$%的几率使对方冻结$const(buff_duration)$秒，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：附加魔法攻击$const_next(add_water)$点，额外附加本体魔法攻击的$const_next(add_water_rate)$%，有$const_next(buff_rate)$%的几率使对方冻结$const_next(buff_duration)$秒，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior3.bmp",
+      "skill\\",
+      "特效-冰球",
+      "特性-冰火爆炸",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：附加魔法攻击$const_next(add_water)$点，额外附加本体魔法攻击的$const_next(add_water_rate)$%，有$const_next(buff_rate)$%的几率使对方冻结$const_next(buff_duration)$秒，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：附加魔法攻击$const(add_water)$点，额外附加本体魔法攻击的$const(add_water_rate)$%，有$const(buff_rate)$%的几率使对方冻结$const(buff_duration)$秒，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90135,
+    "offset": 39903,
+    "strings": [
+      "元素支配",
+      "辅助：$const(buff_duration)$秒内，增加自己和同屏队友的所有抗性$const(add_resist)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(buff_duration)$秒内，增加自己和同屏队友的所有抗性$const_next(add_resist)$点，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior22.bmp",
+      "skill\\",
+      "特效-上升",
+      "特性-聚气",
+      "skill\\snd_effect_skill_juqi.pcm",
+      "辅助：$const_next(buff_duration)$秒内，增加自己和同屏队友的所有抗性$const_next(add_resist)$点，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(buff_duration)$秒内，增加自己和同屏队友的所有抗性$const(add_resist)$点，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90136,
+    "offset": 40375,
+    "strings": [
+      "圣龙天罚",
+      "攻击：攻击敌方群体大范围，附加魔法攻击$const(add_fire)$点，额外附加本体魔法攻击的$const(add_fire_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：附加魔法攻击$const_next(add_fire)$点，额外附加本体魔法攻击的$const_next(add_fire_rate)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior1.bmp",
+      "skill\\",
+      "FIRE_ATTACK2",
+      "FIRE_ATTACK2",
+      "skill\\snd_effect_skill_fireball2.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：攻击敌方群体大范围，附加魔法攻击$const_next(add_fire)$点，额外附加本体魔法攻击的$const_next(add_fire_rate)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：攻击敌方群体大范围，附加魔法攻击$const(add_fire)$点，额外附加本体魔法攻击的$const(add_fire_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90137,
+    "offset": 40895,
+    "strings": [
+      "暗影之刺",
+      "攻击：附加魔法攻击$const(add_dark)$点，额外附加本体魔法攻击的$const(add_dark_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：附加魔法攻击$const_next(add_dark)$点，额外附加本体魔法攻击的$const_next(add_dark_rate)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior21.bmp",
+      "skill\\",
+      "特效-黑暗火球",
+      "特效-火爆炸",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：附加魔法攻击$const_next(add_dark)$点，额外附加本体魔法攻击的$const_next(add_dark_rate)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_tree$投入的技能点总和达到$req_tree_lv$点，消耗技能点1点。",
+      "攻击：附加魔法攻击$const(add_dark)$点，额外附加本体魔法攻击的$const(add_dark_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90141,
+    "offset": 41391,
+    "strings": [
+      "暗影帷幕",
+      "被动：增加人物所有抗性$const(add_resist)$点、命中$const(add_hit)$点、闪避$const(add_evade)$点，增加魔法攻击为本体魔法攻击的$const(add_mag_rate)$%。\\n下一阶：增加人物所有抗性$const_next(add_resist)$点、命中$const_next(add_hit)$点、闪避$const_next(add_evade)$点，增加魔法攻击为本体魔法攻击的$const_next(add_mag_rate)$%。",
+      "skill\\warrior\\icon_skill_warrior27.bmp",
+      "skill\\",
+      "被动：增加人物所有抗性$const_next(add_resist)$点、命中$const_next(add_hit)$点、闪避$const_next(add_evade)$点，增加魔法攻击为本体魔法攻击的$const_next(add_mag_rate)$%。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "被动：增加人物所有抗性$const(add_resist)$点、命中$const(add_hit)$点、闪避$const(add_evade)$点，增加魔法攻击为本体魔法攻击的$const(add_mag_rate)$%。"
+    ]
+  },
+  {
+    "id": 90140,
+    "offset": 41754,
+    "strings": [
+      "黑暗降临",
+      "攻击：攻击敌方群体，附加魔法攻击$const(add_dark)$点，额外附加本体魔法攻击的$const(add_dark_rate)$%，并附加暴击率$const(add_fatal)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：附加魔法攻击$const_next(add_dark)$点，额外附加本体魔法攻击的$const_next(add_dark_rate)$%，并附加暴击率$const_next(add_fatal)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior24.bmp",
+      "skill\\",
+      "SPECIAL_ATTACK",
+      "特效-黑暗降临",
+      "skill\\snd_effect_skill_wind.pcm",
+      "skill\\snd_effect_skill_relive.pcm",
+      "攻击：攻击敌方群体，附加魔法攻击$const_next(add_dark)$点，额外附加本体魔法攻击的$const_next(add_dark_rate)$%，并附加暴击率$const_next(add_fatal)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：攻击敌方群体，附加魔法攻击$const(add_dark)$点，额外附加本体魔法攻击的$const(add_dark_rate)$%，并附加暴击率$const(add_fatal)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90138,
+    "offset": 42303,
+    "strings": [
+      "死亡标记",
+      "辅助：$const(debuff_duration)$秒内，降低敌方群体的所有抗性和物理防御，效果为对方本体抗性和物理防御的$const(ignore_per)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(debuff_duration)$秒内，降低敌方群体的所有抗性和物理防御，效果为对方本体抗性和物理防御的$const_next(ignore_per)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior23.bmp",
+      "skill\\",
+      "特效-死亡标记",
+      "skill\\snd_effect_skill_deathtag.pcm",
+      "辅助：$const_next(debuff_duration)$秒内，降低敌方群体的所有抗性和物理防御，效果为对方本体抗性和物理防御的$const_next(ignore_per)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(debuff_duration)$秒内，降低敌方群体的所有抗性和物理防御，效果为对方本体抗性和物理防御的$const(ignore_per)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90139,
+    "offset": 42809,
+    "strings": [
+      "暗影诅咒",
+      "攻击：使对方中毒，每隔一段时间减少体力一次，减少的顺序为对方本体体力上限的20%，30%，40%，50%，60%，70%，90%。中毒总时间$const(buff_duration)$秒，每隔$const(buff_interval)$秒减少体力一次，消耗法力$cost_mp$点。只对玩家有效，冷却时间$cd$秒。\\n下一阶：中毒总时间$const_next(buff_duration)$秒，每隔$const_next(buff_interval)$秒减少体力一次，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_defdown_buff.bmp",
+      "skill\\",
+      "SPECIAL_ATTACK",
+      "skill\\snd_effect_skill_wind.pcm",
+      "攻击：使对方中毒，每隔一段时间减少体力一次，减少的顺序为对方本体体力上限的20%，30%，40%，50%，60%，70%，90%。中毒总时间$const_next(buff_duration)$秒，每隔$const_next(buff_interval)$秒减少体力一次，消耗法力$cost_mp_next$点。只对玩家有效，冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：使对方中毒，每隔一段时间减少体力一次，减少的顺序为对方本体体力上限的20%，30%，40%，50%，60%，70%，90%。中毒总时间$const(buff_duration)$秒，每隔$const(buff_interval)$秒减少体力一次，消耗法力$cost_mp$点。只对玩家有效，冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90144,
+    "offset": 43376,
+    "strings": [
+      "悍勇搏杀",
+      "攻击：3段攻击，每段攻击分别附加物理攻击$const(add_phy1)$、$const(add_phy2)$、$const(add_phy3)$，最后一段额外附加本体物理攻击$const(add_phy_rate)$%、暴击率$const(add_fatal_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：每段攻击分别附加物理攻击$const_next(add_phy1)$、$const_next(add_phy2)$、$const_next(add_phy3)$，最后一段额外附加本体物理攻击$const_next(add_phy_rate)$%、暴击率$const_next(add_fatal_rate)$%，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior27.bmp",
+      "skill\\",
+      "特效-刀光-红",
+      "FIRE_ATTACK2",
+      "skill\\snd_effect_skill_daoguang.pcm",
+      "skill\\snd_effect_skill_bomb.pcm",
+      "攻击：3段攻击，每段攻击分别附加物理攻击$const_next(add_phy1)$、$const_next(add_phy2)$、$const_next(add_phy3)$，最后一段额外附加本体物理攻击$const_next(add_phy_rate)$%、暴击率$const_next(add_fatal_rate)$%，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "攻击：3段攻击，每段攻击分别附加物理攻击$const(add_phy1)$、$const(add_phy2)$、$const(add_phy3)$，最后一段额外附加本体物理攻击$const(add_phy_rate)$%、暴击率$const(add_fatal_rate)$%，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 90158,
+    "offset": 43951,
+    "strings": [
+      "抹消",
+      "辅助：$const(rem_buff_rate)$%的几率清除对方的$const(rem_buff_num)$个有利效果，消耗法力$cost_mp$点。冷却时间$cd$秒。\\n下一阶：$const_next(rem_buff_rate)$%的几率清除对方的$const_next(rem_buff_num)$个有利效果，消耗法力$cost_mp_next$点。",
+      "skill\\warrior\\icon_skill_warrior35.bmp",
+      "skill\\",
+      "特效-飞刀",
+      "特效-狂暴BUFF",
+      "skill\\snd_effect_skill_nife.pcm",
+      "辅助：$const_next(rem_buff_rate)$%的几率清除对方的$const_next(rem_buff_num)$个有利效果，消耗法力$cost_mp_next$点。冷却时间$cd$秒。\\n学习条件：人物等级达到$req_level$级，$req_skill$达到$req_skill_lv$阶，消耗技能点1点。",
+      "辅助：$const(rem_buff_rate)$%的几率清除对方的$const(rem_buff_num)$个有利效果，消耗法力$cost_mp$点。冷却时间$cd$秒。"
+    ]
+  },
+  {
+    "id": 10000001,
+    "offset": 44401,
+    "strings": []
+  }
+]

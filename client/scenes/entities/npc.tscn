@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://client/scenes/entities/npc.gd" id="1_npc"]
-[ext_resource type="PackedScene" path="res://assets/models/npc_elder.glb" id="2_mesh"]
+[ext_resource type="PackedScene" path="res://assets/models/v2/elder.glb" id="2_mesh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_col"]
 radius = 0.45
