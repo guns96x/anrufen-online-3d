@@ -51,8 +51,33 @@ static func look_for(role: String) -> Array:
 		return LOOKS["consign"]
 	return LOOKS.get(role, LOOKS["resident"])
 
+## Hand-made cast models (docs/model-handoff-codex.md) take priority over KayKit.
+static func cast_model(role: String, variant: int = 0) -> Node3D:
+	var candidates: Array[String] = ["res://assets/characters/cast/%s.glb" % role]
+	if role.begins_with("consign_"):
+		candidates.push_front("res://assets/characters/cast/consign_%d.glb" % (["consign_gems","consign_weapons","consign_armor","consign_jewelry","consign_beasts","consign_goods"].find(role) + 1))
+	if role == "resident":
+		candidates.push_front("res://assets/characters/cast/resident_%d.glb" % (variant % 4 + 1))
+	for path: String in candidates:
+		if ResourceLoader.exists(path):
+			var model: Node3D = (load(path) as PackedScene).instantiate()
+			model.rotation.y = PI
+			ToonStyle.apply(model, true)
+			var anim: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
+			if anim:
+				var idle: String = "Idle_Character" if anim.has_animation("Idle_Character") else "Idle"
+				if anim.has_animation(idle):
+					anim.get_animation(idle).loop_mode = Animation.LOOP_LINEAR
+					anim.play(idle)
+					anim.seek(randf() * anim.get_animation(idle).length, true)
+			return model
+	return null
+
 ## Instantiates the dressed, animated model for a role.
 static func build(role: String, variant: int = 0) -> Node3D:
+	var custom: Node3D = cast_model(role, variant)
+	if custom:
+		return custom
 	var look: Array = look_for(role)
 	var model: Node3D = (load(BASES[look[0]]) as PackedScene).instantiate()
 	var props: Array = look[1]

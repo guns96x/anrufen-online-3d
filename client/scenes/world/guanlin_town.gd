@@ -356,7 +356,14 @@ func _spawn_bandits() -> void:
 		for entry: Array in GuanlinSpawns.ENCOUNTERS:
 			if entry[0] == bandit.name:
 				brute = entry[3] == "brute"
-		bandit.visual_root.add_child(CitizenLook.build("viper_brute" if brute else "viper_bandit"))
+		var custom: String = "res://assets/creatures/%s.glb" % ("brute" if brute else "bandit")
+		if ResourceLoader.exists(custom):
+			var hand_made: Node3D = (load(custom) as PackedScene).instantiate()
+			hand_made.rotation.y = PI
+			ToonStyle.apply(hand_made, true)
+			bandit.visual_root.add_child(hand_made)
+		else:
+			bandit.visual_root.add_child(CitizenLook.build("viper_brute" if brute else "viper_bandit"))
 		MobAnimator.attach(bandit)
 
 func _process(delta: float) -> void:

@@ -96,7 +96,7 @@ func _rebuild() -> void:
 	if base != _base or race != _race:
 		for child: Node in actor.visual_root.get_children():
 			child.queue_free()
-		model = (load(base) as PackedScene).instantiate()
+		model = (load(hero_path(stats, base)) as PackedScene).instantiate()
 		model.rotation.y = PI   # KayKit faces +Z; the player's visual faces -Z
 		actor.visual_root.add_child(model)
 		anim = model.find_child("AnimationPlayer", true, false)
@@ -109,10 +109,17 @@ func _rebuild() -> void:
 		_race = race
 	_two_handed_gear = bool(dress(model, stats)["two_handed"])
 
+## A hand-made hero (assets/characters/hero/<race>_<class>_<sex>.glb) when present.
+static func hero_path(stats: Dictionary, fallback: String) -> String:
+	var race: String = "elf" if int(stats.get("race_id", 250001)) == 250002 else "human"
+	var role: String = "mage" if int(stats.get("class_id", 130001)) in MAGE_CLASSES else "warrior"
+	var path: String = "res://assets/characters/hero/%s_%s_%s.glb" % [race, role, str(stats.get("sex", "m"))]
+	return path if ResourceLoader.exists(path) else fallback
+
 ## Stand-alone dressed model for menus (equipment preview), idling.
 static func preview_model(stats: Dictionary) -> Node3D:
 	var mage: bool = int(stats.get("class_id", 130001)) in MAGE_CLASSES
-	var model: Node3D = (load(MAGE if mage else KNIGHT) as PackedScene).instantiate()
+	var model: Node3D = (load(hero_path(stats, MAGE if mage else KNIGHT)) as PackedScene).instantiate()
 	var shown: Dictionary = stats.duplicate()
 	if not shown.has("equipment"):
 		# Creation screen: show a starter kit so the class reads at once.
