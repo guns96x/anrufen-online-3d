@@ -10,3 +10,5 @@ build/
 bin/
 
 __pycache__/
+
+server.log

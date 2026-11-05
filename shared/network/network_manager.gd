@@ -47,6 +47,13 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(_on_connection_fail)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
+## Dedicated mode: the process only hosts; peer 1 is not admitted as a player.
+var dedicated: bool = false
+
+func start_dedicated(port: int = DEFAULT_PORT) -> bool:
+	dedicated = true
+	return start_server(port)
+
 func start_server(port: int = DEFAULT_PORT) -> bool:
 	if port < 1 or port > 65535:
 		return false
@@ -95,7 +102,7 @@ func start_server(port: int = DEFAULT_PORT) -> bool:
 		return false
 	multiplayer.multiplayer_peer = peer
 	is_server = true
-	if not _admit(1,_safe_name(local_player_data.get("name"),1),token):
+	if not dedicated and not _admit(1,_safe_name(local_player_data.get("name"),1),token):
 		disconnect_session(false)
 		return false
 	_broadcast()
