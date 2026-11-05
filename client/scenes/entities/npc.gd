@@ -17,8 +17,10 @@ var _idle_time: float = 0.0
 
 func _ready() -> void:
 	$NameLabel.text = HudSkin.clean(npc_name)
-	prompt_label.text = "[ Talk / Розмова ]"
+	prompt_label.text = "Говорити"
 	prompt_label.hide()
+	Nameplate.style($NameLabel, Color("f3dfa4"), 26)
+	Nameplate.style(prompt_label, Color("9fd4ff"), 22)
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
 	_idle_time = randf() * TAU

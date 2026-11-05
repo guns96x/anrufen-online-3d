@@ -535,35 +535,154 @@ func _character() -> void:
 		for id: int in [130004,130005,130006,130007,130008,130009]:
 			_button(_content,CharacterSystem.CLASSES[id],func() -> void: _game_action("choose_class",{"class_id":id,"race_id":int(stats["race_id"])},func() -> bool: return CharacterSystem.choose_class(stats,id,int(stats["race_id"]))),220)
 
+func _card(parent: Node) -> VBoxContainer:
+	var card: PanelContainer = PanelContainer.new()
+	var style: StyleBoxFlat = HudSkin.panel_style(Color(0.05,0.065,0.09,0.95),Color(0.85,0.71,0.42,0.35),12,1)
+	style.shadow_size = 0
+	style.content_margin_left = 14
+	style.content_margin_right = 14
+	style.content_margin_top = 12
+	style.content_margin_bottom = 12
+	card.add_theme_stylebox_override("panel",style)
+	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	parent.add_child(card)
+	var box: VBoxContainer = VBoxContainer.new()
+	box.add_theme_constant_override("separation",6)
+	card.add_child(box)
+	return box
+
+func _icon_disc(name: String, size: float, tint: Color, dim: bool = false) -> Control:
+	var disc: Panel = Panel.new()
+	disc.custom_minimum_size = Vector2(size,size)
+	var ring: StyleBoxFlat = HudSkin.panel_style(Color("141c2a"),HudSkin.GOLD if not dim else Color(0.35,0.37,0.42),int(size/2.0),2)
+	ring.shadow_size = 0
+	disc.add_theme_stylebox_override("panel",ring)
+	var art: TextureRect = TextureRect.new()
+	art.texture = HudSkin.icon(name)
+	art.modulate = tint if not dim else Color(0.5,0.52,0.58)
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	art.position = Vector2(size*0.2,size*0.2)
+	art.size = Vector2(size*0.6,size*0.6)
+	disc.add_child(art)
+	return disc
+
+## Skills: one card per skill with its icon, rank pips, description and slot buttons.
 func _skills() -> void:
-	_text("Очки навичок: %d · За рівень додається одне очко." % player.stats["skill_points"])
+	var head: HBoxContainer = HBoxContainer.new()
+	_content.add_child(head)
+	var points: Label = MenuSkin.title("Очки навичок: %d" % int(player.stats["skill_points"]),26)
+	points.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	head.add_child(points)
+	_button(head,"Скинути навички · 100 міді",func() -> void: _game_action("respec",{},func() -> bool: return CharacterSystem.respec_skills(player.stats)),300)
+	var grid: GridContainer = GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation",14)
+	grid.add_theme_constant_override("v_separation",14)
+	_content.add_child(grid)
+	var hotbar: Dictionary = player.stats.get("hotbar",{})
 	for id: int in CharacterSystem.available_skills(player.stats):
 		var skill: Dictionary = CharacterSystem.SKILLS[id]
 		var rank: int = int(player.stats["skills"].get(str(id),0))
-		var row: HBoxContainer = _row("%s · %d/%d · Рів. %d" % [skill["name"],rank,skill["max_rank"],skill["level"]])
 		var required: int = int(skill.get("prerequisite_skill",0))
-		if required != 0: row.tooltip_text = "Потрібно: %s · ранг %d" % [CharacterSystem.SKILLS.get(required,{}).get("name",required),int(skill.get("prerequisite_rank",1))]
+		var passive: bool = str(skill["effect"]).begins_with("passive")
+		var icon_name: String = HudSkin.SKILL_ICONS.get(id,"shield-reflect" if passive else "magic-swirl")
+		var box: VBoxContainer = _card(grid)
+		var top: HBoxContainer = HBoxContainer.new()
+		top.add_theme_constant_override("separation",12)
+		box.add_child(top)
+		top.add_child(_icon_disc(icon_name,58,HudSkin.SKILL_COLORS.get(icon_name,HudSkin.GOLD_LIGHT),rank == 0))
+		var text: VBoxContainer = VBoxContainer.new()
+		text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		top.add_child(text)
+		var name_label: Label = MenuSkin.title(str(skill["name"]),22)
+		text.add_child(name_label)
+		var meta: Label = Label.new()
+		var slots: PackedStringArray = []
+		for slot: String in hotbar:
+			if int(hotbar[slot]) == id: slots.append(slot)
+		meta.text = "%s · з %d рівня%s" % ["Пасивна" if passive else "Активна",int(skill["level"]),"  ·  на кнопці " + ", ".join(slots) if not slots.is_empty() else ""]
+		meta.add_theme_color_override("font_color",Color(0.66,0.7,0.78))
+		meta.add_theme_font_size_override("font_size",13)
+		text.add_child(meta)
+		var pips: Label = Label.new()
+		pips.text = "◆".repeat(rank) + "◇".repeat(maxi(0,int(skill["max_rank"]) - rank)) + "  %d/%d" % [rank,int(skill["max_rank"])]
+		pips.add_theme_color_override("font_color",HudSkin.GOLD)
+		text.add_child(pips)
+		if SkillRules.catalog().has(id):
+			var about: Label = Label.new()
+			about.text = SkillRules.describe(id,maxi(1,rank))
+			about.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			about.add_theme_font_size_override("font_size",13)
+			about.add_theme_color_override("font_color",Color("c9b88a"))
+			box.add_child(about)
+		if required != 0:
+			var need: Label = Label.new()
+			need.text = "Потрібно: %s · ранг %d" % [CharacterSystem.SKILLS.get(required,{}).get("name",required),int(skill.get("prerequisite_rank",1))]
+			need.add_theme_font_size_override("font_size",13)
+			need.add_theme_color_override("font_color",Color("e7a46a"))
+			box.add_child(need)
+		var row: HBoxContainer = HBoxContainer.new()
+		row.add_theme_constant_override("separation",6)
+		box.add_child(row)
+		var row_name: Label = Label.new()
+		row_name.text = "%s · %d/%d · Рів. %d" % [skill["name"],rank,skill["max_rank"],skill["level"]]
+		row_name.visible = false
+		row.add_child(row_name)
 		var learn: Button = _button(row,"Вивчити +1",func() -> void: _game_action("learn_skill",{"id":id},func() -> bool: return CharacterSystem.learn_skill(player.stats,id)),125)
 		learn.disabled = rank >= int(skill["max_rank"]) or int(player.stats["skill_points"]) <= 0 or int(player.stats["level"]) < int(skill["level"]) or (required != 0 and int(player.stats["skills"].get(str(required),0)) < int(skill.get("prerequisite_rank",1)))
-		if not str(skill["effect"]).begins_with("passive"):
-			_button(row,"На кнопку 1",func() -> void: _game_action("assign_skill",{"slot":"1","id":id},func() -> bool: return CharacterSystem.assign_skill(player.stats,"1",id)),145)
+		if not learn.disabled: _primary(learn)
+		if not passive:
+			_button(row,"На кнопку 1",func() -> void: _game_action("assign_skill",{"slot":"1","id":id},func() -> bool: return CharacterSystem.assign_skill(player.stats,"1",id)),120)
 			if SkillRules.catalog().has(id):
 				for slot: String in ["2","3","4"]:
-					var button: Button = _button(row,slot,func() -> void: _game_action("assign_skill",{"slot":slot,"id":id},func() -> bool: return CharacterSystem.assign_skill(player.stats,slot,id)),48)
+					var button: Button = _button(row,slot,func() -> void: _game_action("assign_skill",{"slot":slot,"id":id},func() -> bool: return CharacterSystem.assign_skill(player.stats,slot,id)),44)
 					button.tooltip_text = "Призначити на кнопку "+slot
-		if SkillRules.catalog().has(id):
-			_text(SkillRules.describe(id,maxi(1,rank)),15)
-			if required != 0: _text(row.tooltip_text,14)
-	_button(_content,"Скинути навички · 100 міді",func() -> void: _game_action("respec",{},func() -> bool: return CharacterSystem.respec_skills(player.stats)),300)
 
+## Journal: one card per quest with its state, objective progress and rewards.
 func _journal() -> void:
 	var states: Dictionary = {0:"Недоступне",1:"Можна прийняти",2:"Виконується",3:"Готове до здавання",4:"Завершено"}
+	var colors: Dictionary = {0:Color(0.5,0.52,0.58),1:Color("ffd23f"),2:Color("9fd4ff"),3:Color("9fe08a"),4:Color(0.6,0.62,0.66)}
 	for id: int in QuestData.get_ordered_quest_ids():
 		var q: Dictionary = QuestData.DEFINITIONS[id]
-		_text("%s · %s" % [q["title_uk"],states[hud.progression.quest_states[id]]],20)
-		_text(str(q["progress_text"]))
-		_text("Досвід: %d · Мідь: %d" % [q["exp"],q["copper"]],15)
-		var row: HBoxContainer = _row("Виконано: %d/%d" % [hud.progression.quest_kills[id],q["required"]])
+		var state: int = int(hud.progression.quest_states[id])
+		var box: VBoxContainer = _card(_content)
+		var top: HBoxContainer = HBoxContainer.new()
+		box.add_child(top)
+		var title: Label = MenuSkin.title(HudSkin.clean(str(q["title_uk"])),22)
+		title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if state == 4: title.add_theme_color_override("font_color",Color(0.6,0.62,0.66))
+		top.add_child(title)
+		var badge: Label = Label.new()
+		badge.text = states[state]
+		badge.add_theme_color_override("font_color",colors[state])
+		top.add_child(badge)
+		var story: Label = Label.new()
+		story.text = HudSkin.clean(str(q["progress_text"]))
+		story.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		story.add_theme_font_size_override("font_size",14)
+		story.add_theme_color_override("font_color",Color("c9b88a"))
+		box.add_child(story)
+		var required: int = maxi(1,int(q["required"]))
+		var progress: ProgressBar = ProgressBar.new()
+		progress.max_value = required
+		progress.value = mini(required,int(hud.progression.quest_kills[id]))
+		progress.show_percentage = false
+		progress.custom_minimum_size = Vector2(0,8)
+		var fill: StyleBoxFlat = HudSkin.panel_style(colors[state],colors[state],3,0)
+		fill.shadow_size = 0
+		var back: StyleBoxFlat = HudSkin.panel_style(Color(1,1,1,0.06),Color(0,0,0,0),3,0)
+		back.shadow_size = 0
+		progress.add_theme_stylebox_override("fill",fill)
+		progress.add_theme_stylebox_override("background",back)
+		box.add_child(progress)
+		var row: HBoxContainer = HBoxContainer.new()
+		row.add_theme_constant_override("separation",12)
+		box.add_child(row)
+		var done: Label = Label.new()
+		done.text = "Виконано: %d/%d   ·   Досвід %d   ·   Мідь %d" % [hud.progression.quest_kills[id],q["required"],q["exp"],q["copper"]]
+		done.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(done)
 		_button(row,"Знайти NPC",func() -> void: _navigate_citizen(int(q["turnin_id"])),145)
 
 func _map() -> void:

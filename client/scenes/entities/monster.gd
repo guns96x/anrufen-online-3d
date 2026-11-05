@@ -31,6 +31,7 @@ var _telegraph: MeshInstance3D
 var _attack_point: Vector3
 var threat: Dictionary = {}
 var animator: MobAnimator
+var health_fill: Sprite3D
 const WINDUP_TIME: float = 0.65
 
 @onready var visual_root: Node3D = $Visual
@@ -286,7 +287,7 @@ func respawn() -> void:
 		animator.revive()
 	$CollisionShape3D.set_deferred("disabled", false)
 	name_label.show()
-	hp_bar_3d.show()
+	hp_bar_3d.visible = health_fill == null
 	_update_labels()
 
 func refresh_status_stats() -> void:
@@ -329,12 +330,13 @@ func _build_telegraph() -> void:
 	_telegraph.hide()
 
 func _update_labels() -> void:
-	name_label.text = monster_name
-	hp_bar_3d.text = "HP: %d / %d" % [current_hp, max_hp]
-	if current_hp < max_hp * 0.35:
-		hp_bar_3d.modulate = Color(1, 0.2, 0.2)
-	else:
-		hp_bar_3d.modulate = Color(0.2, 1, 0.3)
+	name_label.text = HudSkin.clean(monster_name)
+	if health_fill == null:
+		Nameplate.style(name_label, Color("ff9a8a"), 26)
+		hp_bar_3d.hide()
+		health_fill = Nameplate.health_bar(self, hp_bar_3d.position.y)
+	health_fill.get_parent().position.y = hp_bar_3d.position.y
+	Nameplate.set_fraction(health_fill, float(current_hp) / float(maxi(1, max_hp)))
 
 func _spawn_damage_text(world_pos: Vector3, text: String, color: Color) -> void:
 	var hud: Node = get_tree().get_first_node_in_group("hud")

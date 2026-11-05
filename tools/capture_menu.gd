@@ -16,7 +16,7 @@ func _run() -> void:
 	for id: int in [10010, 30037, 30038, 30016, 30645]:
 		hud.items.add_item(id, 3 if id > 30000 else 1)
 	hud.items.equip_item(10010)
-	for tab: String in ["inventory", "equipment", "skills", "character"]:
+	for tab: String in ["inventory", "equipment", "skills", "journal"]:
 		hud.game_menu.open_tab(tab)
 		await create_timer(0.6).timeout
 		await RenderingServer.frame_post_draw
