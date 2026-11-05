@@ -19,6 +19,14 @@ const SKILL_ICONS: Dictionary = {
 	90021: "crossed-swords", 90095: "whirlwind", 90129: "shield-reflect", 90104: "magic-swirl",
 	90131: "magic-swirl", 90132: "heart-plus", 90135: "lightning-tree", 90139: "skull-crossed-bones",
 }
+## Icon tint per skill family, matching the mockup (fire orange, ice blue, heal green...).
+const SKILL_COLORS: Dictionary = {
+	"sword-slice": Color("ffd27a"), "shield-bash": Color("ffd27a"), "fire-ring": Color("ff8a4a"),
+	"ice-spear": Color("9fd4ff"), "healing": Color("9fe08a"), "heart-plus": Color("9fe08a"),
+	"crossed-swords": Color("ffd27a"), "whirlwind": Color("e8e8e8"), "shield-reflect": Color("9fd4ff"),
+	"magic-swirl": Color("d3a6ff"), "lightning-tree": Color("fff08a"), "skull-crossed-bones": Color("c48aff"),
+	"sprint": Color("e8e8e8"), "broadsword": Color("f3dfa4"), "wizard-staff": Color("d3a6ff"),
+}
 const MENU: Array = [
 	["inventory", "knapsack"], ["equipment", "battle-gear"], ["skills", "spell-book"],
 	["journal", "scroll-quill"], ["pets", "dragon-head"], ["social", "three-friends"], ["settings", "cog"],
@@ -317,11 +325,22 @@ func _style_skill_ring() -> void:
 			b.add_child(caption)
 		else:
 			b.size = Vector2(diameter, diameter)
-			var style: StyleBoxFlat = panel_style(Color("141c2a") if b != hud.attack_btn else Color("2a1b12"), GOLD, int(diameter / 2.0), 3 if b == hud.attack_btn else 2)
-			style.shadow_size = 8
+			var attack: bool = b == hud.attack_btn
+			var style: StyleBoxFlat = panel_style(Color("1b120c") if attack else Color("0f141d"), GOLD, int(diameter / 2.0), 3 if attack else 2)
+			style.shadow_color = Color(0.85, 0.71, 0.42, 0.38) if attack else Color(0, 0, 0, 0.55)
+			style.shadow_size = 16 if attack else 7
 			for state: String in ["normal", "hover", "pressed", "disabled"]:
 				b.add_theme_stylebox_override(state, style)
-			art.modulate = GOLD_LIGHT
+			var rim: Panel = Panel.new()
+			var black: StyleBoxFlat = panel_style(Color(0, 0, 0, 0), Color.BLACK, int(diameter / 2.0) + 3, 3)
+			black.shadow_size = 0
+			rim.add_theme_stylebox_override("panel", black)
+			rim.position = Vector2(-3, -3)
+			rim.size = Vector2(diameter + 6, diameter + 6)
+			rim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			b.add_child(rim)
+			b.add_child(_disc(diameter, Color("5a3b2a") if attack else Color("2d3a52"), Color("1b120c") if attack else Color("0f141d")))
+			art.modulate = SKILL_COLORS.get(spec[2], GOLD_LIGHT)
 			var pad: float = diameter * 0.2
 			art.position = Vector2(pad, pad)
 			art.size = Vector2(diameter - pad * 2.0, diameter - pad * 2.0)
@@ -340,9 +359,38 @@ func _style_skill_ring() -> void:
 				key.mouse_filter = Control.MOUSE_FILTER_IGNORE
 				b.add_child(key)
 		b.add_child(art)
-		b.move_child(art, 0)
+		if b != hud.interact_btn:
+			b.move_child(art, 2)   # above the rim and gradient disc, below the cooldown dial
+		else:
+			b.move_child(art, 0)
 		b.pivot_offset = b.size / 2.0
 		_icons[b] = art
+
+func _set_icon(b: Button, name: String) -> void:
+	var art: TextureRect = _icons[b]
+	if art.get_meta("icon", "") != name:
+		art.set_meta("icon", name)
+		art.texture = icon(name)
+		art.modulate = SKILL_COLORS.get(name, GOLD_LIGHT)
+
+## Round button face: a radial gradient from a lit centre to a dark edge.
+func _disc(diameter: float, centre: Color, edge: Color) -> TextureRect:
+	var gradient: Gradient = Gradient.new()
+	gradient.offsets = PackedFloat32Array([0.0, 0.55, 1.0])
+	gradient.colors = PackedColorArray([centre, Color(centre.lerp(edge, 0.5), 0.6), Color(edge, 0.0)])
+	var tex: GradientTexture2D = GradientTexture2D.new()
+	tex.gradient = gradient
+	tex.fill = GradientTexture2D.FILL_RADIAL
+	tex.fill_from = Vector2(0.45, 0.38)
+	tex.fill_to = Vector2(0.92, 0.38)
+	tex.width = 128
+	tex.height = 128
+	var disc: TextureRect = TextureRect.new()
+	disc.texture = tex
+	disc.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	disc.size = Vector2(diameter, diameter)
+	disc.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return disc
 
 func _build_potions() -> void:
 	var ring: Control = hud.get_node("BottomRight")
@@ -474,12 +522,12 @@ func _process(_delta: float) -> void:
 	for id: int in potion_counts:
 		potion_counts[id].text = "×%d" % hud.items.count_item(id)
 	var mage: bool = int(stats.get("class_id", 130001)) in HeroAvatar.MAGE_CLASSES
-	_icons[hud.attack_btn].texture = icon("wizard-staff" if mage else "broadsword")
+	_set_icon(hud.attack_btn, "wizard-staff" if mage else "broadsword")
 	var hotbar: Dictionary = stats.get("hotbar", {})
-	_icons[hud.skill1_btn].texture = icon(SKILL_ICONS.get(int(hotbar.get("1", 0)), "magic-swirl"))
+	_set_icon(hud.skill1_btn, SKILL_ICONS.get(int(hotbar.get("1", 0)), "magic-swirl"))
 	for i: int in 3:
 		var b: Button = hud.get_node("BottomRight/AssignedSkill%d" % (i + 2))
-		_icons[b].texture = icon(SKILL_ICONS.get(int(hotbar.get(str(i + 2), 0)), "magic-swirl"))
+		_set_icon(b, SKILL_ICONS.get(int(hotbar.get(str(i + 2), 0)), "magic-swirl"))
 	for b: Button in _dials:
 		var key: String = hud._button_cooldown_keys.get(b, "")
 		var left: float = player.get_cooldown_left(key) if key != "" else 0.0
