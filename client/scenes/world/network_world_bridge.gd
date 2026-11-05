@@ -129,9 +129,18 @@ func _receive_world(packet: Dictionary) -> void:
 			avatar.get_node("OnlineName").text = "%s · Рів. %d · %d/%d" % [row["name"],row["level"],row["hp"],row["max_hp"]]
 			avatar.get_node("OnlineName").visible = SettingsStore.current().get_value("show_names")
 		var location: Vector3 = row["position"]
-		if id != own_id: avatar.velocity = (location-avatar.global_position)/0.1
-		avatar.global_position = location if avatar.global_position.distance_to(location) > 4.0 else avatar.global_position.lerp(location,0.7)
-		avatar.visual_root.rotation.y = row["yaw"]
+		if id == own_id:
+			# Own hero is predicted locally; the snapshot is ~100 ms old, so only correct
+			# real divergence (walls, server rejection) instead of pulling back every packet.
+			var error: float = avatar.global_position.distance_to(location)
+			if error > 4.0 or row["dead"]:
+				avatar.global_position = location
+			elif error > 1.2:
+				avatar.global_position = avatar.global_position.lerp(location, 0.25)
+		else:
+			avatar.velocity = (location-avatar.global_position)/0.1
+			avatar.global_position = location if avatar.global_position.distance_to(location) > 4.0 else avatar.global_position.lerp(location,0.7)
+			avatar.visual_root.rotation.y = lerp_angle(avatar.visual_root.rotation.y, float(row["yaw"]), 0.6)
 		avatar.visual_root.visible = not row["dead"]
 		avatar.is_dead = row["dead"]
 		avatar.respawn_timer = row["respawn_timer"]

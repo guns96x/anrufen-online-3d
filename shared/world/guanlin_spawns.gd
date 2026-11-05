@@ -16,11 +16,11 @@ const ENCOUNTERS: Array = [
 	["ScavengerJackal1", 70115, Vector3(4, 0, 56), "hunter", 3, "Шакал-трупоїд"],
 	["ScavengerJackal2", 70115, Vector3(-8, 0, 58), "hunter", 3, "Шакал-трупоїд"],
 	["ScavengerJackal3", 70115, Vector3(14, 0, 55), "hunter", 4, "Шакал-трупоїд"],
-	["Bandit1", 70071, Vector3(27, 0, 28), "bandit", 3, "Розбійник банди Гадюки"],
-	["Bandit2", 70071, Vector3(30, 0, 39), "bandit", 3, "Розбійник банди Гадюки"],
-	["Bandit3", 70071, Vector3(-29, 0, 27), "brute", 4, "Громила банди Гадюки"],
-	["Bandit4", 70071, Vector3(-31, 0, 47), "bandit", 3, "Розбійник банди Гадюки"],
-	["Bandit5", 70071, Vector3(28, 0, 57), "bandit", 4, "Розбійник банди Гадюки"],
+	["Bandit1", 70071, Vector3(27, 0, 28), "bandit", 5, "Розбійник банди Гадюки"],
+	["Bandit2", 70071, Vector3(30, 0, 39), "bandit", 5, "Розбійник банди Гадюки"],
+	["Bandit3", 70071, Vector3(-29, 0, 27), "brute", 6, "Громила банди Гадюки"],
+	["Bandit4", 70071, Vector3(-31, 0, 47), "bandit", 5, "Розбійник банди Гадюки"],
+	["Bandit5", 70071, Vector3(28, 0, 57), "brute", 6, "Громила банди Гадюки"],
 ]
 
 const SPEEDS: Dictionary = {"beast": 3.5, "swarm": 3.8, "hunter": 4.2, "bandit": 3.6, "brute": 3.2}

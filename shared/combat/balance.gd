@@ -11,8 +11,8 @@ const ROLES: Dictionary = {
 	"beast": [1.0, 1.0, 1.0, 0.04, 1.0],       # boar: sturdy, slow
 	"swarm": [0.75, 0.9, 0.7, 0.10, 0.85],     # spider: fragile, evasive
 	"hunter": [0.85, 1.15, 0.8, 0.12, 1.0],    # jackal: hits harder, dodges
-	"bandit": [1.0, 1.1, 1.1, 0.08, 1.15],     # Viper Gang rogue
-	"brute": [1.45, 1.25, 1.4, 0.03, 1.4],     # Viper Gang axe brute
+	"bandit": [1.25, 1.3, 1.2, 0.10, 1.3],     # Viper Gang rogue: quick daggers, dodges
+	"brute": [1.8, 1.45, 1.5, 0.03, 1.6],      # Viper Gang axe brute: a real wall
 }
 
 static func monster(level: int, role: String) -> Dictionary:

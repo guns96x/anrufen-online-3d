@@ -37,8 +37,8 @@ nor becomes worthless at higher levels.
 | beast | 1.00 | 1.00 | 1.00 | 4 % | 1.00 | wild boar |
 | swarm | 0.75 | 0.90 | 0.70 | 10 % | 0.85 | forest spider |
 | hunter | 0.85 | 1.15 | 0.80 | 12 % | 1.00 | scavenger jackal |
-| bandit | 1.00 | 1.10 | 1.10 | 8 % | 1.15 | Viper Gang rogue |
-| brute | 1.45 | 1.25 | 1.40 | 3 % | 1.40 | Viper Gang axe brute |
+| bandit | 1.25 | 1.30 | 1.20 | 10 % | 1.30 | Viper Gang rogue (level 5) |
+| brute | 1.80 | 1.45 | 1.50 | 3 % | 1.60 | Viper Gang axe brute (level 6) |
 
 **Player** growth stays as in `CharacterSystem.rebuild_stats` (warrior 100 HP / 22 attack at
 level 1, +15 HP, +3 attack, +2 defense per level) and experience to the next level is
