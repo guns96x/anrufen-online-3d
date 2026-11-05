@@ -19,6 +19,9 @@ enum State { IDLE, CHASE, ATTACK, RETURN, DEAD }
 ## Optional model that replaces the default beast mesh (e.g. boar / spider GLB).
 @export var model_scene: PackedScene
 @export var model_scale: float = 1.0
+## Level and balance role (Balance.ROLES); 0 = read "Рів. N" from the name.
+@export var level: int = 0
+@export var role: String = ""
 
 var state: State = State.IDLE
 var spawn_point: Vector3 = Vector3.ZERO
@@ -53,12 +56,28 @@ func _ready() -> void:
 		visual_root.add_child(model)
 	CharacterMotion.prepare_palette(visual_root)
 	spawn_point = global_position
+	apply_balance()
 	current_hp = max_hp
 	if exp_reward <= 0:
 		exp_reward = int(max_hp * 0.5 + attack_damage * 1.5)
+	stats["level"] = maxi(1, level)
 	_update_labels()
 	add_to_group("monsters")
 	_build_telegraph()
+
+## Sets hp, attack, defense, evasion and reward from Balance when a role is known.
+func apply_balance() -> void:
+	if level <= 0:
+		level = Balance.level_from_name(monster_name)
+	if role.is_empty() or level <= 0:
+		return
+	var numbers: Dictionary = Balance.monster(level, role)
+	max_hp = numbers["max_hp"]
+	attack_damage = numbers["attack"]
+	exp_reward = numbers["exp"]
+	stats["defense"] = numbers["defense"]
+	stats["evasion"] = numbers["evasion"]
+	stats["level"] = level
 
 func is_dead() -> bool:
 	return state == State.DEAD
@@ -194,7 +213,7 @@ func _resolve_attack() -> void:
 	if _is_valid_target(target_player) and global_position.distance_to(target_player.global_position) <= attack_radius + 0.35 and target_player.global_position.distance_to(_attack_point) < 1.5:
 		var pstats: Variant = target_player.get("stats")
 		if pstats is Dictionary:
-			var attack_stats: Dictionary = {"attack": attack_damage, "accuracy": 1.0, "crit_rate": 0.0}
+			var attack_stats: Dictionary = {"attack": attack_damage, "accuracy": 1.0, "crit_rate": 0.05, "level": maxi(1, level)}
 			var result: Dictionary = CombatFormulas.calculate_damage(attack_stats, pstats)
 			var dmg: int = int(result["damage"])
 			if target_player.has_method("take_damage"):

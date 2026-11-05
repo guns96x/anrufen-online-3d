@@ -251,6 +251,10 @@ func _dress_creatures() -> void:
 		model.rotation.y = deg_to_rad(float(CREATURES[key][2]))
 		monster.visual_root.add_child(model)
 		MobAnimator.attach(monster, "creature")
+		monster.role = {"вепр": "beast", "павук": "swarm", "шакал": "hunter"}[key]
+		monster.apply_balance()
+		monster.current_hp = monster.max_hp
+		monster._update_labels()
 
 func _spawn_bandits() -> void:
 	var index: int = 0
@@ -259,9 +263,8 @@ func _spawn_bandits() -> void:
 		index += 1
 		bandit.name = "Bandit%d" % index
 		bandit.monster_id = 70071
-		bandit.monster_name = "Розбійник банди Гадюки"
-		bandit.max_hp = 70
-		bandit.attack_damage = 14
+		bandit.monster_name = "Розбійник банди Гадюки · Рів. %d" % (4 if index % 3 == 0 else 3)
+		bandit.role = "brute" if index % 3 == 0 else "bandit"
 		bandit.position = spot
 		$Monsters.add_child(bandit)
 		for child: Node in bandit.visual_root.get_children():

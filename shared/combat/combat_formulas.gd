@@ -44,8 +44,9 @@ static func calculate_damage(attacker_stats: Dictionary, defender_stats: Diction
 	var accuracy: float = float(attacker_stats.get("accuracy", 0.95))
 	var evasion: float = float(defender_stats.get("evasion", 0.05))
 	
-	# Check miss
-	var hit_chance: float = clampf(accuracy - evasion, 0.20, 1.0)
+	# Check miss: accuracy against evasion, shifted by the original level-difference table
+	var level_bonus: float = Balance.level_hit_bonus(int(attacker_stats.get("level", 1)), int(defender_stats.get("level", 1)))
+	var hit_chance: float = clampf(accuracy - evasion + level_bonus, 0.20, 1.0)
 	if randf() > hit_chance:
 		return {
 			"damage": 0,
@@ -61,7 +62,8 @@ static func calculate_damage(attacker_stats: Dictionary, defender_stats: Diction
 		elem_mult = ELEMENTAL_MATRIX[dmg_type][def_element]
 		
 	# Base raw damage
-	var raw_damage: float = maxf(1.0, (atk * skill_multiplier) - def)
+	# Armour removes a share of the hit instead of a flat amount, so it scales with level
+	var raw_damage: float = maxf(1.0, atk * skill_multiplier * (1.0 - Balance.mitigation(def, int(attacker_stats.get("level", 1)))))
 	
 	# Small random variance (-5% to +5%)
 	var variance: float = randf_range(0.95, 1.05)
