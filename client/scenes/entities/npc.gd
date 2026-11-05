@@ -1,8 +1,8 @@
 class_name NPC
 extends CharacterBody3D
 
-@export var npc_name: String = "Mayor of Guanlin (观林镇镇长)"
-@export var dialogue_text: String = "Ласкаво просимо до Ґуаньліня! Допоможи містечку та торговцям налагодити порядок. (欢迎来到观林镇！)"
+@export var npc_name: String = "Староста Ґуаньліня"
+@export var dialogue_text: String = "Ласкаво просимо до Ґуаньліня! Допоможи містечку та торговцям налагодити порядок."
 @export var quest_id: int = 80001
 @export var citizen_id: int = 50164
 @export var tint: Color = Color(1, 1, 1, 1)
@@ -16,7 +16,7 @@ var quest_marker: Label3D
 var _idle_time: float = 0.0
 
 func _ready() -> void:
-	$NameLabel.text = npc_name
+	$NameLabel.text = HudSkin.clean(npc_name)
 	prompt_label.text = "[ Talk / Розмова ]"
 	prompt_label.hide()
 	interaction_area.body_entered.connect(_on_body_entered)
@@ -88,4 +88,4 @@ func configure_npc(p_name: String, p_dialogue: String, p_quest_id: int = 0, p_ci
 	if p_citizen_id > 0:
 		citizen_id = p_citizen_id
 	if is_inside_tree() and has_node("NameLabel"):
-		$NameLabel.text = npc_name
+		$NameLabel.text = HudSkin.clean(npc_name)

@@ -48,7 +48,7 @@ func _ready() -> void:
 	bridge.world = self
 	add_child(bridge)
 	_update_hud_stats()
-	hud.show_banner("Guanlin Town (观林镇)", Color(1.0, 0.92, 0.7))
+	hud.show_banner("Ґуаньлінь", Color(1.0, 0.92, 0.7))
 	print("[GuanlinTown] 3D World initialized. Ready for player!")
 
 func _bind_companion() -> void:
@@ -169,21 +169,21 @@ func _closest_npc(max_dist: float) -> NPC:
 
 ## Ukrainian display names for the original Guanlin citizens (GuanlinLayout.CITIZENS).
 const CITIZEN_NAMES: Dictionary = {
-	"mayor": "Староста Ґуаньліня · 观林镇镇长", "ranger": "Лісовий рейнджер · 护林游侠",
-	"militia_captain": "Капітан ополчення · 民兵队长", "gourmand": "Ласун · 馋鬼",
-	"widow_anna": "Вдова Анна · 寡妇安娜", "smuggler": "Контрабандист · 走私者",
-	"madman": "Божевільний · 疯子", "madmans_wife": "Дружина божевільного · 疯子的老婆",
-	"tribune": "Трибун · 护民官", "tom": "Том · 汤姆", "jessie": "Джессі · 杰西",
-	"alchemist": "Алхімік · 炼金师", "breeder": "Садівник-селекціонер · 育种园丁",
-	"doctor_jack": "Лікар Джек · 杰克医生", "mailbox": "Поштова скринька · 人类信箱",
-	"jeweller": "Ювелір · 宝石匠", "beast_tamer": "Дресирувальник · 驯兽师",
-	"weapon_merchant": "Торговець зброєю · 武器商人", "item_merchant": "Крамар · 道具商人",
-	"resident": "Мешканець · 人类居民", "stable_master": "Господар станції · 驿站老板",
-	"mystery_merchant": "Таємничий торговець · 神秘商人", "arena_steward": "Розпорядник арени · 竞技场管理员",
-	"consign_gems": "Комісія: самоцвіти · 珍奇宝石寄售", "consign_weapons": "Комісія: зброя · 武器寄售",
-	"consign_armor": "Комісія: обладунки · 防具寄售", "consign_jewelry": "Комісія: прикраси · 饰品寄售",
-	"consign_beasts": "Комісія: звірі · 魔法兽寄售", "consign_goods": "Комісія: крам · 杂货寄售",
-	"armor_merchant": "Торговець обладунками · 防具商人", "accessory_merchant": "Торговка прикрасами · 饰品商人",
+	"mayor": "Староста Ґуаньліня", "ranger": "Лісовий рейнджер",
+	"militia_captain": "Капітан ополчення", "gourmand": "Ласун",
+	"widow_anna": "Вдова Анна", "smuggler": "Контрабандист",
+	"madman": "Божевільний", "madmans_wife": "Дружина божевільного",
+	"tribune": "Трибун", "tom": "Том", "jessie": "Джессі",
+	"alchemist": "Алхімік", "breeder": "Садівник-селекціонер",
+	"doctor_jack": "Лікар Джек", "mailbox": "Поштова скринька",
+	"jeweller": "Ювелір", "beast_tamer": "Дресирувальник",
+	"weapon_merchant": "Торговець зброєю", "item_merchant": "Крамар",
+	"resident": "Мешканець", "stable_master": "Господар станції",
+	"mystery_merchant": "Таємничий торговець", "arena_steward": "Розпорядник арени",
+	"consign_gems": "Комісія: самоцвіти", "consign_weapons": "Комісія: зброя",
+	"consign_armor": "Комісія: обладунки", "consign_jewelry": "Комісія: прикраси",
+	"consign_beasts": "Комісія: звірі", "consign_goods": "Комісія: крам",
+	"armor_merchant": "Торговець обладунками", "accessory_merchant": "Торговка прикрасами",
 }
 const CITIZEN_QUESTS: Dictionary = {50164: 80004, 50166: 80552, 50179: 80591, 50167: 80006, 50168: 80012, 50169: 80010}
 ## Scene node names kept stable for saves, tests and tools.

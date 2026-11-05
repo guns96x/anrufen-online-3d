@@ -101,18 +101,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
 
 [node name="NPC_Elder" parent="." instance=ExtResource("4_npc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 0, -49.2)
-npc_name = "Mayor of Guanlin (观林镇镇长)"
+npc_name = "Староста Ґуаньліня"
 dialogue_text = "Welcome to Guanlin Town! Wild boars from the south forest are trampling our fields and threatening the village road. Venture past the south gate and defeat 3 Wild Boars to protect the town!"
 
 [node name="NPC_Militia" parent="." instance=ExtResource("4_npc")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.4, 0, -25.2)
-npc_name = "Militia Captain (民兵队长)"
+npc_name = "Капітан ополчення"
 dialogue_text = "Recruit! Practice your sword swings on the training dummies, then march south. Forest Spiders have nested past the boar fields. Clear out 3 of them for the militia!"
 quest_id = 80002
 
 [node name="NPC_Weaponsmith" parent="." instance=ExtResource("4_npc")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 8, 0, -10.8)
-npc_name = "Weaponsmith (武器商人)"
+npc_name = "Торговець зброєю"
 dialogue_text = "Finest steel blades forged from Guanlin iron ore! Hunt 2 Scavenger Jackals in the deep south forest and bring me their tusks, and I'll forge you a blade worthy of a knight."
 quest_id = 80003
 
@@ -121,7 +121,7 @@ quest_id = 80003
 [node name="WildBoar1" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 28)
 monster_id = 70073
-monster_name = "Wild Boar (野猪 Lv.1)"
+monster_name = "Дикий вепр · Рів. 1"
 max_hp = 50
 current_hp = 50
 attack_damage = 10
@@ -131,7 +131,7 @@ model_scale = 1.0
 [node name="WildBoar2" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30)
 monster_id = 70073
-monster_name = "Wild Boar (野猪 Lv.1)"
+monster_name = "Дикий вепр · Рів. 1"
 max_hp = 50
 current_hp = 50
 attack_damage = 10
@@ -141,7 +141,7 @@ model_scale = 1.0
 [node name="WildBoar3" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 24)
 monster_id = 70073
-monster_name = "Wild Boar (野猪 Lv.1)"
+monster_name = "Дикий вепр · Рів. 1"
 max_hp = 50
 current_hp = 50
 attack_damage = 10
@@ -151,7 +151,7 @@ model_scale = 1.0
 [node name="WildBoar4" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 26)
 monster_id = 70073
-monster_name = "Wild Boar (野猪 Lv.1)"
+monster_name = "Дикий вепр · Рів. 1"
 max_hp = 50
 current_hp = 50
 attack_damage = 10
@@ -161,7 +161,7 @@ model_scale = 1.0
 [node name="ForestSpider1" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 42)
 monster_id = 70076
-monster_name = "Forest Spider (蜘蛛 Lv.2)"
+monster_name = "Лісовий павук · Рів. 2"
 max_hp = 65
 current_hp = 65
 attack_damage = 13
@@ -171,7 +171,7 @@ model_scale = 1.0
 [node name="ForestSpider2" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 44)
 monster_id = 70076
-monster_name = "Forest Spider (蜘蛛 Lv.2)"
+monster_name = "Лісовий павук · Рів. 2"
 max_hp = 65
 current_hp = 65
 attack_damage = 13
@@ -181,7 +181,7 @@ model_scale = 1.0
 [node name="ForestSpider3" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 40)
 monster_id = 70076
-monster_name = "Forest Spider (蜘蛛 Lv.2)"
+monster_name = "Лісовий павук · Рів. 2"
 max_hp = 65
 current_hp = 65
 attack_damage = 13
@@ -191,7 +191,7 @@ model_scale = 1.0
 [node name="ForestSpider4" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 38)
 monster_id = 70076
-monster_name = "Forest Spider (蜘蛛 Lv.2)"
+monster_name = "Лісовий павук · Рів. 2"
 max_hp = 65
 current_hp = 65
 attack_damage = 13
@@ -201,7 +201,7 @@ model_scale = 1.0
 [node name="ScavengerJackal1" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 56)
 monster_id = 70115
-monster_name = "Scavenger Jackal (食腐豺 Lv.3)"
+monster_name = "Шакал-трупоїд · Рів. 3"
 max_hp = 90
 current_hp = 90
 attack_damage = 17
@@ -210,7 +210,7 @@ move_speed = 4.2
 [node name="ScavengerJackal2" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 58)
 monster_id = 70115
-monster_name = "Scavenger Jackal (食腐豺 Lv.3)"
+monster_name = "Шакал-трупоїд · Рів. 3"
 max_hp = 90
 current_hp = 90
 attack_damage = 17
@@ -219,7 +219,7 @@ move_speed = 4.2
 [node name="ScavengerJackal3" parent="Monsters" instance=ExtResource("5_monster")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 55)
 monster_id = 70115
-monster_name = "Scavenger Jackal (食腐豺 Lv.3)"
+monster_name = "Шакал-трупоїд · Рів. 3"
 max_hp = 90
 current_hp = 90
 attack_damage = 17

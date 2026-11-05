@@ -79,6 +79,12 @@ static func panel_style(bg: Color = GLASS, border: Color = GOLD, radius: int = 1
 	box.anti_aliasing = true
 	return box
 
+static var _cjk_part: RegEx = RegEx.create_from_string("\\s*[·(（]?\\s*[\\x{4e00}-\\x{9fff}][^)）·\\n]*[)）]?")
+
+## Removes Chinese source fragments (" · 名字", "(名字)") from on-screen text.
+static func clean(text: String) -> String:
+	return _cjk_part.sub(text, "", true).strip_edges()
+
 static func icon(name: String) -> Texture2D:
 	return load(ICONS % name)
 
@@ -507,7 +513,7 @@ func _update_target(player: Node) -> void:
 		return
 	target_frame.visible = not hud.is_modal_active()
 	var monster: Monster = t
-	target_name.text = monster.monster_name
+	target_name.text = clean(monster.monster_name)
 	target_bar.max_value = float(monster.max_hp)
 	target_bar.value = float(monster.current_hp)
 	var lower: String = monster.monster_name.to_lower()

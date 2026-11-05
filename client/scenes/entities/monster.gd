@@ -6,7 +6,7 @@ signal monster_died(monster: Monster, killer: Node3D)
 enum State { IDLE, CHASE, ATTACK, RETURN, DEAD }
 
 @export var monster_id: int = 1001
-@export var monster_name: String = "Forest Beast (森林幼兽)"
+@export var monster_name: String = "Лісовий звір"
 @export var max_hp: int = 60
 @export var current_hp: int = 60
 @export var move_speed: float = 3.5

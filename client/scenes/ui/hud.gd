@@ -335,7 +335,7 @@ func show_banner(text: String, color: Color = Color.GOLD) -> void:
 	if is_modal_active():
 		return
 	var lbl: Label = Label.new()
-	lbl.text = text
+	lbl.text = HudSkin.clean(text)
 	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	lbl.add_theme_font_override("font", HudSkin.TITLE_FONT)
 	lbl.add_theme_font_size_override("font_size", 38)
@@ -400,8 +400,8 @@ func _display_dialogue(speaker: String, text: String, qid: int, action: String, 
 		else:
 			joystick.is_pressed = false
 
-	npc_name_lbl.text = speaker
-	dialogue_text_lbl.text = text
+	npc_name_lbl.text = HudSkin.clean(speaker)
+	dialogue_text_lbl.text = HudSkin.clean(text)
 	active_quest_id = qid
 	_current_dialogue_qid = qid
 	_current_dialogue_action = action

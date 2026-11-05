@@ -110,12 +110,29 @@ static func _effect_from_source(id: int, tokens: Array) -> Dictionary:
 				return effect
 	return {}
 
+static var _CJK: RegEx = RegEx.create_from_string("[\\x{4e00}-\\x{9fff}]")
+
+## Ukrainian fallback for source items that have no translated label yet.
+static func _generic_label(kind: String, slot: String, id: int) -> String:
+	var slots: Dictionary = {"head":"Шолом","body":"Обладунок","weapon":"Зброя","shoes":"Чоботи","belt":"Пояс","glove":"Рукавиці","necklace":"Намисто","ring":"Перстень","shield":"Щит"}
+	var kinds: Dictionary = {"consumable":"Зілля","material":"Матеріал","mount":"Скакун","pet_egg":"Яйце магічного звіра","pet_rune":"Руна звіра","pet_food":"Корм для звіра","pet_potion":"Зілля для звіра"}
+	var base: String = slots.get(slot,"Спорядження") if kind == "equipment" else kinds.get(kind,"Предмет")
+	return "%s №%d" % [base,id % 1000]
+
 static func _definition(id: int, original_name: String, tokens: Array, kind: String, slot: String, price: int, stack: int, bonuses: Dictionary) -> Dictionary:
 	var descriptions: PackedStringArray = []
 	for token: Variant in tokens:
 		if token is String and token.length() > 8 and not token.begins_with("icon_") and not token.begins_with("group"):
 			descriptions.append(token)
-	return {"id":id,"name":original_name,"label":LABELS.get(id,original_name),"slot":slot,"kind":kind,"buy_price":price,"sell_price":maxi(1,price/2),"max_stack":stack,"bonuses":bonuses,"required_level":1,"description":"\n".join(descriptions),"balance_source":"provisional"}
+	var label: String = LABELS.get(id,original_name)
+	if _CJK.search(label) != null:
+		label = _generic_label(kind,slot,id)
+	var clean: PackedStringArray = []
+	for line: String in descriptions:
+		if _CJK.search(line) == null and not line.contains("\\") and not line.contains(".bmp"):
+			clean.append(line)
+	descriptions = clean
+	return {"id":id,"name":original_name,"label":label,"slot":slot,"kind":kind,"buy_price":price,"sell_price":maxi(1,price/2),"max_stack":stack,"bonuses":bonuses,"required_level":1,"description":"\n".join(descriptions),"balance_source":"provisional"}
 
 static func _rows(path: String) -> Array:
 	if not FileAccess.file_exists(path):
