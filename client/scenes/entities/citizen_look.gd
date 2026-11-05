@@ -40,6 +40,8 @@ const LOOKS: Dictionary = {
 	"mystery_merchant": ["hooded", ["Rogue_Cape"], Color("4a2f6a"), "Idle", 1.0],
 	"arena_steward": ["knight", ["Knight_Helmet", "Knight_Cape", "2H_Sword"], Color("c9a23a"), "2H_Melee_Idle", 1.05],
 	"consign": ["rogue", ["Rogue_Cape"], Color("2f5aa0"), "Idle", 1.0],
+	"viper_bandit": ["rogue", ["Rogue_Cape", "Knife", "Knife_Offhand"], Color("7a1f1f"), "Idle", 1.0],
+	"viper_brute": ["barbarian", ["Barbarian_Cape", "1H_Axe", "Barbarian_Round_Shield"], Color("4a1414"), "Idle", 1.1],
 }
 
 const ALWAYS_VISIBLE: Array[String] = ["ArmLeft", "ArmRight", "Body", "Head", "LegLeft", "LegRight", "Head_Hooded"]

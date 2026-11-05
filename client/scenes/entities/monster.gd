@@ -30,6 +30,7 @@ var slow_timer: float = 0.0
 var _telegraph: MeshInstance3D
 var _attack_point: Vector3
 var threat: Dictionary = {}
+var animator: MobAnimator
 const WINDUP_TIME: float = 0.65
 
 @onready var visual_root: Node3D = $Visual
@@ -171,17 +172,21 @@ func _execute_attack() -> void:
 	visual_root.rotation.y = atan2(-dir.x, -dir.z)
 	_telegraph.show()
 	_telegraph.scale = Vector3.ONE * 0.4
+	if animator:
+		animator.attack(WINDUP_TIME)
+		return
 	var anticipation: Tween = create_tween()
 	anticipation.tween_property(visual_root, "rotation:x", -0.22, WINDUP_TIME * 0.8)
 
 func _resolve_attack() -> void:
 	_telegraph.hide()
 	visual_root.rotation.x = 0.0
-	# Visual lunge
-	var orig_z: float = visual_root.position.z
-	var tween: Tween = create_tween()
-	tween.tween_property(visual_root, "position:z", orig_z + 0.3, 0.1)
-	tween.tween_property(visual_root, "position:z", orig_z, 0.15)
+	if animator == null:
+		# Visual lunge for unrigged models
+		var orig_z: float = visual_root.position.z
+		var tween: Tween = create_tween()
+		tween.tween_property(visual_root, "position:z", orig_z + 0.3, 0.1)
+		tween.tween_property(visual_root, "position:z", orig_z, 0.15)
 
 	# The warning is committed at the start of the swing. Moving or dashing
 	# away during the windup avoids the hit; enemies cannot hit at any range.
@@ -226,10 +231,13 @@ func take_damage(dmg_result: Dictionary, attacker: Node3D) -> void:
 		txt = "CRIT! " + txt
 	_spawn_damage_text(global_position + Vector3(0, 1.4, 0), txt, col)
 
-	# Hurt visual flash
-	var tween: Tween = create_tween()
-	tween.tween_property(visual_root, "scale", Vector3.ONE * 1.2, 0.06)
-	tween.tween_property(visual_root, "scale", Vector3.ONE, 0.08)
+	# Hurt reaction
+	if animator:
+		animator.hit()
+	else:
+		var tween: Tween = create_tween()
+		tween.tween_property(visual_root, "scale", Vector3.ONE * 1.2, 0.06)
+		tween.tween_property(visual_root, "scale", Vector3.ONE, 0.08)
 
 	if current_hp <= 0:
 		die(attacker)
@@ -255,8 +263,11 @@ func die(killer: Node3D) -> void:
 
 	name_label.hide()
 	hp_bar_3d.hide()
-	# Death sink animation
+	# Death: play the clip, then sink out of sight
 	var tween: Tween = create_tween()
+	if animator:
+		animator.die()
+		tween.tween_interval(2.2)
 	tween.tween_property(visual_root, "position:y", -1.2, 0.5)
 	$CollisionShape3D.set_deferred("disabled", true)
 
@@ -271,6 +282,8 @@ func respawn() -> void:
 	current_hp = max_hp
 	visual_root.position.y = 0
 	visual_root.scale = Vector3.ONE
+	if animator:
+		animator.revive()
 	$CollisionShape3D.set_deferred("disabled", false)
 	name_label.show()
 	hp_bar_3d.show()

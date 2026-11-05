@@ -223,13 +223,12 @@ func _spawn_bandits() -> void:
 		bandit.monster_name = "Розбійник банди Гадюки"
 		bandit.max_hp = 70
 		bandit.attack_damage = 14
-		bandit.model_scene = preload("res://assets/models/v2/bandit.glb")
 		bandit.position = spot
 		$Monsters.add_child(bandit)
-		var motion: CharacterMotion = CharacterMotion.new()
-		motion.actor = bandit
-		motion.model = bandit.visual_root
-		bandit.add_child(motion)
+		for child: Node in bandit.visual_root.get_children():
+			child.free()
+		bandit.visual_root.add_child(CitizenLook.build("viper_brute" if index % 3 == 0 else "viper_bandit"))
+		MobAnimator.attach(bandit)
 
 func _process(delta: float) -> void:
 	local_player.controls_blocked = hud.is_modal_active()
