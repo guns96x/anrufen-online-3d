@@ -190,8 +190,6 @@ const CITIZEN_QUESTS: Dictionary = {50164: 80004, 50166: 80552, 50179: 80591, 50
 const CITIZEN_NODES: Dictionary = {50164: "NPC_Elder", 50166: "NPC_Militia", 50179: "NPC_Weaponsmith",
 	50167: "NPC_Gourmand", 50168: "NPC_Anna", 50169: "NPC_Smuggler", 50180: "NPC_Breeder",
 	50182: "NPC_Jeweler", 50184: "NPC_Postmaster"}
-const ARCHETYPE_MODELS: Dictionary = {"woodcutter_wife": "anna", "girl": "anna", "youth": "bandit",
-	"coachman": "bandit", "blacksmith": "bandit", "guard": "wayfarer", "warrior": "wayfarer", "general": "wayfarer"}
 
 func _configure_citizens() -> void:
 	var used: Dictionary = {}
@@ -208,17 +206,12 @@ func _configure_citizens() -> void:
 		npc.position = entry[2]
 		npc.rotation.y = atan2(-npc.position.x, -(npc.position.z - GuanlinLayout.TOWN_Z)) if absf(npc.position.x) > 0.5 else 0.0
 		npc.configure_npc(CITIZEN_NAMES.get(entry[1], String(entry[1])), "", CITIZEN_QUESTS.get(id, 0), id)
-		_replace_citizen_model(npc, ARCHETYPE_MODELS.get(entry[3], "elder"))
+		_dress_citizen(npc, entry[1], used[base_name] - 1)
 
-func _replace_citizen_model(npc: NPC, model_name: String) -> void:
+func _dress_citizen(npc: NPC, role: String, variant: int) -> void:
 	for child: Node in npc.visual_root.get_children():
 		child.free()
-	var scene: PackedScene = load("res://assets/models/v2/%s.glb" % model_name)
-	npc.visual_root.add_child(scene.instantiate())
-	var motion: CharacterMotion = CharacterMotion.new()
-	motion.actor = npc
-	motion.model = npc.visual_root
-	npc.add_child(motion)
+	npc.visual_root.add_child(CitizenLook.mailbox() if role == "mailbox" else CitizenLook.build(role, variant))
 
 func _spawn_bandits() -> void:
 	var index: int = 0

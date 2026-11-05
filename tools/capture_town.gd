@@ -10,6 +10,10 @@ const VIEWS: Array = [
 	["chapel", Vector3(-8, 7, -30), Vector3(-26, 3, -45)],
 	["tavern", Vector3(8, 6, -40), Vector3(0, 3, -60)],
 	["market", Vector3(-6, 5, -12), Vector3(-20, 1.5, -20)],
+	["citizens_plaza", Vector3(2, 2.6, -16), Vector3(-2, 1.2, -26)],
+	["citizens_square", Vector3(0, 2.4, -36), Vector3(-6, 1.2, -46)],
+	["citizens_east", Vector3(1, 2.2, -27), Vector3(8, 1.1, -20)],
+	["citizens_arcade", Vector3(-11, 2.4, -14), Vector3(-18, 1.2, -22)],
 ]
 
 func _initialize() -> void:
