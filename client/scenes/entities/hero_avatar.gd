@@ -102,6 +102,7 @@ func _rebuild() -> void:
 		anim = model.find_child("AnimationPlayer", true, false)
 		NewHero.dress_race(model, race)
 		ToonStyle.apply(model, true)
+		reshape(model, stats)
 		for loop: String in ["Idle", "Running_A", "Walking_A", "2H_Melee_Idle", "Blocking", "Sit_Chair_Idle", "Death_A_Pose"]:
 			if anim.has_animation(loop):
 				anim.get_animation(loop).loop_mode = Animation.LOOP_LINEAR
@@ -116,6 +117,11 @@ static func hero_path(stats: Dictionary, fallback: String) -> String:
 	var path: String = "res://assets/characters/hero/%s_%s_%s.glb" % [race, role, str(stats.get("sex", "m"))]
 	return path if ResourceLoader.exists(path) else fallback
 
+## KayKit heroes get the slimmer anime proportions; hand-made models are left as built.
+static func reshape(model: Node, stats: Dictionary) -> void:
+	if String(model.scene_file_path).contains("/kaykit/"):
+		Proportions.apply(model, "heroine" if str(stats.get("sex", "m")) == "f" else "hero")
+
 ## Stand-alone dressed model for menus (equipment preview), idling.
 static func preview_model(stats: Dictionary) -> Node3D:
 	var mage: bool = int(stats.get("class_id", 130001)) in MAGE_CLASSES
@@ -125,6 +131,7 @@ static func preview_model(stats: Dictionary) -> Node3D:
 		# Creation screen: show a starter kit so the class reads at once.
 		shown["equipment"] = {"weapon": 10006 if mage else 10003, "head": 10005 if mage else 10002, "body": 10007 if mage else 10004}
 	NewHero.dress_race(model, int(stats.get("race_id", 250001)))
+	reshape(model, stats)
 	dress(model, shown)
 	var player: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
 	if player and player.has_animation("Idle"):

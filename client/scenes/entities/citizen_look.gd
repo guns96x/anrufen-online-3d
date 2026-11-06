@@ -46,6 +46,18 @@ const LOOKS: Dictionary = {
 
 const ALWAYS_VISIBLE: Array[String] = ["ArmLeft", "ArmRight", "Body", "Head", "LegLeft", "LegRight", "Head_Hooded"]
 
+## Body type for the anime proportions pass (Proportions.LOOK).
+const BODIES: Dictionary = {
+	"widow_anna": "woman", "madmans_wife": "woman", "accessory_merchant": "woman", "jeweller": "woman",
+	"alchemist": "woman", "consign_jewelry": "woman", "consign_gems": "woman",
+	"gourmand": "brute", "viper_brute": "brute", "weapon_merchant": "brute", "beast_tamer": "brute",
+	"breeder": "brute", "stable_master": "brute", "madman": "brute",
+	"tom": "child", "jessie": "child",
+}
+
+static func body_for(role: String) -> String:
+	return BODIES.get(role, "man")
+
 static func look_for(role: String) -> Array:
 	if role.begins_with("consign_"):
 		return LOOKS["consign"]
@@ -100,6 +112,7 @@ static func build(role: String, variant: int = 0) -> Node3D:
 					tinted.albedo_color = tint
 					mi.set_surface_override_material(s, tinted)
 	ToonStyle.apply(model, true)
+	Proportions.apply(model, body_for(role))
 	model.scale = Vector3.ONE * float(look[4])
 	model.rotation.y = PI   # KayKit faces +Z; NPC visuals face -Z toward the player
 	var player: AnimationPlayer = model.find_child("AnimationPlayer", true, false)
