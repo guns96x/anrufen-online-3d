@@ -101,11 +101,14 @@ static func paint(model: Node, base: String, palette: Dictionary) -> bool:
 	var weapon_remap: ImageTexture = remap_texture(base, palette, true)
 	var cache: Dictionary = {}
 	var painted: bool = false
-	for node: Node in model.find_children("*", "MeshInstance3D", true, false):
+	var meshes: Array[Node] = model.find_children("*", "MeshInstance3D", true, false)
+	if model is MeshInstance3D:
+		meshes = [model]
+	for node: Node in meshes:
 		var mi: MeshInstance3D = node
-		if mi.mesh == null:
+		if mi.mesh == null or (mi != model and mi.has_meta("item_prop")):
 			continue
-		var weapon: bool = WEAPONS.has(String(mi.name))
+		var weapon: bool = WEAPONS.has(String(mi.name)) or mi.has_meta("item_weapon")
 		for s: int in mi.mesh.get_surface_count():
 			var src: BaseMaterial3D = mi.mesh.surface_get_material(s) as BaseMaterial3D
 			if src == null or src.albedo_texture == null:

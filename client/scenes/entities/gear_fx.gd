@@ -15,6 +15,9 @@ const TRAIL_SAMPLES: int = 14
 var weapon: MeshInstance3D
 var mage: bool = false
 var rarity: int = 0
+var element: String = ""
+var color: Color = Color.WHITE
+var _spark_left: float = 0.0
 var _tip_local: Vector3 = Vector3.ZERO
 var _base_local: Vector3 = Vector3.ZERO
 var _trail: MeshInstance3D
@@ -51,10 +54,13 @@ static func attach(model: Node3D, stats: Dictionary) -> GearFx:
 	fx.name = "GearFx"
 	fx.mage = int(stats.get("class_id", 130001)) in HeroAvatar.MAGE_CLASSES
 	var equipment: Dictionary = stats.get("equipment", {})
-	fx.rarity = tier(ItemCatalog.get_item(int(equipment["weapon"]))) if equipment.has("weapon") else 0
+	var witem: Dictionary = ItemCatalog.get_item(int(equipment["weapon"])) if equipment.has("weapon") else {}
+	fx.rarity = tier(witem)
+	fx.element = ItemLook.element(witem)
+	fx.color = ItemLook.glow_color(witem) if not witem.is_empty() else (MAGE_ORB[0] if fx.mage else RARITY_GLOW[0])
 	for node: Node in model.find_children("*", "MeshInstance3D", true, false):
 		var mi: MeshInstance3D = node
-		if mi.visible and Outfit.WEAPONS.has(String(mi.name)):
+		if mi.visible and (mi.has_meta("item_weapon") or Outfit.WEAPONS.has(String(mi.name))):
 			fx.weapon = mi
 			break
 	model.add_child(fx)
@@ -81,9 +87,11 @@ func _setup() -> void:
 	else:
 		_make_trail()
 		if rarity >= 2:
-			_make_aura(weapon, RARITY_GLOW[rarity], 6 + rarity * 4, 0.05, Vector3(0.02, box.size[axis] * 0.4, 0.02), (_tip_local + _base_local) * 0.5)
+			_make_aura(weapon, color, 6 + rarity * 4, 0.05, Vector3(0.02, box.size[axis] * 0.4, 0.02), (_tip_local + _base_local) * 0.5)
 	if rarity >= 3:
-		_make_aura(get_parent(), RARITY_GLOW[rarity], 10 + (rarity - 3) * 10, 0.06, Vector3(0.35, 0.05, 0.35), Vector3(0, 0.1, 0), true)
+		_make_aura(get_parent(), color, 10 + (rarity - 3) * 10, 0.06, Vector3(0.35, 0.05, 0.35), Vector3(0, 0.1, 0), true)
+	if element != "":
+		_element_fx(box, axis)
 
 func _particles(color: Color, amount: int, size: float, extents: Vector3, rising: bool) -> GPUParticles3D:
 	var p: GPUParticles3D = GPUParticles3D.new()
@@ -121,7 +129,6 @@ func _make_aura(parent: Node, color: Color, amount: int, size: float, extents: V
 	p.emitting = true
 
 func _make_orb() -> void:
-	var color: Color = MAGE_ORB[rarity]
 	_orb = MeshInstance3D.new()
 	var sphere: SphereMesh = SphereMesh.new()
 	sphere.radius = 0.06 + rarity * 0.008
@@ -166,11 +173,49 @@ func _make_trail() -> void:
 	add_child(_trail)
 	_trail.global_transform = Transform3D.IDENTITY
 
+## Element effect along the blade (warrior) or around the orb (mage):
+## [amount, size, lifetime, gravity y, velocity, spin, alpha-blend smoke]
+const ELEMENT_FX: Dictionary = {
+	"fire": [22, 0.11, 0.55, 1.6, 0.5, false],
+	"ice": [14, 0.07, 1.2, -0.1, 0.1, true],
+	"lightning": [6, 0.05, 0.25, 0.0, 1.5, false],
+	"holy": [14, 0.07, 1.2, 0.5, 0.15, false],
+	"shadow": [16, 0.14, 1.0, 0.35, 0.1, false],
+	"blood": [8, 0.05, 0.8, -2.5, 0.05, false],
+	"poison": [10, 0.06, 0.9, -1.2, 0.08, false],
+	"nature": [10, 0.07, 1.4, 0.2, 0.2, true],
+	"wind": [16, 0.05, 0.6, 0.0, 1.2, false],
+	"bone": [10, 0.09, 1.2, 0.3, 0.1, false],
+	"arcane": [12, 0.06, 1.0, 0.0, 0.4, true],
+	"beast": [0, 0.0, 0.0, 0.0, 0.0, false],
+}
+
+func _element_fx(box: AABB, axis: int) -> void:
+	var cfg: Array = ELEMENT_FX.get(element, [0])
+	if int(cfg[0]) == 0:
+		return
+	var host: Node3D = _orb if mage and _orb else weapon
+	var extents: Vector3 = Vector3(0.1, 0.1, 0.1) if host == _orb else Vector3(0.03, 0.03, 0.03)
+	if host == weapon:
+		extents[axis] = box.size[axis] * 0.35
+	var p: GPUParticles3D = _particles(color, int(cfg[0]) + rarity * 3, float(cfg[1]), extents, false)
+	p.lifetime = float(cfg[2])
+	var pm: ParticleProcessMaterial = p.process_material
+	pm.gravity = Vector3(0, float(cfg[3]), 0)
+	pm.initial_velocity_min = float(cfg[4]) * 0.5
+	pm.initial_velocity_max = float(cfg[4])
+	if bool(cfg[5]):
+		pm.angular_velocity_min = -180.0
+		pm.angular_velocity_max = 180.0
+	host.add_child(p)
+	p.position = Vector3.ZERO if host == _orb else (_tip_local + _base_local) * 0.5
+	p.emitting = true
+
 ## Called by HeroAvatar on each strike / cast.
 func swing(duration: float = 0.4) -> void:
 	if mage:
 		if _orb:
-			Vfx.burst(get_tree().current_scene, _orb.global_position, MAGE_ORB[rarity], 14 + rarity * 4, 2.5, 0.1, 0.4, 0.0)
+			Vfx.burst(get_tree().current_scene, _orb.global_position, color, 14 + rarity * 4, 2.5, 0.1, 0.4, 0.0)
 		return
 	_trail_left = duration
 	_samples.clear()
@@ -179,6 +224,12 @@ func _process(delta: float) -> void:
 	if _orb:
 		var t: float = Time.get_ticks_msec() * 0.001
 		_orb.scale = Vector3.ONE * (1.0 + 0.12 * sin(t * 5.0))
+	if element == "lightning" and is_instance_valid(weapon):
+		_spark_left -= delta
+		if _spark_left <= 0.0:
+			_spark_left = randf_range(0.25, 0.9)
+			var at: Vector3 = weapon.global_transform * _base_local.lerp(_tip_local, randf())
+			Vfx.burst(get_tree().current_scene, at, color, 6, 1.6, 0.06, 0.18, 0.0)
 	if _trail == null or not is_instance_valid(weapon):
 		return
 	if _trail_left > 0.0:
@@ -192,7 +243,6 @@ func _process(delta: float) -> void:
 	_trail_mesh.clear_surfaces()
 	if _samples.size() < 2:
 		return
-	var color: Color = RARITY_GLOW[rarity]
 	var boost: float = 1.2 + rarity * 0.25
 	_trail_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
 	for i: int in _samples.size():

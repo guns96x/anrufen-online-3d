@@ -61,21 +61,29 @@ static func gear_props(stats: Dictionary) -> Dictionary:
 	var armor: int = GearFx.tier(ItemCatalog.get_item(int(equipment["body"]))) if equipment.has("body") else -1
 	return {"props": props, "two_handed": two_handed, "armor": armor}
 
-## Shows the equipped pieces on a KayKit model and tints the body by armour rarity.
+## Dresses a KayKit hero: body colours from class and armour, then every
+## equipped item as its own prop (ItemLook). Hand-made models keep their own
+## gear meshes and only toggle them.
 static func dress(model: Node3D, stats: Dictionary) -> Dictionary:
 	var gear: Dictionary = gear_props(stats)
 	var race: int = int(stats.get("race_id", 250001))
+	var path: String = String(model.scene_file_path)
+	var kaykit: bool = path.contains("/kaykit/")
 	for node: Node in model.find_children("*", "MeshInstance3D", true, false):
 		var mi: MeshInstance3D = node
+		if mi.has_meta("item_prop"):
+			continue
 		var part: String = String(mi.name)
-		var keep: bool = gear["props"].has(part)
+		var keep: bool = gear["props"].has(part) and not kaykit
 		for suffix: String in BODY:
 			if part.ends_with("_" + suffix):
 				keep = true
 		mi.visible = keep and not (race == 250002 and part.ends_with("_Helmet"))
-	var path: String = String(model.scene_file_path)
-	if path.contains("/kaykit/"):
-		Outfit.paint(model, "mage" if path.ends_with("Mage.glb") else "knight", hero_palette(stats, gear))
+	if kaykit:
+		var palette: Dictionary = ItemLook.body_palette(hero_palette(stats, gear), stats)
+		Outfit.paint(model, "mage" if path.ends_with("Mage.glb") else "knight", palette)
+		var worn: Dictionary = ItemLook.equip(model, stats, palette)
+		gear["two_handed"] = worn["two_handed"]
 	return gear
 
 ## Colour scheme for the hero: warrior steel and royal blue, mage burgundy and
