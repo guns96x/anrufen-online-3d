@@ -55,12 +55,21 @@ func bind_account(id: int, state: SocialState, simulation: WorldSimulation) -> v
 	pets.bind_player(actor)
 	services = GameServices.new()
 	services.bind_player(actor,items)
+	if world != null and not world.combat_event.is_connected(_on_combat_event):
+		world.combat_event.connect(_on_combat_event)
 	sync()
+
+func _on_combat_event(event: Dictionary) -> void:
+	if event.get("type") == "death" and int(event.get("target",0)) == account:
+		sync()
 
 func sync() -> void:
 	if world.actors.has(account):
 		actor.position = world.actors[account]["position"]
+		var was_dead: bool = actor.is_dead
 		actor.is_dead = world.actors[account]["dead"]
+		if not was_dead and actor.is_dead:
+			InventorySystem.durability_on_death(actor.stats)
 	items.locked_items.clear()
 	for id: Variant in actor.stats.get("locked_items",[]):
 		items.locked_items.append(int(id))
@@ -71,7 +80,7 @@ func sync() -> void:
 		if id not in items.locked_items:
 			items.locked_items.append(id)
 	actor.stats["quest_item_locks"] = progression.quest_item_locks()
-	CharacterSystem.rebuild_stats(actor.stats,items.bonus_totals())
+	CharacterSystem.rebuild_stats(actor.stats,CharacterSystem.equipment_bonuses(actor.stats))
 	progression.refresh_available_quests()
 	social.players[account]["journal"] = progression.journal_snapshot()
 
@@ -113,6 +122,20 @@ func act(action: String, payload: Dictionary) -> Dictionary:
 		"duel_cancel": ok = world.duel_cancel(account)
 		"equip": ok = items.equip_item(id)
 		"unequip": ok = items.unequip_item(str(payload.get("slot","")))
+		"upgrade":
+			var slot: String = str(payload.get("slot",""))
+			var mat: int = _int(payload,"material") if payload.has("material") else _int(payload,"id")
+			var prot: int = maxi(0, _int(payload,"protection"))
+			var boost: int = maxi(0, _int(payload,"boost"))
+			var roll: float = minf(0.999999, randf())
+			ok = items.upgrade_item(slot, mat, prot, boost, roll)
+		"affix":
+			var slot: String = str(payload.get("slot",""))
+			var mat: int = _int(payload,"material") if payload.has("material") else _int(payload,"id")
+			ok = items.affix_item(slot, mat)
+		"repair":
+			var slot: String = str(payload.get("slot",""))
+			ok = items.repair_item(slot)
 		"use": ok = items.use_item(id)
 		"forage": ok = world.forage.harvest(id,actor.position,items,Time.get_ticks_msec()/1000.0)
 		"buy": ok = near([50179,50167,50168,50180]) and items.buy_item(id)

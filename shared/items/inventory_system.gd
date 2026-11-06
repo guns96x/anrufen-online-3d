@@ -14,9 +14,10 @@ func bind_player(value: Node) -> void:
 		return
 	var stats: Dictionary = player.get("stats")
 	MountSystem.ensure_stats(stats)
-	for key: String in ["inventory","equipment"]:
+	for key: String in ["inventory","equipment","equipment_state"]:
 		if not stats.has(key):
 			stats[key] = {}
+	ensure_equipment_state(stats)
 	if not stats.has("copper"):
 		stats["copper"] = 100
 	if not stats.has("bag_capacity"):
@@ -99,6 +100,14 @@ func equip_item(id: int) -> bool:
 		bag[str(old)] = int(bag.get(str(old),0)) + 1
 	stats["inventory"] = bag
 	stats["equipment"][slot] = id
+	ensure_equipment_state(stats)
+	stats["equipment_state"][slot] = {
+		"upgrade": 0,
+		"durability": EquipmentRules.MODERN_DURABILITY,
+		"max_durability": EquipmentRules.MODERN_DURABILITY,
+		"prefix_id": 0,
+		"suffix_id": 0
+	}
 	changed.emit()
 	return true
 
@@ -111,6 +120,8 @@ func unequip_item(slot: String) -> bool:
 		return _fail("Річ захищено або сумку заповнено.")
 	stats["inventory"][str(id)] = count_item(id) + 1
 	stats["equipment"].erase(slot)
+	if stats.get("equipment_state") is Dictionary:
+		stats["equipment_state"].erase(slot)
 	changed.emit()
 	return true
 
@@ -212,9 +223,112 @@ func bonus_totals() -> Dictionary:
 			totals[key] = int(totals.get(key,0)) + int(bonuses[key])
 	return totals
 
+static func ensure_equipment_state(stats: Dictionary) -> void:
+	if not stats.has("equipment_state") or not stats["equipment_state"] is Dictionary:
+		stats["equipment_state"] = {}
+	var eq: Variant = stats.get("equipment", {})
+	if eq is Dictionary:
+		for slot: Variant in eq:
+			var slot_str: String = str(slot)
+			if not stats["equipment_state"].has(slot_str) or not stats["equipment_state"][slot_str] is Dictionary:
+				stats["equipment_state"][slot_str] = {
+					"upgrade": 0,
+					"durability": EquipmentRules.MODERN_DURABILITY,
+					"max_durability": EquipmentRules.MODERN_DURABILITY,
+					"prefix_id": 0,
+					"suffix_id": 0
+				}
+
+func upgrade_item(slot: String, material_id: int, protection_id: int = 0, boost_id: int = 0, roll: float = 0.5) -> bool:
+	var stats: Dictionary = _stats()
+	if stats.is_empty() or not stats.get("equipment", {}).has(slot):
+		return _fail("У цьому слоті немає спорядження.")
+	var item_id: int = int(stats["equipment"][slot])
+	ensure_equipment_state(stats)
+	var state: Dictionary = stats["equipment_state"].get(slot, {})
+	var clamped_roll: float = minf(0.999999, maxf(0.0, roll))
+	var plan: Dictionary = EquipmentRules.upgrade_plan(stats, item_id, state, material_id, protection_id, boost_id, clamped_roll)
+	if not plan.get("ok", false):
+		return _fail(_translate_error(str(plan.get("error", ""))))
+	stats["copper"] = int(stats["copper"]) - int(plan["copper_cost"])
+	for mat_key: String in plan["consume"]:
+		_subtract(stats["inventory"], int(mat_key), int(plan["consume"][mat_key]))
+	stats["equipment_state"][slot] = plan["state"]
+	changed.emit()
+	return true
+
+func affix_item(slot: String, material_id: int) -> bool:
+	var stats: Dictionary = _stats()
+	if stats.is_empty() or not stats.get("equipment", {}).has(slot):
+		return _fail("У цьому слоті немає спорядження.")
+	var item_id: int = int(stats["equipment"][slot])
+	ensure_equipment_state(stats)
+	var state: Dictionary = stats["equipment_state"].get(slot, {})
+	var plan: Dictionary = EquipmentRules.affix_plan(stats, item_id, state, material_id)
+	if not plan.get("ok", false):
+		return _fail(_translate_error(str(plan.get("error", ""))))
+	stats["copper"] = int(stats["copper"]) - int(plan["copper_cost"])
+	for mat_key: String in plan["consume"]:
+		_subtract(stats["inventory"], int(mat_key), int(plan["consume"][mat_key]))
+	stats["equipment_state"][slot] = plan["state"]
+	changed.emit()
+	return true
+
+func repair_item(slot: String) -> bool:
+	var stats: Dictionary = _stats()
+	if stats.is_empty() or not stats.get("equipment", {}).has(slot):
+		return _fail("У цьому слоті немає спорядження.")
+	var item_id: int = int(stats["equipment"][slot])
+	ensure_equipment_state(stats)
+	var state: Dictionary = stats["equipment_state"].get(slot, {})
+	var plan: Dictionary = EquipmentRules.repair_plan(stats, item_id, state)
+	if not plan.get("ok", false):
+		return _fail(_translate_error(str(plan.get("error", ""))))
+	stats["copper"] = int(stats["copper"]) - int(plan["copper_cost"])
+	stats["equipment_state"][slot] = plan["state"]
+	changed.emit()
+	return true
+
+static func durability_on_death(stats: Dictionary) -> void:
+	if not stats is Dictionary or not stats.get("equipment") is Dictionary:
+		return
+	ensure_equipment_state(stats)
+	var eq_state: Dictionary = stats.get("equipment_state", {})
+	for slot: Variant in stats["equipment"]:
+		var slot_str: String = str(slot)
+		var state: Dictionary = eq_state.get(slot_str, {})
+		if state.is_empty():
+			continue
+		var max_d: int = int(state.get("max_durability", EquipmentRules.MODERN_DURABILITY))
+		var loss: int = maxi(1, ceili(float(max_d) * 0.10))
+		state["durability"] = maxi(0, int(state.get("durability", max_d)) - loss)
+		eq_state[slot_str] = state
+
+static func _translate_error(error: String) -> String:
+	match error:
+		"maximum_upgrade": return "Досягнуто максимальної заточки (+10)."
+		"material_quality_mismatch": return "Матеріал не підходить для якості цього предмета."
+		"invalid_protection": return "Некоректний предмет захисту."
+		"invalid_boost": return "Некоректний підсилювач."
+		"insufficient_copper": return "Недостатньо міді."
+		"missing_material": return "Не вистачає необхідних матеріалів."
+		"invalid_affix": return "Некоректний афікс."
+		"affix_already_set": return "Цей афікс уже встановлено."
+		"affix_actor_level": return "Рівень персонажа занизький для цього афіксу."
+		"already_repaired": return "Предмет повністю цілий."
+		_: return "Не вдалося виконати операцію (%s)." % error
+
 func snapshot() -> Dictionary:
 	var stats: Dictionary = _stats()
-	return {"inventory":stats.get("inventory",{}).duplicate(true),"equipment":stats.get("equipment",{}).duplicate(true),"copper":stats.get("copper",0),"bag_capacity":stats.get("bag_capacity",32),"warehouse_capacity":stats.get("warehouse_capacity",64),"regeneration_effects":stats.get("regeneration_effects",[]).duplicate(true)}
+	return {
+		"inventory": stats.get("inventory",{}).duplicate(true),
+		"equipment": stats.get("equipment",{}).duplicate(true),
+		"equipment_state": stats.get("equipment_state",{}).duplicate(true),
+		"copper": stats.get("copper",0),
+		"bag_capacity": stats.get("bag_capacity",32),
+		"warehouse_capacity": stats.get("warehouse_capacity",64),
+		"regeneration_effects": stats.get("regeneration_effects",[]).duplicate(true)
+	}
 
 func validate_state(stats: Dictionary) -> bool:
 	if not stats.get("inventory") is Dictionary or not stats.get("equipment") is Dictionary or not _integer(stats.get("copper"),0,1000000000) or not _integer(stats.get("bag_capacity"),1,100):
@@ -238,6 +352,15 @@ func validate_state(stats: Dictionary) -> bool:
 		if item.is_empty() or item["kind"] != "equipment" or item["slot"] != key or int(value) in equipped_ids:
 			return false
 		equipped_ids.append(int(value))
+	if stats.has("equipment_state"):
+		if not stats["equipment_state"] is Dictionary:
+			return false
+		for slot_key: Variant in stats["equipment_state"]:
+			if not slot_key is String or slot_key not in ItemCatalog.SLOTS:
+				return false
+			var s: Variant = stats["equipment_state"][slot_key]
+			if not s is Dictionary or EquipmentRules._state(s).is_empty():
+				return false
 	return true
 
 func _fail(message: String) -> bool:

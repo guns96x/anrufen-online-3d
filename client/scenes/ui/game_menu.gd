@@ -21,6 +21,7 @@ var _last_world_controls: String = ""
 var _nav_buttons: Dictionary = {}
 var _bag_selected: int = 0
 var _bag_filter: String = "all"
+var _equipment_selected_slot: String = ""
 const TABS: Dictionary = {"inventory":"Сумка", "equipment":"Спорядження", "character":"Персонаж", "skills":"Навички", "journal":"Щоденник", "map":"Карта й пошук", "shop":"Торгівля", "warehouse":"Склад", "crafting":"Синтез", "pets":"Магічні звірі", "social":"Мережа та спільнота", "settings":"Налаштування"}
 
 func _ready() -> void:
@@ -414,7 +415,11 @@ func _equipment() -> void:
 				var item: Dictionary = ItemCatalog.get_item(int(equipment[slot]))
 				var tile: Button = MenuSkin.tile(item,1,70)
 				tile.toggle_mode = false
-				tile.tooltip_text = "%s · %s\n%s" % [MenuSkin.SLOT_NAMES.get(slot,slot),item.get("label",item.get("name","")),_bonuses(item.get("bonuses",{}))]
+				var up_lvl: int = int(player.stats.get("equipment_state",{}).get(slot,{}).get("upgrade",0))
+				if up_lvl > 0:
+					tile.text = "+%d" % up_lvl
+				tile.pressed.connect(func() -> void: _equipment_selected_slot = slot; render())
+				tile.tooltip_text = "%s · %s%s\n%s" % [MenuSkin.SLOT_NAMES.get(slot,slot),item.get("label",item.get("name",""))," +%d" % up_lvl if up_lvl > 0 else "",_bonuses(EquipmentRules.bonuses(int(equipment[slot]),player.stats.get("equipment_state",{}).get(slot,{})))]
 				holder.add_child(tile)
 				var take_off: Button = _button(holder,"Зняти",func() -> void: _game_action("unequip",{"slot":slot},func() -> bool: return items.unequip_item(slot)),70)
 				take_off.custom_minimum_size = Vector2(70,28)
@@ -444,10 +449,155 @@ func _equipment() -> void:
 		line.add_child(v)
 		stats_box.add_child(line)
 	var totals: Label = Label.new()
-	totals.text = "Бонуси спорядження: " + (_bonuses(items.bonus_totals()) if not items.bonus_totals().is_empty() else "немає")
+	var eq_bonuses: Dictionary = CharacterSystem.equipment_bonuses(player.stats)
+	totals.text = "Бонуси спорядження: " + (_bonuses(eq_bonuses) if not eq_bonuses.is_empty() else "немає")
 	totals.add_theme_color_override("font_color",Color("9fe08a"))
 	totals.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	stats_box.add_child(totals)
+
+	if not equipment.is_empty():
+		if _equipment_selected_slot.is_empty() or not equipment.has(_equipment_selected_slot):
+			_equipment_selected_slot = str(equipment.keys()[0])
+		var sel_slot: String = _equipment_selected_slot
+		if equipment.has(sel_slot):
+			var sel_id: int = int(equipment[sel_slot])
+			var sel_item: Dictionary = ItemCatalog.get_item(sel_id)
+			var sel_state: Dictionary = player.stats.get("equipment_state",{}).get(sel_slot,{})
+			if sel_state.is_empty():
+				sel_state = {"upgrade":0,"durability":EquipmentRules.MODERN_DURABILITY,"max_durability":EquipmentRules.MODERN_DURABILITY,"prefix_id":0,"suffix_id":0}
+			var detail_card: PanelContainer = PanelContainer.new()
+			var detail_style: StyleBoxFlat = HudSkin.panel_style(Color(0.05,0.065,0.09,0.95),Color(0.85,0.71,0.42,0.45),12,1)
+			detail_style.content_margin_left = 14
+			detail_style.content_margin_right = 14
+			detail_style.content_margin_top = 10
+			detail_style.content_margin_bottom = 10
+			detail_card.add_theme_stylebox_override("panel",detail_style)
+			stats_box.add_child(detail_card)
+
+			var detail_vbox: VBoxContainer = VBoxContainer.new()
+			detail_vbox.add_theme_constant_override("separation",6)
+			detail_card.add_child(detail_vbox)
+
+			var up_val: int = int(sel_state.get("upgrade",0))
+			var dur_val: int = int(sel_state.get("durability",EquipmentRules.MODERN_DURABILITY))
+			var max_dur_val: int = int(sel_state.get("max_durability",EquipmentRules.MODERN_DURABILITY))
+
+			var title_lbl: Label = MenuSkin.title("%s +%d" % [sel_item.get("label",sel_item.get("name","")), up_val],20)
+			detail_vbox.add_child(title_lbl)
+
+			var dur_lbl: Label = Label.new()
+			dur_lbl.text = "Міцність %d/%d" % [dur_val, max_dur_val]
+			dur_lbl.add_theme_color_override("font_color",Color(0.75,0.85,0.95) if dur_val > 0 else Color(0.9,0.3,0.3))
+			detail_vbox.add_child(dur_lbl)
+
+			# Suit progress
+			EquipmentRules._load()
+			var suit_info: Dictionary = EquipmentRules.suit_bonuses(equipment, player.stats.get("equipment_state",{}))
+			var suit_counts: Dictionary = suit_info.get("suit_piece_counts",{})
+			for suit_id: int in EquipmentRules._suits:
+				var s_def: Dictionary = EquipmentRules._suits[suit_id]
+				var is_member: bool = false
+				for m: Dictionary in s_def.get("members",[]):
+					if int(m.get("item_id",0)) == sel_id:
+						is_member = true
+						break
+				if not is_member:
+					for m_id: Variant in s_def.get("gear_footer_members",[]):
+						if int(m_id) == sel_id:
+							is_member = true
+							break
+				if is_member:
+					var pieces: int = int(suit_counts.get(str(suit_id),0))
+					var total_m: int = s_def.get("members",[]).size()
+					if total_m == 0: total_m = s_def.get("gear_footer_members",[]).size()
+					var set_lbl: Label = Label.new()
+					set_lbl.text = "Комплект: %d/%d" % [pieces, total_m]
+					set_lbl.add_theme_color_override("font_color",Color("e7b56a"))
+					detail_vbox.add_child(set_lbl)
+					break
+
+			var bonuses_dict: Dictionary = EquipmentRules.bonuses(sel_id, sel_state)
+			var b_text: String = _bonuses(bonuses_dict)
+			if not b_text.is_empty():
+				var b_lbl: Label = Label.new()
+				b_lbl.text = b_text
+				b_lbl.add_theme_color_override("font_color",Color("9fe08a") if dur_val > 0 else Color(0.6,0.6,0.6))
+				detail_vbox.add_child(b_lbl)
+
+			var btn_row: HBoxContainer = HBoxContainer.new()
+			btn_row.add_theme_constant_override("separation",8)
+			detail_vbox.add_child(btn_row)
+
+			# 1. Upgrade button
+			var next_up: int = up_val + 1
+			var up_cost: int = 10 * next_up
+			var up_chance: int = roundi(minf(0.99,maxf(0.10,0.90-0.07*up_val))*100)
+			var up_title: String = "Заточити (+%d) · %d міді (%d%%)" % [next_up, up_cost, up_chance]
+			var up_btn: Button = _button(btn_row, up_title if up_val < 10 else "Заточити (+10 макс.)", func() -> void:
+				var qual: int = int(EquipmentRules.definition(sel_id).get("quality",1))
+				var mats: Array = EquipmentRules.INGOTS.get(qual,[30064])
+				var m_id: int = 0
+				for m: int in mats:
+					if items.count_item(m) > 0:
+						m_id = m
+						break
+				if m_id == 0 and not mats.is_empty(): m_id = mats[0]
+				var p_id: int = 0
+				for p: int in EquipmentRules.PROTECTION:
+					if items.count_item(p) > 0:
+						p_id = p
+						break
+				var b_id: int = 0
+				for bst: int in EquipmentRules.BOOST:
+					if items.count_item(bst) > 0:
+						b_id = bst
+						break
+				_game_action("upgrade",{"slot":sel_slot,"material":m_id,"protection":p_id,"boost":b_id},func() -> bool:
+					return items.upgrade_item(sel_slot,m_id,p_id,b_id,minf(0.999999,randf()))
+				)
+			)
+			if up_val >= 10:
+				up_btn.disabled = true
+
+			# 2. Repair button
+			var missing: int = max_dur_val - dur_val
+			var rep_cost: int = missing * 2
+			var rep_title: String = "Ремонт · %d міді (100%%)" % rep_cost if missing > 0 else "Ремонт (100%%)"
+			var rep_btn: Button = _button(btn_row, rep_title, func() -> void:
+				_game_action("repair",{"slot":sel_slot},func() -> bool:
+					return items.repair_item(sel_slot)
+				)
+			)
+			if missing <= 0:
+				rep_btn.disabled = true
+
+			# 3. Affix button
+			var has_pref: bool = int(sel_state.get("prefix_id",0)) != 0
+			var has_suff: bool = int(sel_state.get("suffix_id",0)) != 0
+			var aff_title: String = "Вставити афікс · 30 міді (100%%)"
+			var aff_btn: Button = _button(btn_row, aff_title if not (has_pref and has_suff) else "Вставити афікс (макс.)", func() -> void:
+				var aff_m_id: int = 0
+				for inv_k: String in player.stats.get("inventory",{}):
+					var inv_id: int = int(inv_k)
+					var a_def: Dictionary = EquipmentRules._affixes.get(inv_id,{})
+					if not a_def.is_empty() and not a_def.get("is_test",false):
+						var side: String = str(a_def.get("side",""))
+						if (side == "prefix" and not has_pref) or (side == "suffix" and not has_suff):
+							aff_m_id = inv_id
+							break
+				if aff_m_id == 0:
+					for a_id: int in EquipmentRules._affixes:
+						var a_def: Dictionary = EquipmentRules._affixes[a_id]
+						if not a_def.get("is_test",false):
+							aff_m_id = a_id
+							break
+				_game_action("affix",{"slot":sel_slot,"material":aff_m_id},func() -> bool:
+					return items.affix_item(sel_slot,aff_m_id)
+				)
+			)
+			if has_pref and has_suff:
+				aff_btn.disabled = true
+
 	if equipment.is_empty():
 		var hint: Label = Label.new()
 		hint.text = "Нічого не одягнено. Вибери річ у сумці."
@@ -497,8 +647,23 @@ func _hero_preview() -> Control:
 
 func _bonuses(values: Dictionary) -> String:
 	var parts: PackedStringArray = []
+	var names: Dictionary = {
+		"attack": "Атака",
+		"defense": "Захист",
+		"magic_attack": "Магічна атака",
+		"magic_defense": "Магічний захист",
+		"max_hp": "Здоров'я",
+		"max_mp": "Мана",
+		"crit_rate": "Критичний удар",
+		"accuracy": "Влучність",
+		"evasion": "Ухилення"
+	}
 	for key: String in values:
-		parts.append("%s +%s" % [{"attack":"Атака","defense":"Захист","max_hp":"Здоров'я","max_mp":"Мана"}.get(key,key),str(values[key])])
+		if not (values[key] is int or values[key] is float) or float(values[key]) == 0.0:
+			continue
+		if key in names:
+			var val_str: String = ("%d%%" % roundi(float(values[key]) * 100)) if key in ["crit_rate", "accuracy", "evasion"] else str(roundi(float(values[key])))
+			parts.append("%s +%s" % [names[key], val_str])
 	return ", ".join(parts)
 
 func _character() -> void:
