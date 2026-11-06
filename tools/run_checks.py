@@ -7,6 +7,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GODOT = shutil.which('Godot_v4.7.2-stable_win64_console.exe')
 SUITES = {
+    'equipment_forge_test': 'EQUIPMENT_FORGE_SUITE: PASS',
+    'title_rules_test': 'TITLE_RULES_SUITE: PASS',
+    'recipes_test': 'RECIPES_SUITE: PASS',
+    'location2_data_test': 'LOCATION2_DATA_SUITE: PASS',
+    'pet_depth_test': 'PET_DEPTH_SUITE: PASS',
     'combat_flow': 'COMBAT_FLOW: PASS',
     'progression_all_test': 'PROGRESSION_SUITE: PASS',
     'items_test': 'ITEMS_SUITE: PASS',

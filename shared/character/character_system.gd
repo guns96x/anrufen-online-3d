@@ -162,19 +162,31 @@ static func equipment_bonuses(stats: Dictionary) -> Dictionary:
 	for slot: Variant in equipment:
 		var id: int = int(equipment[slot])
 		var state: Dictionary = eq_state.get(str(slot), {})
-		var b: Dictionary = EquipmentRules.bonuses(id, state)
-		if b.is_empty() and ItemCatalog.get_item(id).has("bonuses"):
-			var fallback: Dictionary = ItemCatalog.get_item(id).get("bonuses", {})
-			for key: String in fallback:
-				result[key] = result.get(key, 0.0) + float(fallback[key])
-		else:
-			for key: String in b:
-				if b[key] is int or b[key] is float:
-					result[key] = result.get(key, 0.0) + float(b[key])
+		if not state.is_empty() and int(state.get("durability", 1)) <= 0:
+			continue   # broken gear gives nothing until repaired
+		# Base numbers stay the catalogue's (the balance model is built on them);
+		# upgrades and affixes add the difference the original rules give over a
+		# fresh item of the same kind.
+		var base: Dictionary = ItemCatalog.get_item(id).get("bonuses", {})
+		for key: String in base:
+			result[key] = result.get(key, 0.0) + float(base[key])
+		if state.is_empty():
+			continue
+		var fresh: Dictionary = EquipmentRules.bonuses(id, {})
+		var worked: Dictionary = EquipmentRules.bonuses(id, state)
+		for key: String in worked:
+			if worked[key] is int or worked[key] is float:
+				var gain: float = float(worked[key]) - float(fresh.get(key, 0.0)) if (fresh.get(key, 0.0) is int or fresh.get(key, 0.0) is float) else 0.0
+				if gain != 0.0:
+					result[key] = result.get(key, 0.0) + gain
 	var suit: Dictionary = EquipmentRules.suit_bonuses(equipment, eq_state)
 	for key: String in suit:
 		if suit[key] is int or suit[key] is float:
 			result[key] = result.get(key, 0.0) + float(suit[key])
+	var title: Dictionary = TitleSystem.bonuses(stats)
+	for key: String in title:
+		if title[key] is int or title[key] is float:
+			result[key] = result.get(key, 0.0) + float(title[key])
 	for key: String in ["attack", "defense", "magic_attack", "magic_defense", "max_hp", "max_mp"]:
 		if result.has(key):
 			result[key] = roundi(float(result[key]))

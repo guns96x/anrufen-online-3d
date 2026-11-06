@@ -215,13 +215,10 @@ func sell_item(id: int, count: Variant = 1) -> bool:
 func discard_item(id: int, count: Variant = 1) -> bool:
 	return remove_item(id,count)
 
+## Worn gear with upgrades, affixes, durability and set bonuses, plus the
+## selected title (CharacterSystem.equipment_bonuses).
 func bonus_totals() -> Dictionary:
-	var totals: Dictionary = {}
-	for value: Variant in _stats().get("equipment",{}).values():
-		var bonuses: Dictionary = ItemCatalog.get_item(int(value)).get("bonuses",{})
-		for key: String in bonuses:
-			totals[key] = int(totals.get(key,0)) + int(bonuses[key])
-	return totals
+	return CharacterSystem.equipment_bonuses(_stats())
 
 static func ensure_equipment_state(stats: Dictionary) -> void:
 	if not stats.has("equipment_state") or not stats["equipment_state"] is Dictionary:
