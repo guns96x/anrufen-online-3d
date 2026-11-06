@@ -157,9 +157,27 @@ static func rebuild_stats(stats: Dictionary, equipment_bonuses: Dictionary = {})
 
 static func equipment_bonuses(stats: Dictionary) -> Dictionary:
 	var result: Dictionary = {}
-	for id: Variant in stats.get("equipment",{}).values():
-		for key: String in ItemCatalog.get_item(int(id)).get("bonuses",{}):
-			result[key] = int(result.get(key,0))+int(ItemCatalog.get_item(int(id))["bonuses"][key])
+	var equipment: Dictionary = stats.get("equipment", {})
+	var eq_state: Dictionary = stats.get("equipment_state", {})
+	for slot: Variant in equipment:
+		var id: int = int(equipment[slot])
+		var state: Dictionary = eq_state.get(str(slot), {})
+		var b: Dictionary = EquipmentRules.bonuses(id, state)
+		if b.is_empty() and ItemCatalog.get_item(id).has("bonuses"):
+			var fallback: Dictionary = ItemCatalog.get_item(id).get("bonuses", {})
+			for key: String in fallback:
+				result[key] = result.get(key, 0.0) + float(fallback[key])
+		else:
+			for key: String in b:
+				if b[key] is int or b[key] is float:
+					result[key] = result.get(key, 0.0) + float(b[key])
+	var suit: Dictionary = EquipmentRules.suit_bonuses(equipment, eq_state)
+	for key: String in suit:
+		if suit[key] is int or suit[key] is float:
+			result[key] = result.get(key, 0.0) + float(suit[key])
+	for key: String in ["attack", "defense", "magic_attack", "magic_defense", "max_hp", "max_mp"]:
+		if result.has(key):
+			result[key] = roundi(float(result[key]))
 	return result
 
 static func validate(stats: Dictionary) -> bool:

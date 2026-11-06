@@ -17,6 +17,7 @@ static var _suits: Dictionary = {}
 static var _affixes: Dictionary = {}
 
 static func _load() -> void:
+	Catalog.ensure_loaded()
 	if not _gear.is_empty(): return
 	for pair: Array in [["equipment",_gear],["property",_properties],["suit",_suits],["affix",_affixes]]:
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/original/%s_rules.json" % pair[0]))
