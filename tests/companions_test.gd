@@ -74,6 +74,8 @@ func run() -> void:
 	actor.stats["copper"] = 99
 	check(not pets.breed(uid_a,uid_b) and actor.stats["incubations"].is_empty(),"poor breeding preserves state")
 	actor.stats["copper"] = 500
+	first["gender"] = "male"
+	second["gender"] = "female"
 	check(pets.breed(uid_a,uid_b) and actor.stats["copper"] == 400,"breeding charges once and queues offspring")
 	check(not pets.hatch(0),"bred egg also waits for incubation")
 	first["skills"] = [90014,90035]

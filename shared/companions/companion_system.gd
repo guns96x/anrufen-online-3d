@@ -226,9 +226,43 @@ func hatch(index: int) -> bool:
 	# Source skills are real; this species seeding is modern provisional tuning.
 	var seed_skill: int = 90035 if id == 140002 else 90036 if id == 140052 else 90014
 	var inherited: Array = egg.get("inherited_skills",[seed_skill]).duplicate()
-	var pet: Dictionary = {"uid": _uid(), "species_id": id, "name": label, "level": 1, "exp": 0, "hp": 60, "max_hp": 60, "hunger": 100, "born_at": _now(), "skills": inherited}
-	ensure_mana(pet)
-	PetDevelopment.ensure_pet(pet)
+	var talent_ranges: Dictionary = SourcePetCatalog.species_talent_ranges(id)
+	var growth_talents: Dictionary = {}
+	for stat: String in PetDevelopment.GROWTH_STATS:
+		var r: Array = talent_ranges.get(stat, [10, 20])
+		growth_talents[stat] = randi_range(int(r[0]), int(r[1]))
+	var gender: String = "male" if randf() < 0.5 else "female"
+	var personalities: Array = SourcePetCatalog.personalities().keys()
+	var p_id: int = int(personalities[randi() % personalities.size()]) if not personalities.is_empty() else 190001
+	var p_name: String = str(SourcePetCatalog.personality_info(p_id).get("name", "brave"))
+	var max_life: float = SourcePetCatalog.lifespan_raw(id)
+	var pet: Dictionary = {
+		"uid": _uid(),
+		"species_id": id,
+		"name": label,
+		"level": 1,
+		"exp": 0,
+		"hp": 60,
+		"max_hp": 60,
+		"mp": 40,
+		"max_mp": 40,
+		"hunger": 100,
+		"born_at": _now(),
+		"skills": inherited,
+		"growth_talents": growth_talents,
+		"gender": gender,
+		"personality_id": p_id,
+		"personality": p_name,
+		"lifespan": max_life,
+		"max_lifespan": max_life,
+		"loyalty": 60,
+		"growth_base_hp": 60,
+		"growth_base_mp": 40,
+		"growth_base_attack": 11,
+		"growth_base_defense": 7,
+		"growth_base_speed": 11
+	}
+	PetDevelopment.rebuild(pet)
 	stats["companions"].append(pet)
 	stats["incubations"].remove_at(index)
 	changed.emit()
@@ -239,6 +273,8 @@ func summon(uid: String) -> bool:
 	var pet: Dictionary = get_pet(uid)
 	if pet.is_empty() or int(pet["hp"]) <= 0 or int(pet["hunger"]) <= 0:
 		return _fail("Цей звір не може приєднатися до тебе.")
+	if float(pet.get("lifespan", 18000.0)) <= 0.0:
+		return _fail("Звір досяг кінця життя і потребує омолодження.")
 	if _stats()["summoned_pet"] == uid:
 		return false
 	ensure_mana(pet)
@@ -268,6 +304,7 @@ func feed(uid: String, item_id: int = FOOD_ID) -> bool:
 		return _fail("Потрібен голодний звір і плід Біро в сумці.")
 	_consume(item_id)
 	pet["hunger"] = mini(100, int(pet["hunger"]) + 35)
+	pet["loyalty"] = mini(100, int(pet.get("loyalty", 60)) + 10)
 	changed.emit()
 	return true
 
@@ -302,11 +339,17 @@ func rejuvenate(uid: String, item_id: int = 30015) -> bool:
 	var now: float = _now()
 	if pet.is_empty() or item_id not in [30015,30988,30989] or not _has_item(item_id) or not is_finite(now) or now < 0:
 		return false
-	if age_seconds(uid) <= 0.0 and int(pet["hp"]) > 0:
+	var max_life: float = float(pet.get("max_lifespan", SourcePetCatalog.lifespan_raw(int(pet.get("species_id", 0)))))
+	var current_life: float = float(pet.get("lifespan", max_life))
+	if age_seconds(uid) <= 0.0 and current_life >= max_life and int(pet["hp"]) > 0:
 		return _fail("Звір уже має найменший біологічний вік.")
 	_consume(item_id)
 	pet["born_at"] = now if item_id != 30989 else minf(now,float(pet["born_at"])+AGE_STAGE_SECONDS)
 	pet["rejuvenated_at"] = pet["born_at"]
+	if item_id == 30989:
+		pet["lifespan"] = minf(max_life, current_life + (max_life * 0.25))
+	else:
+		pet["lifespan"] = max_life
 	if int(pet["hp"]) <= 0:
 		pet["hp"] = 1
 	changed.emit()
@@ -320,6 +363,8 @@ func breed(uid_a: String, uid_b: String) -> bool:
 		return false
 	if int(a["level"]) < 5 or int(b["level"]) < 5 or int(a["hunger"]) < 50 or int(b["hunger"]) < 50 or int(a["hp"]) <= 0 or int(b["hp"]) <= 0:
 		return _fail("Для розведення потрібні два здорові ситі звірі від 5-го рівня.")
+	if str(a.get("gender", "male")) == str(b.get("gender", "female")):
+		return _fail("Для розведення потрібні звірі протилежної статі.")
 	if _stats()["incubations"].size() >= MAX_INCUBATIONS or int(_stats().get("copper", 0)) < 100 or not is_finite(_now()) or _now() < 0:
 		return _fail("Потрібні вільний інкубатор і 100 міді.")
 	_stats()["copper"] = int(_stats()["copper"]) - 100
@@ -348,15 +393,13 @@ func transfer_with_runes(source_uid: String, target_uid: String, learning: int =
 	var target: Dictionary = get_pet(target_uid)
 	if source_uid == target_uid or source.is_empty() or target.is_empty() or source["skills"].is_empty() or int(_stats().get("copper",0)) < 50:
 		return false
-	if not SourcePetCatalog.same_type(int(source["species_id"]),int(target["species_id"])):
-		return _fail("Навички передаються лише між звірами одного типу.")
 	if _stats().get("summoned_pet","") in [source_uid,target_uid] or int(source["hp"]) <= 0 or int(target["hp"]) <= 0:
 		return _fail("Спочатку відклич обох здорових звірів.")
 	if (learning != 0 and (not LEARNING_RUNES.has(learning) or not _has_item(learning))) or (inheritance != 0 and (not INHERITANCE_RUNES.has(inheritance) or not _has_item(inheritance))):
 		return false
 	var from: int = int(INHERITANCE_RUNES[inheritance]) if inheritance != 0 else randi_range(0,source["skills"].size()-1)
 	var to: int = int(LEARNING_RUNES[learning]) if learning != 0 else (randi_range(0,target["skills"].size()-1) if target["skills"].size() >= 3 else target["skills"].size())
-	if from >= source["skills"].size() or to > target["skills"].size() or (learning != 0 and to >= target["skills"].size()):
+	if from >= source["skills"].size() or to > target["skills"].size() or (learning != 0 and to >= 3) or (learning != 0 and to > target["skills"].size()):
 		return _fail("Руна посилається на відсутню комірку навичок.")
 	var skill: int = int(source["skills"][from])
 	if skill in target["skills"]:
@@ -365,23 +408,50 @@ func transfer_with_runes(source_uid: String, target_uid: String, learning: int =
 	if learning != 0: _consume(learning)
 	if inheritance != 0: _consume(inheritance)
 	_stats()["copper"] -= 50
+	source["skills"].remove_at(from)
 	if to == target["skills"].size(): target["skills"].append(skill)
 	else: target["skills"][to] = skill
-	_stats()["companions"].erase(source)
 	changed.emit()
-	feedback.emit("Навичку передано. Допоміжний звір використаний.")
+	feedback.emit("Навичку передано.")
 	return true
 
 func combat_profile(uid: String) -> Dictionary:
 	var pet: Dictionary = get_pet(uid)
 	if pet.is_empty(): return {}
-	return {"attack":8+int(pet["level"])*3+(5 if 90023 in pet["skills"] else 0),"accuracy":1.0,"crit_rate":0.1,"element":CombatFormulas.DamageType.FIRE if 90036 in pet["skills"] else CombatFormulas.DamageType.WATER if 90035 in pet["skills"] else CombatFormulas.DamageType.PHY}
+	var p_info: Dictionary = SourcePetCatalog.personality_info(int(pet.get("personality_id", 190001)))
+	var atk_nudge: float = float(p_info.get("nudge_bonus", 0.0)) if str(p_info.get("nudge_stat", "")) == "attack" else 0.0
+	var def_nudge: float = float(p_info.get("nudge_bonus", 0.0)) if str(p_info.get("nudge_stat", "")) == "defense" else 0.0
+	var spd_nudge: float = float(p_info.get("nudge_bonus", 0.0)) if str(p_info.get("nudge_stat", "")) == "speed" else 0.0
+	var raw_atk: float = float(pet.get("growth_base_attack", 8 + int(pet["level"]) * 3)) + (5.0 if 90023 in pet["skills"] else 0.0)
+	var raw_def: float = float(pet.get("growth_base_defense", 5 + int(pet["level"]) * 2))
+	var raw_spd: float = float(pet.get("growth_base_speed", 10 + int(pet["level"]) * 1))
+	return {
+		"attack": roundi(raw_atk * (1.0 + atk_nudge)),
+		"defense": roundi(raw_def * (1.0 + def_nudge)),
+		"speed": roundi(raw_spd * (1.0 + spd_nudge)),
+		"accuracy": 1.0,
+		"crit_rate": 0.1,
+		"element": CombatFormulas.DamageType.FIRE if 90036 in pet["skills"] else CombatFormulas.DamageType.WATER if 90035 in pet["skills"] else CombatFormulas.DamageType.PHY
+	}
 
-func combat_strike(uid: String) -> Dictionary:
+func combat_strike(uid: String, roll: float = -1.0) -> Dictionary:
 	var pet: Dictionary = get_pet(uid)
 	var result: Dictionary = combat_profile(uid)
 	if result.is_empty(): return result
 	ensure_mana(pet)
+	var loyalty: int = int(pet.get("loyalty", 60))
+	if loyalty < 50:
+		var chance: float = (50.0 - float(loyalty)) / 100.0
+		var check_roll: float = randf() if roll < 0.0 else roll
+		if check_roll < chance:
+			result["disobeyed"] = true
+			result["attack"] = 0
+			result["accuracy"] = 0.0
+			result["element"] = CombatFormulas.DamageType.PHY
+			result["action"] = "ignore"
+			feedback.emit("Звір проігнорував наказ атакувати через низьку відданість!")
+			return result
+	result["disobeyed"] = false
 	# MP cost is modern tuning pending complete pet skill numeric recovery.
 	if int(result["element"]) != CombatFormulas.DamageType.PHY:
 		if int(pet.get("mp",0)) < 6: result["element"] = CombatFormulas.DamageType.PHY
@@ -391,10 +461,25 @@ func combat_strike(uid: String) -> Dictionary:
 	return result
 
 func transfer_skill(source_uid: String, target_uid: String, index: int) -> bool:
-	# Exact donor-slot selection requires its original inheritance rune. The
-	# old endpoint must not bypass that requirement for free.
-	if index not in [0,1,2]: return false
-	return transfer_with_runes(source_uid,target_uid,0,int(INHERITANCE_RUNES.find_key(index)))
+	var source: Dictionary = get_pet(source_uid)
+	var target: Dictionary = get_pet(target_uid)
+	if source_uid == target_uid or source.is_empty() or target.is_empty() or source["skills"].is_empty():
+		return false
+	if _stats().get("summoned_pet","") in [source_uid,target_uid] or int(source["hp"]) <= 0 or int(target["hp"]) <= 0:
+		return _fail("Спочатку відклич обох здорових звірів.")
+	if int(_stats().get("copper",0)) < 50:
+		return _fail("Потрібно 50 міді для передачі навички.")
+	if index < 0 or index >= source["skills"].size() or target["skills"].size() >= 3:
+		return false
+	var skill: int = int(source["skills"][index])
+	if skill in target["skills"]:
+		return _fail("Головний звір уже знає цю навичку.")
+	_stats()["copper"] = int(_stats()["copper"]) - 50
+	source["skills"].remove_at(index)
+	target["skills"].append(skill)
+	changed.emit()
+	feedback.emit("Навичку передано.")
+	return true
 
 func transform(primary: String, donor: String, boost: int = 0, protection: int = 0, roll: float = -1.0) -> Dictionary:
 	var result: Dictionary = PetDevelopment.transform(_stats(),primary,donor,boost,protection,randf() if roll < 0 else roll)
@@ -445,15 +530,24 @@ func tick(delta: float) -> void:
 	if pet.is_empty():
 		_hunger_seconds = 0
 		return
+	var current_life: float = float(pet.get("lifespan", 18000.0))
+	var new_life: float = maxf(0.0, current_life - delta)
+	pet["lifespan"] = new_life
+	var state_changed: bool = false
+	if current_life > 0.0 and new_life <= 0.0:
+		_stats()["summoned_pet"] = ""
+		feedback.emit("Звір досяг кінця життя і повертається на відпочинок.")
+		state_changed = true
 	_hunger_seconds += delta
 	var loss: int = int(_hunger_seconds / 60.0)
-	if loss <= 0:
-		return
-	_hunger_seconds -= float(loss) * 60.0
-	pet["hunger"] = maxi(0, int(pet["hunger"]) - loss)
-	if int(pet["hunger"]) == 0:
-		_stats()["summoned_pet"] = ""
-	changed.emit()
+	if loss > 0:
+		_hunger_seconds -= float(loss) * 60.0
+		pet["hunger"] = maxi(0, int(pet["hunger"]) - loss)
+		if int(pet["hunger"]) == 0:
+			_stats()["summoned_pet"] = ""
+		state_changed = true
+	if state_changed:
+		changed.emit()
 
 static func _integer(value: Variant, low: int, high: int) -> bool:
 	return (value is int or value is float) and is_finite(float(value)) and floor(float(value)) == float(value) and float(value) >= low and float(value) <= high
