@@ -227,6 +227,7 @@ func _apply_damage(attacker: int, target: Dictionary, result: Dictionary, skill_
 			monster["warning_target"] = 0
 			monster["target"] = 0
 			monster["threat"] = {}
+			TitleSystem.record_kill(_profile(attacker), monster.get("monster_id", monster.get("type", 0)))
 			monster_defeated.emit(attacker,str(target["id"]))
 	else:
 		amount = _damage_actor(attacker,int(target["id"]),amount)

@@ -1,0 +1,2001 @@
+{
+  "180002": {
+    "id": 180002,
+    "name_zh": "新手法师",
+    "desc_zh": "刚刚开始修炼的法师",
+    "name_uk": "Маг-початківець",
+    "condition": {
+      "type": "class_level",
+      "class_id": 130002,
+      "value": 1
+    },
+    "bonuses": {
+      "max_mp": 20,
+      "magic_attack": 3
+    },
+    "provisional": true
+  },
+  "180003": {
+    "id": 180003,
+    "name_zh": "新手战士",
+    "desc_zh": "刚刚开始修炼的战士",
+    "name_uk": "Воїн-початківець",
+    "condition": {
+      "type": "class_level",
+      "class_id": 130001,
+      "value": 1
+    },
+    "bonuses": {
+      "max_hp": 25,
+      "attack": 3
+    },
+    "provisional": true
+  },
+  "180004": {
+    "id": 180004,
+    "name_zh": "进阶法师",
+    "desc_zh": "完成了初级试炼的法师",
+    "name_uk": "Досвідчений маг",
+    "condition": {
+      "type": "class_level",
+      "class_id": 130005,
+      "value": 10
+    },
+    "bonuses": {
+      "max_mp": 40,
+      "magic_attack": 6
+    },
+    "provisional": true
+  },
+  "180005": {
+    "id": 180005,
+    "name_zh": "进阶战士",
+    "desc_zh": "完成了初级试炼的战士",
+    "name_uk": "Досвідчений воїн",
+    "condition": {
+      "type": "class_level",
+      "class_id": 130004,
+      "value": 10
+    },
+    "bonuses": {
+      "max_hp": 50,
+      "attack": 6
+    },
+    "provisional": true
+  },
+  "180000": {
+    "id": 180000,
+    "name_zh": "杀鸡专业户",
+    "desc_zh": "杀鸡无数",
+    "name_uk": "Винищувач курей",
+    "condition": {
+      "type": "kills",
+      "monster": "chicken",
+      "value": 100
+    },
+    "bonuses": {
+      "attack": 3,
+      "accuracy": 0.01
+    },
+    "provisional": true
+  },
+  "180001": {
+    "id": 180001,
+    "name_zh": "东方不败",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Непереможний Схід",
+    "condition": {
+      "type": "pk_kills",
+      "value": 100
+    },
+    "bonuses": {
+      "attack": 12,
+      "crit_rate": 0.03,
+      "max_hp": 80
+    },
+    "provisional": true
+  },
+  "180006": {
+    "id": 180006,
+    "name_zh": "巡林客",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Лісовий рейнджер",
+    "condition": {
+      "type": "level",
+      "value": 15
+    },
+    "bonuses": {
+      "evasion": 0.02,
+      "attack": 4
+    },
+    "provisional": true
+  },
+  "180007": {
+    "id": 180007,
+    "name_zh": "聖武士",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Паладин світла",
+    "condition": {
+      "type": "level",
+      "value": 20
+    },
+    "bonuses": {
+      "defense": 5,
+      "max_hp": 40
+    },
+    "provisional": true
+  },
+  "180008": {
+    "id": 180008,
+    "name_zh": "聖武士",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Священний лицар",
+    "condition": {
+      "type": "level",
+      "value": 25
+    },
+    "bonuses": {
+      "defense": 8,
+      "max_hp": 60
+    },
+    "provisional": true
+  },
+  "180009": {
+    "id": 180009,
+    "name_zh": "吸血鬼猎人",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Мисливець на вампірів",
+    "condition": {
+      "type": "kills",
+      "monster": "vampire",
+      "value": 50
+    },
+    "bonuses": {
+      "attack": 6,
+      "accuracy": 0.02
+    },
+    "provisional": true
+  },
+  "180010": {
+    "id": 180010,
+    "name_zh": "除魔者",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Вигнанець демонів",
+    "condition": {
+      "type": "kills",
+      "monster": "demon",
+      "value": 50
+    },
+    "bonuses": {
+      "attack": 7,
+      "magic_attack": 7
+    },
+    "provisional": true
+  },
+  "180011": {
+    "id": 180011,
+    "name_zh": "皇家先锋",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Королівський авангард",
+    "condition": {
+      "type": "level",
+      "value": 30
+    },
+    "bonuses": {
+      "attack": 8,
+      "defense": 6,
+      "max_hp": 60
+    },
+    "provisional": true
+  },
+  "180012": {
+    "id": 180012,
+    "name_zh": "屠鸭专业户",
+    "desc_zh": "杀鸡无数",
+    "name_uk": "Мисливець на качок",
+    "condition": {
+      "type": "kills",
+      "monster": "duck",
+      "value": 100
+    },
+    "bonuses": {
+      "evasion": 0.01,
+      "max_hp": 20
+    },
+    "provisional": true
+  },
+  "180013": {
+    "id": 180013,
+    "name_zh": "王国英雄",
+    "desc_zh": "王国英雄",
+    "name_uk": "Герой королівства",
+    "condition": {
+      "type": "level",
+      "value": 40
+    },
+    "bonuses": {
+      "attack": 10,
+      "defense": 8,
+      "max_hp": 80
+    },
+    "provisional": true
+  },
+  "180014": {
+    "id": 180014,
+    "name_zh": "小坏蛋",
+    "desc_zh": "",
+    "name_uk": "Малий розбишака",
+    "condition": {
+      "type": "quest",
+      "id": 80011
+    },
+    "bonuses": {
+      "evasion": 0.01,
+      "crit_rate": 0.01
+    },
+    "provisional": true
+  },
+  "180015": {
+    "id": 180015,
+    "name_zh": "皇家骑士",
+    "desc_zh": "",
+    "name_uk": "Королівський лицар",
+    "condition": {
+      "type": "quest",
+      "id": 80098
+    },
+    "bonuses": {
+      "defense": 7,
+      "max_hp": 50
+    },
+    "provisional": true
+  },
+  "180016": {
+    "id": 180016,
+    "name_zh": "反面角色",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Лиходій",
+    "condition": {
+      "type": "pk_kills",
+      "value": 10
+    },
+    "bonuses": {
+      "attack": 5,
+      "crit_rate": 0.01
+    },
+    "provisional": true
+  },
+  "180017": {
+    "id": 180017,
+    "name_zh": "老手",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Бувалий воїн",
+    "condition": {
+      "type": "quest",
+      "id": 80247
+    },
+    "bonuses": {
+      "defense": 5,
+      "attack": 5
+    },
+    "provisional": true
+  },
+  "180018": {
+    "id": 180018,
+    "name_zh": "森林之友",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Друг лісу",
+    "condition": {
+      "type": "level",
+      "value": 5
+    },
+    "bonuses": {
+      "evasion": 0.01,
+      "max_hp": 15
+    },
+    "provisional": true
+  },
+  "180019": {
+    "id": 180019,
+    "name_zh": "森林守护者",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Охоронець лісу",
+    "condition": {
+      "type": "level",
+      "value": 12
+    },
+    "bonuses": {
+      "defense": 3,
+      "max_hp": 30
+    },
+    "provisional": true
+  },
+  "180020": {
+    "id": 180020,
+    "name_zh": "草原之风",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Подих степу",
+    "condition": {
+      "type": "level",
+      "value": 18
+    },
+    "bonuses": {
+      "evasion": 0.02,
+      "accuracy": 0.01
+    },
+    "provisional": true
+  },
+  "180021": {
+    "id": 180021,
+    "name_zh": "不动如山",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Непохитна скеля",
+    "condition": {
+      "type": "level",
+      "value": 22
+    },
+    "bonuses": {
+      "defense": 6,
+      "max_hp": 50
+    },
+    "provisional": true
+  },
+  "180022": {
+    "id": 180022,
+    "name_zh": "万年雪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Вічні сніги",
+    "condition": {
+      "type": "level",
+      "value": 28
+    },
+    "bonuses": {
+      "magic_attack": 6,
+      "defense": 4
+    },
+    "provisional": true
+  },
+  "180023": {
+    "id": 180023,
+    "name_zh": "男爵",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Барон",
+    "condition": {
+      "type": "copper",
+      "value": 50000
+    },
+    "bonuses": {
+      "max_hp": 40,
+      "max_mp": 40
+    },
+    "provisional": true
+  },
+  "180024": {
+    "id": 180024,
+    "name_zh": "王国之星",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Зоря королівства",
+    "condition": {
+      "type": "level",
+      "value": 35
+    },
+    "bonuses": {
+      "attack": 9,
+      "magic_attack": 9
+    },
+    "provisional": true
+  },
+  "180025": {
+    "id": 180025,
+    "name_zh": "王国之花",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Цвіт королівства",
+    "condition": {
+      "type": "level",
+      "value": 38
+    },
+    "bonuses": {
+      "max_hp": 60,
+      "max_mp": 60
+    },
+    "provisional": true
+  },
+  "180026": {
+    "id": 180026,
+    "name_zh": "铁腕",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Залізна правиця",
+    "condition": {
+      "type": "level",
+      "value": 45
+    },
+    "bonuses": {
+      "attack": 12,
+      "defense": 8
+    },
+    "provisional": true
+  },
+  "180027": {
+    "id": 180027,
+    "name_zh": "狮子猎人",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Мисливець на левів",
+    "condition": {
+      "type": "kills",
+      "monster": "lion",
+      "value": 50
+    },
+    "bonuses": {
+      "attack": 8,
+      "crit_rate": 0.02
+    },
+    "provisional": true
+  },
+  "180028": {
+    "id": 180028,
+    "name_zh": "贵族",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Аристократ",
+    "condition": {
+      "type": "copper",
+      "value": 100000
+    },
+    "bonuses": {
+      "max_hp": 80,
+      "defense": 5
+    },
+    "provisional": true
+  },
+  "180029": {
+    "id": 180029,
+    "name_zh": "春之歌",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Пісня весни",
+    "condition": {
+      "type": "level",
+      "value": 8
+    },
+    "bonuses": {
+      "hp_regen": 1,
+      "max_hp": 20
+    },
+    "provisional": true
+  },
+  "180030": {
+    "id": 180030,
+    "name_zh": "夏之雨",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Літній дощ",
+    "condition": {
+      "type": "level",
+      "value": 16
+    },
+    "bonuses": {
+      "mp_regen": 1,
+      "max_mp": 25
+    },
+    "provisional": true
+  },
+  "180031": {
+    "id": 180031,
+    "name_zh": "秋之叶",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Осінній лист",
+    "condition": {
+      "type": "level",
+      "value": 24
+    },
+    "bonuses": {
+      "evasion": 0.02,
+      "attack": 5
+    },
+    "provisional": true
+  },
+  "180032": {
+    "id": 180032,
+    "name_zh": "冬之风",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Зимовий буран",
+    "condition": {
+      "type": "level",
+      "value": 32
+    },
+    "bonuses": {
+      "defense": 6,
+      "magic_attack": 6
+    },
+    "provisional": true
+  },
+  "180033": {
+    "id": 180033,
+    "name_zh": "钢刀",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Сталевий клинок",
+    "condition": {
+      "type": "level",
+      "value": 14
+    },
+    "bonuses": {
+      "attack": 5,
+      "accuracy": 0.01
+    },
+    "provisional": true
+  },
+  "180034": {
+    "id": 180034,
+    "name_zh": "驭火者",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Приборкувач полум'я",
+    "condition": {
+      "type": "level",
+      "value": 16
+    },
+    "bonuses": {
+      "magic_attack": 5,
+      "max_mp": 20
+    },
+    "provisional": true
+  },
+  "180035": {
+    "id": 180035,
+    "name_zh": "奔烈如火",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Шалений вогонь",
+    "condition": {
+      "type": "level",
+      "value": 26
+    },
+    "bonuses": {
+      "magic_attack": 8,
+      "attack": 4
+    },
+    "provisional": true
+  },
+  "180036": {
+    "id": 180036,
+    "name_zh": "动如山",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Грізна гора",
+    "condition": {
+      "type": "level",
+      "value": 28
+    },
+    "bonuses": {
+      "defense": 7,
+      "max_hp": 60
+    },
+    "provisional": true
+  },
+  "180037": {
+    "id": 180037,
+    "name_zh": "雾之手",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Туманна десниця",
+    "condition": {
+      "type": "level",
+      "value": 34
+    },
+    "bonuses": {
+      "evasion": 0.03,
+      "magic_attack": 7
+    },
+    "provisional": true
+  },
+  "180038": {
+    "id": 180038,
+    "name_zh": "烂醉如泥",
+    "desc_zh": "醉成这样也看不见描述的了",
+    "name_uk": "Хмільний гульвіса",
+    "condition": {
+      "type": "quest",
+      "id": 80294
+    },
+    "bonuses": {
+      "max_hp": 30,
+      "defense": 3
+    },
+    "provisional": true
+  },
+  "180039": {
+    "id": 180039,
+    "name_zh": "真相缔造者",
+    "desc_zh": "真相只有一个！吾骗汝的。",
+    "name_uk": "Шукач істини",
+    "condition": {
+      "type": "quest",
+      "id": 80303
+    },
+    "bonuses": {
+      "magic_attack": 5,
+      "max_mp": 25
+    },
+    "provisional": true
+  },
+  "180040": {
+    "id": 180040,
+    "name_zh": "偷蛋者",
+    "desc_zh": "偷个蛋而已啦，有什么稀奇的",
+    "name_uk": "Викрадач яєць",
+    "condition": {
+      "type": "quest",
+      "id": 80305
+    },
+    "bonuses": {
+      "evasion": 0.02,
+      "accuracy": 0.01
+    },
+    "provisional": true
+  },
+  "180041": {
+    "id": 180041,
+    "name_zh": "回忆之风",
+    "desc_zh": "回忆之疯。嗯，我没打错字。",
+    "name_uk": "Вітер спогадів",
+    "condition": {
+      "type": "quest",
+      "id": 80307
+    },
+    "bonuses": {
+      "evasion": 0.02,
+      "max_mp": 20
+    },
+    "provisional": true
+  },
+  "180042": {
+    "id": 180042,
+    "name_zh": "复仇之魂",
+    "desc_zh": "复仇什么的，人家最讨厌了~",
+    "name_uk": "Дух помсти",
+    "condition": {
+      "type": "quest",
+      "id": 80312
+    },
+    "bonuses": {
+      "attack": 6,
+      "crit_rate": 0.01
+    },
+    "provisional": true
+  },
+  "180043": {
+    "id": 180043,
+    "name_zh": "赤子之心",
+    "desc_zh": "你是个好人。嗯。",
+    "name_uk": "Щире серце",
+    "condition": {
+      "type": "quest",
+      "id": 80314
+    },
+    "bonuses": {
+      "max_hp": 40,
+      "hp_regen": 1
+    },
+    "provisional": true
+  },
+  "180044": {
+    "id": 180044,
+    "name_zh": "血之荣耀",
+    "desc_zh": "血流太多会死的。。",
+    "name_uk": "Кривава слава",
+    "condition": {
+      "type": "quest",
+      "id": 80319
+    },
+    "bonuses": {
+      "attack": 7,
+      "max_hp": 35
+    },
+    "provisional": true
+  },
+  "180045": {
+    "id": 180045,
+    "name_zh": "侏儒护卫者",
+    "desc_zh": "打倒一切怪蜀黍！",
+    "name_uk": "Захисник гномів",
+    "condition": {
+      "type": "quest",
+      "id": 80325
+    },
+    "bonuses": {
+      "defense": 5,
+      "max_hp": 40
+    },
+    "provisional": true
+  },
+  "180046": {
+    "id": 180046,
+    "name_zh": "酒徒",
+    "desc_zh": "千杯不醉！……那杯子一定很小！",
+    "name_uk": "Шинкарський завсідник",
+    "condition": {
+      "type": "quest",
+      "id": 80326
+    },
+    "bonuses": {
+      "max_hp": 35,
+      "defense": 4
+    },
+    "provisional": true
+  },
+  "180047": {
+    "id": 180047,
+    "name_zh": "首席勘测员",
+    "desc_zh": "勘测是什么？能吃吗？",
+    "name_uk": "Головний землемір",
+    "condition": {
+      "type": "quest",
+      "id": 80335
+    },
+    "bonuses": {
+      "accuracy": 0.02,
+      "attack": 4
+    },
+    "provisional": true
+  },
+  "180048": {
+    "id": 180048,
+    "name_zh": "祝你好运",
+    "desc_zh": "猪~你好运",
+    "name_uk": "Щасливчик",
+    "condition": {
+      "type": "quest",
+      "id": 80341
+    },
+    "bonuses": {
+      "crit_rate": 0.02,
+      "evasion": 0.01
+    },
+    "provisional": true
+  },
+  "180049": {
+    "id": 180049,
+    "name_zh": "无名的冒险者",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Невідомий шукач пригод",
+    "condition": {
+      "type": "quest",
+      "id": 80004
+    },
+    "bonuses": {
+      "attack": 2,
+      "max_hp": 15
+    },
+    "provisional": true
+  },
+  "180050": {
+    "id": 180050,
+    "name_zh": "冒险家",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Авантюрист",
+    "condition": {
+      "type": "quest",
+      "id": 80344
+    },
+    "bonuses": {
+      "attack": 5,
+      "defense": 4,
+      "max_hp": 30
+    },
+    "provisional": true
+  },
+  "180051": {
+    "id": 180051,
+    "name_zh": "护戒使者",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Хранитель персня",
+    "condition": {
+      "type": "quest",
+      "id": 80020
+    },
+    "bonuses": {
+      "defense": 4,
+      "max_mp": 20
+    },
+    "provisional": true
+  },
+  "180052": {
+    "id": 180052,
+    "name_zh": "手术刀",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Хірургічний скальпель",
+    "condition": {
+      "type": "quest",
+      "id": 80036
+    },
+    "bonuses": {
+      "crit_rate": 0.02,
+      "attack": 4
+    },
+    "provisional": true
+  },
+  "180053": {
+    "id": 180053,
+    "name_zh": "鬼火狩猎者",
+    "desc_zh": "一个字形容！帅呆了酷毙了！",
+    "name_uk": "Ловець блукаючих вогнів",
+    "condition": {
+      "type": "quest",
+      "id": 80119
+    },
+    "bonuses": {
+      "magic_attack": 6,
+      "evasion": 0.01
+    },
+    "provisional": true
+  },
+  "180054": {
+    "id": 180054,
+    "name_zh": "寡妇追迹者",
+    "desc_zh": "黑寡妇！蜘蛛女王！不要想歪了！",
+    "name_uk": "Слідопит Чорної Вдови",
+    "condition": {
+      "type": "quest",
+      "id": 80376
+    },
+    "bonuses": {
+      "attack": 6,
+      "accuracy": 0.02
+    },
+    "provisional": true
+  },
+  "180055": {
+    "id": 180055,
+    "name_zh": "希望之光",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Промінь надії",
+    "condition": {
+      "type": "level",
+      "value": 42
+    },
+    "bonuses": {
+      "magic_attack": 9,
+      "max_hp": 60
+    },
+    "provisional": true
+  },
+  "180056": {
+    "id": 180056,
+    "name_zh": "神殿尖兵",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Вартовий храму",
+    "condition": {
+      "type": "level",
+      "value": 48
+    },
+    "bonuses": {
+      "defense": 10,
+      "max_hp": 80
+    },
+    "provisional": true
+  },
+  "180057": {
+    "id": 180057,
+    "name_zh": "铃儿响叮当",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Передзвін дзвіночків",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_mp": 15
+    },
+    "provisional": true
+  },
+  "180058": {
+    "id": 180058,
+    "name_zh": "糖果大炮",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Цукеркова гармата",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 4
+    },
+    "provisional": true
+  },
+  "180059": {
+    "id": 180059,
+    "name_zh": "姜饼亲王",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Імбирний принц",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 4
+    },
+    "provisional": true
+  },
+  "180060": {
+    "id": 180060,
+    "name_zh": "泡沫国王",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Володар супутників",
+    "condition": {
+      "type": "pet_count",
+      "value": 2
+    },
+    "bonuses": {
+      "max_hp": 30
+    },
+    "provisional": true
+  },
+  "180061": {
+    "id": 180061,
+    "name_zh": "火鸡DAI王",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Володар індиків",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 25
+    },
+    "provisional": true
+  },
+  "180062": {
+    "id": 180062,
+    "name_zh": "土豆突击队",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Бульбяний десант",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 3
+    },
+    "provisional": true
+  },
+  "180063": {
+    "id": 180063,
+    "name_zh": "我想食热狗",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Ласун на перекусі",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 20
+    },
+    "provisional": true
+  },
+  "180064": {
+    "id": 180064,
+    "name_zh": "圣诞老人",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Зимовий Дід",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 50,
+      "defense": 5
+    },
+    "provisional": true
+  },
+  "180065": {
+    "id": 180065,
+    "name_zh": "圣诞之星",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Різдвяна зоря",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "magic_attack": 5,
+      "max_mp": 30
+    },
+    "provisional": true
+  },
+  "180066": {
+    "id": 180066,
+    "name_zh": "酒虫",
+    "desc_zh": "好酒~~~~",
+    "name_uk": "Хмільний знавець",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "hp_regen": 1
+    },
+    "provisional": true
+  },
+  "180067": {
+    "id": 180067,
+    "name_zh": "睿智的情报官",
+    "desc_zh": "聪明绝顶......",
+    "name_uk": "Мудрий розвідник",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "accuracy": 0.02
+    },
+    "provisional": true
+  },
+  "180068": {
+    "id": 180068,
+    "name_zh": "智慧的书记官",
+    "desc_zh": "聪明绝顶......",
+    "name_uk": "Кмітливий писар",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_mp": 35
+    },
+    "provisional": true
+  },
+  "180069": {
+    "id": 180069,
+    "name_zh": "勇者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Герой легенд",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 5
+    },
+    "provisional": true
+  },
+  "180070": {
+    "id": 180070,
+    "name_zh": "新手-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Юний новачок",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 20
+    },
+    "provisional": true
+  },
+  "180071": {
+    "id": 180071,
+    "name_zh": "贤者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Сивий мудрець",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "magic_attack": 5
+    },
+    "provisional": true
+  },
+  "180072": {
+    "id": 180072,
+    "name_zh": "奥特曼-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Титан світла",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 6,
+      "defense": 4
+    },
+    "provisional": true
+  },
+  "180073": {
+    "id": 180073,
+    "name_zh": "克赛-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Мандрівник у часі",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "evasion": 0.02
+    },
+    "provisional": true
+  },
+  "180074": {
+    "id": 180074,
+    "name_zh": "葫芦娃-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Брат стихій",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 5
+    },
+    "provisional": true
+  },
+  "180075": {
+    "id": 180075,
+    "name_zh": "大魔王-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Темний володар",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 8
+    },
+    "provisional": true
+  },
+  "180076": {
+    "id": 180076,
+    "name_zh": "小怪兽-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Друг звірят",
+    "condition": {
+      "type": "pet_count",
+      "value": 1
+    },
+    "bonuses": {
+      "max_hp": 25
+    },
+    "provisional": true
+  },
+  "180077": {
+    "id": 180077,
+    "name_zh": "小邋遢-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Забрьоха",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "evasion": 0.01
+    },
+    "provisional": true
+  },
+  "180078": {
+    "id": 180078,
+    "name_zh": "冠军-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Чемпіон арени",
+    "condition": {
+      "type": "level",
+      "value": 50
+    },
+    "bonuses": {
+      "attack": 12,
+      "max_hp": 80
+    },
+    "provisional": true
+  },
+  "180079": {
+    "id": 180079,
+    "name_zh": "亚军-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Срібний призер",
+    "condition": {
+      "type": "level",
+      "value": 45
+    },
+    "bonuses": {
+      "attack": 9,
+      "max_hp": 60
+    },
+    "provisional": true
+  },
+  "180080": {
+    "id": 180080,
+    "name_zh": "季军-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Бронзовий призер",
+    "condition": {
+      "type": "level",
+      "value": 40
+    },
+    "bonuses": {
+      "attack": 7,
+      "max_hp": 50
+    },
+    "provisional": true
+  },
+  "180081": {
+    "id": 180081,
+    "name_zh": "三冠王-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Триразовий тріумфатор",
+    "condition": {
+      "type": "level",
+      "value": 55
+    },
+    "bonuses": {
+      "attack": 15,
+      "max_hp": 100,
+      "crit_rate": 0.02
+    },
+    "provisional": true
+  },
+  "180082": {
+    "id": 180082,
+    "name_zh": "歌姬-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Чарівна піснярка",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_mp": 40
+    },
+    "provisional": true
+  },
+  "180083": {
+    "id": 180083,
+    "name_zh": "小龙人-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Повелитель дракончиків",
+    "condition": {
+      "type": "pet_count",
+      "value": 3
+    },
+    "bonuses": {
+      "magic_attack": 6,
+      "max_hp": 40
+    },
+    "provisional": true
+  },
+  "180084": {
+    "id": 180084,
+    "name_zh": "姜饼人-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Пряничний лицар",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 4
+    },
+    "provisional": true
+  },
+  "180085": {
+    "id": 180085,
+    "name_zh": "圣斗士-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Зоряний лицар",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 7,
+      "defense": 5
+    },
+    "provisional": true
+  },
+  "180086": {
+    "id": 180086,
+    "name_zh": "蓝精灵-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Синій гном",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "evasion": 0.02
+    },
+    "provisional": true
+  },
+  "180087": {
+    "id": 180087,
+    "name_zh": "格格巫-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Підступний чаклун",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "magic_attack": 6
+    },
+    "provisional": true
+  },
+  "180088": {
+    "id": 180088,
+    "name_zh": "教主-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Глава ордену",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "magic_attack": 8
+    },
+    "provisional": true
+  },
+  "180089": {
+    "id": 180089,
+    "name_zh": "小红帽-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Червона шапочка",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "evasion": 0.02
+    },
+    "provisional": true
+  },
+  "180090": {
+    "id": 180090,
+    "name_zh": "舅舅-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Добрий дядечко",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 30
+    },
+    "provisional": true
+  },
+  "180091": {
+    "id": 180091,
+    "name_zh": "女王-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Королева півночі",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "magic_attack": 8,
+      "defense": 6
+    },
+    "provisional": true
+  },
+  "180092": {
+    "id": 180092,
+    "name_zh": "爱哭鬼-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Сльозливець",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "mp_regen": 1
+    },
+    "provisional": true
+  },
+  "180093": {
+    "id": 180093,
+    "name_zh": "爱生气-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Буркотун",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 4
+    },
+    "provisional": true
+  },
+  "180094": {
+    "id": 180094,
+    "name_zh": "万事通-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Всезнайко",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "magic_attack": 4
+    },
+    "provisional": true
+  },
+  "180095": {
+    "id": 180095,
+    "name_zh": "喷嚏精-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Чхач",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "evasion": 0.01
+    },
+    "provisional": true
+  },
+  "180096": {
+    "id": 180096,
+    "name_zh": "瞌睡虫-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Дрімота",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "hp_regen": 1
+    },
+    "provisional": true
+  },
+  "180097": {
+    "id": 180097,
+    "name_zh": "害羞鬼-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Сором'язливий",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 3
+    },
+    "provisional": true
+  },
+  "180098": {
+    "id": 180098,
+    "name_zh": "糊涂蛋-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Плутаник",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "crit_rate": 0.01
+    },
+    "provisional": true
+  },
+  "180099": {
+    "id": 180099,
+    "name_zh": "没头脑-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Вітрогон",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "accuracy": 0.01
+    },
+    "provisional": true
+  },
+  "180100": {
+    "id": 180100,
+    "name_zh": "不高兴-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Похмурий",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 3
+    },
+    "provisional": true
+  },
+  "180101": {
+    "id": 180101,
+    "name_zh": "天然呆-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Простодушний",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 3
+    },
+    "provisional": true
+  },
+  "180102": {
+    "id": 180102,
+    "name_zh": "阿凡提-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Хитрий дотепник",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "accuracy": 0.02
+    },
+    "provisional": true
+  },
+  "180103": {
+    "id": 180103,
+    "name_zh": "阿凡达-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Духовний аватар",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 40,
+      "attack": 5
+    },
+    "provisional": true
+  },
+  "180104": {
+    "id": 180104,
+    "name_zh": "神射手-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Влучний стрілець",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "accuracy": 0.03,
+      "crit_rate": 0.02
+    },
+    "provisional": true
+  },
+  "180106": {
+    "id": 180106,
+    "name_zh": "千人斩-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Володар тисячі битв",
+    "condition": {
+      "type": "pk_kills",
+      "value": 1000
+    },
+    "bonuses": {
+      "attack": 18,
+      "crit_rate": 0.04,
+      "max_hp": 100
+    },
+    "provisional": true
+  },
+  "180109": {
+    "id": 180109,
+    "name_zh": "神匠-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Коваль-чарівник",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "defense": 8,
+      "attack": 6
+    },
+    "provisional": true
+  },
+  "180110": {
+    "id": 180110,
+    "name_zh": "穷鬼-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Бідний мандрівник",
+    "condition": {
+      "type": "copper",
+      "value": 10
+    },
+    "bonuses": {
+      "evasion": 0.01
+    },
+    "provisional": true
+  },
+  "180111": {
+    "id": 180111,
+    "name_zh": "海贼王-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Морський вовк",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "attack": 10,
+      "evasion": 0.02
+    },
+    "provisional": true
+  },
+  "180112": {
+    "id": 180112,
+    "name_zh": "大文豪-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Великий літописець",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_mp": 50,
+      "magic_attack": 8
+    },
+    "provisional": true
+  },
+  "180113": {
+    "id": 180113,
+    "name_zh": "终结者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Вершитель доль",
+    "condition": {
+      "type": "pk_kills",
+      "value": 50
+    },
+    "bonuses": {
+      "attack": 10,
+      "crit_rate": 0.02
+    },
+    "provisional": true
+  },
+  "180114": {
+    "id": 180114,
+    "name_zh": "好人-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Добродій",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 40,
+      "hp_regen": 1
+    },
+    "provisional": true
+  },
+  "180115": {
+    "id": 180115,
+    "name_zh": "王者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Владика земель",
+    "condition": {
+      "type": "level",
+      "value": 60
+    },
+    "bonuses": {
+      "attack": 16,
+      "defense": 12,
+      "max_hp": 120
+    },
+    "provisional": true
+  },
+  "180129": {
+    "id": 180129,
+    "name_zh": "探索者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Першовідкривач",
+    "condition": {
+      "type": "level",
+      "value": 10
+    },
+    "bonuses": {
+      "attack": 3,
+      "defense": 2
+    },
+    "provisional": true
+  },
+  "180130": {
+    "id": 180130,
+    "name_zh": "开拓者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Піонер фронтиру",
+    "condition": {
+      "type": "level",
+      "value": 20
+    },
+    "bonuses": {
+      "attack": 5,
+      "defense": 4
+    },
+    "provisional": true
+  },
+  "180131": {
+    "id": 180131,
+    "name_zh": "追寻者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Шукач пригод",
+    "condition": {
+      "type": "level",
+      "value": 30
+    },
+    "bonuses": {
+      "attack": 7,
+      "defense": 6
+    },
+    "provisional": true
+  },
+  "180132": {
+    "id": 180132,
+    "name_zh": "祈愿者-伪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Той, хто благає",
+    "condition": {
+      "type": "level",
+      "value": 35
+    },
+    "bonuses": {
+      "magic_attack": 8,
+      "max_mp": 50
+    },
+    "provisional": true
+  },
+  "180105": {
+    "id": 180105,
+    "name_zh": "千尺浪",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Бурхлива хвиля",
+    "condition": {
+      "type": "quest",
+      "id": 80621
+    },
+    "bonuses": {
+      "attack": 8,
+      "evasion": 0.02
+    },
+    "provisional": true
+  },
+  "180107": {
+    "id": 180107,
+    "name_zh": "万卷书",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Мудрець сувоїв",
+    "condition": {
+      "type": "quest",
+      "id": 80622
+    },
+    "bonuses": {
+      "magic_attack": 8,
+      "max_mp": 40
+    },
+    "provisional": true
+  },
+  "180108": {
+    "id": 180108,
+    "name_zh": "路旁叶",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Придорожній листок",
+    "condition": {
+      "type": "quest",
+      "id": 80611
+    },
+    "bonuses": {
+      "evasion": 0.01,
+      "max_hp": 20
+    },
+    "provisional": true
+  },
+  "180116": {
+    "id": 180116,
+    "name_zh": "水面影",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Відблиск на воді",
+    "condition": {
+      "type": "quest",
+      "id": 80615
+    },
+    "bonuses": {
+      "evasion": 0.02,
+      "accuracy": 0.02
+    },
+    "provisional": true
+  },
+  "180117": {
+    "id": 180117,
+    "name_zh": "尖角荷",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Паросток лотоса",
+    "condition": {
+      "type": "quest",
+      "id": 80616
+    },
+    "bonuses": {
+      "hp_regen": 1,
+      "max_hp": 25
+    },
+    "provisional": true
+  },
+  "180118": {
+    "id": 180118,
+    "name_zh": "临风树",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Дерево на вітрі",
+    "condition": {
+      "type": "quest",
+      "id": 80618
+    },
+    "bonuses": {
+      "defense": 5,
+      "max_hp": 30
+    },
+    "provisional": true
+  },
+  "180119": {
+    "id": 180119,
+    "name_zh": "揽月影",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Тінь місяця",
+    "condition": {
+      "type": "quest",
+      "id": 80619
+    },
+    "bonuses": {
+      "magic_attack": 7,
+      "evasion": 0.02
+    },
+    "provisional": true
+  },
+  "180120": {
+    "id": 180120,
+    "name_zh": "刃如风",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Лезо вітру",
+    "condition": {
+      "type": "quest",
+      "id": 80620
+    },
+    "bonuses": {
+      "attack": 7,
+      "crit_rate": 0.02
+    },
+    "provisional": true
+  },
+  "180121": {
+    "id": 180121,
+    "name_zh": "受诅咒者",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Проклятий",
+    "condition": {
+      "type": "quest",
+      "id": 80649
+    },
+    "bonuses": {
+      "attack": 9,
+      "defense": -2
+    },
+    "provisional": true
+  },
+  "180124": {
+    "id": 180124,
+    "name_zh": "杯具！",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Невдаха!",
+    "condition": {
+      "type": "quest",
+      "id": 80651
+    },
+    "bonuses": {
+      "defense": 3,
+      "max_hp": 25
+    },
+    "provisional": true
+  },
+  "180125": {
+    "id": 180125,
+    "name_zh": "餐具！",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Горе-воїн!",
+    "condition": {
+      "type": "quest",
+      "id": 80653
+    },
+    "bonuses": {
+      "attack": 3,
+      "max_mp": 20
+    },
+    "provisional": true
+  },
+  "180126": {
+    "id": 180126,
+    "name_zh": "大茶几",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Бідолаха",
+    "condition": {
+      "type": "quest",
+      "id": 80655
+    },
+    "bonuses": {
+      "max_hp": 40
+    },
+    "provisional": true
+  },
+  "180127": {
+    "id": 180127,
+    "name_zh": "衰神",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Вісник невдач",
+    "condition": {
+      "type": "quest",
+      "id": 80659
+    },
+    "bonuses": {
+      "crit_rate": 0.03
+    },
+    "provisional": true
+  },
+  "180122": {
+    "id": 180122,
+    "name_zh": "第一滴血",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Перша кров",
+    "condition": {
+      "type": "quest",
+      "id": 80648
+    },
+    "bonuses": {
+      "attack": 5,
+      "crit_rate": 0.01
+    },
+    "provisional": true
+  },
+  "180123": {
+    "id": 180123,
+    "name_zh": "杀人如麻",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Невблаганний жнець",
+    "condition": {
+      "type": "quest",
+      "id": 80650
+    },
+    "bonuses": {
+      "attack": 9,
+      "crit_rate": 0.02
+    },
+    "provisional": true
+  },
+  "180128": {
+    "id": 180128,
+    "name_zh": "望风披靡",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Нищівний шквал",
+    "condition": {
+      "type": "quest",
+      "id": 80652
+    },
+    "bonuses": {
+      "attack": 10,
+      "defense": 5
+    },
+    "provisional": true
+  },
+  "180133": {
+    "id": 180133,
+    "name_zh": "神之杀戮",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Божественний каратель",
+    "condition": {
+      "type": "quest",
+      "id": 80654
+    },
+    "bonuses": {
+      "attack": 12,
+      "crit_rate": 0.03
+    },
+    "provisional": true
+  },
+  "180134": {
+    "id": 180134,
+    "name_zh": "仁者无敌",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Доброчесний лицар",
+    "condition": {
+      "type": "quest",
+      "id": 80658
+    },
+    "bonuses": {
+      "defense": 8,
+      "max_hp": 60
+    },
+    "provisional": true
+  },
+  "180135": {
+    "id": 180135,
+    "name_zh": "不幸的人",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Нещасний",
+    "condition": {
+      "type": "quest",
+      "id": 80657
+    },
+    "bonuses": {
+      "max_hp": 35
+    },
+    "provisional": true
+  },
+  "180136": {
+    "id": 180136,
+    "name_zh": "苦命的人",
+    "desc_zh": "日出东方，唯我不败",
+    "name_uk": "Знедолений",
+    "condition": {
+      "type": "quest",
+      "id": 80656
+    },
+    "bonuses": {
+      "defense": 4,
+      "max_hp": 35
+    },
+    "provisional": true
+  },
+  "10000001": {
+    "id": 10000001,
+    "name_zh": "",
+    "desc_zh": "",
+    "name_uk": "Таємничий знак",
+    "condition": {
+      "type": "manual"
+    },
+    "bonuses": {
+      "max_hp": 10
+    },
+    "provisional": true
+  }
+}

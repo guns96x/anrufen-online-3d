@@ -281,6 +281,8 @@ func die(killer: Node3D) -> void:
 	var hud: Node = get_tree().get_first_node_in_group("hud")
 	if hud and hud.has_method("add_monster_kill") and killer is Player and killer.is_local_player:
 		hud.add_monster_kill(monster_id)
+	if killer and killer is Player and "stats" in killer and killer.stats is Dictionary:
+		TitleSystem.record_kill(killer.stats, monster_id)
 
 	name_label.hide()
 	hp_bar_3d.hide()
