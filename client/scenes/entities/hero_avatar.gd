@@ -33,6 +33,7 @@ var _race: int = 0
 var _action_left: float = 0.0
 var _combo: int = 0
 var _dead: bool = false
+var fx: GearFx
 
 func _ready() -> void:
 	_rebuild()
@@ -48,16 +49,16 @@ static func gear_props(stats: Dictionary) -> Dictionary:
 	if mage:
 		props.append("2H_Staff" if "杖" in weapon_name else "1H_Wand")
 		if equipment.has("head"): props.append("Mage_Hat")
-		if equipment.has("body") and MenuSkin.rarity(ItemCatalog.get_item(int(equipment["body"]))) >= 1: props.append("Mage_Cape")
+		if equipment.has("body") and GearFx.tier(ItemCatalog.get_item(int(equipment["body"]))) >= 1: props.append("Mage_Cape")
 		if equipment.has("shield"): props.append("Spellbook")
 	else:
 		two_handed = "斧" in weapon_name   # 巨斧 great axes are the two-handed line
 		props.append("2H_Sword" if two_handed else "1H_Sword")
 		if equipment.has("shield") and not two_handed:
-			props.append(SHIELDS[mini(3, MenuSkin.rarity(ItemCatalog.get_item(int(equipment["shield"]))))])
+			props.append(SHIELDS[mini(3, GearFx.tier(ItemCatalog.get_item(int(equipment["shield"]))))])
 		if equipment.has("head"): props.append("Knight_Helmet")
-		if equipment.has("body") and MenuSkin.rarity(ItemCatalog.get_item(int(equipment["body"]))) >= 1: props.append("Knight_Cape")
-	var armor: int = MenuSkin.rarity(ItemCatalog.get_item(int(equipment["body"]))) if equipment.has("body") else -1
+		if equipment.has("body") and GearFx.tier(ItemCatalog.get_item(int(equipment["body"]))) >= 1: props.append("Knight_Cape")
+	var armor: int = GearFx.tier(ItemCatalog.get_item(int(equipment["body"]))) if equipment.has("body") else -1
 	return {"props": props, "two_handed": two_handed, "armor": armor}
 
 ## Shows the equipped pieces on a KayKit model and tints the body by armour rarity.
@@ -72,18 +73,58 @@ static func dress(model: Node3D, stats: Dictionary) -> Dictionary:
 			if part.ends_with("_" + suffix):
 				keep = true
 		mi.visible = keep and not (race == 250002 and part.ends_with("_Helmet"))
-		if part.ends_with("_Body"):
-			for s: int in mi.mesh.get_surface_count():
-				var base_mat: BaseMaterial3D = mi.mesh.surface_get_material(s) as BaseMaterial3D
-				if base_mat == null:
-					continue
-				if int(gear["armor"]) <= 0:
-					mi.set_surface_override_material(s, null)
-				else:
-					var tinted: BaseMaterial3D = base_mat.duplicate()
-					tinted.albedo_color = ARMOR_TINT[int(gear["armor"])]
-					mi.set_surface_override_material(s, tinted)
+	var path: String = String(model.scene_file_path)
+	if path.contains("/kaykit/"):
+		Outfit.paint(model, "mage" if path.ends_with("Mage.glb") else "knight", hero_palette(stats, gear))
 	return gear
+
+## Colour scheme for the hero: warrior steel and royal blue, mage burgundy and
+## cream (elves: silver-lilac and lilac-white). Better armour adds a coloured,
+## glowing trim; better weapons a tinted, glowing blade or staff.
+const TRIM_BY_RARITY: Array[Color] = [Color("8a6a3a"), Color("c8a050"), Color("9ad0ff"), Color("c890ff"), Color("ffd060")]
+const WEAPON_BY_RARITY: Array[Color] = [Color("b8c0c8"), Color("c8e0c8"), Color("a8c8ff"), Color("d0a8ff"), Color("ffe090")]
+## Warrior armour plate by tier: iron, steel, blue steel, night steel, gold.
+const PLATE_BY_TIER: Array[Color] = [Color("8e98a4"), Color("a8b2be"), Color("86a8d8"), Color("5e4e86"), Color("dcb456")]
+## Mage robe accents by tier: cream, linen, sky, amethyst, gold.
+const ROBE_ACCENT_BY_TIER: Array[Color] = [Color("d8ccb0"), Color("e8dcc0"), Color("8ac0f0"), Color("b880f0"), Color("f0c860")]
+static func hero_palette(stats: Dictionary, gear: Dictionary) -> Dictionary:
+	var mage: bool = int(stats.get("class_id", 130001)) in MAGE_CLASSES
+	var elf: bool = int(stats.get("race_id", 250001)) == 250002
+	var armor: int = clampi(int(gear.get("armor", -1)), -1, 4)
+	var at: int = maxi(armor, 0)
+	var p: Dictionary
+	if mage and elf:
+		p = {"cloth": Color("9a88dc"), "cloth2": Color("f2eeff"), "leather": Color("5a4a7a"), "metal": Color("d8e0f0"), "hair": Color("eceaf8")}
+	elif mage:
+		p = {"cloth": Color("8a2444"), "cloth2": Color("e8dcc0"), "leather": Color("4a2a1a"), "metal": Color("c89a5a"), "hair": Color("2a2030")}
+	elif elf:
+		p = {"cloth": Color("6a58b8"), "cloth2": Color("1e2448"), "leather": Color("3a3050"), "metal": Color("dce4f0"), "hair": Color("e8e6f4")}
+	else:
+		p = {"cloth": Color("2f56b0"), "cloth2": Color("e8e0d0"), "leather": Color("5a3a22"), "metal": Color("a8b2be"), "hair": Color("4a2e1e")}
+	if elf:
+		p["skin"] = Color("cdbcf2")
+	if mage:
+		if armor >= 2:
+			p["cloth2"] = ROBE_ACCENT_BY_TIER[at]
+			p["cloth_glow"] = [0.0, 0.0, 0.08, 0.18, 0.28][at]
+		if not elf:
+			p["cloth"] = [Color("8a2444"), Color("8a2444"), Color("1f4a96"), Color("40287a"), Color("f2e8cc")][at]
+			if at == 4:
+				p["cloth2"] = Color("e0b050")
+				p["leather"] = Color("c89a4a")
+	elif not elf or armor >= 2:
+		p["metal"] = PLATE_BY_TIER[at]
+	if armor >= 0:
+		p["trim"] = TRIM_BY_RARITY[armor]
+		p["glow"] = [0.0, 0.0, 0.35, 0.9, 1.5][armor]
+		if armor >= 3:
+			p["pulse"] = 0.35
+	var equipment: Dictionary = stats.get("equipment", {})
+	var w: int = GearFx.tier(ItemCatalog.get_item(int(equipment["weapon"]))) if equipment.has("weapon") else 0
+	p["weapon_metal"] = WEAPON_BY_RARITY[w].lerp(p["metal"], 0.35 if mage else 0.0)
+	p["metal_glow"] = [0.0, 0.0, 0.3, 0.7, 1.2][w]
+	p["gem"] = GearFx.MAGE_ORB[w]
+	return p
 
 func _rebuild() -> void:
 	var stats: Dictionary = actor.stats
@@ -109,6 +150,7 @@ func _rebuild() -> void:
 		_base = base
 		_race = race
 	_two_handed_gear = bool(dress(model, stats)["two_handed"])
+	fx = GearFx.attach(model, stats)
 
 ## A hand-made hero (assets/characters/hero/<race>_<class>_<sex>.glb) when present.
 static func hero_path(stats: Dictionary, fallback: String) -> String:
@@ -161,10 +203,14 @@ func strike() -> void:
 		pool = ["Spellcast_Shoot"]
 	_one_shot(pool[_combo % pool.size()], 1.6)
 	_combo += 1
+	if fx:
+		fx.swing(0.42)
 
 func cast() -> void:
 	if not _dead:
 		_one_shot("Spellcast_Shoot", 1.4)
+		if fx:
+			fx.swing()
 
 func dodge() -> void:
 	if not _dead:

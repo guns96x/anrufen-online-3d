@@ -46,6 +46,58 @@ const LOOKS: Dictionary = {
 
 const ALWAYS_VISIBLE: Array[String] = ["ArmLeft", "ArmRight", "Body", "Head", "LegLeft", "LegRight", "Head_Hooded"]
 
+## Each named citizen's own colour scheme (Outfit): main and second cloth,
+## leather, metal, gold trim, hair and skin. Unlisted keys keep KayKit colours.
+const PALETTES: Dictionary = {
+	"mayor": {"cloth": Color("5e2a86"), "cloth2": Color("e8c25a"), "leather": Color("4a2e1a"), "metal": Color("d9b45a"), "trim": Color("f2d27a"), "glow": 0.25, "hair": Color("cfcfcf")},
+	"tribune": {"cloth": Color("7a4fa0"), "cloth2": Color("2e2a4a"), "metal": Color("b8c0cc"), "trim": Color("e8c25a"), "hair": Color("3a2a20")},
+	"ranger": {"cloth": Color("3f6e2e"), "cloth2": Color("a8743a"), "leather": Color("6a4a2a"), "metal": Color("6a7078"), "hair": Color("b8462a")},
+	"militia_captain": {"cloth": Color("b33a2e"), "cloth2": Color("ece4d4"), "metal": Color("8f9aa8"), "trim": Color("e8c25a"), "hair": Color("2a2420")},
+	"gourmand": {"cloth": Color("d0923a"), "cloth2": Color("7a3a2a"), "leather": Color("8a5a30"), "hair": Color("6a3a20"), "skin": Color("f0a888")},
+	"widow_anna": {"cloth": Color("2c2a3a"), "cloth2": Color("6a5a7a"), "leather": Color("3a2a2a"), "hair": Color("1a1418"), "skin": Color("f4d8c8")},
+	"smuggler": {"cloth": Color("3c3f47"), "cloth2": Color("8a2a2a"), "leather": Color("4a3020"), "metal": Color("5a5e66"), "hair": Color("202020"), "skin": Color("c8906a")},
+	"madman": {"cloth": Color("8c6a8a"), "cloth2": Color("4a8a5a"), "leather": Color("6a4a3a"), "hair": Color("ecead8")},
+	"madmans_wife": {"cloth": Color("9a5a3c"), "cloth2": Color("d8c090"), "hair": Color("8a4a2a")},
+	"tom": {"cloth": Color("4a7ab0"), "cloth2": Color("d0a860"), "hair": Color("e0b860")},
+	"jessie": {"cloth": Color("e07898"), "cloth2": Color("f4e4a8"), "hair": Color("e8903a")},
+	"alchemist": {"cloth": Color("2f8a7a"), "cloth2": Color("c8e05a"), "leather": Color("5a3a2a"), "trim": Color("7af0d0"), "glow": 0.8, "pulse": 0.4, "hair": Color("4a2a5a")},
+	"breeder": {"cloth": Color("6a9a4a"), "cloth2": Color("c8a060"), "hair": Color("7a5030"), "skin": Color("d8a070")},
+	"doctor_jack": {"cloth": Color("eeeee6"), "cloth2": Color("3a6ab0"), "metal": Color("c0c8d0"), "hair": Color("707070")},
+	"jeweller": {"cloth": Color("2f8f9a"), "cloth2": Color("e8c25a"), "metal": Color("ecd490"), "trim": Color("f4e48a"), "glow": 0.6, "hair": Color("141014"), "skin": Color("f2cca8")},
+	"beast_tamer": {"cloth": Color("8a5a2a"), "cloth2": Color("3a2a1a"), "leather": Color("5a3a1a"), "hair": Color("2a1a10"), "skin": Color("a86a48")},
+	"weapon_merchant": {"cloth": Color("5a5048"), "cloth2": Color("9a3a1a"), "metal": Color("8a9098"), "hair": Color("3a2a20"), "skin": Color("c08060")},
+	"armor_merchant": {"cloth": Color("3a4a6a"), "cloth2": Color("aab4c0"), "metal": Color("b4bcc8"), "hair": Color("8a7a6a")},
+	"item_merchant": {"cloth": Color("b07a3a"), "cloth2": Color("3a6a8a"), "hair": Color("5a3a20")},
+	"accessory_merchant": {"cloth": Color("c86a9a"), "cloth2": Color("f4d4e4"), "trim": Color("f4c4dc"), "glow": 0.4, "hair": Color("2a1830")},
+	"stable_master": {"cloth": Color("7a5a3a"), "cloth2": Color("c8b080"), "hair": Color("9a7a50")},
+	"mystery_merchant": {"cloth": Color("2a1a4a"), "cloth2": Color("6a3aa0"), "trim": Color("b080ff"), "glow": 1.2, "pulse": 0.5, "cloth_glow": 0.05, "hair": Color("c8c8e8")},
+	"arena_steward": {"cloth": Color("c9a23a"), "cloth2": Color("6a1a1a"), "metal": Color("e8d080"), "trim": Color("fff0a0"), "glow": 0.5, "hair": Color("1a1a1a")},
+	"viper_bandit": {"cloth": Color("26262a"), "cloth2": Color("8a1f1f"), "leather": Color("3a2418"), "metal": Color("4a4a50"), "hair": Color("1a1a1a"), "skin": Color("d0a080")},
+	"viper_brute": {"cloth": Color("4a1414"), "cloth2": Color("2a2a2a"), "leather": Color("3a2418"), "metal": Color("3a3a40"), "hair": Color("5a2a1a"), "skin": Color("b07a58")},
+}
+## Townsfolk without a name get one of these, picked by their variant number.
+const FOLK: Array[Dictionary] = [
+	{"cloth": Color("8a6a4a"), "cloth2": Color("d8c8a0"), "hair": Color("4a3020")},
+	{"cloth": Color("4a6a8a"), "cloth2": Color("c8b890"), "hair": Color("1a1a1a"), "skin": Color("d8a880")},
+	{"cloth": Color("7a3a3a"), "cloth2": Color("e0d0b0"), "hair": Color("b07030")},
+	{"cloth": Color("5a7a4a"), "cloth2": Color("a88a5a"), "hair": Color("6a6a6a")},
+	{"cloth": Color("6a4a7a"), "cloth2": Color("e8d8c0"), "hair": Color("3a2010"), "skin": Color("a87050")},
+	{"cloth": Color("a87a3a"), "cloth2": Color("4a3a2a"), "hair": Color("d8c070")},
+	{"cloth": Color("3a5a5a"), "cloth2": Color("c0a080"), "hair": Color("2a1a1a"), "skin": Color("f0c8a8")},
+	{"cloth": Color("9a5a6a"), "cloth2": Color("f0e0c8"), "hair": Color("5a3020")},
+]
+
+static func palette_for(role: String, variant: int, tint: Color) -> Dictionary:
+	if PALETTES.has(role):
+		return PALETTES[role]
+	if role.begins_with("consign_"):
+		var c: Dictionary = FOLK[(variant + role.length()) % FOLK.size()].duplicate()
+		c["cloth"] = tint
+		return c
+	if role == "resident":
+		return FOLK[variant % FOLK.size()]
+	return {"cloth": tint, "cloth2": tint.lightened(0.5)}
+
 ## Body type for the anime proportions pass (Proportions.LOOK).
 const BODIES: Dictionary = {
 	"widow_anna": "woman", "madmans_wife": "woman", "accessory_merchant": "woman", "jeweller": "woman",
@@ -104,14 +156,8 @@ static func build(role: String, variant: int = 0) -> Node3D:
 			if part.ends_with("_" + suffix):
 				keep = true
 		mi.visible = keep
-		if keep and (part.ends_with("_Body") or part.ends_with("_Cape") or part.ends_with("_Hat")):
-			for s: int in mi.mesh.get_surface_count():
-				var mat: BaseMaterial3D = (mi.get_active_material(s) as BaseMaterial3D)
-				if mat:
-					var tinted: BaseMaterial3D = mat.duplicate()
-					tinted.albedo_color = tint
-					mi.set_surface_override_material(s, tinted)
-	ToonStyle.apply(model, true)
+	if not Outfit.paint(model, look[0], palette_for(role, variant, tint)):
+		ToonStyle.apply(model, true)
 	Proportions.apply(model, body_for(role))
 	model.scale = Vector3.ONE * float(look[4])
 	model.rotation.y = PI   # KayKit faces +Z; NPC visuals face -Z toward the player
