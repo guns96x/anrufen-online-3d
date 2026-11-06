@@ -376,6 +376,16 @@ func get_cooldown_left(skill: String) -> float:
 
 func perform_attack() -> void:
 	if get_meta("network_world",false):
+		# Online the server decides the hit; the swing plays at once so the
+		# button always answers (the damage number arrives with the event).
+		if is_dead or controls_blocked or not MountSystem.can_attack(stats) or cooldowns["attack"] > 0.0:
+			return
+		cooldowns["attack"] = ATTACK_COOLDOWN
+		time_since_combat = 0.0
+		_face_attack_target()
+		_motion.strike_left = 0.35
+		CombatFeedback.arc(get_parent(), global_position, visual_root.rotation.y, Color(0.75, 0.92, 1.0, 0.8))
+		CombatFeedback.sound(self, "swing", -20.0)
 		_network_action("attack")
 		return
 	if is_dead or controls_blocked or not MountSystem.can_attack(stats) or cooldowns["attack"] > 0.0:
@@ -423,9 +433,40 @@ func perform_attack() -> void:
 			_camera_impulse = 0.5
 			CombatFeedback.sound(self, "hit", -16.0)
 
+## Turns toward the selected target, or the nearest monster in reach.
+func _face_attack_target() -> void:
+	var face_target: Node3D = null
+	if is_instance_valid(current_target) and current_target is Node3D and global_position.distance_to(current_target.global_position) < 4.0 			and not (current_target is Monster and current_target.is_dead()):
+		face_target = current_target
+	else:
+		face_target = _nearest_monster(3.5)
+		if face_target:
+			current_target = face_target
+	if face_target:
+		var to_target: Vector3 = face_target.global_position - global_position
+		to_target.y = 0.0
+		if to_target.length() > 0.01:
+			to_target = to_target.normalized()
+			visual_root.rotation.y = atan2(-to_target.x, -to_target.z)
+
+## Online skill: the cast or strike plays at once, the server resolves it.
+func _network_skill(slot: String) -> void:
+	if is_dead or controls_blocked:
+		return
+	var id: int = int(stats.get("hotbar",{}).get(slot,0))
+	var effect: String = str(CharacterSystem.SKILLS.get(id,{}).get("effect",""))
+	if effect != "heal":
+		_face_attack_target()
+	if effect in ["fire", "ice", "heal"] or int(stats.get("class_id", 130001)) in HeroAvatar.MAGE_CLASSES:
+		_motion.cast()
+	else:
+		_motion.strike_left = 0.35
+	set_meta("predicted_skill_until", Time.get_ticks_msec() + 900)
+	_network_action("skill", slot)
+
 func perform_skill_1() -> void:
 	if get_meta("network_world",false):
-		_network_action("skill")
+		_network_skill("1")
 		return
 	if is_dead or controls_blocked:
 		return
@@ -647,7 +688,7 @@ func perform_assigned_skill(slot: String) -> void:
 		perform_skill_1()
 		return
 	if get_meta("network_world",false):
-		_network_action("skill",slot)
+		_network_skill(slot)
 		return
 	if is_dead or controls_blocked: return
 	if not original_skills.cast(slot):

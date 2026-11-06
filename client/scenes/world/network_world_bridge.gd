@@ -220,7 +220,8 @@ func _event(event: Dictionary) -> void:
 	elif event.get("type") == "skill":
 		var account: int = int(event.get("attacker",0))
 		var actor: Player = world.local_player if account == int(network.world_snapshot["own_id"]) else _remotes.get(account)
-		if actor:
+		var predicted: bool = actor == world.local_player and Time.get_ticks_msec() < int(actor.get_meta("predicted_skill_until", 0))
+		if actor and not predicted:
 			CombatFeedback.arc(world,actor.global_position,actor.visual_root.rotation.y,Color.SKY_BLUE,2.4)
 			if actor._motion: actor._motion.strike_left = 0.35
 	elif event.get("type") == "heal":
@@ -235,5 +236,47 @@ func _event(event: Dictionary) -> void:
 		elif target.get("kind") == "player" and network.world_snapshot["state"]["actors"].has(int(target.get("id",0))):
 			location = network.world_snapshot["state"]["actors"][int(target["id"])]["position"]
 		world.local_player._float_text(location+Vector3(0,1.5,0),"MISS" if event.get("is_miss",false) else str(event.get("amount",0)),Color.ORANGE)
+		_animate_damage(event, location)
 		if target.get("kind") == "player" and int(target.get("id",0)) == int(network.world_snapshot["own_id"]) and int(event.get("amount",0)) > 0:
 			world.local_player._camera_impulse = 0.7
+
+## Attack and hit animations for online combat: other players swing at what
+## they hit, monsters play their attack on the player they strike, and the
+## struck side flinches.
+func _animate_damage(event: Dictionary, location: Vector3) -> void:
+	if event.get("periodic", false):
+		return
+	var target: Dictionary = event.get("target", {})
+	if event.get("attacker_kind") == "player":
+		var account: int = int(event.get("attacker", 0))
+		var own: bool = account == int(network.world_snapshot.get("own_id", -1))
+		var attacker: Player = null if own else _remotes.get(account)
+		if attacker and attacker._motion and int(event.get("skill_id", 0)) == 0:
+			var to: Vector3 = location - attacker.global_position
+			to.y = 0.0
+			if to.length() > 0.05:
+				attacker.visual_root.rotation.y = atan2(-to.x, -to.z)
+			attacker._motion.strike_left = 0.35
+		if target.get("kind") == "monster" and not event.get("is_miss", false):
+			var monster: Node = _monster_node(str(target.get("id")))
+			if monster is Monster:
+				if monster.animator:
+					monster.animator.hit()
+				Vfx.hit(world, location + Vector3.UP, bool(event.get("is_critical", false)))
+	elif event.get("attacker_kind") == "monster":
+		var monster: Node = _monster_node(str(event.get("monster_key", "")))
+		if monster is Monster and monster.animator:
+			var to: Vector3 = location - (monster as Node3D).global_position
+			to.y = 0.0
+			if to.length() > 0.05:
+				(monster as Monster).visual_root.rotation.y = atan2(-to.x, -to.z)
+			monster.animator.attack(0.2)
+		if target.get("kind") == "player" and int(target.get("id", 0)) == int(network.world_snapshot.get("own_id", -1)) and not event.get("is_miss", false):
+			if world.local_player._motion:
+				world.local_player._motion.hurt()
+
+func _monster_node(key: String) -> Node:
+	for m: Node in world.get_tree().get_nodes_in_group("monsters"):
+		if str(m.name) == key:
+			return m
+	return null
