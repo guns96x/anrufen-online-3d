@@ -159,6 +159,8 @@ func _rebuild() -> void:
 		_race = race
 	_two_handed_gear = bool(dress(model, stats)["two_handed"])
 	fx = GearFx.attach(model, stats)
+	if not actor.is_local_player:
+		WorldPerf.tune_character(actor, actor.visual_root)
 
 ## A hand-made hero (assets/characters/hero/<race>_<class>_<sex>.glb) when present.
 static func hero_path(stats: Dictionary, fallback: String) -> String:

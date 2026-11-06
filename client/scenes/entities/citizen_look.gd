@@ -158,6 +158,7 @@ static func build(role: String, variant: int = 0) -> Node3D:
 		mi.visible = keep
 	if not Outfit.paint(model, look[0], palette_for(role, variant, tint)):
 		ToonStyle.apply(model, true)
+	CharacterMerge.merge(model)
 	Proportions.apply(model, body_for(role))
 	model.scale = Vector3.ONE * float(look[4])
 	model.rotation.y = PI   # KayKit faces +Z; NPC visuals face -Z toward the player

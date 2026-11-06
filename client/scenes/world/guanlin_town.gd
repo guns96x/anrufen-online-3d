@@ -26,6 +26,7 @@ func _ready() -> void:
 	_configure_citizens()
 	_spawn_bandits()
 	_dress_creatures()
+	call_deferred("_tune_performance")
 	for id: int in ForestForage.POINTS:
 		var patch: ForagePatch = ForagePatch.new()
 		patch.name = "WildVegetables%d" % id
@@ -429,3 +430,14 @@ func _update_target_ring(delta: float) -> void:
 		_target_ring.rotate_y(delta * 1.5)
 		var mat: StandardMaterial3D = _target_ring.material_override
 		mat.albedo_color = Color(1.0, 0.3, 0.2) if t is Monster else Color(1.0, 0.85, 0.3)
+
+## Phone budget: short sun shadows, blob shadows and off-screen animation
+## culling for every NPC and creature (WorldPerf).
+func _tune_performance() -> void:
+	WorldPerf.tune_world(self, $DirectionalLight3D)
+	for node: Node in find_children("*", "NPC", true, false):
+		if "visual_root" in node:
+			WorldPerf.tune_character(node, node.visual_root)
+	for node: Node in get_tree().get_nodes_in_group("monsters"):
+		if "visual_root" in node:
+			WorldPerf.tune_character(node, node.visual_root, 0.7)

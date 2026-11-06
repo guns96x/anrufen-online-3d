@@ -83,9 +83,23 @@ func house(pos: Vector3, yaw_deg: float, w: int, d: int, storeys: int, spec: Dic
 	bake(root)
 	return root
 
+const BAKE_VERSION: int = 2
+const BAKE_CACHE: String = "user://bake_cache"
+
 ## Merges every kit piece under root into one mesh per texture set, so a house
 ## costs a handful of draw calls on mobile instead of one per wall surface.
+## The merged mesh (with its LODs) is cached on disk, keyed by the pieces and
+## their placement, so later launches skip the merge and LOD generation. On
+## phones the first automatic LOD becomes the full-detail mesh: the kit's
+## bevels are invisible at phone size and it halves the triangle count.
 func bake(root: Node3D) -> void:
+	var mobile: bool = OS.has_feature("mobile") or OS.get_environment("COVENANT_MOBILE_LOD") == "1"
+	var cache_path: String = "%s/%s_%s.res" % [BAKE_CACHE, String(root.name).validate_filename(), _bake_digest(root, mobile)]
+	if ResourceLoader.exists(cache_path):
+		var cached: ArrayMesh = load(cache_path) as ArrayMesh
+		if cached:
+			_replace_with(root, _bake_pieces(root), cached)
+			return
 	var tools: Dictionary = {}
 	var materials: Dictionary = {}
 	var pieces: Array[Node] = []
@@ -116,7 +130,14 @@ func bake(root: Node3D) -> void:
 		st.index()
 		importer.add_surface(Mesh.PRIMITIVE_TRIANGLES, st.commit_to_arrays(), [], {}, materials[key])
 	importer.generate_lods(25.0, 60.0, [])
+	if mobile:
+		importer = _drop_top_lod(importer)
 	var merged: ArrayMesh = importer.get_mesh()
+	DirAccess.make_dir_recursive_absolute(BAKE_CACHE)
+	ResourceSaver.save(merged, cache_path)
+	_replace_with(root, pieces, merged)
+
+func _replace_with(root: Node3D, pieces: Array[Node], merged: ArrayMesh) -> void:
 	for piece: Node in pieces:
 		root.remove_child(piece)
 		piece.queue_free()
@@ -124,6 +145,42 @@ func bake(root: Node3D) -> void:
 	baked.name = "Baked"
 	baked.mesh = merged
 	root.add_child(baked)
+
+## The pieces bake() would merge (everything but colliders, lights, labels).
+func _bake_pieces(root: Node3D) -> Array[Node]:
+	var pieces: Array[Node] = []
+	for child: Node in root.get_children():
+		if child is StaticBody3D or child is Light3D or child is Label3D or child.name == "Baked" 				or not child.find_children("*", "Label3D", true, false).is_empty() 				or not child.find_children("*", "Light3D", true, false).is_empty():
+			continue
+		pieces.append(child)
+	return pieces
+
+## Identifies a bake by which meshes sit where, so any layout change re-bakes.
+func _bake_digest(root: Node3D, mobile: bool) -> String:
+	var parts: PackedStringArray = PackedStringArray([str(BAKE_VERSION), "m" if mobile else "d"])
+	for piece: Node in _bake_pieces(root):
+		var meshes: Array[Node] = piece.find_children("*", "MeshInstance3D", true, false)
+		if piece is MeshInstance3D: meshes.append(piece)
+		for node: Node in meshes:
+			var mi: MeshInstance3D = node
+			if mi.mesh == null:
+				continue
+			var o: Vector3 = _relative_transform(mi, root).origin
+			parts.append("%s@%d,%d,%d" % [mi.mesh.resource_path if mi.mesh.resource_path != "" else str(mi.mesh.get_surface_count()), roundi(o.x * 100), roundi(o.y * 100), roundi(o.z * 100)])
+	return str(hash(",".join(parts)))
+
+func _drop_top_lod(src: ImporterMesh) -> ImporterMesh:
+	var out: ImporterMesh = ImporterMesh.new()
+	for s: int in src.get_surface_count():
+		var arrays: Array = src.get_surface_arrays(s)
+		var lods: Dictionary = {}
+		var count: int = src.get_surface_lod_count(s)
+		if count > 0:
+			arrays[Mesh.ARRAY_INDEX] = src.get_surface_lod_indices(s, 0)
+			for i: int in range(1, count):
+				lods[src.get_surface_lod_size(s, i)] = src.get_surface_lod_indices(s, i)
+		out.add_surface(src.get_surface_primitive_type(s), arrays, [], lods, src.get_surface_material(s), src.get_surface_name(s))
+	return out
 
 func _relative_transform(node: Node3D, root: Node3D) -> Transform3D:
 	var xf: Transform3D = Transform3D.IDENTITY
