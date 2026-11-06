@@ -719,6 +719,6 @@ func _network_move(delta: float) -> void:
 	if _network_input_timer <= 0.0:
 		_network_input_timer = 0.05
 		get_node("/root/NetworkManager").send_world_input(Vector2(wish.x,wish.z),visual_root.rotation.y)
-	velocity = wish*move_speed*MountSystem.speed_multiplier(stats)*StatusEffects.speed_multiplier(stats)
+	velocity = wish*move_speed*MountSystem.speed_multiplier(stats)*StatusEffects.speed_multiplier(stats)*(0.45 if get_meta("net_slowed", false) else 1.0)
 	# Local prediction is corrected from server snapshots; it never awards combat.
 	move_and_slide()

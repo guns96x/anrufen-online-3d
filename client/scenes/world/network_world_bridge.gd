@@ -11,6 +11,20 @@ var _loot_visuals: Dictionary = {}
 var _loot_attempts: Dictionary = {}
 var _save_enabled: bool
 
+## Interpolation: other players and monsters are drawn ~120 ms in the past,
+## between the two server snapshots around that moment, so they glide instead
+## of jumping 10 times a second. Server time is mapped to the local clock with
+## the smallest observed offset (the least-delayed packet).
+const INTERP_DELAY_MS: float = 120.0
+const MAX_EXTRAPOLATE_MS: float = 150.0
+var _snaps: Array = []
+var _clock_offset: float = INF
+var _offset_age: int = 0
+## Own hero: positions this client predicted, compared with the server answer
+## for the same moment (snapshot age = round trip + half an input step).
+var _history: Array = []
+var _correction: Vector3 = Vector3.ZERO
+
 func _ready() -> void:
 	network = get_node("/root/NetworkManager")
 	network.world_updated.connect(_receive_world)
@@ -98,8 +112,12 @@ func _receive_world(packet: Dictionary) -> void:
 		return
 	if not _active:
 		_enter()
-	_apply_profile(packet["profile"],packet["journal"],false)
+	if packet.get("profile_fresh", false) and not packet.get("profile", {}).is_empty():
+		_apply_profile(packet["profile"],packet.get("journal",{}),false)
+	if not packet.has("state"):
+		return
 	var state: Dictionary = packet["state"]
+	_push_snapshot(state)
 	var own_id: int = int(packet["own_id"])
 	for id: int in state["actors"]:
 		var row: Dictionary = state["actors"][id]
@@ -130,17 +148,18 @@ func _receive_world(packet: Dictionary) -> void:
 			avatar.get_node("OnlineName").visible = SettingsStore.current().get_value("show_names")
 		var location: Vector3 = row["position"]
 		if id == own_id:
-			# Own hero is predicted locally; the snapshot is ~100 ms old, so only correct
-			# real divergence (walls, server rejection) instead of pulling back every packet.
-			var error: float = avatar.global_position.distance_to(location)
-			if error > 4.0 or row["dead"]:
-				avatar.global_position = location
-			elif error > 1.2:
-				avatar.global_position = avatar.global_position.lerp(location, 0.25)
+			for key: String in ["hp", "max_hp", "mp", "max_mp", "level"]:
+				if row.has(key):
+					avatar.stats[key] = row[key]
+			avatar.set_meta("net_slowed", float(row.get("slow_timer", 0.0)) > 0.0)
+			_reconcile(avatar, location, bool(row["dead"]))
 		else:
-			avatar.velocity = (location-avatar.global_position)/0.1
-			avatar.global_position = location if avatar.global_position.distance_to(location) > 4.0 else avatar.global_position.lerp(location,0.7)
-			avatar.visual_root.rotation.y = lerp_angle(avatar.visual_root.rotation.y, float(row["yaw"]), 0.6)
+			for key: String in ["race_id", "sex", "equipment", "class_id"]:
+				if row.has(key):
+					avatar.stats[key] = row[key]
+			if avatar.global_position.distance_to(location) > 6.0 or not avatar.has_meta("net_seen"):
+				avatar.global_position = location
+				avatar.set_meta("net_seen", true)
 		avatar.visual_root.visible = not row["dead"]
 		avatar.is_dead = row["dead"]
 		avatar.respawn_timer = row["respawn_timer"]
@@ -156,7 +175,9 @@ func _receive_world(packet: Dictionary) -> void:
 		var row: Dictionary = state["monsters"].get(str(monster.name),{})
 		if row.is_empty():
 			continue
-		monster.global_position = row["position"]
+		if not monster.has_meta("net_seen") or monster.global_position.distance_to(row["position"]) > 8.0 or row["state"] == "dead":
+			monster.global_position = row["position"]
+			monster.set_meta("net_seen", true)
 		monster.current_hp = int(row["hp"])
 		monster.state = Monster.State.DEAD if row["state"] == "dead" else Monster.State.ATTACK if row["state"] == "attack" else Monster.State.IDLE
 		monster.visual_root.visible = row["state"] != "dead"
@@ -280,3 +301,133 @@ func _monster_node(key: String) -> Node:
 		if str(m.name) == key:
 			return m
 	return null
+
+# ---------------------------------------------------------- Interpolation ---
+
+func _push_snapshot(state: Dictionary) -> void:
+	var now: float = Time.get_ticks_msec()
+	var server_t: float = float(state.get("t", now))
+	var offset: float = now - server_t
+	_offset_age += 1
+	# Keep the smallest offset, but let it rise slowly so clock drift or a
+	# route change cannot freeze it.
+	if offset < _clock_offset:
+		_clock_offset = offset
+		_offset_age = 0
+	elif _offset_age > 50:
+		_clock_offset = lerpf(_clock_offset, offset, 0.1)
+		_offset_age = 0
+	var actors: Dictionary = {}
+	for id: int in state["actors"]:
+		actors[id] = [state["actors"][id]["position"], float(state["actors"][id]["yaw"])]
+	var monsters: Dictionary = {}
+	for key: String in state["monsters"]:
+		monsters[key] = state["monsters"][key]["position"]
+	if not _snaps.is_empty() and float(_snaps[-1]["t"]) >= server_t:
+		return
+	_snaps.append({"t": server_t, "actors": actors, "monsters": monsters})
+	while _snaps.size() > 12:
+		_snaps.pop_front()
+
+## Where something was at render time: between two snapshots, or a short
+## extrapolation past the newest one.
+func _sample(kind: String, key: Variant, render_t: float) -> Variant:
+	var idx: int = -1
+	for i: int in range(_snaps.size() - 1, -1, -1):
+		if float(_snaps[i]["t"]) <= render_t:
+			idx = i
+			break
+	if idx < 0:
+		return _snaps[0][kind].get(key, null) if not _snaps.is_empty() else null
+	var older: Dictionary = _snaps[idx]
+	if not older[kind].has(key):
+		return null
+	if idx + 1 >= _snaps.size() or not _snaps[idx + 1][kind].has(key):
+		# Past the newest snapshot: continue the last motion briefly.
+		if idx > 0 and _snaps[idx - 1][kind].has(key):
+			var prev: Dictionary = _snaps[idx - 1]
+			var span: float = maxf(1.0, float(older["t"]) - float(prev["t"]))
+			var ahead: float = minf(render_t - float(older["t"]), MAX_EXTRAPOLATE_MS) / span
+			return _mix(prev[kind][key], older[kind][key], 1.0 + ahead)
+		return older[kind][key]
+	var newer: Dictionary = _snaps[idx + 1]
+	var t: float = (render_t - float(older["t"])) / maxf(1.0, float(newer["t"]) - float(older["t"]))
+	return _mix(older[kind][key], newer[kind][key], clampf(t, 0.0, 1.0))
+
+func _mix(a: Variant, b: Variant, t: float) -> Variant:
+	if a is Array:
+		return [(a[0] as Vector3).lerp(b[0], t), lerp_angle(float(a[1]), float(b[1]), clampf(t, 0.0, 1.0))]
+	return (a as Vector3).lerp(b, t)
+
+func _process(delta: float) -> void:
+	if not _active or _snaps.is_empty() or _clock_offset == INF:
+		return
+	var render_t: float = Time.get_ticks_msec() - _clock_offset - INTERP_DELAY_MS
+	for id: int in _remotes:
+		var avatar: Player = _remotes[id]
+		if not is_instance_valid(avatar):
+			continue
+		var v: Variant = _sample("actors", id, render_t)
+		if v == null:
+			continue
+		var target: Vector3 = v[0]
+		var before: Vector3 = avatar.global_position
+		avatar.global_position = target
+		avatar.velocity = (target - before) / maxf(delta, 0.001)
+		avatar.visual_root.rotation.y = lerp_angle(avatar.visual_root.rotation.y, float(v[1]), minf(1.0, delta * 14.0))
+	for monster: Monster in get_tree().get_nodes_in_group("monsters"):
+		if monster.state == Monster.State.DEAD:
+			monster.velocity = Vector3.ZERO
+			continue
+		var p: Variant = _sample("monsters", str(monster.name), render_t)
+		if p == null:
+			continue
+		var before: Vector3 = monster.global_position
+		monster.global_position = p
+		var step: Vector3 = (p as Vector3) - before
+		monster.velocity = step / maxf(delta, 0.001)
+		step.y = 0.0
+		if step.length() > 0.004 and not (monster.animator and monster.animator._action_left > 0.0):
+			monster.visual_root.rotation.y = lerp_angle(monster.visual_root.rotation.y, atan2(-step.x, -step.z), minf(1.0, delta * 10.0))
+	# Own hero: record the prediction, and bleed in any correction gently.
+	var player: Player = world.local_player
+	_history.append([Time.get_ticks_msec(), player.global_position])
+	while _history.size() > 90:
+		_history.pop_front()
+	if _correction.length() > 0.01:
+		var step: Vector3 = _correction * minf(1.0, delta * 6.0)
+		player.global_position += step
+		_correction -= step
+		for entry: Array in _history:
+			entry[1] = (entry[1] as Vector3) + step
+
+func _round_trip_ms() -> float:
+	var peer: MultiplayerPeer = multiplayer.multiplayer_peer
+	if peer == null or multiplayer.is_server():
+		return 0.0   # hosting: the own hero is simulated right here
+	if peer is ENetMultiplayerPeer:
+		var host: ENetPacketPeer = (peer as ENetMultiplayerPeer).get_peer(1)
+		if host:
+			return float(host.get_statistic(ENetPacketPeer.PEER_ROUND_TRIP_TIME))
+	return 60.0
+
+## Compares the server position with where this client predicted the hero at
+## the same moment; only a real disagreement (a wall, a stun, a rejected dash)
+## becomes a correction, applied smoothly over a few frames.
+func _reconcile(avatar: Player, server_pos: Vector3, dead: bool) -> void:
+	var error_now: float = avatar.global_position.distance_to(server_pos)
+	if dead or error_now > 5.0:
+		avatar.global_position = server_pos
+		_correction = Vector3.ZERO
+		_history.clear()
+		return
+	var when: float = Time.get_ticks_msec() - _round_trip_ms() - 40.0
+	var predicted: Vector3 = avatar.global_position
+	for i: int in range(_history.size() - 1, -1, -1):
+		if float(_history[i][0]) <= when:
+			predicted = _history[i][1]
+			break
+	var drift: Vector3 = server_pos - predicted
+	drift.y = 0.0
+	if drift.length() > 0.45:
+		_correction = drift * 0.6

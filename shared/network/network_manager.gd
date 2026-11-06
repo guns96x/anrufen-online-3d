@@ -27,6 +27,8 @@ var _store: SessionStore
 var _registry: Dictionary = {}
 var _next_account: int = 1
 var _peer_accounts: Dictionary = {}
+## peer -> hash of the profile/journal last sent, so they travel only on change.
+var _profile_sent: Dictionary = {}
 var _account_peers: Dictionary = {}
 var world_enabled: bool = true
 var world_snapshot: Dictionary = {}
@@ -179,6 +181,7 @@ func _on_peer_disconnected(peer: int) -> void:
 		_remove_session(account)
 		_server_state.detach(account)
 		_peer_accounts.erase(peer)
+		_profile_sent.erase(peer)
 		_account_peers.erase(account)
 		_persist()
 		_broadcast()
@@ -443,26 +446,66 @@ func _broadcast_world() -> void:
 	if not is_server or simulation == null:
 		return
 	var state: Dictionary = simulation.public_snapshot()
+	state["t"] = Time.get_ticks_msec()
 	for id: int in _sessions:
 		if state["actors"].has(id):
 			state["actors"][id]["pet"] = _sessions[id].pet_snapshot()
 	state["loot"] = _loots.duplicate(true)
 	for peer: int in _peer_accounts:
 		var id: int = int(_peer_accounts[peer])
-		var packet: Dictionary = {"own_id":id,"state":state,"profile":_server_state.players[id]["profile"].duplicate(true),"journal":_server_state.players[id].get("journal",{}).duplicate(true)}
+		var profile: Dictionary = _server_state.players[id]["profile"]
+		var journal: Dictionary = _server_state.players[id].get("journal",{})
 		if peer == 1:
-			_apply_world(packet)
-		elif peer in multiplayer.get_peers():
-			rpc_id(peer,"_receive_world",packet)
+			_apply_world({"own_id":id,"state":state,"profile":profile.duplicate(true),"journal":journal.duplicate(true)})
+			continue
+		if not peer in multiplayer.get_peers():
+			continue
+		# Positions go out 10 times a second on the unreliable channel and stay
+		# small; the full profile and journal (bag, quests) only when they
+		# change, reliably. hp/mp ride in the actor rows.
+		var steady: Dictionary = profile.duplicate(false)
+		for volatile: String in ["hp", "mp", "regeneration_effects", "medicine_cooldowns", "skill_cooldowns"]:
+			steady.erase(volatile)
+		var digest: int = hash([steady, journal])
+		if int(_profile_sent.get(peer, 0)) != digest:
+			_profile_sent[peer] = digest
+			rpc_id(peer,"_receive_world_profile",{"own_id":id,"profile":profile.duplicate(true),"journal":journal.duplicate(true)})
+		rpc_id(peer,"_receive_world",{"own_id":id,"state":state})
 
 @rpc("authority","call_remote","unreliable_ordered",2)
 func _receive_world(packet: Dictionary) -> void:
 	if not is_server and multiplayer.get_remote_sender_id() == 1:
 		_apply_world(packet)
 
-func _apply_world(packet: Dictionary) -> void:
-	world_snapshot = packet.duplicate(true)
+@rpc("authority","call_remote","reliable",3)
+func _receive_world_profile(packet: Dictionary) -> void:
+	if is_server or multiplayer.get_remote_sender_id() != 1:
+		return
+	if world_snapshot.is_empty():
+		_pending_profile = packet.duplicate(true)
+		return
+	world_snapshot["profile"] = packet["profile"].duplicate(true)
+	world_snapshot["journal"] = packet["journal"].duplicate(true)
+	world_snapshot["profile_fresh"] = true
 	world_updated.emit(world_snapshot)
+	world_snapshot["profile_fresh"] = false
+
+var _pending_profile: Dictionary = {}
+
+func _apply_world(packet: Dictionary) -> void:
+	var fresh: bool = packet.has("profile")
+	var previous: Dictionary = world_snapshot
+	world_snapshot = packet.duplicate(true)
+	if not fresh:
+		if not _pending_profile.is_empty():
+			previous = _pending_profile
+			_pending_profile = {}
+			fresh = true
+		world_snapshot["profile"] = previous.get("profile", {})
+		world_snapshot["journal"] = previous.get("journal", {})
+	world_snapshot["profile_fresh"] = fresh
+	world_updated.emit(world_snapshot)
+	world_snapshot["profile_fresh"] = false
 
 func _combat_event(event: Dictionary) -> void:
 	if event.get("type") == "death" and int(event.get("attacker",0)) > 0 and int(event.get("target",0)) > 0 and _server_state != null:

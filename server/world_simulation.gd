@@ -625,7 +625,7 @@ func public_snapshot() -> Dictionary:
 	for id: int in actors:
 		var profile: Dictionary = _profile(id)
 		var actor: Dictionary = actors[id]
-		actor_data[id] = {"id":id,"name":str(profile.get("name","")),"position":actor["position"],"yaw":actor["yaw"],"hp":profile.get("hp",0),"max_hp":profile.get("max_hp",0),"mp":profile.get("mp",0),"max_mp":profile.get("max_mp",0),"level":profile.get("level",1),"class_id":profile.get("class_id",130001),"mount_id":profile.get("mount_id",0),"mounted":profile.get("mounted",false),"dead":actor["dead"],"respawn_timer":actor["respawn_timer"],"dash_timer":actor["dash_timer"],"slow_timer":actor["slow_timer"],"cooldowns":actor["cooldowns"].duplicate(true),"pk_mode":actor["pk_mode"]}
+		actor_data[id] = {"id":id,"name":str(profile.get("name","")),"position":actor["position"],"yaw":actor["yaw"],"hp":profile.get("hp",0),"max_hp":profile.get("max_hp",0),"mp":profile.get("mp",0),"max_mp":profile.get("max_mp",0),"level":profile.get("level",1),"class_id":profile.get("class_id",130001),"mount_id":profile.get("mount_id",0),"mounted":profile.get("mounted",false),"dead":actor["dead"],"respawn_timer":actor["respawn_timer"],"dash_timer":actor["dash_timer"],"slow_timer":actor["slow_timer"],"cooldowns":actor["cooldowns"].duplicate(true),"pk_mode":actor["pk_mode"],"race_id":profile.get("race_id",250001),"sex":profile.get("sex","m"),"equipment":profile.get("equipment",{}).duplicate()}
 	var monster_data: Dictionary = {}
 	for key: String in monsters:
 		var monster: Dictionary = monsters[key]
