@@ -1,0 +1,29 @@
+{
+  "target_id": "target-01",
+  "mode": "generated",
+  "status": "ready",
+  "image": {
+    "path": "target.png",
+    "width": 1536,
+    "height": 1024,
+    "format": "PNG",
+    "sha256": "a56b6e90533ddfe481d976043c5fe289f343b70a1cbe660beb083fde54de5a06"
+  },
+  "prompt": {
+    "path": "prompt.txt"
+  },
+  "brief": "brief.md",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "model": null,
+    "seed": null
+  },
+  "previous_target_id": null,
+  "references": [],
+  "provenance_note": "Generated original visual development image. Not a Blender render or a completed 3D asset. Prior procedural model explicitly rejected by user.",
+  "inspection": {
+    "performed": true,
+    "findings": "All three full bodies and face closeup are visible. Consistent navy steel gold adult warrior, fitted quilted layers, shoulder cloak, swept hair, original oak/gate detail. Pose is relaxed with arms near sides rather than a strict A-pose. Image is not evidence of topology, rigging, hidden surfaces or achievable final geometry."
+  },
+  "user_approval": "not recorded"
+}

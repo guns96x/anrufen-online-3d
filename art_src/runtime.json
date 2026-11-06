@@ -1,0 +1,73 @@
+{
+  "version": "5.0.1",
+  "engine": "BLENDER_EEVEE",
+  "exporter": {
+    "export_animation_mode": {
+      "type": "ENUM",
+      "default": "ACTIONS",
+      "options": [
+        "ACTIONS",
+        "ACTIVE_ACTIONS",
+        "BROADCAST",
+        "NLA_TRACKS",
+        "SCENE"
+      ]
+    },
+    "export_nla_strips": {
+      "type": "BOOLEAN",
+      "default": true
+    },
+    "export_force_sampling": {
+      "type": "BOOLEAN",
+      "default": true
+    },
+    "export_def_bones": {
+      "type": "BOOLEAN",
+      "default": false
+    },
+    "export_skins": {
+      "type": "BOOLEAN",
+      "default": true
+    },
+    "export_all_influences": {
+      "type": "BOOLEAN",
+      "default": false
+    },
+    "export_influence_nb": {
+      "type": "INT",
+      "default": 4
+    },
+    "export_yup": {
+      "type": "BOOLEAN",
+      "default": true
+    },
+    "use_selection": {
+      "type": "BOOLEAN",
+      "default": false
+    },
+    "export_apply": {
+      "type": "BOOLEAN",
+      "default": false
+    },
+    "export_image_format": {
+      "type": "ENUM",
+      "default": "AUTO",
+      "options": [
+        "AUTO",
+        "JPEG",
+        "WEBP",
+        "NONE"
+      ]
+    },
+    "export_materials": {
+      "type": "ENUM",
+      "default": "EXPORT",
+      "options": [
+        "EXPORT",
+        "PLACEHOLDER",
+        "VIEWPORT",
+        "NONE"
+      ]
+    }
+  }
+}

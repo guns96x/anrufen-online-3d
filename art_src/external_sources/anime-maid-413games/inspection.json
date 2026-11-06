@@ -1,0 +1,51 @@
+{
+  "source": "https://413games.itch.io/maid-character",
+  "license_file": "License.txt",
+  "license": "CC0 1.0",
+  "candidate_only": true,
+  "imported_in_blender": "5.0.1",
+  "meshes": [
+    {
+      "name": "Body",
+      "vertices": 18904,
+      "triangles": 28501,
+      "materials": [
+        "N00_000_00_Body_00_SKIN (Instance)",
+        "N00_000_00_HairBack_00_HAIR (Instance)",
+        "N00_002_03_Tops_01_CLOTH (Instance)",
+        "N00_001_01_Shoes_01_CLOTH (Instance)",
+        "N00_000_00_FaceMouth_00_FACE (Instance)",
+        "N00_000_00_EyeIris_00_EYE (Instance)",
+        "N00_000_00_EyeHighlight_00_EYE (Instance)",
+        "N00_000_00_Face_00_SKIN (Instance)",
+        "N00_000_00_EyeWhite_00_EYE (Instance)",
+        "N00_000_00_FaceBrow_00_FACE (Instance)",
+        "N00_000_00_FaceEyeline_00_FACE (Instance)",
+        "N00_000_Hair_00_HAIR (Instance)"
+      ],
+      "shape_keys": 58
+    }
+  ],
+  "rigs": [
+    {
+      "name": "Armature",
+      "bones": 82
+    }
+  ],
+  "materials": 12,
+  "textures": [
+    "Body_Tex.png",
+    "Clothes_Tex.png",
+    "Eyebrows_tex.png",
+    "EyeHighlights_tex.png",
+    "Eyelashes_Tex.png",
+    "Eyes_Tex.png",
+    "EyeWhite_Tex.png",
+    "Face_Tex.png",
+    "Hair1_Tex.png",
+    "Hair2_Tex.png",
+    "Mouth_tex.png",
+    "Shoes_Tex.png"
+  ],
+  "total_triangles": 28501
+}

@@ -1,0 +1,52 @@
+{
+  "human_warrior_m": {
+    "model": "human_warrior_m",
+    "kind": "hero",
+    "role": "warrior",
+    "height": 1.85,
+    "glb": "assets\\characters\\hero\\human_warrior_m.glb",
+    "blend": "art_src\\models\\human_warrior_m.blend",
+    "triangles": 3598,
+    "budget": 12000,
+    "vertices": 1988,
+    "materials": [
+      "M_human_warrior_m_Atlas"
+    ],
+    "texture_res": 2048,
+    "bones": 24,
+    "clips": [
+      "Idle",
+      "Walking_A",
+      "Running_A",
+      "1H_Melee_Attack_Slice_Diagonal",
+      "1H_Melee_Attack_Chop",
+      "1H_Melee_Attack_Slice_Horizontal",
+      "1H_Melee_Attack_Stab",
+      "2H_Melee_Idle",
+      "2H_Melee_Attack_Slice",
+      "2H_Melee_Attack_Chop",
+      "2H_Melee_Attack_Spin",
+      "Spellcast_Shoot",
+      "Dodge_Forward",
+      "Hit_A",
+      "Death_A",
+      "Death_A_Pose",
+      "Blocking",
+      "Interact",
+      "Cheer",
+      "Sit_Chair_Idle",
+      "Idle_Character"
+    ],
+    "gear_objects": [
+      "1H_Sword",
+      "2H_Sword",
+      "Round_Shield",
+      "Badge_Shield",
+      "Rectangle_Shield",
+      "Spike_Shield",
+      "Knight_Helmet",
+      "Knight_Cape"
+    ],
+    "status": "OK"
+  }
+}
