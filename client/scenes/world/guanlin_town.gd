@@ -21,6 +21,7 @@ func _ready() -> void:
 	presentation.name = "VillagePresentation"
 	add_child(presentation)
 	ToonStyle.grade($WorldEnvironment.environment, $DirectionalLight3D)
+	Atmosphere.install(self, $WorldEnvironment.environment, $DirectionalLight3D)
 	call_deferred("_toon_world")
 	_configure_citizens()
 	_spawn_bandits()
