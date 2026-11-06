@@ -1,0 +1,283 @@
+[
+	{
+		"id": 1001,
+		"name": "Лікувальні припаси",
+		"inputs": {
+			"30037": 2
+		},
+		"copper": 8,
+		"output": {
+			"30016": 2
+		},
+		"required_level": 1,
+		"provisional": true,
+		"source_record_id": null
+	},
+	{
+		"id": 1002,
+		"name": "Відновлення мани",
+		"inputs": {
+			"30037": 2
+		},
+		"copper": 8,
+		"output": {
+			"30645": 2
+		},
+		"required_level": 1,
+		"provisional": true,
+		"source_record_id": null
+	},
+	{
+		"id": 280001,
+		"name": "Грамота захисника народу: Скриня Гуаньліня №1",
+		"inputs": {
+			"30024": 3
+		},
+		"copper": 15,
+		"output": {
+			"30550": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280001
+	},
+	{
+		"id": 280002,
+		"name": "Обмін спільноти V8: Спокута дракона",
+		"inputs": {
+			"30037": 4,
+			"30020": 2
+		},
+		"copper": 20,
+		"output": {
+			"30274": 1
+		},
+		"required_level": 1,
+		"provisional": true,
+		"source_record_id": 280002
+	},
+	{
+		"id": 280003,
+		"name": "Значок бігового коня: Вітер степів",
+		"inputs": {
+			"30099": 20
+		},
+		"copper": 50,
+		"output": {
+			"30608": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280003
+	},
+	{
+		"id": 280004,
+		"name": "Орден снігової гори: Непорушний як гора",
+		"inputs": {
+			"30432": 10
+		},
+		"copper": 50,
+		"output": {
+			"30609": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280004
+	},
+	{
+		"id": 280005,
+		"name": "Грамота захисника народу: Барон",
+		"inputs": {
+			"30024": 5
+		},
+		"copper": 100,
+		"output": {
+			"30611": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280005
+	},
+	{
+		"id": 280006,
+		"name": "Значок друга храму: Аристократ",
+		"inputs": {
+			"30126": 5
+		},
+		"copper": 100,
+		"output": {
+			"30623": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280006
+	},
+	{
+		"id": 280007,
+		"name": "Святочні дари: Мала подарункова скринька",
+		"inputs": {
+			"30233": 3
+		},
+		"copper": 10,
+		"output": {
+			"30236": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280007
+	},
+	{
+		"id": 280008,
+		"name": "Орден сірої сокири: Шалений як вогонь",
+		"inputs": {
+			"30187": 10
+		},
+		"copper": 50,
+		"output": {
+			"30630": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280008
+	},
+	{
+		"id": 280009,
+		"name": "Орден густого туману: Рука туману",
+		"inputs": {
+			"30362": 10
+		},
+		"copper": 50,
+		"output": {
+			"30632": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280009
+	},
+	{
+		"id": 280010,
+		"name": "Значок друга храму: Скриня храму пророка №1",
+		"inputs": {
+			"30126": 3
+		},
+		"copper": 15,
+		"output": {
+			"30584": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280010
+	},
+	{
+		"id": 280011,
+		"name": "Елемент життя: Набір гільдії воїнів",
+		"inputs": {
+			"30127": 3
+		},
+		"copper": 20,
+		"output": {
+			"30548": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280011
+	},
+	{
+		"id": 280012,
+		"name": "Обмін коштовностей: Зелений гриф",
+		"inputs": {
+			"30814": 1,
+			"30815": 1,
+			"30816": 1,
+			"30817": 1
+		},
+		"copper": 100,
+		"output": {
+			"10018": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280012
+	},
+	{
+		"id": 280013,
+		"name": "Свідоцтво мандрівника: Перший маршрут",
+		"inputs": {
+			"30270": 1,
+			"30271": 1,
+			"30278": 1,
+			"30300": 1,
+			"30301": 1
+		},
+		"copper": 30,
+		"output": {
+			"30307": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280013
+	},
+	{
+		"id": 280014,
+		"name": "Свідоцтво мандрівника: Другий маршрут",
+		"inputs": {
+			"30302": 1,
+			"30303": 1,
+			"30304": 1,
+			"30305": 1,
+			"30306": 1
+		},
+		"copper": 30,
+		"output": {
+			"30308": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280014
+	},
+	{
+		"id": 280000,
+		"name": "Військове спорядження арени: Меч гладіатора",
+		"inputs": {
+			"30459": 6,
+			"30992": 6,
+			"30993": 1
+		},
+		"copper": 50,
+		"output": {
+			"10185": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280000
+	},
+	{
+		"id": 280015,
+		"name": "Польові припаси: Військовий пайок",
+		"inputs": {
+			"31014": 2
+		},
+		"copper": 10,
+		"output": {
+			"31015": 1
+		},
+		"required_level": 1,
+		"provisional": false,
+		"source_record_id": 280015
+	},
+	{
+		"id": 10000001,
+		"name": "Особливе зілля відновлення",
+		"inputs": {
+			"30037": 3,
+			"30020": 1
+		},
+		"copper": 12,
+		"output": {
+			"30016": 3
+		},
+		"required_level": 1,
+		"provisional": true,
+		"source_record_id": 10000001
+	}
+]
