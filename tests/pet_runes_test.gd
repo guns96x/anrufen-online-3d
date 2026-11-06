@@ -7,7 +7,9 @@ func check(ok: bool, label: String) -> void:
 	print(("PASS: " if ok else "FAIL: ")+label)
 	if not ok: failures += 1
 func pet(uid: String, species: int, skills: Array) -> Dictionary:
-	return {"uid":uid,"species_id":species,"name":uid,"level":5,"exp":0,"hp":60,"max_hp":60,"hunger":100,"born_at":1000.0,"skills":skills}
+	var result: Dictionary = {"uid":uid,"species_id":species,"name":uid,"level":5,"exp":0,"hp":60,"max_hp":60,"hunger":100,"born_at":1000.0,"skills":skills,"gender":("male" if uid == "source" else "female")}
+	PetDevelopment.ensure_pet(result)
+	return result
 func _initialize() -> void:
 	call_deferred("run")
 func run() -> void:
